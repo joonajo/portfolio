@@ -1,0 +1,32 @@
+.Footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  opacity: 1;
+  animation: fadein 2s;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  color: dimgray;
+}
+
+.MediaIcons {
+  left: 10px;
+  position: absolute;
+}
+
+.Copyright {
+  position: absolute;
+  right: 10px;
+  font-size: .6em;
+}
+
+@keyframes fadein {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}

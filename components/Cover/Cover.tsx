@@ -6,7 +6,11 @@ const Cover = (): JSX.Element => {
 
     return (
         <div className={css.Main}>
-            <h1 className={css.Title}>Joona Joenpolvi</h1>
+            <div className={css.TitleContainer}>
+                <span className={css.FirstName}>First Name</span>
+                <span className={css.Surname}>Last Name</span>
+                <i className="fab fa-github"></i>
+            </div>
         </div>
     )
 }

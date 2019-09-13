@@ -1,0 +1,14 @@
+.FooterIcons {
+    bottom: 0;
+}
+
+.Icon {
+  color: gray;
+  font-size: 1.2em;
+  margin: 0 5px;
+  transition: all .3s;
+}
+
+.Icon:hover {
+  color: seagreen;
+}

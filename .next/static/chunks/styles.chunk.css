@@ -11,12 +11,73 @@
     align-items: center;
 }
 
-.Title___3qVYP {
-    font-size: 3em;
+.TitleContainer___1bxur {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+}
+
+.FirstName___8PGm4,
+.Surname___3Gmvy {
+    font-weight: bold;
+    width: 100%;
+    font-size: 5em;
     letter-spacing: .1em;
     color: crimson;
     margin-right: -.1em;
-    cursor: pointer;
+    cursor: default;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+    background-position: 0% 0%;
+}
+.FooterIcons___3GljT {
+    bottom: 0;
+}
+
+.Icon___2XN9E {
+  color: gray;
+  font-size: 1.2em;
+  margin: 0 5px;
+  transition: all .3s;
+}
+
+.Icon___2XN9E:hover {
+  color: seagreen;
+}
+.Footer___2Ne5u {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  opacity: 1;
+  animation: fadein___2rBOx 2s;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  color: dimgray;
+}
+
+.MediaIcons___1HxbE {
+  left: 10px;
+  position: absolute;
+}
+
+.Copyright___2iaGI {
+  position: absolute;
+  right: 10px;
+  font-size: .6em;
+}
+
+@keyframes fadein___2rBOx {
+  from { opacity: 0 }
+  to { opacity: 1 }
 }
 body {
     padding: 0;
@@ -26,7 +87,7 @@ body {
     background: whitesmoke;
 }
 
-.Layout___3jihI {
+.Layout___3HjLA {
     position: relative;
     min-width: 100vw;
     min-height: 100vh;

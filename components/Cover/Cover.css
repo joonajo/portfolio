@@ -11,10 +11,25 @@
     align-items: center;
 }
 
-.Title {
-    font-size: 3em;
+.TitleContainer {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+}
+
+.FirstName,
+.Surname {
+    font-weight: bold;
+    width: 100%;
+    font-size: 5em;
     letter-spacing: .1em;
     color: crimson;
     margin-right: -.1em;
-    cursor: pointer;
+    cursor: default;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+    background-position: 0% 0%;
 }
