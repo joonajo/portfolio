@@ -1,0 +1,35 @@
+.Main___3c-CL {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Title___3qVYP {
+    font-size: 3em;
+    letter-spacing: .1em;
+    color: crimson;
+    margin-right: -.1em;
+    cursor: pointer;
+}
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu";
+    background: whitesmoke;
+}
+
+.Layout___3jihI {
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/*# sourceMappingURL=styles.chunk.css.map*/
