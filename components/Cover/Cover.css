@@ -51,16 +51,14 @@
     box-sizing: border-box;
     font-weight: bold;
     width: 100%;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
     color: crimson;
     margin-right: -.1em;
     cursor: default;
-    background: linear-gradient(90deg, rgba(101,162,215,1) -30%, rgba(242,58,96,1) 99%);
+    background: linear-gradient(90deg, rgba(34,125,195,1) 0%, rgba(177,103,215,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 100%;
-    background-position: 0% 0%;
 }
 
 .FirstName,
@@ -71,7 +69,11 @@
 .Description {
     box-sizing: border-box;
     padding: 10px;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 1.5em;  
     text-align: center;
+    background: linear-gradient(90deg, rgba(34,125,195,1) -40%, rgba(177,103,215,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

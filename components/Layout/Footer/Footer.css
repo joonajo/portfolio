@@ -14,7 +14,6 @@
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-  color: dimgray;
   height: 100px;
 }
 
@@ -23,6 +22,7 @@
 }
 
 .Copyright {
+  color: whitesmoke;
   position: relative;
   font-size: .7em;
   cursor: default;

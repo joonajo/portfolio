@@ -23,8 +23,8 @@
 .Icon.horizontal {
   --padding: 5px;
   --size: 20px;
-  color: white;
-  background: rgba(0, 0, 0, .1);
+  color: lavender;
+  background: rgba(255, 255, 255, .2);
   padding: var(--padding);
   margin: 5px;
   width: var(--size);
@@ -37,7 +37,7 @@
 .Icon.vertical {
   --padding: 10px;
   --size: 25px;
-  color: white;
+  color: lavender;
   background: rgba(255, 255, 255, .1);
   padding: var(--padding);
   margin: 10px;
@@ -56,10 +56,11 @@
 }
 
 .Icon.vertical:hover {
-  background: lightyellow;
+  background: royalblue;
   color: black;
 }
 
 .Icon.horizontal:hover {
-  background: rgba(0, 0, 0, .5);
+  color: black;
+  background: royalblue;
 }
