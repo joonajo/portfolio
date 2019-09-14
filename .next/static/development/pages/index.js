@@ -66,63 +66,55 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(function () {
     },
     __self: this
   }, __jsx("div", {
-    className: css.MediaIcons,
+    className: css.Parallax,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
-  }, __jsx(_Layout_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), __jsx("div", {
+    className: css.MediaIcons,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
+    },
+    __self: this
+  }, __jsx(_Layout_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    vertical: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
     },
     __self: this
   })), __jsx("div", {
     className: css.TitleContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 15
     },
     __self: this
   }, __jsx("span", {
     className: css.FirstName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 16
     },
     __self: this
   }, "Joona"), __jsx("span", {
     className: css.Surname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: this
   }, "Joenpolvi"), __jsx("span", {
     className: css.Description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  }, "Front-End Developer")), __jsx("div", {
-    className: css.BgContainer,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, __jsx("img", {
-    src: "/static/images/palmtree.jpg",
-    alt: "palmtree",
-    className: css.BgImage,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  })));
+  }, "Front-End Developer")));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
 
@@ -163,6 +155,7 @@ var Footer = function Footer() {
     },
     __self: this
   }, __jsx(_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    horizontal: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -218,78 +211,99 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 var css = __webpack_require__(/*! ./MediaIcons.css */ "./components/Layout/Icons/MediaIcons/MediaIcons.css");
 
-var MediaIcons = function MediaIcons() {
+var MediaIcons = function MediaIcons(_ref) {
+  var horizontal = _ref.horizontal,
+      vertical = _ref.vertical;
+  var containerClasses = [css.Icons, horizontal ? css.horizontal : vertical ? css.vertical : null].join(' ');
+  var iconClasses = [css.Icon, horizontal ? css.horizontal : vertical ? css.vertical : null].join(' ');
   return __jsx("div", {
-    className: css.Icons,
+    className: containerClasses,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 33
     },
     __self: this
   }, __jsx("a", {
     href: "https://github.com/joonajo",
-    className: css.Icon,
+    className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 34
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 35
     },
     __self: this
   })), __jsx("a", {
     href: "mailto: joona.joenpolvi@gmail.com",
-    className: css.Icon,
+    className: iconClasses,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 37
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 38
     },
     __self: this
   })), __jsx("a", {
     href: "https://instagram.com/joonajo",
-    className: css.Icon,
+    className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 40
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 41
     },
     __self: this
   })), __jsx("a", {
-    href: "https://www.flickr.com/photos/150620060@N07/",
-    className: css.Icon,
+    href: "https://www.strava.com/athletes/6604883",
+    className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 43
+    },
+    __self: this
+  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faStrava"],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  })), __jsx("a", {
+    href: "https://www.flickr.com/photos/150620060@N07/",
+    className: iconClasses,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFlickr"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 47
     },
     __self: this
   })));

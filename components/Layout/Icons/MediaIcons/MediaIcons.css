@@ -1,14 +1,65 @@
 .Icons {
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Icons.horizontal {
+  flex-flow: row;
+}
+
+.Icons.vertical {
+  flex-flow: column;
+  font-size: 1.2em;
 }
 
 .Icon {
-  color: white;
   font-size: 1.0em;
-  margin: 0 5px;
+  overflow: hidden;
+  text-transform: uppercase;
   transition: all .3s;
 }
 
-.Icon:hover {
-  color: rgb(79,158,162);
+.Icon.horizontal {
+  --padding: 5px;
+  --size: 20px;
+  color: white;
+  background: rgba(0, 0, 0, .1);
+  padding: var(--padding);
+  margin: 5px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Icon.vertical {
+  --padding: 10px;
+  --size: 25px;
+  color: white;
+  background: rgba(255, 255, 255, .1);
+  padding: var(--padding);
+  margin: 10px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Github::after {
+  position: absolute;
+  content: 'Github';
+  color: white;
+  font-size: .7em;
+}
+
+.Icon.vertical:hover {
+  background: lightyellow;
+  color: black;
+}
+
+.Icon.horizontal:hover {
+  background: rgba(0, 0, 0, .5);
 }

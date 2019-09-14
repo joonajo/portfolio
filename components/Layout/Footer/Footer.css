@@ -10,21 +10,22 @@
   animation: fadein 2s;
   background: transparent;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
   color: dimgray;
+  height: 100px;
 }
 
 .MediaIcons {
-  left: 10px;
-  position: absolute;
+  position: relative;
 }
 
 .Copyright {
-  position: absolute;
-  right: 10px;
-  font-size: .6em;
+  position: relative;
+  font-size: .7em;
+  cursor: default;
 }
 
 @keyframes fadein {

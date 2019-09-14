@@ -1,21 +1,71 @@
 .Icons___1S2Lv {
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Icons___1S2Lv.horizontal___2eWCk {
+  flex-flow: row;
+}
+
+.Icons___1S2Lv.vertical___2_ZAB {
+  flex-flow: column;
+  font-size: 1.2em;
 }
 
 .Icon___2XN9E {
-  color: white;
   font-size: 1.0em;
-  margin: 0 5px;
+  overflow: hidden;
+  text-transform: uppercase;
   transition: all .3s;
 }
 
-.Icon___2XN9E:hover {
-  color: rgb(79,158,162);
+.Icon___2XN9E.horizontal___2eWCk {
+  --padding: 5px;
+  --size: 20px;
+  color: white;
+  background: rgba(0, 0, 0, .1);
+  padding: var(--padding);
+  margin: 5px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
 }
+
+.Icon___2XN9E.vertical___2_ZAB {
+  --padding: 10px;
+  --size: 25px;
+  color: white;
+  background: rgba(255, 255, 255, .1);
+  padding: var(--padding);
+  margin: 10px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Github___2-JPM::after {
+  position: absolute;
+  content: 'Github';
+  color: white;
+  font-size: .7em;
+}
+
+.Icon___2XN9E.vertical___2_ZAB:hover {
+  background: lightyellow;
+  color: black;
+}
+
+.Icon___2XN9E.horizontal___2eWCk:hover {
+  background: rgba(0, 0, 0, .5);
+}
+
 .Main___3c-CL {
     position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
@@ -23,6 +73,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .MediaIcons___1mSCZ {
@@ -31,28 +82,25 @@
     left: 0;
 }
 
-.BgContainer___2Z-JL {
-    position: absolute;
-    top: 0;
-    left: 0;
+.Parallax___t0GrZ {
+    position: fixed;
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
+    top: 0;
+    left: 0;
+    background: url('/static/images/palmtree.jpg') fixed center no-repeat;
+    background-size: cover;
     z-index: -1;
 }
 
-.BgContainer___2Z-JL::after {
+.Parallax___t0GrZ::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.BgImage___3EiB6 {
-    width: 100%;
+    background: rgba(0, 0, 0, .9);
 }
 
 .TitleContainer___1bxur {
@@ -73,7 +121,7 @@
     color: crimson;
     margin-right: -.1em;
     cursor: default;
-    background: linear-gradient(90deg, rgb(228, 169, 82) 10%, rgba(252,70,107,1) 100%);
+    background: linear-gradient(90deg, rgba(101,162,215,1) -30%, rgba(242,58,96,1) 99%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -91,7 +139,7 @@
     padding: 10px;
     font-weight: 400;
     font-size: 1.5em;  
-    text-align: end;
+    text-align: center;
 }
 .Footer___2Ne5u {
   position: absolute;
@@ -105,21 +153,22 @@
   animation: fadein___2rBOx 2s;
   background: transparent;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
   color: dimgray;
+  height: 100px;
 }
 
 .MediaIcons___1HxbE {
-  left: 10px;
-  position: absolute;
+  position: relative;
 }
 
 .Copyright___2iaGI {
-  position: absolute;
-  right: 10px;
-  font-size: .6em;
+  position: relative;
+  font-size: .7em;
+  cursor: default;
 }
 
 @keyframes fadein___2rBOx {
@@ -131,7 +180,8 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: "Ubuntu";
-    background: whitesmoke;
+    background: gainsboro;
+
 }
 
 .Layout___3HjLA {
@@ -144,11 +194,13 @@ body {
 .Content___3RWG2 {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
+    background: whitesmoke;
 }
 
 /*# sourceMappingURL=styles.chunk.css.map*/

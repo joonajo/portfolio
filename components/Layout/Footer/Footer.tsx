@@ -7,7 +7,7 @@ const Footer: React.FunctionComponent = ():JSX.Element => {
   return (
     <div className={css.Footer}>
       <div className={css.MediaIcons}>
-        <MediaIcons />
+        <MediaIcons horizontal />
       </div>
       <div className={css.Copyright}>
         <i className="fas fa-cloud"></i>
