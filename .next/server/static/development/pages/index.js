@@ -93,6 +93,57 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/Content/Content.css":
+/*!****************************************!*\
+  !*** ./components/Content/Content.css ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Content": "Content___3RWG2"
+};
+
+/***/ }),
+
+/***/ "./components/Content/Content.tsx":
+/*!****************************************!*\
+  !*** ./components/Content/Content.tsx ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/home/joojo/code/portfolio/components/Content/Content.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const css = __webpack_require__(/*! ./Content.css */ "./components/Content/Content.css");
+
+const Content = () => {
+  return __jsx("div", {
+    className: css.Content,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: undefined
+  }, __jsx("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  }, "Content."));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Content);
+
+/***/ }),
+
 /***/ "./components/Cover/Cover.css":
 /*!************************************!*\
   !*** ./components/Cover/Cover.css ***!
@@ -102,9 +153,13 @@ module.exports =
 
 module.exports = {
 	"Main": "Main___3c-CL",
+	"MediaIcons": "MediaIcons___1mSCZ",
+	"BgContainer": "BgContainer___2Z-JL",
+	"BgImage": "BgImage___3EiB6",
 	"TitleContainer": "TitleContainer___1bxur",
 	"FirstName": "FirstName___8PGm4",
-	"Surname": "Surname___3Gmvy"
+	"Surname": "Surname___3Gmvy",
+	"Description": "Description___HbED0"
 };
 
 /***/ }),
@@ -120,51 +175,81 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Layout_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/Icons/MediaIcons/MediaIcons */ "./components/Layout/Icons/MediaIcons/MediaIcons.tsx");
 var _jsxFileName = "/home/joojo/code/portfolio/components/Cover/Cover.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
+
 const css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css");
 
-const Cover = () => {
+const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   return __jsx("div", {
     className: css.Main,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     },
     __self: undefined
   }, __jsx("div", {
+    className: css.MediaIcons,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }, __jsx(_Layout_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  })), __jsx("div", {
     className: css.TitleContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 13
     },
     __self: undefined
   }, __jsx("span", {
     className: css.FirstName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 14
     },
     __self: undefined
-  }, "First Name"), __jsx("span", {
+  }, "Joona"), __jsx("span", {
     className: css.Surname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 15
     },
     __self: undefined
-  }, "Last Name"), __jsx("i", {
-    className: "fab fa-github",
+  }, "Joenpolvi"), __jsx("span", {
+    className: css.Description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 16
+    },
+    __self: undefined
+  }, "Front-End Developer")), __jsx("div", {
+    className: css.BgContainer,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }, __jsx("img", {
+    src: "/static/images/palmtree.jpg",
+    alt: "palmtree",
+    className: css.BgImage,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
     },
     __self: undefined
   })));
-};
-
+});
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
 
 /***/ }),
@@ -260,7 +345,7 @@ const Footer = () => {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"FooterIcons": "FooterIcons___3GljT",
+	"Icons": "Icons___1S2Lv",
 	"Icon": "Icon___2XN9E"
 };
 
@@ -294,7 +379,7 @@ const css = __webpack_require__(/*! ./MediaIcons.css */ "./components/Layout/Ico
 
 const MediaIcons = () => {
   return __jsx("div", {
-    className: css.FooterIcons,
+    className: css.Icons,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
@@ -465,7 +550,7 @@ const Layout = ({
   })), children, __jsx(_Footer_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 23
     },
     __self: undefined
   }));
@@ -488,8 +573,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Cover_Cover__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Cover/Cover */ "./components/Cover/Cover.tsx");
 /* harmony import */ var _components_Layout_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Layout/Layout */ "./components/Layout/Layout.tsx");
+/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
 var _jsxFileName = "/home/joojo/code/portfolio/pages/index/index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -499,13 +586,19 @@ const Home = () => {
     title: "Portfolio",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
+    },
+    __self: undefined
+  }), __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
     },
     __self: undefined
   }));

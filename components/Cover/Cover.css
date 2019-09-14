@@ -1,5 +1,5 @@
 .Main {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -11,25 +11,71 @@
     align-items: center;
 }
 
+.MediaIcons {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.BgContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    z-index: -1;
+}
+
+.BgContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.BgImage {
+    width: 100%;
+}
+
 .TitleContainer {
     display: flex;
     flex-flow: column;
-    width: 80%;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .FirstName,
-.Surname {
+.Surname,
+.Description {
+    box-sizing: border-box;
     font-weight: bold;
     width: 100%;
-    font-size: 5em;
     letter-spacing: .1em;
     color: crimson;
     margin-right: -.1em;
     cursor: default;
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background: linear-gradient(90deg, rgb(228, 169, 82) 10%, rgba(252,70,107,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 100%;
     background-position: 0% 0%;
+}
+
+.FirstName,
+.Surname {
+    font-size: 5em;
+}
+
+.Description {
+    box-sizing: border-box;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 1.5em;  
+    text-align: end;
 }

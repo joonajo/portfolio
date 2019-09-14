@@ -17,10 +17,7 @@ const Layout: React.FunctionComponent<IProps> = ({ children, title }): JSX.Eleme
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"></link>
-                <link
-                    href="https://use.fontawesome.com/releases/v5.10.2/css/svg-with-js.css"
-                    rel="stylesheet"
-                />
+                <link href="https://use.fontawesome.com/releases/v5.10.2/css/svg-with-js.css" rel="stylesheet"/>
             </Head>
             {children}
             <Footer />

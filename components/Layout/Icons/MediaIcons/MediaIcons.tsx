@@ -11,7 +11,7 @@ const css = require('./MediaIcons.css')
 
 const MediaIcons: React.FunctionComponent = (): JSX.Element => {
   return (
-    <div className={css.FooterIcons}>
+    <div className={css.Icons}>
       <a href='https://github.com/joonajo' className={css.Icon} target='_blank' rel="noopener noreferrer">
         <FontAwesomeIcon icon={faGithub} />
       </a>

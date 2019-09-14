@@ -1,14 +1,14 @@
-.FooterIcons {
-    bottom: 0;
+.Icons {
+    padding: 10px;
 }
 
 .Icon {
-  color: gray;
-  font-size: 1.2em;
+  color: white;
+  font-size: 1.0em;
   margin: 0 5px;
   transition: all .3s;
 }
 
 .Icon:hover {
-  color: seagreen;
+  color: rgb(79,158,162);
 }
