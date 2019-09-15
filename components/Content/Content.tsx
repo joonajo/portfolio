@@ -10,7 +10,7 @@ const Content: React.FunctionComponent = (): JSX.Element => {
     return (
         <div className={css.Content}>
             {portfolioItems.map((item: IPortfolioItem) => {
-                return <Item {...item} />
+                return <Item key={item.title} {...item} />
             })}
         </div>
     )

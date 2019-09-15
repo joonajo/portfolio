@@ -10,6 +10,7 @@
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
   top: 50px;
+  box-sizing: border-box;
 }
 
 .Item.show {
@@ -17,28 +18,22 @@
   top: 0;
 }
 
-@keyframes pop {
-  0% { transform: scale(.7) }
-  50% { transform: scale(1.05) }
-  100% { transform: scale(1.0) }
-}
-
-.Item.open {
-  border-radius: 5px;
-  background: rgba(220, 220, 220, 0.5);
-}
-
 .Title {
+  margin-left: 20px;
+  text-align: left;
+  font-size: 1.5em;
+  position: relative;
+  color: royalblue;
+  text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: bold;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
 }
 
 .Title span {
-  background: rgba(255, 255, 0, 0.0);
-  padding: 5px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 30px gainsboro;
 }
 
 .ImageContainer {
@@ -90,7 +85,6 @@
 }
 
 .MaskLinkText {
-  background: dimgray;
   color: whitesmoke;
   padding: 2px 5px;
   border-radius: 5px;
@@ -110,190 +104,4 @@
 
 .MaskLink:hover .MaskLinkIcon {
   color: whitesmoke;
-}
-
-.MaskTitle {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 2.5em;
-  padding: 10px;
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.ExpandInfo {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  transition: all .3s;
-  position: relative;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 5px;
-  padding-right: 35px;
-  border: 2px solid lightgray;
-}
-
-.ExpandInfo:hover {
-  opacity: 1;
-}
-
-.ExpandButton {
-  position: absolute;
-  right: 0;
-  padding: 5px;
-}
-
-.ExpandLanguages {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.ExpandLanguage,
-.ExpandText {
-  padding: 0;
-  margin: 0;
-  font-size: .8em;
-}
-
-.ExpandLanguage {
-  font-weight: bold;
-  color: black;
-  opacity: 1;
-  height: 100%;
-  position: relative;
-  margin: 0 5px;
-}
-
-.ExpandLanguage span {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: .2;
-}
-
-.InfoContainer {
-  height: 0px;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  transition: all .3s;
-  opacity: 0;
-  overflow: hidden;
-  padding: 20px 10px 0 10px;
-}
-
-.InfoContainer.open {
-  height: 200px;
-  opacity: 1;
-}
-
-.InfoTop,
-.InfoBottom  {
-  position: relative;
-  height: 50%;
-  display: flex;
-}
-
-.InfoTop {
-  padding-top: 10px;
-  flex-flow: column;
-  justify-content: center;
-}
-
-.InfoBottom {
-  flex-flow: row;
-}
-
-.Language {
-  margin: 10px 0;
-}
-
-.Language span {
-  font-weight: bolder;
-  color: black;
-}
-
-.Description {
-  color: black;
-  font-size: .8em;
-}
-
-.Links {
-  display: flex;
-  flex-flow: column;
-  align-items: flex-end;
-  position: absolute;
-  bottom: 10px;
-  right: 0px;
-}
-
-/* ITEM BORDER WHEN INFO EXPANDED */
-
-.TopBorder, .BottomBorder,
-.LeftBorder, .RightBorder {
-  transition: all .5s;
-  position: absolute;
-  opacity: .4;
-}
-
-.TopBorder, .BottomBorder {
-  height: 2px;
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-}
-
-.TopBorder {
-  width: 100%;
-  left: 100%;
-  top: 0;
-}
-
-.TopBorder.TopBorderActive {
-  left: 0;
-}
-
-.BottomBorder {
-  left: 0;
-  width: 0;
-  bottom: 0;
-}
-
-.BottomBorder.BottomBorderActive {
-  width: 100%;
-}
-
-.LeftBorder, .RightBorder {
-  width: 2px;
-  /* background: linear-gradient(00deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
-  background: coral;
-}
-
-.RightBorder {
-  right: 0;
-  top: 0;
-  height: 0;
-}
-
-.LeftBorder {
-  height: 100%;
-  top: 100%;
-  left: 0;
-}
-
-.LeftBorder.LeftBorderActive {
-  top: 0;
-}
-
-.RightBorder.RightBorderActive {
-  height: 100%;
-}
-
-@media (min-width: 800px) {
-  .Item {
-    width: 35%;
-  }
 }

@@ -1,9 +1,21 @@
 import React from 'react'
-import MediaIcons from '../Layout/Icons/MediaIcons/MediaIcons'
+import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons'
+import { IToolbar, ToolbarContext } from '../../context/toolbarContext'
 
 const css = require('./Cover.css')
 
 const Cover = React.memo((): JSX.Element => {
+    const toolbarContext: IToolbar = React.useContext(ToolbarContext)
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', scrollHandler, true)
+
+        return () => window.removeEventListener('scroll', scrollHandler, true)
+    }, [])
+
+    const scrollHandler = () => {
+
+    }  
 
     return (
         <div className={css.Main}>

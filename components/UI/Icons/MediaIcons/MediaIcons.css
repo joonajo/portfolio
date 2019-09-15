@@ -1,0 +1,68 @@
+.Icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Icons.horizontal {
+  flex-flow: row;
+}
+
+.Icons.vertical {
+  flex-flow: column;
+  font-size: 1.2em;
+}
+
+.Icon {
+  font-size: 1.0em;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: all .3s;
+}
+
+.Icon.horizontal {
+  box-sizing: content-box;
+  --padding: 5px;
+  --size: 20px;
+  color: lavender;
+  background: rgba(255, 255, 255, .2);
+  padding: var(--padding);
+  margin: 5px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Icon.vertical {
+  box-sizing: content-box;
+  --padding: 10px;
+  --size: 25px;
+  color: lavender;
+  background: rgba(255, 255, 255, .1);
+  padding: var(--padding);
+  margin: 10px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Github::after {
+  position: absolute;
+  content: 'Github';
+  color: white;
+  font-size: .7em;
+}
+
+.Icon.vertical:hover {
+  background: royalblue;
+  color: black;
+}
+
+.Icon.horizontal:hover {
+  color: black;
+  background: royalblue;
+}
