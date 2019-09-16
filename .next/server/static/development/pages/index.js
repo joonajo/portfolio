@@ -460,7 +460,7 @@ const ItemInfo = props => {
   }, __jsx("a", {
     className: css.ItemLinkContainer,
     href: props.githubLink,
-    targeT: "_blank",
+    target: "_blank",
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
