@@ -18,12 +18,16 @@
   overflow: hidden;
   text-transform: uppercase;
   transition: all .3s;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .Icon___6e_S1.horizontal___6Fpxy {
   box-sizing: content-box;
   --padding: 5px;
-  --size: 20px;
+  --size: 25px;
   color: lavender;
   background: rgba(255, 255, 255, .2);
   padding: var(--padding);
@@ -37,12 +41,12 @@
 
 .Icon___6e_S1.vertical___28aPN {
   box-sizing: content-box;
-  --padding: 10px;
-  --size: 25px;
+  --padding: 5px;
+  --size: 30px;
   color: lavender;
   background: rgba(255, 255, 255, .1);
   padding: var(--padding);
-  margin: 10px;
+  margin: 5px;
   width: var(--size);
   height: var(--size);
   line-height: var(--size);
@@ -103,15 +107,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .9);
+    background: rgba(0, 0, 0, .88);
 }
 
 .TitleContainer___1bxur {
     display: flex;
     flex-flow: column;
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .FirstName___8PGm4,
@@ -120,9 +125,8 @@
     box-sizing: border-box;
     font-weight: bold;
     width: 100%;
-    letter-spacing: .05em;
+    letter-spacing: .1em;
     color: crimson;
-    margin-right: -.1em;
     cursor: default;
     background: linear-gradient(90deg, rgba(34,125,195,1) 0%, rgba(177,103,215,1) 100%);
     background-clip: text;
@@ -132,19 +136,37 @@
 
 .FirstName___8PGm4,
 .Surname___3Gmvy {
-    font-size: 5em;
+    text-align: right;
+    font-size: 3.3em;
 }
 
 .Description___HbED0 {
+    text-align: left;
+    margin-top: 1em;
+    padding: 5px 30px;
     box-sizing: border-box;
-    padding: 10px;
     font-weight: bold;
-    font-size: 1.5em;  
-    text-align: center;
+    font-size: 1em;  
     background: linear-gradient(90deg, rgba(34,125,195,1) -40%, rgba(177,103,215,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: whitesmoke;
+}
+
+@media (min-width: 350px) {
+    .FirstName___8PGm4,
+    .Surname___3Gmvy {
+        font-size: 4em;
+    }
+}
+
+@media (min-width: 600px) {
+    .TitleContainer___1bxur {
+        width: 70%; 
+    }
+
+    .FirstName___8PGm4,
+    .Surname___3Gmvy {
+        font-size: 6em;
+    }
 }
 .Footer___2hhX3 {
   position: absolute;

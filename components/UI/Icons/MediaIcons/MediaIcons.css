@@ -18,12 +18,16 @@
   overflow: hidden;
   text-transform: uppercase;
   transition: all .3s;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .Icon.horizontal {
   box-sizing: content-box;
   --padding: 5px;
-  --size: 20px;
+  --size: 25px;
   color: lavender;
   background: rgba(255, 255, 255, .2);
   padding: var(--padding);
@@ -37,12 +41,12 @@
 
 .Icon.vertical {
   box-sizing: content-box;
-  --padding: 10px;
-  --size: 25px;
+  --padding: 5px;
+  --size: 30px;
   color: lavender;
   background: rgba(255, 255, 255, .1);
   padding: var(--padding);
-  margin: 10px;
+  margin: 5px;
   width: var(--size);
   height: var(--size);
   line-height: var(--size);
