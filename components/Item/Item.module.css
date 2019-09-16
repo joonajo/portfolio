@@ -72,9 +72,23 @@
   opacity: 0;
 }
 
-.DesktopIcon,
-.MobileIcon {
+.HardwareIconContainer {
+  position: relative;
   color: dimgray;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 15%;
+  background: gainsboro;
+  border-radius: 0;
+}
+
+.HardwareIcon {
+  position: relative;
+  width: 50%;
+  text-align: center;
 }
 
 .ImageContainer {

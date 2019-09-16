@@ -298,9 +298,23 @@ body {
   opacity: 0;
 }
 
-.DesktopIcon___tKpYK,
-.MobileIcon___clOeX {
+.HardwareIconContainer___130pR {
+  position: relative;
   color: dimgray;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 15%;
+  background: gainsboro;
+  border-radius: 0;
+}
+
+.HardwareIcon___21LZp {
+  position: relative;
+  width: 50%;
+  text-align: center;
 }
 
 .ImageContainer___17WA_ {

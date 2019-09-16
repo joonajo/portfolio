@@ -1,10 +1,10 @@
 import { 
     faEnvelope,
     faExternalLinkSquareAlt, 
-    faMobile,
+    faMobileAlt,
     faDesktop,
-    faCheckCircle,
-    faTimesCircle,
+    faCheck,
+    faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -20,6 +20,8 @@ export const icons = {
     faFlickr,
     faStrava,
     faExternalLinkSquareAlt,
-    faMobile,
+    faMobileAlt,
     faDesktop,
+    faCheck,
+    faTimes,
 }

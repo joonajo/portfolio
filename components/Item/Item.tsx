@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const css = require('./Item.module.css')
 
-const SHOW_TRESHOLD = 300 // pixels
+const SHOW_TRESHOLD = 350 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   const[showItem, toggleShowItem] = React.useState(true)
@@ -29,7 +29,7 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
     }
   }
 
-  let itemClasses = [
+  const itemClasses = [
     css.Item, 
     showItem ? css.show : null
   ].join(' ')
@@ -51,7 +51,7 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   )
 }
 
-interface IInfo {
+interface IItemInfo {
   languages: string[]
   title: string
   desc: string
@@ -63,7 +63,7 @@ const itemColors = [
   'royalblue', 'royalblue', 'yellow', 'gainsboro',
 ]
 
-const ItemInfo: React.FunctionComponent<IInfo> = (props): JSX.Element => {
+const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
   return (
     <div className={css.InfoContainer}>
       <div className={css.MadeWith}>
@@ -78,16 +78,25 @@ const ItemInfo: React.FunctionComponent<IInfo> = (props): JSX.Element => {
       <p className={css.Description}>
         {props.desc}
       </p>
-      <div className={css.DesktopIcon}>
-          <FontAwesomeIcon icon={icons.faDesktop} size="lg" />
+      <div className={css.HardwareIconContainer}>
+          <div className={css.HardwareIcon}>
+            <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faDesktop} size="lg" />
+          </div>
+          <div className={css.HardwareIcon}>
+            {props.desktop ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
+          </div>
       </div>
-      <div className={css.MobileIcon}>
-          <FontAwesomeIcon icon={icons.faMobile} size="lg" />
+      <div className={css.HardwareIconContainer}>
+      <div className={css.HardwareIcon}>
+            <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faMobileAlt} size="lg" />
+          </div>
+          <div className={css.HardwareIcon}>
+            {props.mobile ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
+          </div>
       </div>
     </div>
   )
 }
-
 
 interface IImage {
   gif_src: string
