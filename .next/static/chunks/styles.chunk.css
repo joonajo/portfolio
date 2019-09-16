@@ -237,6 +237,8 @@ body {
   opacity: 0;
   top: 50px;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
 }
 
 .Item___2HggL.show___12H2j {
@@ -262,14 +264,51 @@ body {
   box-shadow: 1px 1px 30px gainsboro;
 }
 
+.ItemContent___1Xtsc {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.InfoContainer___2jgE- {
+  display: flex;
+  flex-flow: column;
+  padding: 30px;
+  width: 60%;
+}
+
+.MadeWith___181Xb {
+  padding: 0;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  color: dimgray;
+}
+
+.Language___qBw-5 {
+  position: relative;
+  overflow: hidden;
+  font-weight: 800;
+}
+
+/* adding an empty space the hard way */ 
+.Language___qBw-5::before {
+  content: "-";
+  opacity: 0;
+}
+
+.DesktopIcon___tKpYK,
+.MobileIcon___clOeX {
+  color: dimgray;
+}
+
 .ImageContainer___17WA_ {
   position: relative;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 40%;
 }
 
 .ImageContainer___17WA_ img {
-  box-sizing: border-box;
   border: 2px solid gainsboro;
   width: 100%;
 }
@@ -287,10 +326,12 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  visibility: hidden;
 }
 
 .ImageContainer___17WA_:hover .ImageMask___1aSDB {
   opacity: 1;
+  visibility: visible;
 }
 
 .MaskLinks___1129d {
@@ -308,6 +349,7 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   margin: 5px;
+  position: relative;
 }
 
 .MaskLinkText___EPhQZ {
@@ -323,15 +365,22 @@ body {
 }
 
 .MaskLinkIcon___23L6- {
+  position: relative; 
   margin: 0 5px;
   color: gray;
-  transition: all .15s;
+  transition: all .3s;
 }
 
 .MaskLink___3V_OW:hover .MaskLinkIcon___23L6- {
   color: whitesmoke;
+  transform: scale(1.15);
 }
 
+@media (min-width: 1000px) {
+  .ItemContent___1Xtsc {
+    flex-flow: row;
+  }
+}
 .Content___1Enco {
     position: relative;
     width: 100%;
