@@ -35,7 +35,7 @@
   background: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 1px 1px 30px gainsboro;
+  box-shadow: 3px 3px 30px gainsboro;
 }
 
 .ItemContent {
@@ -64,6 +64,7 @@
   position: relative;
   overflow: hidden;
   font-weight: 800;
+  color: royalblue;
 }
 
 /* adding an empty space the hard way */ 
@@ -72,22 +73,79 @@
   opacity: 0;
 }
 
+.IconsAndLinks {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.HardwareIcons {
+  position: relative;
+  background: gainsboro;
+  left: 0%;
+  display: flex;
+  flex-flow: column;
+  width: 15%;
+}
+
 .HardwareIconContainer {
+  padding: 10px;
+  width: 100%;
   position: relative;
   color: dimgray;
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  width: 15%;
-  background: gainsboro;
-  border-radius: 0;
 }
 
 .HardwareIcon {
   position: relative;
   width: 50%;
+  text-align: center;
+}
+
+.ItemLinks {
+  color: dimgray;
+  width: 20%;
+  position: relative;
+  background: gainsboro;
+}
+
+.ItemLinkContainer {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s;
+  text-decoration: none;
+  color: royalblue;
+}
+
+.ItemLinkContainer:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 3px 3px 20px gainsboro;
+}
+
+.ItemLinkContainer:hover svg {
+  transform: scale(1.1);
+}
+
+.ItemLink {
+  padding: 0;
+  margin: 0;
+  font-size: .9em;
+  width: 60%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ItemLinkIcon {
+  width: 40%;
   text-align: center;
 }
 

@@ -45,7 +45,9 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
           title={props.title}
           desc={props.description}
           desktop={props.desktop}
-          mobile={props.mobile} />
+          mobile={props.mobile}
+          link={props.link}
+          githubLink={props.githubLink} />
       </div>
     </div>
   )
@@ -57,11 +59,9 @@ interface IItemInfo {
   desc: string
   desktop: boolean
   mobile: boolean
+  link: string
+  githubLink: string
 }
-
-const itemColors = [
-  'royalblue', 'royalblue', 'yellow', 'gainsboro',
-]
 
 const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
   return (
@@ -69,7 +69,7 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
       <div className={css.MadeWith}>
         made with:
         {props.languages.map((lang: string, index: number) => (
-          <p key={lang} className={css.Language} style={{color: `${itemColors[index]}`}}>
+          <p key={lang} className={css.Language}>
             {lang}
             {index !== props.languages.length - 1 ? <span style={{color: 'dimgray'}}> + </span> : ''}
           </p>
@@ -78,25 +78,52 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
       <p className={css.Description}>
         {props.desc}
       </p>
-      <div className={css.HardwareIconContainer}>
-          <div className={css.HardwareIcon}>
-            <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faDesktop} size="lg" />
-          </div>
-          <div className={css.HardwareIcon}>
-            {props.desktop ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
-          </div>
-      </div>
-      <div className={css.HardwareIconContainer}>
-      <div className={css.HardwareIcon}>
-            <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faMobileAlt} size="lg" />
-          </div>
-          <div className={css.HardwareIcon}>
-            {props.mobile ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
-          </div>
+      <div className={css.IconsAndLinks}>
+        <HardwareIcons desktop={props.desktop} mobile={props.mobile} />
+        <div className={css.ItemLinks}>
+            <a className={css.ItemLinkContainer} href={props.githubLink} targeT="_blank" rel="noopener noreferrer">
+              <p className={css.ItemLink}>Github</p>
+              <div className={css.ItemLinkIcon}>
+                <FontAwesomeIcon icon={icons.faGithub} size="lg" />
+              </div>
+            </a>
+            <a className={css.ItemLinkContainer} href={props.link} target="_blank" rel="noopener noreferrer">
+              <p className={css.ItemLink}>Open</p>
+              <div className={css.ItemLinkIcon}>
+                <FontAwesomeIcon icon={icons.faExternalLinkSquareAlt} size="lg" />
+              </div>
+            </a>
+        </div>
       </div>
     </div>
   )
 }
+
+interface IHardwareICons {
+  desktop: boolean
+  mobile: boolean
+}
+
+const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({ desktop, mobile }): JSX.Element => (
+  <div className={css.HardwareIcons}>
+    <div className={css.HardwareIconContainer}>
+      <div className={css.HardwareIcon}>
+        <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faDesktop} size="lg" />
+      </div>
+      <div className={css.HardwareIcon}>
+        {desktop ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
+      </div>
+    </div>
+    <div className={css.HardwareIconContainer}>
+      <div className={css.HardwareIcon}>
+        <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faMobileAlt} size="lg" />
+      </div>
+      <div className={css.HardwareIcon}>
+        {mobile ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
+      </div>
+    </div>
+  </div>
+)
 
 interface IImage {
   gif_src: string
