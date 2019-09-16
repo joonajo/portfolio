@@ -1,2 +1,2 @@
 # portfolio
-My portfolio, made with React + TypeScript, server-side rendered with NextJS and Ziet NOW hosting.
+My portfolio, made with React + TypeScript. Server-side rendered with NextJS and Zeit NOW hosting.
