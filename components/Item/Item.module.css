@@ -5,7 +5,7 @@
   color: black;
   position: relative;
   overflow: hidden;
-  margin: 40px 0;
+  margin: 30px 0;
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
   top: 30px;
@@ -20,6 +20,7 @@
 }
 
 .Title {
+  margin-top: 40px;
   margin-left: 20px;
   text-align: left;
   font-size: 1.5em;
@@ -65,6 +66,7 @@
   display: flex;
   flex-flow: row;
   align-items: center;
+  justify-content: center;
   color: dimgray;
 }
 
@@ -86,6 +88,8 @@
 .Description {
   color: dimgray;
   font-size: .95em;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .IconsAndLinks {
@@ -100,7 +104,7 @@
   left: 0%;
   display: flex;
   flex-flow: column;
-  width: 50%;
+  width: 80px;
 }
 
 .HardwareIconContainer {
@@ -122,7 +126,7 @@
 
 .ItemLinks {
   color: dimgray;
-  width: 50%;
+  width: 150px;
   position: relative;
   background: gainsboro;
 }
@@ -237,13 +241,25 @@
   transform: scale(1.15);
 }
 
-@media (min-width: 600px) {
-  .HardwareIcons {
-    width: 25%;
+@media (min-width: 800px) {
+  .ItemContent {
+    flex-flow: row;
+    padding-bottom: 0;
+    margin: 20px;
+    padding: 20px;
   }
 
-  .ItemLinks {
-    width: 35%;
+  .MadeWith {
+    justify-content: flex-start;
+  }
+
+  .Description {
+    text-align: left;
+    padding: 20px 0;
+  }
+
+  .IconsAndLinks {
+    justify-content: flex-start;
   }
 }
 
@@ -252,28 +268,9 @@
     width: 80%;
   }
 
-  .ItemContent {
-    flex-flow: row;
-    padding-bottom: 0;
-    margin: 20px;
-    padding: 20px;
-  }
-
   .InfoContainer {
     width: 60%;
     padding: 20px 60px;
-  }
-
-  .IconsAndLinks {
-    justify-content: flex-start;
-  }
-
-  .HardwareIcons {
-    width: 25%;
-  }
-
-  .ItemLinks {
-    width: 35%;
   }
 
   .ImageContainer {
@@ -282,12 +279,7 @@
 }
 
 @media (min-width: 1400px) {
-  .HardwareIcons {
-    width: 20%;
+  .Item {
+    width: 70%;
   }
-
-  .ItemLinks {
-    width: 25%;
-  }
-
 }

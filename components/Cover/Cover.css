@@ -74,8 +74,29 @@
     font-weight: bold;
     font-size: 1em;  
     width: auto;
-    background: black;
+    background: rgba(0, 0, 0, 0.8);
     -webkit-text-fill-color: whitesmoke;
+}
+
+.ArrowContainer {
+    cursor: pointer;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all .3s;
+    background: rgba(255, 255, 255, 0.1);
+    color: whitesmoke;
+}
+
+.ArrowContainer:hover {
+    background: royalblue;
+    color: black;
 }
 
 @media (min-width: 350px) {

@@ -147,8 +147,29 @@
     font-weight: bold;
     font-size: 1em;  
     width: auto;
-    background: black;
+    background: rgba(0, 0, 0, 0.8);
     -webkit-text-fill-color: whitesmoke;
+}
+
+.ArrowContainer___1dqCi {
+    cursor: pointer;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all .3s;
+    background: rgba(255, 255, 255, 0.1);
+    color: whitesmoke;
+}
+
+.ArrowContainer___1dqCi:hover {
+    background: royalblue;
+    color: black;
 }
 
 @media (min-width: 350px) {
@@ -276,7 +297,7 @@ body {
   color: black;
   position: relative;
   overflow: hidden;
-  margin: 40px 0;
+  margin: 30px 0;
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
   top: 30px;
@@ -291,6 +312,7 @@ body {
 }
 
 .Title___19rVv {
+  margin-top: 40px;
   margin-left: 20px;
   text-align: left;
   font-size: 1.5em;
@@ -336,6 +358,7 @@ body {
   display: flex;
   flex-flow: row;
   align-items: center;
+  justify-content: center;
   color: dimgray;
 }
 
@@ -357,6 +380,8 @@ body {
 .Description___3QyIB {
   color: dimgray;
   font-size: .95em;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .IconsAndLinks___3ruVO {
@@ -371,7 +396,7 @@ body {
   left: 0%;
   display: flex;
   flex-flow: column;
-  width: 50%;
+  width: 80px;
 }
 
 .HardwareIconContainer___130pR {
@@ -393,7 +418,7 @@ body {
 
 .ItemLinks___30O86 {
   color: dimgray;
-  width: 50%;
+  width: 150px;
   position: relative;
   background: gainsboro;
 }
@@ -508,13 +533,25 @@ body {
   transform: scale(1.15);
 }
 
-@media (min-width: 600px) {
-  .HardwareIcons___2HOvV {
-    width: 25%;
+@media (min-width: 800px) {
+  .ItemContent___1Xtsc {
+    flex-flow: row;
+    padding-bottom: 0;
+    margin: 20px;
+    padding: 20px;
   }
 
-  .ItemLinks___30O86 {
-    width: 35%;
+  .MadeWith___181Xb {
+    justify-content: flex-start;
+  }
+
+  .Description___3QyIB {
+    text-align: left;
+    padding: 20px 0;
+  }
+
+  .IconsAndLinks___3ruVO {
+    justify-content: flex-start;
   }
 }
 
@@ -523,28 +560,9 @@ body {
     width: 80%;
   }
 
-  .ItemContent___1Xtsc {
-    flex-flow: row;
-    padding-bottom: 0;
-    margin: 20px;
-    padding: 20px;
-  }
-
   .InfoContainer___2jgE- {
     width: 60%;
     padding: 20px 60px;
-  }
-
-  .IconsAndLinks___3ruVO {
-    justify-content: flex-start;
-  }
-
-  .HardwareIcons___2HOvV {
-    width: 25%;
-  }
-
-  .ItemLinks___30O86 {
-    width: 35%;
   }
 
   .ImageContainer___17WA_ {
@@ -553,14 +571,9 @@ body {
 }
 
 @media (min-width: 1400px) {
-  .HardwareIcons___2HOvV {
-    width: 20%;
+  .Item___2HggL {
+    width: 70%;
   }
-
-  .ItemLinks___30O86 {
-    width: 25%;
-  }
-
 }
 .Content___1Enco {
     position: relative;

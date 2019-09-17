@@ -5,6 +5,7 @@ import {
     faDesktop,
     faCheck,
     faTimes,
+    faChevronDown,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -24,4 +25,5 @@ export const icons = {
     faDesktop,
     faCheck,
     faTimes,
+    faChevronDown,
 }

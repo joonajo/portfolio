@@ -1,6 +1,8 @@
 import React from 'react'
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons'
 import { IToolbar, ToolbarContext } from '../../context/toolbarContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icons } from '../../icons/icons'
 
 const css = require('./Cover.css')
 
@@ -28,6 +30,9 @@ const Cover = React.memo((): JSX.Element => {
                 <span className={css.FirstName}>Joona</span>
                 <span className={css.Surname}>Joenpolvi</span>
                 <span className={css.Description}>Front-End Developer</span>
+            </div>
+            <div className={css.ArrowContainer}>
+                <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
             </div>
         </div>
     )
