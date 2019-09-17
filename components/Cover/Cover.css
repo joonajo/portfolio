@@ -98,3 +98,10 @@
         font-size: 6em;
     }
 }
+
+@media (min-width: 1000px) {
+    .FirstName,
+    .Surname {
+        font-size: 7em;
+    }
+}

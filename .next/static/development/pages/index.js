@@ -165,10 +165,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 var css = __webpack_require__(/*! ./Item.module.css */ "./components/Item/Item.module.css");
 
-var SHOW_TRESHOLD = 350; // pixels
+var SHOW_TRESHOLD = 300; // pixels
 
 var Item = function Item(props) {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(true),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
       showItem = _React$useState2[0],
       toggleShowItem = _React$useState2[1];
@@ -262,7 +262,7 @@ var ItemInfo = function ItemInfo(props) {
       lineNumber: 69
     },
     __self: this
-  }, "made with:", props.languages.map(function (lang, index) {
+  }, "made with", props.languages.map(function (lang, index) {
     return __jsx("p", {
       key: lang,
       className: css.Language,
@@ -295,19 +295,11 @@ var ItemInfo = function ItemInfo(props) {
       lineNumber: 81
     },
     __self: this
-  }, __jsx(HardwareIcons, {
-    desktop: props.desktop,
-    mobile: props.mobile,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 82
-    },
-    __self: this
-  }), __jsx("div", {
+  }, __jsx("div", {
     className: css.ItemLinks,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 82
     },
     __self: this
   }, __jsx("a", {
@@ -317,21 +309,21 @@ var ItemInfo = function ItemInfo(props) {
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 83
     },
     __self: this
   }, __jsx("p", {
     className: css.ItemLink,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 84
     },
     __self: this
   }, "Github"), __jsx("div", {
     className: css.ItemLinkIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 85
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -339,7 +331,7 @@ var ItemInfo = function ItemInfo(props) {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 86
     },
     __self: this
   }))), __jsx("a", {
@@ -349,21 +341,21 @@ var ItemInfo = function ItemInfo(props) {
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 89
     },
     __self: this
   }, __jsx("p", {
     className: css.ItemLink,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 90
     },
     __self: this
   }, "Open"), __jsx("div", {
     className: css.ItemLinkIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 91
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -371,10 +363,18 @@ var ItemInfo = function ItemInfo(props) {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 92
     },
     __self: this
-  }))))));
+  })))), __jsx(HardwareIcons, {
+    desktop: props.desktop,
+    mobile: props.mobile,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: this
+  })));
 };
 
 var HardwareIcons = function HardwareIcons(_ref) {

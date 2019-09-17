@@ -1,15 +1,14 @@
 .Item {
   font: inherit;
-  width: 95%;
+  width: 100%;
   cursor: default;
   color: black;
   position: relative;
   overflow: hidden;
-  margin: 60px 0;
-  padding: 20px;
+  margin: 40px 0;
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
-  top: 50px;
+  top: 30px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -35,21 +34,30 @@
   background: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 3px 3px 30px gainsboro;
+  box-shadow: 3px 3px 20px gainsboro,
+              -3px -3px 20px gainsboro;
 }
 
 .ItemContent {
+  padding-bottom: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: space-around;
-  flex-flow: row wrap;
+  flex-flow: column;
   align-items: center;
+  position: relative;
+  background: white;
+  box-shadow: 3px 3px 20px gainsboro,
+              -3px -3px 20px gainsboro;
 }
-
+  
 .InfoContainer {
   display: flex;
   flex-flow: column;
-  padding: 30px;
-  width: 60%;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
 }
 
 .MadeWith {
@@ -64,6 +72,8 @@
   position: relative;
   overflow: hidden;
   font-weight: 800;
+  padding: 0;
+  margin: 0;
   color: royalblue;
 }
 
@@ -73,20 +83,24 @@
   opacity: 0;
 }
 
+.Description {
+  color: dimgray;
+  font-size: .95em;
+}
+
 .IconsAndLinks {
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .HardwareIcons {
   position: relative;
-  background: gainsboro;
   left: 0%;
   display: flex;
   flex-flow: column;
-  width: 15%;
+  width: 50%;
 }
 
 .HardwareIconContainer {
@@ -108,7 +122,7 @@
 
 .ItemLinks {
   color: dimgray;
-  width: 20%;
+  width: 50%;
   position: relative;
   background: gainsboro;
 }
@@ -151,11 +165,12 @@
 
 .ImageContainer {
   position: relative;
-  width: 40%;
+  width: 100%;
 }
 
 .ImageContainer img {
   border: 2px solid gainsboro;
+  box-sizing: border-box;
   width: 100%;
 }
 
@@ -222,8 +237,57 @@
   transform: scale(1.15);
 }
 
+@media (min-width: 600px) {
+  .HardwareIcons {
+    width: 25%;
+  }
+
+  .ItemLinks {
+    width: 35%;
+  }
+}
+
 @media (min-width: 1000px) {
+  .Item {
+    width: 80%;
+  }
+
   .ItemContent {
     flex-flow: row;
+    padding-bottom: 0;
+    margin: 20px;
+    padding: 20px;
   }
+
+  .InfoContainer {
+    width: 60%;
+    padding: 20px 60px;
+  }
+
+  .IconsAndLinks {
+    justify-content: flex-start;
+  }
+
+  .HardwareIcons {
+    width: 25%;
+  }
+
+  .ItemLinks {
+    width: 35%;
+  }
+
+  .ImageContainer {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .HardwareIcons {
+    width: 20%;
+  }
+
+  .ItemLinks {
+    width: 25%;
+  }
+
 }

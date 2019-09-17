@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const css = require('./Item.module.css')
 
-const SHOW_TRESHOLD = 350 // pixels
+const SHOW_TRESHOLD = 300 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
-  const[showItem, toggleShowItem] = React.useState(true)
+  const[showItem, toggleShowItem] = React.useState(false)
   const itemRef = React.useRef<HTMLDivElement>(null)
   
   // update the event listeners every time the showItem state is changed
@@ -67,7 +67,7 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
   return (
     <div className={css.InfoContainer}>
       <div className={css.MadeWith}>
-        made with:
+        made with
         {props.languages.map((lang: string, index: number) => (
           <p key={lang} className={css.Language}>
             {lang}
@@ -79,7 +79,6 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
         {props.desc}
       </p>
       <div className={css.IconsAndLinks}>
-        <HardwareIcons desktop={props.desktop} mobile={props.mobile} />
         <div className={css.ItemLinks}>
             <a className={css.ItemLinkContainer} href={props.githubLink} target="_blank" rel="noopener noreferrer">
               <p className={css.ItemLink}>Github</p>
@@ -94,6 +93,7 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
               </div>
             </a>
         </div>
+        <HardwareIcons desktop={props.desktop} mobile={props.mobile} />
       </div>
     </div>
   )

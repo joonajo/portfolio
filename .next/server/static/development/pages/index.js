@@ -280,6 +280,7 @@ module.exports = {
 	"InfoContainer": "InfoContainer___2jgE-",
 	"MadeWith": "MadeWith___181Xb",
 	"Language": "Language___qBw-5",
+	"Description": "Description___3QyIB",
 	"IconsAndLinks": "IconsAndLinks___3ruVO",
 	"HardwareIcons": "HardwareIcons___2HOvV",
 	"HardwareIconContainer": "HardwareIconContainer___130pR",
@@ -320,10 +321,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const css = __webpack_require__(/*! ./Item.module.css */ "./components/Item/Item.module.css");
 
-const SHOW_TRESHOLD = 350; // pixels
+const SHOW_TRESHOLD = 300; // pixels
 
 const Item = props => {
-  const [showItem, toggleShowItem] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true);
+  const [showItem, toggleShowItem] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const itemRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null); // update the event listeners every time the showItem state is changed
 
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
@@ -411,7 +412,7 @@ const ItemInfo = props => {
       lineNumber: 69
     },
     __self: undefined
-  }, "made with:", props.languages.map((lang, index) => __jsx("p", {
+  }, "made with", props.languages.map((lang, index) => __jsx("p", {
     key: lang,
     className: css.Language,
     __source: {
@@ -442,19 +443,11 @@ const ItemInfo = props => {
       lineNumber: 81
     },
     __self: undefined
-  }, __jsx(HardwareIcons, {
-    desktop: props.desktop,
-    mobile: props.mobile,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 82
-    },
-    __self: undefined
-  }), __jsx("div", {
+  }, __jsx("div", {
     className: css.ItemLinks,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 82
     },
     __self: undefined
   }, __jsx("a", {
@@ -464,21 +457,21 @@ const ItemInfo = props => {
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 83
     },
     __self: undefined
   }, __jsx("p", {
     className: css.ItemLink,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 84
     },
     __self: undefined
   }, "Github"), __jsx("div", {
     className: css.ItemLinkIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 85
     },
     __self: undefined
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
@@ -486,7 +479,7 @@ const ItemInfo = props => {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 86
     },
     __self: undefined
   }))), __jsx("a", {
@@ -496,21 +489,21 @@ const ItemInfo = props => {
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 89
     },
     __self: undefined
   }, __jsx("p", {
     className: css.ItemLink,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 90
     },
     __self: undefined
   }, "Open"), __jsx("div", {
     className: css.ItemLinkIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 91
     },
     __self: undefined
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
@@ -518,10 +511,18 @@ const ItemInfo = props => {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 92
     },
     __self: undefined
-  }))))));
+  })))), __jsx(HardwareIcons, {
+    desktop: props.desktop,
+    mobile: props.mobile,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: undefined
+  })));
 };
 
 const HardwareIcons = ({

@@ -171,6 +171,13 @@
         font-size: 6em;
     }
 }
+
+@media (min-width: 1000px) {
+    .FirstName___8PGm4,
+    .Surname___3Gmvy {
+        font-size: 7em;
+    }
+}
 .Footer___2hhX3 {
   position: absolute;
   box-sizing: border-box;
@@ -264,16 +271,15 @@ body {
 }
 .Item___2HggL {
   font: inherit;
-  width: 95%;
+  width: 100%;
   cursor: default;
   color: black;
   position: relative;
   overflow: hidden;
-  margin: 60px 0;
-  padding: 20px;
+  margin: 40px 0;
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
-  top: 50px;
+  top: 30px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -299,21 +305,30 @@ body {
   background: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 3px 3px 30px gainsboro;
+  box-shadow: 3px 3px 20px gainsboro,
+              -3px -3px 20px gainsboro;
 }
 
 .ItemContent___1Xtsc {
+  padding-bottom: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: space-around;
-  flex-flow: row wrap;
+  flex-flow: column;
   align-items: center;
+  position: relative;
+  background: white;
+  box-shadow: 3px 3px 20px gainsboro,
+              -3px -3px 20px gainsboro;
 }
-
+  
 .InfoContainer___2jgE- {
   display: flex;
   flex-flow: column;
-  padding: 30px;
-  width: 60%;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
 }
 
 .MadeWith___181Xb {
@@ -328,6 +343,8 @@ body {
   position: relative;
   overflow: hidden;
   font-weight: 800;
+  padding: 0;
+  margin: 0;
   color: royalblue;
 }
 
@@ -337,20 +354,24 @@ body {
   opacity: 0;
 }
 
+.Description___3QyIB {
+  color: dimgray;
+  font-size: .95em;
+}
+
 .IconsAndLinks___3ruVO {
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .HardwareIcons___2HOvV {
   position: relative;
-  background: gainsboro;
   left: 0%;
   display: flex;
   flex-flow: column;
-  width: 15%;
+  width: 50%;
 }
 
 .HardwareIconContainer___130pR {
@@ -372,7 +393,7 @@ body {
 
 .ItemLinks___30O86 {
   color: dimgray;
-  width: 20%;
+  width: 50%;
   position: relative;
   background: gainsboro;
 }
@@ -415,11 +436,12 @@ body {
 
 .ImageContainer___17WA_ {
   position: relative;
-  width: 40%;
+  width: 100%;
 }
 
 .ImageContainer___17WA_ img {
   border: 2px solid gainsboro;
+  box-sizing: border-box;
   width: 100%;
 }
 
@@ -486,10 +508,59 @@ body {
   transform: scale(1.15);
 }
 
+@media (min-width: 600px) {
+  .HardwareIcons___2HOvV {
+    width: 25%;
+  }
+
+  .ItemLinks___30O86 {
+    width: 35%;
+  }
+}
+
 @media (min-width: 1000px) {
+  .Item___2HggL {
+    width: 80%;
+  }
+
   .ItemContent___1Xtsc {
     flex-flow: row;
+    padding-bottom: 0;
+    margin: 20px;
+    padding: 20px;
   }
+
+  .InfoContainer___2jgE- {
+    width: 60%;
+    padding: 20px 60px;
+  }
+
+  .IconsAndLinks___3ruVO {
+    justify-content: flex-start;
+  }
+
+  .HardwareIcons___2HOvV {
+    width: 25%;
+  }
+
+  .ItemLinks___30O86 {
+    width: 35%;
+  }
+
+  .ImageContainer___17WA_ {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .HardwareIcons___2HOvV {
+    width: 20%;
+  }
+
+  .ItemLinks___30O86 {
+    width: 25%;
+  }
+
 }
 .Content___1Enco {
     position: relative;
