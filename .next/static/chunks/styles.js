@@ -29,7 +29,7 @@ module.exports = {"Content":"Content___1Enco"};
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Main":"Main___3c-CL","MediaIcons":"MediaIcons___1mSCZ","Parallax":"Parallax___t0GrZ","TitleContainer":"TitleContainer___1bxur","FirstName":"FirstName___8PGm4","Surname":"Surname___3Gmvy","Description":"Description___HbED0"};
     if(true) {
-      // 1568667013590
+      // 1568716245603
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -105,7 +105,7 @@ module.exports = {"Icons":"Icons___1jyXr","horizontal":"horizontal___6Fpxy","ver
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Layout":"Layout___2PL_3"};
     if(true) {
-      // 1568666244209
+      // 1568717788943
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
