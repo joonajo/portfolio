@@ -38,9 +38,7 @@ const Cover = React.memo((): JSX.Element => {
         css.ArrowText,
         arrowIn ? css.in : arrowIn === false ? css.out : null
     ].join(' ')
-
-    console.log(arrowIn)
-
+    
     const transitionHandler = () => {
         if (arrowIn === false) {
             setArrowIn(undefined)

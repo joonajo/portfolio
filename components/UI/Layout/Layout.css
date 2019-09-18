@@ -1,47 +1,3 @@
-@font-face {
-    font-family: "Ubuntu";
-    src: url('/static/fonts/Ubuntu-Regular.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Light";
-    src: url('/static/fonts/Ubuntu-Light.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Bold";
-    src: url('/static/fonts/Ubuntu-Bold.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Medium";
-    src: url('/static/fonts/Ubuntu-Medium.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Ubuntu Medium";
-    background: rgb(134, 117, 117);
-}
-
-* {
-    box-sizing: border-box;
-}
-
 .Layout {   
     position: relative;
     width: 100%;
@@ -50,15 +6,3 @@ body {
     flex-flow: column;   
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: gainsboro;;
-}
-
-::-webkit-scrollbar-thumb {
-    background: royalblue;
-    border-radius: 0;
-}
