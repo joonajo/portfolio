@@ -79,9 +79,13 @@
 }
 
 .ArrowContainer {
-    cursor: pointer;
     position: absolute;
     bottom: 100px;
+}
+
+.ArrowIcon {
+    cursor: pointer;
+    position: relative;
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -94,9 +98,39 @@
     color: whitesmoke;
 }
 
-.ArrowContainer:hover {
+.ArrowIcon:hover {
     background: royalblue;
     color: black;
+}
+
+.ArrowText {
+    position: absolute;
+    color:  rgba(255, 255, 255, 0.5);
+    top: -70%;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    font-size: .7em;
+    text-transform: uppercase;
+    opacity: 0;
+    left: 50%;
+    transition: all .3s;
+    transform: translateX(-100%);
+}
+
+.ArrowText.in {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+.ArrowText.out {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+@keyframes slidein {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(-50%); }
 }
 
 @media (min-width: 350px) {

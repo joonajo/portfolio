@@ -8,6 +8,7 @@ const css = require('./Cover.css')
 
 const Cover = React.memo((): JSX.Element => {
     const toolbarContext: IToolbar = React.useContext(ToolbarContext)
+    const coverRef = React.useRef<HTMLDivElement>(null)
 
     React.useEffect(() => {
         window.addEventListener('scroll', scrollHandler, true)
@@ -17,10 +18,51 @@ const Cover = React.memo((): JSX.Element => {
 
     const scrollHandler = () => {
 
-    }  
+    }
+
+    const scrollToPortfolio = React.useCallback(() => {
+        if (coverRef && coverRef.current) {
+            const posToScrollTo: number = coverRef.current.clientHeight
+    
+            window.scrollTo({
+                top: posToScrollTo,
+                left: 0,
+                behavior: "smooth",
+            })
+        }
+    }, [coverRef])
+
+    const[arrowIn, setArrowIn] = React.useState<boolean | undefined>(undefined)
+
+    const arrowTextClasses = [
+        css.ArrowText,
+        arrowIn ? css.in : arrowIn === false ? css.out : null
+    ].join(' ')
+
+    console.log(arrowIn)
+
+    const transitionHandler = () => {
+        if (arrowIn === false) {
+            setArrowIn(undefined)
+        }
+    }
+
+    const hoverHandler = () => {
+        setArrowIn(true)
+        // if (arrowIn === undefined) {
+        //     setArrowIn(true)
+        // }
+    }
+
+    const mouseOutHandler = () => {
+        setArrowIn(false)
+        // if (arrowIn) {
+        //     setArrowIn(false)
+        // }
+    }
 
     return (
-        <div className={css.Main}>
+        <div className={css.Main} ref={coverRef}>
             <div className={css.Parallax}>
             </div>
             <div className={css.MediaIcons}>
@@ -31,8 +73,14 @@ const Cover = React.memo((): JSX.Element => {
                 <span className={css.Surname}>Joenpolvi</span>
                 <span className={css.Description}>Front-End Developer</span>
             </div>
-            <div className={css.ArrowContainer}>
-                <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
+            <div className={css.ArrowContainer} >
+                <div className={css.ArrowIcon}
+                    onClick={scrollToPortfolio}
+                    onMouseOver={hoverHandler}
+                    onMouseOut={mouseOutHandler}> 
+                    <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
+                </div>
+                <p className={arrowTextClasses} onTransitionEnd={transitionHandler}>to portfolio</p>
             </div>
         </div>
     )

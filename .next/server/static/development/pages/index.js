@@ -169,7 +169,12 @@ module.exports = {
 	"FirstName": "FirstName___8PGm4",
 	"Surname": "Surname___3Gmvy",
 	"Description": "Description___HbED0",
-	"ArrowContainer": "ArrowContainer___1dqCi"
+	"ArrowContainer": "ArrowContainer___1dqCi",
+	"ArrowIcon": "ArrowIcon___1oTzX",
+	"ArrowText": "ArrowText___16L4d",
+	"in": "in___28p6S",
+	"out": "out___3bv_x",
+	"slidein": "slidein___qQMaO"
 };
 
 /***/ }),
@@ -202,6 +207,7 @@ const css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css
 
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   const toolbarContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_2__["ToolbarContext"]);
+  const coverRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
     window.addEventListener('scroll', scrollHandler, true);
     return () => window.removeEventListener('scroll', scrollHandler, true);
@@ -209,67 +215,110 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
 
   const scrollHandler = () => {};
 
+  const scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_0___default.a.useCallback(() => {
+    if (coverRef && coverRef.current) {
+      const posToScrollTo = coverRef.current.clientHeight;
+      window.scrollTo({
+        top: posToScrollTo,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }, [coverRef]);
+  const [arrowIn, setArrowIn] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
+  const arrowTextClasses = [css.ArrowText, arrowIn ? css.in : arrowIn === false ? css.out : null].join(' ');
+  console.log(arrowIn);
+
+  const transitionHandler = () => {
+    if (arrowIn === false) {
+      setArrowIn(undefined);
+    }
+  };
+
+  const hoverHandler = () => {
+    setArrowIn(true); // if (arrowIn === undefined) {
+    //     setArrowIn(true)
+    // }
+  };
+
+  const mouseOutHandler = () => {
+    setArrowIn(false); // if (arrowIn) {
+    //     setArrowIn(false)
+    // }
+  };
+
   return __jsx("div", {
     className: css.Main,
+    ref: coverRef,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 65
     },
     __self: undefined
   }, __jsx("div", {
     className: css.Parallax,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 66
     },
     __self: undefined
   }), __jsx("div", {
     className: css.MediaIcons,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 68
     },
     __self: undefined
   }, __jsx(_UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
     vertical: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 69
     },
     __self: undefined
   })), __jsx("div", {
     className: css.TitleContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 71
     },
     __self: undefined
   }, __jsx("span", {
     className: css.FirstName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 72
     },
     __self: undefined
   }, "Joona"), __jsx("span", {
     className: css.Surname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 73
     },
     __self: undefined
   }, "Joenpolvi"), __jsx("span", {
     className: css.Description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 74
     },
     __self: undefined
   }, "Front-End Developer")), __jsx("div", {
     className: css.ArrowContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 76
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: css.ArrowIcon,
+    onClick: scrollToPortfolio,
+    onMouseOver: hoverHandler,
+    onMouseOut: mouseOutHandler,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
     },
     __self: undefined
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -277,10 +326,18 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 81
     },
     __self: undefined
-  })));
+  })), __jsx("p", {
+    className: arrowTextClasses,
+    onTransitionEnd: transitionHandler,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83
+    },
+    __self: undefined
+  }, "to portfolio")));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
 
