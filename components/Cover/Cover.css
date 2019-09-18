@@ -50,24 +50,25 @@
 .Surname,
 .Description {
     box-sizing: border-box;
-    font-family: "Ubuntu Bold";
     letter-spacing: .05em;
-    color: crimson;
     cursor: default;
+
+}
+
+.FirstName,
+.Surname {
+    font-family: "Ubuntu Medium";
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
     background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.FirstName,
-.Surname {
-    width: 100%;
-    text-align: center;
-    font-size: 3em;
-}
-
 .Description {
+    font-family: "Ubuntu";
     margin-top: 1em;
     padding: 10px 30px;
     box-sizing: border-box;
@@ -75,7 +76,8 @@
     font-size: 1em;  
     width: auto;
     background: rgba(0, 0, 0, 0.8);
-    -webkit-text-fill-color: whitesmoke;
+    color: gainsboro;
+    text-shadow: 1px 1px 5px #fff;
 }
 
 .ArrowContainer {

@@ -123,24 +123,25 @@
 .Surname___3Gmvy,
 .Description___HbED0 {
     box-sizing: border-box;
-    font-family: "Ubuntu Bold";
     letter-spacing: .05em;
-    color: crimson;
     cursor: default;
+
+}
+
+.FirstName___8PGm4,
+.Surname___3Gmvy {
+    font-family: "Ubuntu Medium";
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
     background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.FirstName___8PGm4,
-.Surname___3Gmvy {
-    width: 100%;
-    text-align: center;
-    font-size: 3em;
-}
-
 .Description___HbED0 {
+    font-family: "Ubuntu";
     margin-top: 1em;
     padding: 10px 30px;
     box-sizing: border-box;
@@ -148,7 +149,8 @@
     font-size: 1em;  
     width: auto;
     background: rgba(0, 0, 0, 0.8);
-    -webkit-text-fill-color: whitesmoke;
+    color: gainsboro;
+    text-shadow: 1px 1px 5px #fff;
 }
 
 .ArrowContainer___1dqCi {
@@ -311,7 +313,7 @@
   margin: 30px 0;
   transition: all .3s, opacity 1s, top .7s;
   opacity: 0;
-  top: 30px;
+  top: 20px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -332,6 +334,7 @@
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: bold;
+  font-family: "Ubuntu Medium";
 }
 
 .Title___19rVv span {
@@ -371,6 +374,7 @@
   align-items: center;
   justify-content: center;
   color: dimgray;
+  font-family: "Ubuntu Bold";
 }
 
 .Language___qBw-5 {
@@ -431,13 +435,13 @@
   color: dimgray;
   width: 150px;
   position: relative;
-  background: gainsboro;
+  font-family: "Ubuntu Medium";
 }
 
 .ItemLinkContainer___2PKLE {
   cursor: pointer;
   width: 100%;
-  padding: 10px;
+  padding: 10px 5px;
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -445,6 +449,9 @@
   transition: all .2s;
   text-decoration: none;
   color: royalblue;
+  background: gainsboro;
+  margin: 5px 0;
+  border-radius: 0px;
 }
 
 .ItemLinkContainer___2PKLE:hover {
@@ -634,11 +641,13 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Ubuntu Medium", 'Courier New', Courier, monospace;
+    font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
     background: rgb(134, 117, 117);
 }
 
 * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
 }
 
