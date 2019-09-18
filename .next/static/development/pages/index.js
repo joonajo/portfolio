@@ -934,31 +934,23 @@ var Layout = function Layout(_ref) {
     },
     __self: this
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Ubuntu&display=swap",
     rel: "stylesheet",
+    href: "https://use.fontawesome.com/releases/v5.10.2/css/svg-with-js.css",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22
     },
     __self: this
-  }), __jsx("link", {
-    href: "https://use.fontawesome.com/releases/v5.10.2/css/svg-with-js.css",
-    rel: "stylesheet",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
-    },
-    __self: this
   })), __jsx(_Toolbar_Toolbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 24
     },
     __self: this
   }), children, __jsx(_Footer_Footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 26
     },
     __self: this
   })));

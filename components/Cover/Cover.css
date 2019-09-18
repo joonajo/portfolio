@@ -50,8 +50,8 @@
 .Surname,
 .Description {
     box-sizing: border-box;
-    font-weight: bold;
-    letter-spacing: .1em;
+    font-family: "Ubuntu Bold";
+    letter-spacing: .05em;
     color: crimson;
     cursor: default;
     background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);

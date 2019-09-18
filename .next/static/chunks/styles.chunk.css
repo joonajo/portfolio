@@ -123,8 +123,8 @@
 .Surname___3Gmvy,
 .Description___HbED0 {
     box-sizing: border-box;
-    font-weight: bold;
-    letter-spacing: .1em;
+    font-family: "Ubuntu Bold";
+    letter-spacing: .05em;
     color: crimson;
     cursor: default;
     background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);
@@ -292,19 +292,51 @@
     align-items: center;
     right: 0;
 }
+@font-face {
+    font-family: "Ubuntu";
+    src: url('/static/fonts/Ubuntu-Regular.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    src: url('/static/fonts/Ubuntu-Light.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Bold";
+    src: url('/static/fonts/Ubuntu-Bold.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Medium";
+    src: url('/static/fonts/Ubuntu-Medium.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
 body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Ubuntu";
-    background: gainsboro;
+    font-family: "Ubuntu Medium";
+    background: rgb(134, 117, 117);
 }
 
 * {
     box-sizing: border-box;
 }
 
-.Layout___2PL_3 {
+.Layout___2PL_3 {   
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -313,7 +345,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
