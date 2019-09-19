@@ -13,8 +13,11 @@ const Home: NextPage = (): JSX.Element => {
         <React.Fragment>
             <Head>
                 <title>Portfolio</title>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta charSet="UTF-8" />
+                <meta name="description" content="Portfolio page" />
+                <meta name="keywords" content="Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio," />
+                <meta name="author" content="Joona Joenpolvi" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Layout>
                 <Cover />

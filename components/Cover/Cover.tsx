@@ -9,8 +9,13 @@ const css = require('./Cover.css')
 const Cover = React.memo((): JSX.Element => {
     const toolbarContext: IToolbar = React.useContext(ToolbarContext)
     const coverRef = React.useRef<HTMLDivElement>(null)
+    const[height, setHeight] = React.useState<number | undefined>(undefined)
+
+    console.log(height)
 
     React.useEffect(() => {
+        setHeight(window.innerHeight)
+
         window.addEventListener('scroll', scrollHandler, true)
 
         return () => window.removeEventListener('scroll', scrollHandler, true)
@@ -38,7 +43,7 @@ const Cover = React.memo((): JSX.Element => {
         css.ArrowText,
         arrowIn ? css.in : arrowIn === false ? css.out : null
     ].join(' ')
-    
+
     const transitionHandler = () => {
         if (arrowIn === false) {
             setArrowIn(undefined)
@@ -60,7 +65,7 @@ const Cover = React.memo((): JSX.Element => {
     }
 
     return (
-        <div className={css.Main} ref={coverRef}>
+        <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.Parallax}>
             </div>
             <div className={css.MediaIcons}>

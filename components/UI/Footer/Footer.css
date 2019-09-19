@@ -7,14 +7,12 @@
   width: 100%;
   z-index: 5;
   opacity: 1;
-  animation: fadein 2s;
+  animation: fadein 1s;
   background: transparent;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
-  height: 100px;
 }
 
 .MediaIcons {

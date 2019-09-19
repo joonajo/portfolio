@@ -78,7 +78,15 @@ var css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css")
 var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   var toolbarContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__["ToolbarContext"]);
   var coverRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
+      _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
+      height = _React$useState2[0],
+      setHeight = _React$useState2[1];
+
+  console.log(height);
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
+    setHeight(window.innerHeight);
     window.addEventListener('scroll', scrollHandler, true);
     return function () {
       return window.removeEventListener('scroll', scrollHandler, true);
@@ -98,10 +106,10 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     }
   }, [coverRef]);
 
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
-      _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
-      arrowIn = _React$useState2[0],
-      setArrowIn = _React$useState2[1];
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
+      _React$useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState3, 2),
+      arrowIn = _React$useState4[0],
+      setArrowIn = _React$useState4[1];
 
   var arrowTextClasses = [css.ArrowText, arrowIn ? css["in"] : arrowIn === false ? css.out : null].join(' ');
 
@@ -126,65 +134,68 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   return __jsx("div", {
     className: css.Main,
     ref: coverRef,
+    style: {
+      height: "".concat(height, "px")
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 68
     },
     __self: this
   }, __jsx("div", {
     className: css.Parallax,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 69
     },
     __self: this
   }), __jsx("div", {
     className: css.MediaIcons,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 71
     },
     __self: this
   }, __jsx(_UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_2__["default"], {
     vertical: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 72
     },
     __self: this
   })), __jsx("div", {
     className: css.TitleContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 74
     },
     __self: this
   }, __jsx("span", {
     className: css.FirstName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 75
     },
     __self: this
   }, "Joona"), __jsx("span", {
     className: css.Surname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 76
     },
     __self: this
   }, "Joenpolvi"), __jsx("span", {
     className: css.Description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 77
     },
     __self: this
   }, "Front-End Developer")), __jsx("div", {
     className: css.ArrowContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 79
     },
     __self: this
   }, __jsx("div", {
@@ -194,7 +205,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     onMouseOut: mouseOutHandler,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 80
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
@@ -202,7 +213,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 84
     },
     __self: this
   })), __jsx("p", {
@@ -210,7 +221,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     onTransitionEnd: transitionHandler,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 86
     },
     __self: this
   }, "to portfolio")));
@@ -775,6 +786,7 @@ var MediaIcons = function MediaIcons(_ref) {
     __self: this
   }, __jsx("a", {
     href: "https://github.com/joonajo",
+    "aria-label": "github-link",
     className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -792,6 +804,7 @@ var MediaIcons = function MediaIcons(_ref) {
     __self: this
   })), __jsx("a", {
     href: "mailto: joona.joenpolvi@gmail.com",
+    "aria-label": "email-link",
     className: iconClasses,
     __source: {
       fileName: _jsxFileName,
@@ -807,6 +820,7 @@ var MediaIcons = function MediaIcons(_ref) {
     __self: this
   })), __jsx("a", {
     href: "https://instagram.com/joonajo",
+    "aria-label": "ig-link",
     className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -824,6 +838,7 @@ var MediaIcons = function MediaIcons(_ref) {
     __self: this
   })), __jsx("a", {
     href: "https://www.strava.com/athletes/6604883",
+    "aria-label": "strava-link",
     className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -841,6 +856,7 @@ var MediaIcons = function MediaIcons(_ref) {
     __self: this
   })), __jsx("a", {
     href: "https://www.flickr.com/photos/150620060@N07/",
+    "aria-label": "flickr-link",
     className: iconClasses,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -25920,36 +25936,60 @@ var Home = function Home() {
     },
     __self: this
   }, "Portfolio"), __jsx("meta", {
-    charSet: "utf-8",
+    charSet: "UTF-8",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
   }), __jsx("meta", {
-    name: "viewport",
-    content: "initial-scale=1.0, width=device-width",
+    name: "description",
+    content: "Portfolio page",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
     },
     __self: this
-  })), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx("meta", {
+    name: "keywords",
+    content: "Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio,",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }), __jsx("meta", {
+    name: "author",
+    content: "Joona Joenpolvi",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), __jsx("meta", {
+    name: "viewport",
+    content: "width=device-width, initial-scale=1.0",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: this
+  })), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
   }), __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 24
     },
     __self: this
   })));

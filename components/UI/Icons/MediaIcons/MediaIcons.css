@@ -25,24 +25,21 @@
 }
 
 .Icon.horizontal {
-  box-sizing: content-box;
-  --padding: 5px;
-  --size: 25px;
+  box-sizing: border-box;
+  --size: 30px;
   color: lavender;
   background: rgba(255, 255, 255, .2);
   padding: var(--padding);
   margin: 5px;
   width: var(--size);
   height: var(--size);
-  line-height: var(--size);
   border-radius: 50%;
   text-align: center;
 }
 
 .Icon.vertical {
-  box-sizing: content-box;
-  --padding: 5px;
-  --size: 30px;
+  box-sizing: border-box;
+  --size: 40px;
   color: lavender;
   background: rgba(255, 255, 255, .1);
   padding: var(--padding);
