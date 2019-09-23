@@ -134,10 +134,10 @@ interface IImage {
 const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
   return (
     <div className={css.ImageContainer}>
-      {/* <img className={css.Image} src={props.video_src} alt='portfolio-img'/> */}
-      <video className={css.Image} loop autoPlay>
+      <img className={css.Image} src={props.video_src} alt='portfolio-img'/>
+      {/* <video className={css.Image} loop autoPlay>
         <source src={props.video_src} type="video/mp4" />
-      </video>
+      </video> */}
       <div className={css.ImageMask}>
         <div className={css.MaskLinks}>
           <MaskLink address={props.link} text="Open" icon={"link"} />

@@ -177,7 +177,7 @@
   width: 100%;
 }
 
-.ImageContainer video {
+.ImageContainer img {
   border: 2px solid gainsboro;
   box-sizing: border-box;
   width: 100%;

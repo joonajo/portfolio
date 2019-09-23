@@ -724,24 +724,16 @@ const ItemImage = props => {
       lineNumber: 136
     },
     __self: undefined
-  }, __jsx("video", {
+  }, __jsx("img", {
     className: css.Image,
-    loop: true,
-    autoPlay: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 138
-    },
-    __self: undefined
-  }, __jsx("source", {
     src: props.video_src,
-    type: "video/mp4",
+    alt: "portfolio-img",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 137
     },
     __self: undefined
-  })), __jsx("div", {
+  }), __jsx("div", {
     className: css.ImageMask,
     __source: {
       fileName: _jsxFileName,
@@ -2141,7 +2133,7 @@ const items = {
     link: 'https://nnasahub.web.app',
     githubLink: 'https://github.com/joonajo/Nasa-Hub',
     description: 'Built with React + TypeScript + Redux. Utilizes open NASA APIs. Check out the Astronomy Picture of the Day (APOD), latest Mars rover images as well as Earth from the space with the EPIC API.',
-    video_src: 'https://thumbs.gfycat.com/ShamefulPopularFieldmouse-mobile.mp4',
+    video_src: 'https://thumbs.gfycat.com/MemorableFarCoelacanth-size_restricted.gif',
     desktop: true,
     mobile: true
   },
@@ -2151,7 +2143,7 @@ const items = {
     link: 'https://weatherr.web.app',
     githubLink: 'https://github.com/joonajo/Weather-app',
     description: 'Built with React + TypeScript + Redux. Utilizes three different APIs (OpenWeatherMap, TimezoneDB & Geonames) to seamlessly check the weather all over the world, with timezones adjusted accordingly.',
-    video_src: 'https://thumbs.gfycat.com/FantasticDismalAsianporcupine-mobile.mp4',
+    video_src: 'https://thumbs.gfycat.com/WellmadeTangibleGreatargus-size_restricted.gif',
     desktop: true,
     mobile: true
   },
@@ -2161,7 +2153,7 @@ const items = {
     link: 'https://react-burgerapp-d2ef8.web.app',
     githubLink: 'https://github.com/joonajo/Burger-Builder',
     description: 'Built with ReactJS + Redux. Utilizes Firebase account authorization and realtime database. Build your own burger and order it!',
-    video_src: 'https://thumbs.gfycat.com/AchingAlienatedAsp-mobile.mp4',
+    video_src: 'https://thumbs.gfycat.com/CavernousDisastrousBlackfootedferret-size_restricted.gif',
     desktop: true,
     mobile: true
   },
@@ -2171,7 +2163,7 @@ const items = {
     link: 'https://todo-reactts.web.app',
     githubLink: 'https://github.com/joonajo/Todo-ReactTS',
     description: 'Built with React + TypeScript. Utilizes Firebase Cloud database (Firestore) and account authorization. Make a todo-list, check/remove items, and keep it saved in the database!',
-    video_src: 'https://thumbs.gfycat.com/CreamyTheseBeagle-mobile.mp4',
+    video_src: 'https://thumbs.gfycat.com/AnotherFantasticHoneybee-size_restricted.gif',
     desktop: true,
     mobile: true
   },
