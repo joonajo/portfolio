@@ -67,16 +67,16 @@ const Cover = React.memo((): JSX.Element => {
     return (
         <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.BackgroundContainer}>
-                <img src="/static/images/palm.jpg" className={css.BackgroundImage} style={{height: `${height}px`}} />
+                <img src="/static/images/palm.jpg" alt="cover-bg-palm" className={css.BackgroundImage} style={{minHeight: `${height}px`}} />
                 <div className={css.BackgroundMask}></div>
             </div>
             <div className={css.MediaIcons}>
                 <MediaIcons vertical />
             </div>
             <div className={css.TitleContainer}>
-                <span className={css.FirstName}>Joona</span>
-                <span className={css.Surname}>Joenpolvi</span>
-                <span className={css.Description}>Front-End Developer</span>
+                <h1 className={css.FirstName}>Joona</h1>
+                <h1 className={css.Surname}>Joenpolvi</h1>
+                <h3 className={css.Description}>Front-End Developer</h3>
             </div>
             <div className={css.ArrowContainer} >
                 <div className={css.ArrowIcon}

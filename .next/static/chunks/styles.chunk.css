@@ -97,35 +97,12 @@
 
 .BackgroundImage___2a3RY {
     position: absolute;
-    height: 100vh;
     top: 0;
     left: 0;
     visibility: visible;
 }
 
 .BackgroundMask___2Uer6 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(2, 0, 10, 0.8);
-}
-
-.Parallax___t0GrZ {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: url('/static/images/palm.jpg') fixed center no-repeat;
-    background-size: cover;
-    z-index: 0;
-    visibility: visible;
-}
-
-.Parallax___t0GrZ::after {
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -157,6 +134,8 @@
 .Surname___3Gmvy {
     font-family: "Ubuntu Medium";
     width: 100%;
+    padding: 0;
+    margin: 0;
     text-align: center;
     font-size: 3em;
     background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);
@@ -188,8 +167,8 @@
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     transition: all .3s;
     background: rgba(255, 255, 255, 0.1);
@@ -204,7 +183,7 @@
 .ArrowText___16L4d {
     position: absolute;
     color:  rgba(255, 255, 255, 0.5);
-    top: -70%;
+    top: -100%;
     font-weight: bold;
     text-align: center;
     width: 100px;
@@ -324,6 +303,87 @@
 }
 
 
+.Content___1Enco {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    background: whitesmoke;
+}
+
+.Title___1zGeK {
+    padding-top: 20px;
+    font-family: "Ubuntu Bold";
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(255,91,91,1) 0%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 150%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1, 1.1);
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url('/static/fonts/Ubuntu-Regular.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    src: url('/static/fonts/Ubuntu-Light.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Bold";
+    src: url('/static/fonts/Ubuntu-Bold.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Medium";
+    src: url('/static/fonts/Ubuntu-Medium.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
+    background: rgb(134, 117, 117);
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: gainsboro;;
+}
+
+::-webkit-scrollbar-thumb {
+    background: royalblue;
+    border-radius: 0;
+}
 .Item___2HggL {
   font: inherit;
   width: 100%;
@@ -614,75 +674,6 @@
   .Item___2HggL {
     width: 70%;
   }
-}
-.Content___1Enco {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 100px;
-    background: whitesmoke;
-}
-@font-face {
-    font-family: "Ubuntu";
-    src: url('/static/fonts/Ubuntu-Regular.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Light";
-    src: url('/static/fonts/Ubuntu-Light.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Bold";
-    src: url('/static/fonts/Ubuntu-Bold.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Medium";
-    src: url('/static/fonts/Ubuntu-Medium.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
-    background: rgb(134, 117, 117);
-}
-
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: gainsboro;;
-}
-
-::-webkit-scrollbar-thumb {
-    background: royalblue;
-    border-radius: 0;
 }
 
 /*# sourceMappingURL=styles.chunk.css.map*/

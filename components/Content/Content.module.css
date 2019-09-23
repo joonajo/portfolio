@@ -9,3 +9,15 @@
     margin-bottom: 100px;
     background: whitesmoke;
 }
+
+.Title {
+    padding-top: 20px;
+    font-family: "Ubuntu Bold";
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(255,91,91,1) 0%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 150%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1, 1.1);
+}
