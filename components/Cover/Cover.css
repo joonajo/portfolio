@@ -22,9 +22,10 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: url('/static/images/palmtree.jpg') fixed center no-repeat;
+    background: url('/static/images/palmtree.png') fixed center no-repeat;
     background-size: cover;
-    z-index: -1;
+    z-index: 0;
+    visibility: visible;
 }
 
 .Parallax::after {
@@ -38,6 +39,7 @@
 }
 
 .TitleContainer {
+    z-index: 1;
     display: flex;
     flex-flow: column;
     width: 100%;
