@@ -86,6 +86,32 @@
     left: 0;
 }
 
+.BackgroundContainer___10IM9 {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.BackgroundImage___2a3RY {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    visibility: visible;
+}
+
+.BackgroundMask___2Uer6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 0, 10, 0.8);
+}
+
 .Parallax___t0GrZ {
     position: fixed;
     width: 100%;

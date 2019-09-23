@@ -164,6 +164,9 @@ const Content = () => {
 module.exports = {
 	"Main": "Main___3c-CL",
 	"MediaIcons": "MediaIcons___1mSCZ",
+	"BackgroundContainer": "BackgroundContainer___10IM9",
+	"BackgroundImage": "BackgroundImage___2a3RY",
+	"BackgroundMask": "BackgroundMask___2Uer6",
 	"Parallax": "Parallax___t0GrZ",
 	"TitleContainer": "TitleContainer___1bxur",
 	"FirstName": "FirstName___8PGm4",
@@ -261,59 +264,74 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     },
     __self: undefined
   }, __jsx("div", {
-    className: css.Parallax,
+    className: css.BackgroundContainer,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 69
     },
     __self: undefined
+  }, __jsx("img", {
+    src: "/static/images/palm.jpg",
+    className: css.BackgroundImage,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
   }), __jsx("div", {
-    className: css.MediaIcons,
+    className: css.BackgroundMask,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 71
+    },
+    __self: undefined
+  })), __jsx("div", {
+    className: css.MediaIcons,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73
     },
     __self: undefined
   }, __jsx(_UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
     vertical: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 74
     },
     __self: undefined
   })), __jsx("div", {
     className: css.TitleContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 76
     },
     __self: undefined
   }, __jsx("span", {
     className: css.FirstName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 77
     },
     __self: undefined
   }, "Joona"), __jsx("span", {
     className: css.Surname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 78
     },
     __self: undefined
   }, "Joenpolvi"), __jsx("span", {
     className: css.Description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 79
     },
     __self: undefined
   }, "Front-End Developer")), __jsx("div", {
     className: css.ArrowContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 81
     },
     __self: undefined
   }, __jsx("div", {
@@ -323,7 +341,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     onMouseOut: mouseOutHandler,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 82
     },
     __self: undefined
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -331,7 +349,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 86
     },
     __self: undefined
   })), __jsx("p", {
@@ -339,7 +357,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     onTransitionEnd: transitionHandler,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 88
     },
     __self: undefined
   }, "to portfolio")));

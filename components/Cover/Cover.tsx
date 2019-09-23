@@ -66,7 +66,9 @@ const Cover = React.memo((): JSX.Element => {
 
     return (
         <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
-            <div className={css.Parallax}>
+            <div className={css.BackgroundContainer}>
+                <img src="/static/images/palm.jpg" className={css.BackgroundImage} />
+                <div className={css.BackgroundMask}></div>
             </div>
             <div className={css.MediaIcons}>
                 <MediaIcons vertical />
