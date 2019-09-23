@@ -152,6 +152,9 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   }, __jsx("img", {
     src: "/static/images/palm.jpg",
     className: css.BackgroundImage,
+    style: {
+      height: "".concat(height, "px")
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 70
