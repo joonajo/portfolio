@@ -38,7 +38,7 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
     <div className={itemClasses} ref={itemRef} >
       <p className={css.Title}><span>{props.title}</span></p>
       <div className={css.ItemContent}>
-        <ItemImage gif_src={props.gif_src} 
+        <ItemImage video_src={props.video_src} 
           link={props.link} 
           githubLink={props.githubLink} />
         <ItemInfo languages={props.language}
@@ -126,7 +126,7 @@ const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({ desktop, mobi
 )
 
 interface IImage {
-  gif_src: string
+  video_src: string
   link: string
   githubLink: string
 }
@@ -134,7 +134,10 @@ interface IImage {
 const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
   return (
     <div className={css.ImageContainer}>
-      <img className={css.Image} src={props.gif_src} alt='portfolio-img'/>
+      {/* <img className={css.Image} src={props.video_src} alt='portfolio-img'/> */}
+      <video className={css.Image} loop autoPlay>
+        <source src={props.video_src} type="video/mp4" />
+      </video>
       <div className={css.ImageMask}>
         <div className={css.MaskLinks}>
           <MaskLink address={props.link} text="Open" icon={"link"} />

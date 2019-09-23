@@ -92,7 +92,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: url('/static/images/palmtree.jpg?webp') fixed center no-repeat;
+    background: url('/static/images/palmtree.jpg') fixed center no-repeat;
     background-size: cover;
     z-index: -1;
 }
@@ -475,7 +475,7 @@
   width: 100%;
 }
 
-.ImageContainer___17WA_ img {
+.ImageContainer___17WA_ video {
   border: 2px solid gainsboro;
   box-sizing: border-box;
   width: 100%;

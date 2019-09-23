@@ -311,7 +311,7 @@ var Item = function Item(props) {
     },
     __self: this
   }, __jsx(ItemImage, {
-    gif_src: props.gif_src,
+    video_src: props.video_src,
     link: props.link,
     githubLink: props.githubLink,
     __source: {
@@ -582,27 +582,35 @@ var ItemImage = function ItemImage(props) {
       lineNumber: 136
     },
     __self: this
-  }, __jsx("img", {
+  }, __jsx("video", {
     className: css.Image,
-    src: props.gif_src,
-    alt: "portfolio-img",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 137
-    },
-    __self: this
-  }), __jsx("div", {
-    className: css.ImageMask,
+    loop: true,
+    autoPlay: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 138
+    },
+    __self: this
+  }, __jsx("source", {
+    src: props.video_src,
+    type: "video/mp4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139
+    },
+    __self: this
+  })), __jsx("div", {
+    className: css.ImageMask,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141
     },
     __self: this
   }, __jsx("div", {
     className: css.MaskLinks,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 142
     },
     __self: this
   }, __jsx(MaskLink, {
@@ -611,7 +619,7 @@ var ItemImage = function ItemImage(props) {
     icon: "link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140
+      lineNumber: 143
     },
     __self: this
   }), __jsx(MaskLink, {
@@ -620,7 +628,7 @@ var ItemImage = function ItemImage(props) {
     icon: "github",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141
+      lineNumber: 144
     },
     __self: this
   }))));
@@ -637,27 +645,27 @@ var MaskLink = function MaskLink(_ref2) {
     rel: "noopener noreferrer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 159
     },
     __self: this
   }, __jsx("div", {
     className: css.MaskLinkText,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 160
     },
     __self: this
   }, __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158
+      lineNumber: 161
     },
     __self: this
   }, text)), __jsx("div", {
     className: css.MaskLinkIcon,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160
+      lineNumber: 163
     },
     __self: this
   }, icon === 'github' ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -665,7 +673,7 @@ var MaskLink = function MaskLink(_ref2) {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162
+      lineNumber: 165
     },
     __self: this
   }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
@@ -673,7 +681,7 @@ var MaskLink = function MaskLink(_ref2) {
     size: "lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163
+      lineNumber: 166
     },
     __self: this
   })));
@@ -26027,7 +26035,7 @@ var items = {
     link: 'https://nnasahub.web.app',
     githubLink: 'https://github.com/joonajo/Nasa-Hub',
     description: 'Built with React + TypeScript + Redux. Utilizes open NASA APIs. Check out the Astronomy Picture of the Day (APOD), latest Mars rover images as well as Earth from the space with the EPIC API.',
-    gif_src: 'https://thumbs.gfycat.com/ShamefulPopularFieldmouse.webp',
+    video_src: 'https://thumbs.gfycat.com/ShamefulPopularFieldmouse-mobile.mp4',
     desktop: true,
     mobile: true
   },
@@ -26037,7 +26045,7 @@ var items = {
     link: 'https://weatherr.web.app',
     githubLink: 'https://github.com/joonajo/Weather-app',
     description: 'Built with React + TypeScript + Redux. Utilizes three different APIs (OpenWeatherMap, TimezoneDB & Geonames) to seamlessly check the weather all over the world, with timezones adjusted accordingly.',
-    gif_src: 'https://thumbs.gfycat.com/FantasticDismalAsianporcupine.webp',
+    video_src: 'https://thumbs.gfycat.com/FantasticDismalAsianporcupine-mobile.mp4',
     desktop: true,
     mobile: true
   },
@@ -26047,7 +26055,7 @@ var items = {
     link: 'https://react-burgerapp-d2ef8.web.app',
     githubLink: 'https://github.com/joonajo/Burger-Builder',
     description: 'Built with ReactJS + Redux. Utilizes Firebase account authorization and realtime database. Build your own burger and order it!',
-    gif_src: 'https://thumbs.gfycat.com/AchingAlienatedAsp.webp',
+    video_src: 'https://thumbs.gfycat.com/AchingAlienatedAsp-mobile.mp4',
     desktop: true,
     mobile: true
   },
@@ -26057,7 +26065,7 @@ var items = {
     link: 'https://todo-reactts.web.app',
     githubLink: 'https://github.com/joonajo/Todo-ReactTS',
     description: 'Built with React + TypeScript. Utilizes Firebase Cloud database (Firestore) and account authorization. Make a todo-list, check/remove items, and keep it saved in the database!',
-    gif_src: 'https://thumbs.gfycat.com/CreamyTheseBeagle.webp',
+    video_src: 'https://thumbs.gfycat.com/CreamyTheseBeagle-mobile.mp4',
     desktop: true,
     mobile: true
   },
@@ -26067,7 +26075,7 @@ var items = {
     link: 'https://www.youtube.com/watch?v=6rbhqyCm97E',
     githubLink: 'https://github.com/joonajo/CannonGame',
     description: 'Built purely with C++ and the SFML graphics library. A simple Cannon Game against a basic AI.',
-    gif_src: 'https://media.giphy.com/media/ftB8xRdaDJHzk2v6Ur/giphy.gif',
+    video_src: 'https://media.giphy.com/media/ftB8xRdaDJHzk2v6Ur/giphy.gif',
     desktop: true,
     mobile: false
   } // makes it easy to switch up the order if needed

@@ -22,7 +22,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: url('/static/images/palmtree.jpg?webp') fixed center no-repeat;
+    background: url('/static/images/palmtree.jpg') fixed center no-repeat;
     background-size: cover;
     z-index: -1;
 }
