@@ -223,12 +223,15 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../UI/Icons/MediaIcons/MediaIcons */ "./components/UI/Icons/MediaIcons/MediaIcons.tsx");
-/* harmony import */ var _context_toolbarContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/toolbarContext */ "./context/toolbarContext.tsx");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! smoothscroll-polyfill */ "smoothscroll-polyfill");
+/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/Icons/MediaIcons/MediaIcons */ "./components/UI/Icons/MediaIcons/MediaIcons.tsx");
+/* harmony import */ var _context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/toolbarContext */ "./context/toolbarContext.tsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -238,10 +241,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css");
 
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
-  const toolbarContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_2__["ToolbarContext"]);
+  const toolbarContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__["ToolbarContext"]);
   const coverRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
-  const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
-  console.log(height);
+  const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined); // enable smoothscroll package
+
+  smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1___default.a.polyfill();
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
     setHeight(window.innerHeight);
     window.addEventListener('scroll', scrollHandler, true);
@@ -300,7 +304,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     className: css.BackgroundMask
   })), __jsx("div", {
     className: css.MediaIcons
-  }, __jsx(_UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_2__["default"], {
     vertical: true
   })), __jsx("div", {
     className: css.TitleContainer
@@ -317,8 +321,8 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     onClick: scrollToPortfolio,
     onMouseOver: hoverHandler,
     onMouseOut: mouseOutHandler
-  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_4__["icons"].faChevronDown,
+  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_5__["icons"].faChevronDown,
     size: "lg"
   })), __jsx("p", {
     className: arrowTextClasses,
@@ -1669,6 +1673,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "smoothscroll-polyfill":
+/*!****************************************!*\
+  !*** external "smoothscroll-polyfill" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("smoothscroll-polyfill");
 
 /***/ }),
 

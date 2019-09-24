@@ -1,4 +1,6 @@
 import React from 'react'
+import smoothscroll from 'smoothscroll-polyfill'
+
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons'
 import { IToolbar, ToolbarContext } from '../../context/toolbarContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,8 +13,9 @@ const Cover = React.memo((): JSX.Element => {
     const coverRef = React.useRef<HTMLDivElement>(null)
     const[height, setHeight] = React.useState<number | undefined>(undefined)
 
-    console.log(height)
-
+    // enable smoothscroll package
+    smoothscroll.polyfill()
+    
     React.useEffect(() => {
         setHeight(window.innerHeight)
 
