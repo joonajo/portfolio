@@ -1374,16 +1374,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const css = __webpack_require__(/*! ./index.module.css */ "./pages/index/index.module.css");
 
 const Home = () => {
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").then(() => {
-        console.log('Succesfully registered service worker.');
-      }).catch(error => {
-        console.log('Error while registering service worker.', error);
-      });
-    } else {
-      console.log('Service worker not supported.');
-    }
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {// if ("serviceWorker" in navigator) {
+    //     navigator.serviceWorker.register("/sw.js")
+    //         .then(() => {
+    //             console.log('Succesfully registered service worker.')
+    //         })
+    //         .catch(error => {
+    //             console.log('Error while registering service worker.', error)
+    //         })
+    // } else {
+    //     console.log('Service worker not supported.')
+    // }   
   }, []);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, __jsx("title", null, "Portfolio"), __jsx("link", {
     rel: "apple-touch-icon",
