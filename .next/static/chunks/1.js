@@ -15,7 +15,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 
-var _jsxFileName = "/home/joojo/code/portfolio/components/Item/Item.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -54,41 +53,15 @@ var Item = function Item(props) {
   var itemClasses = [css.Item, showItem ? css.show : null].join(' ');
   return __jsx("div", {
     className: itemClasses,
-    ref: itemRef,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: this
+    ref: itemRef
   }, __jsx("p", {
-    className: css.Title,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: this
-  }, __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: this
-  }, props.title)), __jsx("div", {
-    className: css.ItemContent,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    },
-    __self: this
+    className: css.Title
+  }, __jsx("span", null, props.title)), __jsx("div", {
+    className: css.ItemContent
   }, __jsx(ItemImage, {
     video_src: props.video_src,
     link: props.link,
-    githubLink: props.githubLink,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    },
-    __self: this
+    githubLink: props.githubLink
   }), __jsx(ItemInfo, {
     languages: props.language,
     title: props.title,
@@ -96,142 +69,57 @@ var Item = function Item(props) {
     desktop: props.desktop,
     mobile: props.mobile,
     link: props.link,
-    githubLink: props.githubLink,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44
-    },
-    __self: this
+    githubLink: props.githubLink
   })));
 };
 
 var ItemInfo = function ItemInfo(props) {
   return __jsx("div", {
-    className: css.InfoContainer,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 68
-    },
-    __self: this
+    className: css.InfoContainer
   }, __jsx("div", {
-    className: css.MadeWith,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 69
-    },
-    __self: this
+    className: css.MadeWith
   }, "made with", props.languages.map(function (lang, index) {
     return __jsx("p", {
       key: lang,
-      className: css.Language,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 72
-      },
-      __self: this
+      className: css.Language
     }, lang, index !== props.languages.length - 1 ? __jsx("span", {
       style: {
         color: 'dimgray'
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 74
-      },
-      __self: this
+      }
     }, " + ") : '');
   })), __jsx("p", {
-    className: css.Description,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 78
-    },
-    __self: this
+    className: css.Description
   }, props.desc), __jsx("div", {
-    className: css.IconsAndLinks,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 81
-    },
-    __self: this
+    className: css.IconsAndLinks
   }, __jsx("div", {
-    className: css.ItemLinks,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 82
-    },
-    __self: this
+    className: css.ItemLinks
   }, __jsx("a", {
     className: css.ItemLinkContainer,
     href: props.githubLink,
     target: "_blank",
-    rel: "noopener noreferrer",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 83
-    },
-    __self: this
+    rel: "noopener noreferrer"
   }, __jsx("p", {
-    className: css.ItemLink,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 84
-    },
-    __self: this
+    className: css.ItemLink
   }, "Github"), __jsx("div", {
-    className: css.ItemLinkIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 85
-    },
-    __self: this
+    className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faGithub,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 86
-    },
-    __self: this
+    size: "lg"
   }))), __jsx("a", {
     className: css.ItemLinkContainer,
     href: props.link,
     target: "_blank",
-    rel: "noopener noreferrer",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89
-    },
-    __self: this
+    rel: "noopener noreferrer"
   }, __jsx("p", {
-    className: css.ItemLink,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 90
-    },
-    __self: this
+    className: css.ItemLink
   }, "Open"), __jsx("div", {
-    className: css.ItemLinkIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 91
-    },
-    __self: this
+    className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExternalLinkSquareAlt,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 92
-    },
-    __self: this
+    size: "lg"
   })))), __jsx(HardwareIcons, {
     desktop: props.desktop,
-    mobile: props.mobile,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 96
-    },
-    __self: this
+    mobile: props.mobile
   })));
 };
 
@@ -239,160 +127,65 @@ var HardwareIcons = function HardwareIcons(_ref) {
   var desktop = _ref.desktop,
       mobile = _ref.mobile;
   return __jsx("div", {
-    className: css.HardwareIcons,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 108
-    },
-    __self: this
+    className: css.HardwareIcons
   }, __jsx("div", {
-    className: css.HardwareIconContainer,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 109
-    },
-    __self: this
+    className: css.HardwareIconContainer
   }, __jsx("div", {
-    className: css.HardwareIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 110
-    },
-    __self: this
+    className: css.HardwareIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     className: css.DesktopIcon,
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faDesktop,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 111
-    },
-    __self: this
+    size: "lg"
   })), __jsx("div", {
-    className: css.HardwareIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 113
-    },
-    __self: this
+    className: css.HardwareIcon
   }, desktop ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faCheck,
     size: "lg",
-    color: "green",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 114
-    },
-    __self: this
+    color: "green"
   }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes,
     size: "lg",
-    color: "crimson",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 114
-    },
-    __self: this
+    color: "crimson"
   }))), __jsx("div", {
-    className: css.HardwareIconContainer,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 117
-    },
-    __self: this
+    className: css.HardwareIconContainer
   }, __jsx("div", {
-    className: css.HardwareIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 118
-    },
-    __self: this
+    className: css.HardwareIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     className: css.DesktopIcon,
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faMobileAlt,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 119
-    },
-    __self: this
+    size: "lg"
   })), __jsx("div", {
-    className: css.HardwareIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 121
-    },
-    __self: this
+    className: css.HardwareIcon
   }, mobile ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faCheck,
     size: "lg",
-    color: "green",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 122
-    },
-    __self: this
+    color: "green"
   }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes,
     size: "lg",
-    color: "crimson",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 122
-    },
-    __self: this
+    color: "crimson"
   }))));
 };
 
 var ItemImage = function ItemImage(props) {
   return __jsx("div", {
-    className: css.ImageContainer,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 136
-    },
-    __self: this
+    className: css.ImageContainer
   }, __jsx("img", {
     className: css.Image,
     src: props.video_src,
-    alt: "portfolio-img",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 137
-    },
-    __self: this
+    alt: "portfolio-img"
   }), __jsx("div", {
-    className: css.ImageMask,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 138
-    },
-    __self: this
+    className: css.ImageMask
   }, __jsx("div", {
-    className: css.MaskLinks,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 139
-    },
-    __self: this
+    className: css.MaskLinks
   }, __jsx(MaskLink, {
     address: props.link,
     text: "Open",
-    icon: "link",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 140
-    },
-    __self: this
+    icon: "link"
   }), __jsx(MaskLink, {
     address: props.githubLink,
     text: "Github",
-    icon: "github",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 141
-    },
-    __self: this
+    icon: "github"
   }))));
 };
 
@@ -404,48 +197,17 @@ var MaskLink = function MaskLink(_ref2) {
     href: address,
     className: css.MaskLink,
     target: "_blank",
-    rel: "noopener noreferrer",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 156
-    },
-    __self: this
+    rel: "noopener noreferrer"
   }, __jsx("div", {
-    className: css.MaskLinkText,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 157
-    },
-    __self: this
-  }, __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 158
-    },
-    __self: this
-  }, text)), __jsx("div", {
-    className: css.MaskLinkIcon,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 160
-    },
-    __self: this
+    className: css.MaskLinkText
+  }, __jsx("span", null, text)), __jsx("div", {
+    className: css.MaskLinkIcon
   }, icon === 'github' ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faGithub,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 162
-    },
-    __self: this
+    size: "lg"
   }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExternalLinkSquareAlt,
-    size: "lg",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 163
-    },
-    __self: this
+    size: "lg"
   })));
 };
 
