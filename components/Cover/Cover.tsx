@@ -29,7 +29,7 @@ const Cover = React.memo((): JSX.Element => {
         if (coverRef && coverRef.current) {
             const posToScrollTo: number = coverRef.current.clientHeight
     
-            window.scrollTo({
+            window.scroll({
                 top: posToScrollTo,
                 left: 0,
                 behavior: "smooth",

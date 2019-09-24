@@ -98,7 +98,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   var scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function () {
     if (coverRef && coverRef.current) {
       var posToScrollTo = coverRef.current.clientHeight;
-      window.scrollTo({
+      window.scroll({
         top: posToScrollTo,
         left: 0,
         behavior: "smooth"
@@ -25853,27 +25853,18 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var css = __webpack_require__(/*! ./index.module.css */ "./pages/index/index.module.css");
 
 var Home = function Home() {
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {// if ("serviceWorker" in navigator) {
-    //     navigator.serviceWorker.register("/sw.js")
-    //         .then(() => {
-    //             console.log('Succesfully registered service worker.')
-    //         })
-    //         .catch(error => {
-    //             console.log('Error while registering service worker.', error)
-    //         })
-    // } else {
-    //     console.log('Service worker not supported.')
-    // }   
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").then(function () {
+        console.log('Succesfully registered service worker.');
+      })["catch"](function (error) {
+        console.log('Error while registering service worker.', error);
+      });
+    } else {
+      console.log('Service worker not supported.');
+    }
   }, []);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, __jsx("title", null, "Portfolio"), __jsx("link", {
-    rel: "apple-touch-icon",
-    type: "image/png",
-    href: ""
-  }), __jsx("link", {
-    rel: "icon",
-    type: "image/png",
-    href: ""
-  }), __jsx("meta", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, __jsx("title", null, "Portfolio"), __jsx("meta", {
     charSet: "UTF-8"
   }), __jsx("meta", {
     name: "description",
