@@ -61,8 +61,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! smoothscroll-polyfill */ "./node_modules/smoothscroll-polyfill/dist/smoothscroll.js");
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var zenscroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zenscroll */ "./node_modules/zenscroll/zenscroll.js");
+/* harmony import */ var zenscroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zenscroll__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI/Icons/MediaIcons/MediaIcons */ "./components/UI/Icons/MediaIcons/MediaIcons.tsx");
 /* harmony import */ var _context_toolbarContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/toolbarContext */ "./context/toolbarContext.tsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
@@ -85,10 +85,8 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
       _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
       height = _React$useState2[0],
-      setHeight = _React$useState2[1]; // enable smoothscroll package
+      setHeight = _React$useState2[1];
 
-
-  smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_2___default.a.polyfill();
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
     setHeight(window.innerHeight);
     window.addEventListener('scroll', scrollHandler, true);
@@ -102,11 +100,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   var scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function () {
     if (coverRef && coverRef.current) {
       var posToScrollTo = coverRef.current.clientHeight;
-      window.scroll({
-        top: posToScrollTo,
-        left: 0,
-        behavior: "smooth"
-      });
+      zenscroll__WEBPACK_IMPORTED_MODULE_2___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
 
@@ -24920,447 +24914,6 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/smoothscroll-polyfill/dist/smoothscroll.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/smoothscroll-polyfill/dist/smoothscroll.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* smoothscroll v0.4.4 - 2019 - Dustan Kasten, Jeremias Menichelli - MIT License */
-(function () {
-  'use strict';
-
-  // polyfill
-  function polyfill() {
-    // aliases
-    var w = window;
-    var d = document;
-
-    // return if scroll behavior is supported and polyfill is not forced
-    if (
-      'scrollBehavior' in d.documentElement.style &&
-      w.__forceSmoothScrollPolyfill__ !== true
-    ) {
-      return;
-    }
-
-    // globals
-    var Element = w.HTMLElement || w.Element;
-    var SCROLL_TIME = 468;
-
-    // object gathering original scroll methods
-    var original = {
-      scroll: w.scroll || w.scrollTo,
-      scrollBy: w.scrollBy,
-      elementScroll: Element.prototype.scroll || scrollElement,
-      scrollIntoView: Element.prototype.scrollIntoView
-    };
-
-    // define timing method
-    var now =
-      w.performance && w.performance.now
-        ? w.performance.now.bind(w.performance)
-        : Date.now;
-
-    /**
-     * indicates if a the current browser is made by Microsoft
-     * @method isMicrosoftBrowser
-     * @param {String} userAgent
-     * @returns {Boolean}
-     */
-    function isMicrosoftBrowser(userAgent) {
-      var userAgentPatterns = ['MSIE ', 'Trident/', 'Edge/'];
-
-      return new RegExp(userAgentPatterns.join('|')).test(userAgent);
-    }
-
-    /*
-     * IE has rounding bug rounding down clientHeight and clientWidth and
-     * rounding up scrollHeight and scrollWidth causing false positives
-     * on hasScrollableSpace
-     */
-    var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
-
-    /**
-     * changes scroll position inside an element
-     * @method scrollElement
-     * @param {Number} x
-     * @param {Number} y
-     * @returns {undefined}
-     */
-    function scrollElement(x, y) {
-      this.scrollLeft = x;
-      this.scrollTop = y;
-    }
-
-    /**
-     * returns result of applying ease math function to a number
-     * @method ease
-     * @param {Number} k
-     * @returns {Number}
-     */
-    function ease(k) {
-      return 0.5 * (1 - Math.cos(Math.PI * k));
-    }
-
-    /**
-     * indicates if a smooth behavior should be applied
-     * @method shouldBailOut
-     * @param {Number|Object} firstArg
-     * @returns {Boolean}
-     */
-    function shouldBailOut(firstArg) {
-      if (
-        firstArg === null ||
-        typeof firstArg !== 'object' ||
-        firstArg.behavior === undefined ||
-        firstArg.behavior === 'auto' ||
-        firstArg.behavior === 'instant'
-      ) {
-        // first argument is not an object/null
-        // or behavior is auto, instant or undefined
-        return true;
-      }
-
-      if (typeof firstArg === 'object' && firstArg.behavior === 'smooth') {
-        // first argument is an object and behavior is smooth
-        return false;
-      }
-
-      // throw error when behavior is not supported
-      throw new TypeError(
-        'behavior member of ScrollOptions ' +
-          firstArg.behavior +
-          ' is not a valid value for enumeration ScrollBehavior.'
-      );
-    }
-
-    /**
-     * indicates if an element has scrollable space in the provided axis
-     * @method hasScrollableSpace
-     * @param {Node} el
-     * @param {String} axis
-     * @returns {Boolean}
-     */
-    function hasScrollableSpace(el, axis) {
-      if (axis === 'Y') {
-        return el.clientHeight + ROUNDING_TOLERANCE < el.scrollHeight;
-      }
-
-      if (axis === 'X') {
-        return el.clientWidth + ROUNDING_TOLERANCE < el.scrollWidth;
-      }
-    }
-
-    /**
-     * indicates if an element has a scrollable overflow property in the axis
-     * @method canOverflow
-     * @param {Node} el
-     * @param {String} axis
-     * @returns {Boolean}
-     */
-    function canOverflow(el, axis) {
-      var overflowValue = w.getComputedStyle(el, null)['overflow' + axis];
-
-      return overflowValue === 'auto' || overflowValue === 'scroll';
-    }
-
-    /**
-     * indicates if an element can be scrolled in either axis
-     * @method isScrollable
-     * @param {Node} el
-     * @param {String} axis
-     * @returns {Boolean}
-     */
-    function isScrollable(el) {
-      var isScrollableY = hasScrollableSpace(el, 'Y') && canOverflow(el, 'Y');
-      var isScrollableX = hasScrollableSpace(el, 'X') && canOverflow(el, 'X');
-
-      return isScrollableY || isScrollableX;
-    }
-
-    /**
-     * finds scrollable parent of an element
-     * @method findScrollableParent
-     * @param {Node} el
-     * @returns {Node} el
-     */
-    function findScrollableParent(el) {
-      while (el !== d.body && isScrollable(el) === false) {
-        el = el.parentNode || el.host;
-      }
-
-      return el;
-    }
-
-    /**
-     * self invoked function that, given a context, steps through scrolling
-     * @method step
-     * @param {Object} context
-     * @returns {undefined}
-     */
-    function step(context) {
-      var time = now();
-      var value;
-      var currentX;
-      var currentY;
-      var elapsed = (time - context.startTime) / SCROLL_TIME;
-
-      // avoid elapsed times higher than one
-      elapsed = elapsed > 1 ? 1 : elapsed;
-
-      // apply easing to elapsed time
-      value = ease(elapsed);
-
-      currentX = context.startX + (context.x - context.startX) * value;
-      currentY = context.startY + (context.y - context.startY) * value;
-
-      context.method.call(context.scrollable, currentX, currentY);
-
-      // scroll more if we have not reached our destination
-      if (currentX !== context.x || currentY !== context.y) {
-        w.requestAnimationFrame(step.bind(w, context));
-      }
-    }
-
-    /**
-     * scrolls window or element with a smooth behavior
-     * @method smoothScroll
-     * @param {Object|Node} el
-     * @param {Number} x
-     * @param {Number} y
-     * @returns {undefined}
-     */
-    function smoothScroll(el, x, y) {
-      var scrollable;
-      var startX;
-      var startY;
-      var method;
-      var startTime = now();
-
-      // define scroll context
-      if (el === d.body) {
-        scrollable = w;
-        startX = w.scrollX || w.pageXOffset;
-        startY = w.scrollY || w.pageYOffset;
-        method = original.scroll;
-      } else {
-        scrollable = el;
-        startX = el.scrollLeft;
-        startY = el.scrollTop;
-        method = scrollElement;
-      }
-
-      // scroll looping over a frame
-      step({
-        scrollable: scrollable,
-        method: method,
-        startTime: startTime,
-        startX: startX,
-        startY: startY,
-        x: x,
-        y: y
-      });
-    }
-
-    // ORIGINAL METHODS OVERRIDES
-    // w.scroll and w.scrollTo
-    w.scroll = w.scrollTo = function() {
-      // avoid action when no arguments are passed
-      if (arguments[0] === undefined) {
-        return;
-      }
-
-      // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0]) === true) {
-        original.scroll.call(
-          w,
-          arguments[0].left !== undefined
-            ? arguments[0].left
-            : typeof arguments[0] !== 'object'
-              ? arguments[0]
-              : w.scrollX || w.pageXOffset,
-          // use top prop, second argument if present or fallback to scrollY
-          arguments[0].top !== undefined
-            ? arguments[0].top
-            : arguments[1] !== undefined
-              ? arguments[1]
-              : w.scrollY || w.pageYOffset
-        );
-
-        return;
-      }
-
-      // LET THE SMOOTHNESS BEGIN!
-      smoothScroll.call(
-        w,
-        d.body,
-        arguments[0].left !== undefined
-          ? ~~arguments[0].left
-          : w.scrollX || w.pageXOffset,
-        arguments[0].top !== undefined
-          ? ~~arguments[0].top
-          : w.scrollY || w.pageYOffset
-      );
-    };
-
-    // w.scrollBy
-    w.scrollBy = function() {
-      // avoid action when no arguments are passed
-      if (arguments[0] === undefined) {
-        return;
-      }
-
-      // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0])) {
-        original.scrollBy.call(
-          w,
-          arguments[0].left !== undefined
-            ? arguments[0].left
-            : typeof arguments[0] !== 'object' ? arguments[0] : 0,
-          arguments[0].top !== undefined
-            ? arguments[0].top
-            : arguments[1] !== undefined ? arguments[1] : 0
-        );
-
-        return;
-      }
-
-      // LET THE SMOOTHNESS BEGIN!
-      smoothScroll.call(
-        w,
-        d.body,
-        ~~arguments[0].left + (w.scrollX || w.pageXOffset),
-        ~~arguments[0].top + (w.scrollY || w.pageYOffset)
-      );
-    };
-
-    // Element.prototype.scroll and Element.prototype.scrollTo
-    Element.prototype.scroll = Element.prototype.scrollTo = function() {
-      // avoid action when no arguments are passed
-      if (arguments[0] === undefined) {
-        return;
-      }
-
-      // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0]) === true) {
-        // if one number is passed, throw error to match Firefox implementation
-        if (typeof arguments[0] === 'number' && arguments[1] === undefined) {
-          throw new SyntaxError('Value could not be converted');
-        }
-
-        original.elementScroll.call(
-          this,
-          // use left prop, first number argument or fallback to scrollLeft
-          arguments[0].left !== undefined
-            ? ~~arguments[0].left
-            : typeof arguments[0] !== 'object' ? ~~arguments[0] : this.scrollLeft,
-          // use top prop, second argument or fallback to scrollTop
-          arguments[0].top !== undefined
-            ? ~~arguments[0].top
-            : arguments[1] !== undefined ? ~~arguments[1] : this.scrollTop
-        );
-
-        return;
-      }
-
-      var left = arguments[0].left;
-      var top = arguments[0].top;
-
-      // LET THE SMOOTHNESS BEGIN!
-      smoothScroll.call(
-        this,
-        this,
-        typeof left === 'undefined' ? this.scrollLeft : ~~left,
-        typeof top === 'undefined' ? this.scrollTop : ~~top
-      );
-    };
-
-    // Element.prototype.scrollBy
-    Element.prototype.scrollBy = function() {
-      // avoid action when no arguments are passed
-      if (arguments[0] === undefined) {
-        return;
-      }
-
-      // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0]) === true) {
-        original.elementScroll.call(
-          this,
-          arguments[0].left !== undefined
-            ? ~~arguments[0].left + this.scrollLeft
-            : ~~arguments[0] + this.scrollLeft,
-          arguments[0].top !== undefined
-            ? ~~arguments[0].top + this.scrollTop
-            : ~~arguments[1] + this.scrollTop
-        );
-
-        return;
-      }
-
-      this.scroll({
-        left: ~~arguments[0].left + this.scrollLeft,
-        top: ~~arguments[0].top + this.scrollTop,
-        behavior: arguments[0].behavior
-      });
-    };
-
-    // Element.prototype.scrollIntoView
-    Element.prototype.scrollIntoView = function() {
-      // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0]) === true) {
-        original.scrollIntoView.call(
-          this,
-          arguments[0] === undefined ? true : arguments[0]
-        );
-
-        return;
-      }
-
-      // LET THE SMOOTHNESS BEGIN!
-      var scrollableParent = findScrollableParent(this);
-      var parentRects = scrollableParent.getBoundingClientRect();
-      var clientRects = this.getBoundingClientRect();
-
-      if (scrollableParent !== d.body) {
-        // reveal element inside parent
-        smoothScroll.call(
-          this,
-          scrollableParent,
-          scrollableParent.scrollLeft + clientRects.left - parentRects.left,
-          scrollableParent.scrollTop + clientRects.top - parentRects.top
-        );
-
-        // reveal parent in viewport unless is fixed
-        if (w.getComputedStyle(scrollableParent).position !== 'fixed') {
-          w.scrollBy({
-            left: parentRects.left,
-            top: parentRects.top,
-            behavior: 'smooth'
-          });
-        }
-      } else {
-        // reveal element in viewport
-        w.scrollBy({
-          left: clientRects.left,
-          top: clientRects.top,
-          behavior: 'smooth'
-        });
-      }
-    };
-  }
-
-  if (true) {
-    // commonjs
-    module.exports = { polyfill: polyfill };
-  } else {}
-
-}());
-
-
-/***/ }),
-
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -26272,6 +25825,365 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./node_modules/zenscroll/zenscroll.js":
+/*!*********************************************!*\
+  !*** ./node_modules/zenscroll/zenscroll.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Zenscroll 4.0.2
+ * https://github.com/zengabor/zenscroll/
+ *
+ * Copyright 2015–2018 Gabor Lenard
+ *
+ * This is free and unencumbered software released into the public domain.
+ * 
+ * Anyone is free to copy, modify, publish, use, compile, sell, or
+ * distribute this software, either in source code form or as a compiled
+ * binary, for any purpose, commercial or non-commercial, and by any
+ * means.
+ * 
+ * In jurisdictions that recognize copyright laws, the author or authors
+ * of this software dedicate any and all copyright interest in the
+ * software to the public domain. We make this dedication for the benefit
+ * of the public at large and to the detriment of our heirs and
+ * successors. We intend this dedication to be an overt act of
+ * relinquishment in perpetuity of all present and future rights to this
+ * software under copyright law.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ * 
+ * For more information, please refer to <http://unlicense.org>
+ * 
+ */
+
+/*jshint devel:true, asi:true */
+
+/*global define, module */
+
+
+(function (root, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory()),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	} else {}
+}(this, function () {
+	"use strict"
+
+
+	// Detect if the browser already supports native smooth scrolling (e.g., Firefox 36+ and Chrome 49+) and it is enabled:
+	var isNativeSmoothScrollEnabledOn = function (elem) {
+		return elem && "getComputedStyle" in window &&
+			window.getComputedStyle(elem)["scroll-behavior"] === "smooth"
+	}
+
+
+	// Exit if it’s not a browser environment:
+	if (typeof window === "undefined" || !("document" in window)) {
+		return {}
+	}
+
+
+	var makeScroller = function (container, defaultDuration, edgeOffset) {
+
+		// Use defaults if not provided
+		defaultDuration = defaultDuration || 999 //ms
+		if (!edgeOffset && edgeOffset !== 0) {
+			// When scrolling, this amount of distance is kept from the edges of the container:
+			edgeOffset = 9 //px
+		}
+
+		// Handling the life-cycle of the scroller
+		var scrollTimeoutId
+		var setScrollTimeoutId = function (newValue) {
+			scrollTimeoutId = newValue
+		}
+
+		/**
+		 * Stop the current smooth scroll operation immediately
+		 */
+		var stopScroll = function () {
+			clearTimeout(scrollTimeoutId)
+			setScrollTimeoutId(0)
+		}
+
+		var getTopWithEdgeOffset = function (elem) {
+			return Math.max(0, container.getTopOf(elem) - edgeOffset)
+		}
+
+		/**
+		 * Scrolls to a specific vertical position in the document.
+		 *
+		 * @param {targetY} The vertical position within the document.
+		 * @param {duration} Optionally the duration of the scroll operation.
+		 *        If not provided the default duration is used.
+		 * @param {onDone} An optional callback function to be invoked once the scroll finished.
+		 */
+		var scrollToY = function (targetY, duration, onDone) {
+			stopScroll()
+			if (duration === 0 || (duration && duration < 0) || isNativeSmoothScrollEnabledOn(container.body)) {
+				container.toY(targetY)
+				if (onDone) {
+					onDone()
+				}
+			} else {
+				var startY = container.getY()
+				var distance = Math.max(0, targetY) - startY
+				var startTime = new Date().getTime()
+				duration = duration || Math.min(Math.abs(distance), defaultDuration);
+				(function loopScroll() {
+					setScrollTimeoutId(setTimeout(function () {
+						// Calculate percentage:
+						var p = Math.min(1, (new Date().getTime() - startTime) / duration)
+						// Calculate the absolute vertical position:
+						var y = Math.max(0, Math.floor(startY + distance*(p < 0.5 ? 2*p*p : p*(4 - p*2)-1)))
+						container.toY(y)
+						if (p < 1 && (container.getHeight() + y) < container.body.scrollHeight) {
+							loopScroll()
+						} else {
+							setTimeout(stopScroll, 99) // with cooldown time
+							if (onDone) {
+								onDone()
+							}
+						}
+					}, 9))
+				})()
+			}
+		}
+
+		/**
+		 * Scrolls to the top of a specific element.
+		 *
+		 * @param {elem} The element to scroll to.
+		 * @param {duration} Optionally the duration of the scroll operation.
+		 * @param {onDone} An optional callback function to be invoked once the scroll finished.
+		 */
+		var scrollToElem = function (elem, duration, onDone) {
+			scrollToY(getTopWithEdgeOffset(elem), duration, onDone)
+		}
+
+		/**
+		 * Scrolls an element into view if necessary.
+		 *
+		 * @param {elem} The element.
+		 * @param {duration} Optionally the duration of the scroll operation.
+		 * @param {onDone} An optional callback function to be invoked once the scroll finished.
+		 */
+		var scrollIntoView = function (elem, duration, onDone) {
+			var elemHeight = elem.getBoundingClientRect().height
+			var elemBottom = container.getTopOf(elem) + elemHeight
+			var containerHeight = container.getHeight()
+			var y = container.getY()
+			var containerBottom = y + containerHeight
+			if (getTopWithEdgeOffset(elem) < y || (elemHeight + edgeOffset) > containerHeight) {
+				// Element is clipped at top or is higher than screen.
+				scrollToElem(elem, duration, onDone)
+			} else if ((elemBottom + edgeOffset) > containerBottom) {
+				// Element is clipped at the bottom.
+				scrollToY(elemBottom - containerHeight + edgeOffset, duration, onDone)
+			} else if (onDone) {
+				onDone()
+			}
+		}
+
+		/**
+		 * Scrolls to the center of an element.
+		 *
+		 * @param {elem} The element.
+		 * @param {duration} Optionally the duration of the scroll operation.
+		 * @param {offset} Optionally the offset of the top of the element from the center of the screen.
+		 *        A value of 0 is ignored.
+		 * @param {onDone} An optional callback function to be invoked once the scroll finished.
+		 */
+		var scrollToCenterOf = function (elem, duration, offset, onDone) {
+			scrollToY(Math.max(0, container.getTopOf(elem) - container.getHeight()/2 + (offset || elem.getBoundingClientRect().height/2)), duration, onDone)
+		}
+
+		/**
+		 * Changes default settings for this scroller.
+		 *
+		 * @param {newDefaultDuration} Optionally a new value for default duration, used for each scroll method by default.
+		 *        Ignored if null or undefined.
+		 * @param {newEdgeOffset} Optionally a new value for the edge offset, used by each scroll method by default. Ignored if null or undefined.
+		 * @returns An object with the current values.
+		 */
+		var setup = function (newDefaultDuration, newEdgeOffset) {
+			if (newDefaultDuration === 0 || newDefaultDuration) {
+				defaultDuration = newDefaultDuration
+			}
+			if (newEdgeOffset === 0 || newEdgeOffset) {
+				edgeOffset = newEdgeOffset
+			}
+			return {
+				defaultDuration: defaultDuration,
+				edgeOffset: edgeOffset
+			}
+		}
+
+		return {
+			setup: setup,
+			to: scrollToElem,
+			toY: scrollToY,
+			intoView: scrollIntoView,
+			center: scrollToCenterOf,
+			stop: stopScroll,
+			moving: function () { return !!scrollTimeoutId },
+			getY: container.getY,
+			getTopOf: container.getTopOf
+		}
+
+	}
+
+
+	var docElem = document.documentElement
+	var getDocY = function () { return window.scrollY || docElem.scrollTop }
+
+	// Create a scroller for the document:
+	var zenscroll = makeScroller({
+		body: document.scrollingElement || document.body,
+		toY: function (y) { window.scrollTo(0, y) },
+		getY: getDocY,
+		getHeight: function () { return window.innerHeight || docElem.clientHeight },
+		getTopOf: function (elem) { return elem.getBoundingClientRect().top + getDocY() - docElem.offsetTop }
+	})
+
+
+	/**
+	 * Creates a scroller from the provided container element (e.g., a DIV)
+	 *
+	 * @param {scrollContainer} The vertical position within the document.
+	 * @param {defaultDuration} Optionally a value for default duration, used for each scroll method by default.
+	 *        Ignored if 0 or null or undefined.
+	 * @param {edgeOffset} Optionally a value for the edge offset, used by each scroll method by default. 
+	 *        Ignored if null or undefined.
+	 * @returns A scroller object, similar to `zenscroll` but controlling the provided element.
+	 */
+	zenscroll.createScroller = function (scrollContainer, defaultDuration, edgeOffset) {
+		return makeScroller({
+			body: scrollContainer,
+			toY: function (y) { scrollContainer.scrollTop = y },
+			getY: function () { return scrollContainer.scrollTop },
+			getHeight: function () { return Math.min(scrollContainer.clientHeight, window.innerHeight || docElem.clientHeight) },
+			getTopOf: function (elem) { return elem.offsetTop }
+		}, defaultDuration, edgeOffset)
+	}
+
+
+	// Automatic link-smoothing on achors
+	// Exclude IE8- or when native is enabled or Zenscroll auto- is disabled
+	if ("addEventListener" in window && !window.noZensmooth && !isNativeSmoothScrollEnabledOn(document.body)) {
+
+		var isHistorySupported = "history" in window && "pushState" in history
+		var isScrollRestorationSupported = isHistorySupported && "scrollRestoration" in history
+
+		// On first load & refresh make sure the browser restores the position first
+		if (isScrollRestorationSupported) {
+			history.scrollRestoration = "auto"
+		}
+
+		window.addEventListener("load", function () {
+
+			if (isScrollRestorationSupported) {
+				// Set it to manual
+				setTimeout(function () { history.scrollRestoration = "manual" }, 9)
+				window.addEventListener("popstate", function (event) {
+					if (event.state && "zenscrollY" in event.state) {
+						zenscroll.toY(event.state.zenscrollY)
+					}
+				}, false)
+			}
+
+			// Add edge offset on first load if necessary
+			// This may not work on IE (or older computer?) as it requires more timeout, around 100 ms
+			if (window.location.hash) {
+				setTimeout(function () {
+					// Adjustment is only needed if there is an edge offset:
+					var edgeOffset = zenscroll.setup().edgeOffset
+					if (edgeOffset) {
+						var targetElem = document.getElementById(window.location.href.split("#")[1])
+						if (targetElem) {
+							var targetY = Math.max(0, zenscroll.getTopOf(targetElem) - edgeOffset)
+							var diff = zenscroll.getY() - targetY
+							// Only do the adjustment if the browser is very close to the element:
+							if (0 <= diff && diff < 9 ) {
+								window.scrollTo(0, targetY)
+							}
+						}
+					}
+				}, 9)
+			}
+
+		}, false)
+
+		// Handling clicks on anchors
+		var RE_noZensmooth = new RegExp("(^|\\s)noZensmooth(\\s|$)")
+		window.addEventListener("click", function (event) {
+			var anchor = event.target
+			while (anchor && anchor.tagName !== "A") {
+				anchor = anchor.parentNode
+			}
+			// Let the browser handle the click if it wasn't with the primary button, or with some modifier keys:
+			if (!anchor || event.which !== 1 || event.shiftKey || event.metaKey || event.ctrlKey || event.altKey) {
+				return
+			}
+			// Save the current scrolling position so it can be used for scroll restoration:
+			if (isScrollRestorationSupported) {
+				var historyState = history.state && typeof history.state === "object" ? history.state : {}
+				historyState.zenscrollY = zenscroll.getY()
+				try {
+					history.replaceState(historyState, "")
+				} catch (e) {
+					// Avoid the Chrome Security exception on file protocol, e.g., file://index.html
+				}
+			}
+			// Find the referenced ID:
+			var href = anchor.getAttribute("href") || ""
+			if (href.indexOf("#") === 0 && !RE_noZensmooth.test(anchor.className)) {
+				var targetY = 0
+				var targetElem = document.getElementById(href.substring(1))
+				if (href !== "#") {
+					if (!targetElem) {
+						// Let the browser handle the click if the target ID is not found.
+						return
+					}
+					targetY = zenscroll.getTopOf(targetElem)
+				}
+				event.preventDefault()
+				// By default trigger the browser's `hashchange` event...
+				var onDone = function () { window.location = href }
+				// ...unless there is an edge offset specified
+				var edgeOffset = zenscroll.setup().edgeOffset
+				if (edgeOffset) {
+					targetY = Math.max(0, targetY - edgeOffset)
+					if (isHistorySupported) {
+						onDone = function () { history.pushState({}, "", href) }
+					}
+				}
+				zenscroll.toY(targetY, null, onDone)
+			}
+		}, false)
+
+	}
+
+
+	return zenscroll
+
+
+}));
+
+
+/***/ }),
+
 /***/ "./pages/index/index.tsx":
 /*!*******************************!*\
   !*** ./pages/index/index.tsx ***!
@@ -26408,7 +26320,7 @@ var portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.Bur
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fjoojo%2Fcode%2Fportfolio%2Fpages%2Findex%2Findex.tsx ***!
   \*******************************************************************************************************************************/
@@ -26431,5 +26343,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

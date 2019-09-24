@@ -1,5 +1,5 @@
 import React from 'react'
-import smoothscroll from 'smoothscroll-polyfill'
+import zenscroll from 'zenscroll'
 
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons'
 import { IToolbar, ToolbarContext } from '../../context/toolbarContext'
@@ -12,9 +12,6 @@ const Cover = React.memo((): JSX.Element => {
     const toolbarContext: IToolbar = React.useContext(ToolbarContext)
     const coverRef = React.useRef<HTMLDivElement>(null)
     const[height, setHeight] = React.useState<number | undefined>(undefined)
-
-    // enable smoothscroll package
-    smoothscroll.polyfill()
     
     React.useEffect(() => {
         setHeight(window.innerHeight)
@@ -32,11 +29,7 @@ const Cover = React.memo((): JSX.Element => {
         if (coverRef && coverRef.current) {
             const posToScrollTo: number = coverRef.current.clientHeight
     
-            window.scroll({
-                top: posToScrollTo,
-                left: 0,
-                behavior: "smooth",
-            })
+            zenscroll.toY(posToScrollTo)
         }
     }, [coverRef])
 

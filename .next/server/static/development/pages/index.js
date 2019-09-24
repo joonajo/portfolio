@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -223,8 +223,8 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! smoothscroll-polyfill */ "smoothscroll-polyfill");
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var zenscroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! zenscroll */ "zenscroll");
+/* harmony import */ var zenscroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(zenscroll__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../UI/Icons/MediaIcons/MediaIcons */ "./components/UI/Icons/MediaIcons/MediaIcons.tsx");
 /* harmony import */ var _context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/toolbarContext */ "./context/toolbarContext.tsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
@@ -243,9 +243,7 @@ const css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   const toolbarContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__["ToolbarContext"]);
   const coverRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
-  const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined); // enable smoothscroll package
-
-  smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_1___default.a.polyfill();
+  const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
     setHeight(window.innerHeight);
     window.addEventListener('scroll', scrollHandler, true);
@@ -257,11 +255,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   const scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_0___default.a.useCallback(() => {
     if (coverRef && coverRef.current) {
       const posToScrollTo = coverRef.current.clientHeight;
-      window.scroll({
-        top: posToScrollTo,
-        left: 0,
-        behavior: "smooth"
-      });
+      zenscroll__WEBPACK_IMPORTED_MODULE_1___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
   const [arrowIn, setArrowIn] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
@@ -1488,7 +1482,7 @@ const portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.B
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
@@ -1676,17 +1670,6 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "smoothscroll-polyfill":
-/*!****************************************!*\
-  !*** external "smoothscroll-polyfill" ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("smoothscroll-polyfill");
-
-/***/ }),
-
 /***/ "url":
 /*!**********************!*\
   !*** external "url" ***!
@@ -1695,6 +1678,17 @@ module.exports = require("smoothscroll-polyfill");
 /***/ (function(module, exports) {
 
 module.exports = require("url");
+
+/***/ }),
+
+/***/ "zenscroll":
+/*!****************************!*\
+  !*** external "zenscroll" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("zenscroll");
 
 /***/ })
 
