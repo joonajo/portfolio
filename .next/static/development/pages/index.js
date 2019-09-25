@@ -26235,6 +26235,12 @@ var Home = function Home() {
   }), __jsx("meta", {
     name: "viewport",
     content: "width=device-width, initial-scale=1.0"
+  }), __jsx("link", {
+    rel: "manifest",
+    href: "/static/manifest/manifest.json"
+  }), __jsx("link", {
+    rel: "apple-touch-icon",
+    href: ""
   })), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], null), __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
@@ -26320,7 +26326,7 @@ var portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.Bur
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fjoojo%2Fcode%2Fportfolio%2Fpages%2Findex%2Findex.tsx ***!
   \*******************************************************************************************************************************/
@@ -26343,5 +26349,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

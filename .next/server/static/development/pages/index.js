@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1397,6 +1397,12 @@ const Home = () => {
   }), __jsx("meta", {
     name: "viewport",
     content: "width=device-width, initial-scale=1.0"
+  }), __jsx("link", {
+    rel: "manifest",
+    href: "/static/manifest/manifest.json"
+  }), __jsx("link", {
+    rel: "apple-touch-icon",
+    href: ""
   })), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], null), __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
@@ -1482,7 +1488,7 @@ const portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.B
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/

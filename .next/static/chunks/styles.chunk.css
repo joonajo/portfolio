@@ -320,7 +320,7 @@
     font-family: "Ubuntu Bold";
     letter-spacing: .1em;
     text-transform: uppercase;
-    background: linear-gradient(90deg, rgba(255,91,91,1) 0%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 150%);
+    background: linear-gradient(90deg, rgba(255,91,91,1) 30%, rgba(255,111,205,1) 100%, rgba(255,203,109,1) 150%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -373,7 +373,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -381,7 +381,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: royalblue;
+    background: rgb(39, 65, 141);
     border-radius: 0;
 }
 .Item___2HggL {

@@ -31,6 +31,8 @@ const Home: NextPage = (): JSX.Element => {
                 <meta name="keywords" content="Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio," />
                 <meta name="author" content="Joona Joenpolvi" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="manifest" href="/static/manifest/manifest.json" />
+                <link rel="apple-touch-icon" href="" />
             </Head>
             <Layout>
                 <Cover />
