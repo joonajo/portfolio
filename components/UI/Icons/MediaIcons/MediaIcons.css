@@ -9,14 +9,12 @@
 }
 
 .Icons.vertical {
+  margin: 10px;
   flex-flow: column;
-  font-size: 1.2em;
 }
 
 .Icon {
-  font-size: 1.0em;
   overflow: hidden;
-  text-transform: uppercase;
   transition: all .3s;
   display: flex;
   flex-flow: row;
@@ -26,29 +24,35 @@
 
 .Icon.horizontal {
   box-sizing: border-box;
-  --size: 30px;
+  --horizontalSize: 30px;
   color: lavender;
   background: rgba(255, 255, 255, .2);
-  padding: var(--padding);
   margin: 5px;
-  width: var(--size);
-  height: var(--size);
+  width: var(--horizontalSize);
+  height: var(--horizontalSize);
+  line-height: var(--horizontalSize);
   border-radius: 50%;
-  text-align: center;
+}
+
+.Icon.horizontal svg {
+  width: 15px;
 }
 
 .Icon.vertical {
   box-sizing: border-box;
-  --size: 40px;
+  --verticalSize: 40px;
   color: lavender;
   background: rgba(255, 255, 255, .1);
-  padding: var(--padding);
   margin: 5px;
-  width: var(--size);
-  height: var(--size);
-  line-height: var(--size);
+  width: var(--verticalSize);
+  height: var(--verticalSize);
+  line-height: var(--verticalSize);
   border-radius: 50%;
   text-align: center;
+}
+
+.Icon.vertical svg {
+  width: 15px;
 }
 
 .Github::after {

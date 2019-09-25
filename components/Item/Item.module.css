@@ -100,18 +100,20 @@
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 
 .HardwareIcons {
   position: relative;
-  left: 0%;
   display: flex;
   flex-flow: column;
+  align-items: center;
+  justify-content: center;
   width: 80px;
+  height: 100%;
 }
 
 .HardwareIconContainer {
-  padding: 10px;
   width: 100%;
   position: relative;
   color: dimgray;
@@ -119,6 +121,7 @@
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .HardwareIcon {
@@ -127,16 +130,35 @@
   text-align: center;
 }
 
+.DesktopIcon svg {
+  width: 1.4em;
+  margin-bottom: -3px;
+}
+
+.MobileIcon svg {
+  width: 1.1em;
+  margin-bottom: -3px;
+}
+
+.CheckMarkIcon svg,
+.TimesIcon svg {
+  width: 1.4em;
+  margin-bottom: -3px;
+}
+
 .ItemLinks {
   width: 150px;
   position: relative;
   font-family: "Ubuntu Medium";
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ItemLinkContainer {
   cursor: pointer;
   width: 100%;
-  padding: 10px 5px;
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -146,7 +168,7 @@
   color: darkblue;
   background: rgba(220, 220, 220, 0.6);
   margin: 5px 0;
-  border-radius: 0px;
+  padding: 5px;
 }
 
 .ItemLinkContainer:hover {
@@ -156,12 +178,12 @@
 
 .ItemLinkContainer:hover svg {
   transform: scale(1.1);
+  transition: all .1s;
 }
 
 .ItemLink {
   padding: 0;
   margin: 0;
-  font-size: .9em;
   width: 60%;
   text-transform: uppercase;
   text-align: center;
@@ -170,6 +192,11 @@
 .ItemLinkIcon {
   width: 40%;
   text-align: center;
+}
+
+.ItemLinkIcon svg {
+  height: 1.7em;
+  margin-bottom: -3px;
 }
 
 .ImageContainer {
@@ -239,6 +266,11 @@
   margin: 0 5px;
   color: gray;
   transition: all .3s;
+}
+
+.MaskLinkIcon svg {
+  width: 15px;
+  margin-bottom: -3px;
 }
 
 .MaskLink:hover .MaskLinkIcon {

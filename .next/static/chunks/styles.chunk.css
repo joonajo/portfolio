@@ -9,14 +9,12 @@
 }
 
 .Icons___1jyXr.vertical___28aPN {
+  margin: 10px;
   flex-flow: column;
-  font-size: 1.2em;
 }
 
 .Icon___6e_S1 {
-  font-size: 1.0em;
   overflow: hidden;
-  text-transform: uppercase;
   transition: all .3s;
   display: flex;
   flex-flow: row;
@@ -26,29 +24,35 @@
 
 .Icon___6e_S1.horizontal___6Fpxy {
   box-sizing: border-box;
-  --size: 30px;
+  --horizontalSize: 30px;
   color: lavender;
   background: rgba(255, 255, 255, .2);
-  padding: var(--padding);
   margin: 5px;
-  width: var(--size);
-  height: var(--size);
+  width: var(--horizontalSize);
+  height: var(--horizontalSize);
+  line-height: var(--horizontalSize);
   border-radius: 50%;
-  text-align: center;
+}
+
+.Icon___6e_S1.horizontal___6Fpxy svg {
+  width: 15px;
 }
 
 .Icon___6e_S1.vertical___28aPN {
   box-sizing: border-box;
-  --size: 40px;
+  --verticalSize: 40px;
   color: lavender;
   background: rgba(255, 255, 255, .1);
-  padding: var(--padding);
   margin: 5px;
-  width: var(--size);
-  height: var(--size);
-  line-height: var(--size);
+  width: var(--verticalSize);
+  height: var(--verticalSize);
+  line-height: var(--verticalSize);
   border-radius: 50%;
   text-align: center;
+}
+
+.Icon___6e_S1.vertical___28aPN svg {
+  width: 15px;
 }
 
 .Github___2Regp::after {
@@ -178,6 +182,10 @@
 .ArrowIcon___1oTzX:hover {
     background: royalblue;
     color: black;
+}
+
+.ArrowIcon___1oTzX svg {
+    height: 15px;
 }
 
 .ArrowText___16L4d {
@@ -325,6 +333,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transform: scale(1, 1.1);
+    text-shadow: 1px 1px 10px gainsboro;
 }
 @font-face {
     font-family: "Ubuntu";
@@ -371,6 +380,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
 }
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -486,18 +496,20 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 
 .HardwareIcons___2HOvV {
   position: relative;
-  left: 0%;
   display: flex;
   flex-flow: column;
+  align-items: center;
+  justify-content: center;
   width: 80px;
+  height: 100%;
 }
 
 .HardwareIconContainer___130pR {
-  padding: 10px;
   width: 100%;
   position: relative;
   color: dimgray;
@@ -505,6 +517,7 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .HardwareIcon___21LZp {
@@ -513,16 +526,35 @@ body {
   text-align: center;
 }
 
+.DesktopIcon___tKpYK svg {
+  width: 1.4em;
+  margin-bottom: -3px;
+}
+
+.MobileIcon___clOeX svg {
+  width: 1.1em;
+  margin-bottom: -3px;
+}
+
+.CheckMarkIcon___35uzl svg,
+.TimesIcon___2co4K svg {
+  width: 1.4em;
+  margin-bottom: -3px;
+}
+
 .ItemLinks___30O86 {
   width: 150px;
   position: relative;
   font-family: "Ubuntu Medium";
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ItemLinkContainer___2PKLE {
   cursor: pointer;
   width: 100%;
-  padding: 10px 5px;
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -532,7 +564,7 @@ body {
   color: darkblue;
   background: rgba(220, 220, 220, 0.6);
   margin: 5px 0;
-  border-radius: 0px;
+  padding: 5px;
 }
 
 .ItemLinkContainer___2PKLE:hover {
@@ -542,12 +574,12 @@ body {
 
 .ItemLinkContainer___2PKLE:hover svg {
   transform: scale(1.1);
+  transition: all .1s;
 }
 
 .ItemLink___3DGlD {
   padding: 0;
   margin: 0;
-  font-size: .9em;
   width: 60%;
   text-transform: uppercase;
   text-align: center;
@@ -556,6 +588,11 @@ body {
 .ItemLinkIcon___2LwMV {
   width: 40%;
   text-align: center;
+}
+
+.ItemLinkIcon___2LwMV svg {
+  height: 1.7em;
+  margin-bottom: -3px;
 }
 
 .ImageContainer___17WA_ {
@@ -625,6 +662,11 @@ body {
   margin: 0 5px;
   color: gray;
   transition: all .3s;
+}
+
+.MaskLinkIcon___23L6- svg {
+  width: 15px;
+  margin-bottom: -3px;
 }
 
 .MaskLink___3V_OW:hover .MaskLinkIcon___23L6- {

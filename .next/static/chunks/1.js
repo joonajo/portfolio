@@ -103,8 +103,7 @@ var ItemInfo = function ItemInfo(props) {
   }, "Github"), __jsx("div", {
     className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faGithub,
-    size: "lg"
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faGithub
   }))), __jsx("a", {
     className: css.ItemLinkContainer,
     href: props.link,
@@ -115,8 +114,7 @@ var ItemInfo = function ItemInfo(props) {
   }, "Open"), __jsx("div", {
     className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExternalLinkSquareAlt,
-    size: "lg"
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExternalLinkSquareAlt
   })))), __jsx(HardwareIcons, {
     desktop: props.desktop,
     mobile: props.mobile
@@ -131,40 +129,34 @@ var HardwareIcons = function HardwareIcons(_ref) {
   }, __jsx("div", {
     className: css.HardwareIconContainer
   }, __jsx("div", {
-    className: css.HardwareIcon
+    className: [css.HardwareIcon, css.DesktopIcon].join(' ')
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    className: css.DesktopIcon,
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faDesktop,
-    size: "lg"
-  })), __jsx("div", {
-    className: css.HardwareIcon
-  }, desktop ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faCheck,
-    size: "lg",
-    color: "green"
-  }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes,
-    size: "lg",
-    color: "crimson"
-  }))), __jsx("div", {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faDesktop
+  })), desktop ? __jsx(CheckMarkIcon, null) : __jsx(TimesIcon, null)), __jsx("div", {
     className: css.HardwareIconContainer
   }, __jsx("div", {
-    className: css.HardwareIcon
+    className: [css.HardwareIcon, css.MobileIcon].join(' ')
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    className: css.DesktopIcon,
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faMobileAlt,
-    size: "lg"
-  })), __jsx("div", {
-    className: css.HardwareIcon
-  }, mobile ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faMobileAlt
+  })), mobile ? __jsx(CheckMarkIcon, null) : __jsx(TimesIcon, null)));
+};
+
+var CheckMarkIcon = function CheckMarkIcon() {
+  return __jsx("div", {
+    className: [css.HardwareIcon, css.CheckMarkIcon].join(' ')
+  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faCheck,
-    size: "lg",
     color: "green"
-  }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+  }));
+};
+
+var TimesIcon = function TimesIcon() {
+  return __jsx("div", {
+    className: [css.HardwareIcon, css.TimesIcon].join(' ')
+  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes,
-    size: "lg",
     color: "crimson"
-  }))));
+  }));
 };
 
 var ItemImage = function ItemImage(props) {
@@ -200,15 +192,7 @@ var MaskLink = function MaskLink(_ref2) {
     rel: "noopener noreferrer"
   }, __jsx("div", {
     className: css.MaskLinkText
-  }, __jsx("span", null, text)), __jsx("div", {
-    className: css.MaskLinkIcon
-  }, icon === 'github' ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faGithub,
-    size: "lg"
-  }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExternalLinkSquareAlt,
-    size: "lg"
-  })));
+  }, __jsx("span", null, text)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Item);

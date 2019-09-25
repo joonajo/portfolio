@@ -12,15 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.22",
-    "@fortawesome/free-brands-svg-icons": "^5.10.2",
-    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@types/zenscroll": "^4.0.0",
     "@zeit/next-css": "^1.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-svgo": "^7.0.0",
-    "next": "^9.0.5",
+    "next": "^9.0.6",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.5.3",
     "next-typed-css": "^1.0.1",
@@ -29,9 +29,9 @@
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^12.7.5",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
+    "@types/node": "^12.7.7",
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
     "typescript": "^3.6.3"
   }
 }

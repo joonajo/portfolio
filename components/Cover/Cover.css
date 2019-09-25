@@ -110,6 +110,10 @@
     color: black;
 }
 
+.ArrowIcon svg {
+    height: 15px;
+}
+
 .ArrowText {
     position: absolute;
     color:  rgba(255, 255, 255, 0.5);

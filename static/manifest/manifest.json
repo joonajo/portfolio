@@ -1,19 +1,9 @@
 {
-    "short_name": "Portfolio",
     "name": "Portfolio by Joona Jo",
-    "icons": [
-      {
-        "src": "/images/icons-192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/images/icons-512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#00000"
-  }
+    "short_name": "Portfolio",
+    "theme_color": "#071b9f",
+    "background_color": "#ffffff",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
+}

@@ -413,6 +413,220 @@ module.exports = _interopRequireWildcard;
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/next-server/lib/constants.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/next/dist/next-server/lib/constants.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+
+_Object$defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.PHASE_EXPORT = 'phase-export';
+exports.PHASE_PRODUCTION_BUILD = 'phase-production-build';
+exports.PHASE_PRODUCTION_SERVER = 'phase-production-server';
+exports.PHASE_DEVELOPMENT_SERVER = 'phase-development-server';
+exports.PAGES_MANIFEST = 'pages-manifest.json';
+exports.BUILD_MANIFEST = 'build-manifest.json';
+exports.PRERENDER_MANIFEST = 'prerender-manifest.json';
+exports.REACT_LOADABLE_MANIFEST = 'react-loadable-manifest.json';
+exports.SERVER_DIRECTORY = 'server';
+exports.SERVERLESS_DIRECTORY = 'serverless';
+exports.CONFIG_FILE = 'next.config.js';
+exports.BUILD_ID_FILE = 'BUILD_ID';
+exports.BLOCKED_PAGES = ['/_document', '/_app'];
+exports.CLIENT_PUBLIC_FILES_PATH = 'public';
+exports.CLIENT_STATIC_FILES_PATH = 'static';
+exports.CLIENT_STATIC_FILES_RUNTIME = 'runtime';
+exports.CLIENT_STATIC_FILES_RUNTIME_PATH = `${exports.CLIENT_STATIC_FILES_PATH}/${exports.CLIENT_STATIC_FILES_RUNTIME}`; // static/runtime/main.js
+
+exports.CLIENT_STATIC_FILES_RUNTIME_MAIN = `${exports.CLIENT_STATIC_FILES_RUNTIME_PATH}/main.js`; // static/runtime/amp.js
+
+exports.CLIENT_STATIC_FILES_RUNTIME_AMP = `${exports.CLIENT_STATIC_FILES_RUNTIME_PATH}/amp.js`; // static/runtime/webpack.js
+
+exports.CLIENT_STATIC_FILES_RUNTIME_WEBPACK = `${exports.CLIENT_STATIC_FILES_RUNTIME_PATH}/webpack.js`; // matches static/<buildid>/pages/<page>.js
+
+exports.IS_BUNDLED_PAGE_REGEX = /^static[/\\][^/\\]+[/\\]pages.*\.js$/; // matches static/<buildid>/pages/:page*.js
+
+exports.ROUTE_NAME_REGEX = /^static[/\\][^/\\]+[/\\]pages[/\\](.*)\.js$/;
+exports.SERVERLESS_ROUTE_NAME_REGEX = /^pages[/\\](.*)\.js$/;
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/next-server/lib/utils.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/next/dist/next-server/lib/utils.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Object$keys = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+
+var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+
+_Object$defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const url_1 = __webpack_require__(/*! url */ "url");
+/**
+ * Utils
+ */
+
+
+function execOnce(fn) {
+  let used = false;
+  return (...args) => {
+    if (!used) {
+      used = true;
+      fn.apply(this, args);
+    }
+  };
+}
+
+exports.execOnce = execOnce;
+
+function getLocationOrigin() {
+  const {
+    protocol,
+    hostname,
+    port
+  } = window.location;
+  return `${protocol}//${hostname}${port ? ':' + port : ''}`;
+}
+
+exports.getLocationOrigin = getLocationOrigin;
+
+function getURL() {
+  const {
+    href
+  } = window.location;
+  const origin = getLocationOrigin();
+  return href.substring(origin.length);
+}
+
+exports.getURL = getURL;
+
+function getDisplayName(Component) {
+  return typeof Component === 'string' ? Component : Component.displayName || Component.name || 'Unknown';
+}
+
+exports.getDisplayName = getDisplayName;
+
+function isResSent(res) {
+  return res.finished || res.headersSent;
+}
+
+exports.isResSent = isResSent;
+
+async function loadGetInitialProps(Component, ctx) {
+  if (true) {
+    if (Component.prototype && Component.prototype.getInitialProps) {
+      const message = `"${getDisplayName(Component)}.getInitialProps()" is defined as an instance method - visit https://err.sh/zeit/next.js/get-initial-props-as-an-instance-method for more information.`;
+      throw new Error(message);
+    }
+  } // when called from _app `ctx` is nested in `ctx`
+
+
+  const res = ctx.res || ctx.ctx && ctx.ctx.res;
+
+  if (!Component.getInitialProps) {
+    return {};
+  }
+
+  const props = await Component.getInitialProps(ctx);
+
+  if (res && isResSent(res)) {
+    return props;
+  }
+
+  if (!props) {
+    const message = `"${getDisplayName(Component)}.getInitialProps()" should resolve to an object. But found "${props}" instead.`;
+    throw new Error(message);
+  }
+
+  if (true) {
+    if (_Object$keys(props).length === 0 && !ctx.ctx) {
+      console.warn(`${getDisplayName(Component)} returned an empty object from \`getInitialProps\`. This de-optimizes and prevents automatic prerendering. https://err.sh/zeit/next.js/empty-object-getInitialProps`);
+    }
+  }
+
+  return props;
+}
+
+exports.loadGetInitialProps = loadGetInitialProps;
+exports.urlObjectKeys = ['auth', 'hash', 'host', 'hostname', 'href', 'path', 'pathname', 'port', 'protocol', 'query', 'search', 'slashes'];
+
+function formatWithValidation(url, options) {
+  if (true) {
+    if (url !== null && typeof url === 'object') {
+      _Object$keys(url).forEach(key => {
+        if (exports.urlObjectKeys.indexOf(key) === -1) {
+          console.warn(`Unknown key passed via urlObject into url.format: ${key}`);
+        }
+      });
+    }
+  }
+
+  return url_1.format(url, options);
+}
+
+exports.formatWithValidation = formatWithValidation;
+exports.SUPPORTS_PERFORMANCE = typeof performance !== 'undefined';
+exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/next-server/server/utils.js":
+/*!************************************************************!*\
+  !*** ./node_modules/next/dist/next-server/server/utils.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = __webpack_require__(/*! ../lib/constants */ "./node_modules/next/dist/next-server/lib/constants.js");
+const internalPrefixes = [/^\/_next\//, /^\/static\//];
+function isInternalUrl(url) {
+    for (const prefix of internalPrefixes) {
+        if (prefix.test(url)) {
+            return true;
+        }
+    }
+    return false;
+}
+exports.isInternalUrl = isInternalUrl;
+function isBlockedPage(pathname) {
+    return constants_1.BLOCKED_PAGES.indexOf(pathname) !== -1;
+}
+exports.isBlockedPage = isBlockedPage;
+function cleanAmpPath(pathname) {
+    if (pathname.match(/\?amp=(y|yes|true|1)/)) {
+        pathname = pathname.replace(/\?amp=(y|yes|true|1)/, '?');
+    }
+    if (pathname.match(/&amp=(y|yes|true|1)/)) {
+        pathname = pathname.replace(/\?amp=(y|yes|true|1)/, '');
+    }
+    pathname = pathname.replace(/\?$/, '');
+    return pathname;
+}
+exports.cleanAmpPath = cleanAmpPath;
+
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/pages/_document.js":
 /*!***************************************************!*\
   !*** ./node_modules/next/dist/pages/_document.js ***!
@@ -449,9 +663,9 @@ var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "p
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
-var _utils = __webpack_require__(/*! next-server/dist/server/utils */ "next-server/dist/server/utils");
+var _utils = __webpack_require__(/*! ../next-server/server/utils */ "./node_modules/next/dist/next-server/server/utils.js");
 
-var _utils2 = __webpack_require__(/*! next-server/dist/lib/utils */ "next-server/dist/lib/utils");
+var _utils2 = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
 
 exports.DocumentContext = _utils2.DocumentContext;
 exports.DocumentInitialProps = _utils2.DocumentInitialProps;
@@ -461,7 +675,7 @@ var _htmlescape = __webpack_require__(/*! ../server/htmlescape */ "./node_module
 
 var _server = _interopRequireDefault(__webpack_require__(/*! styled-jsx/server */ "styled-jsx/server"));
 
-var _constants = __webpack_require__(/*! next-server/constants */ "next-server/constants");
+var _constants = __webpack_require__(/*! ../next-server/lib/constants */ "./node_modules/next/dist/next-server/lib/constants.js");
 /* eslint-disable */
 
 
@@ -567,7 +781,8 @@ class Html extends _react.Component {
       inAmpMode
     } = this.context._documentProps;
     return _react.default.createElement("html", (0, _extends2.default)({}, this.props, {
-      amp: inAmpMode ? '' : undefined
+      amp: inAmpMode ? '' : undefined,
+      "data-ampdevmode": inAmpMode && "development" !== 'production' ? '' : undefined
     }));
   }
 
@@ -607,7 +822,7 @@ class Head extends _react.Component {
         key: file,
         nonce: this.props.nonce,
         rel: "stylesheet",
-        href: assetPrefix + "/_next/" + file,
+        href: assetPrefix + "/_next/" + encodeURI(file),
         crossOrigin: this.props.crossOrigin || undefined
       });
     });
@@ -632,7 +847,7 @@ class Head extends _react.Component {
       return _react.default.createElement("link", {
         rel: "preload",
         key: bundle.file,
-        href: assetPrefix + "/_next/" + bundle.file + _devOnlyInvalidateCacheQueryString,
+        href: assetPrefix + "/_next/" + encodeURI(bundle.file) + _devOnlyInvalidateCacheQueryString,
         as: "script",
         nonce: this.props.nonce,
         crossOrigin: this.props.crossOrigin || undefined
@@ -667,7 +882,7 @@ class Head extends _react.Component {
         key: file,
         nonce: this.props.nonce,
         rel: "preload",
-        href: assetPrefix + "/_next/" + file + _devOnlyInvalidateCacheQueryString,
+        href: assetPrefix + "/_next/" + encodeURI(file) + _devOnlyInvalidateCacheQueryString,
         as: "script",
         crossOrigin: this.props.crossOrigin || undefined
       });
@@ -802,13 +1017,13 @@ class Head extends _react.Component {
       href: canonicalBase + getAmpPath(ampPath, dangerousAsPath)
     }), page !== '/_error' && _react.default.createElement("link", {
       rel: "preload",
-      href: assetPrefix + getOptionalModernScriptVariant("/_next/static/" + buildId + "/pages" + getPageFile(page)) + _devOnlyInvalidateCacheQueryString,
+      href: assetPrefix + getOptionalModernScriptVariant(encodeURI("/_next/static/" + buildId + "/pages" + getPageFile(page))) + _devOnlyInvalidateCacheQueryString,
       as: "script",
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
     }), _react.default.createElement("link", {
       rel: "preload",
-      href: assetPrefix + getOptionalModernScriptVariant("/_next/static/" + buildId + "/pages/_app.js") + _devOnlyInvalidateCacheQueryString,
+      href: assetPrefix + getOptionalModernScriptVariant(encodeURI("/_next/static/" + buildId + "/pages/_app.js")) + _devOnlyInvalidateCacheQueryString,
       as: "script",
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
@@ -864,7 +1079,8 @@ class NextScript extends _react.Component {
   getDynamicChunks() {
     const {
       dynamicImports,
-      assetPrefix
+      assetPrefix,
+      files
     } = this.context._documentProps;
     const {
       _devOnlyInvalidateCacheQueryString
@@ -874,10 +1090,11 @@ class NextScript extends _react.Component {
 
       if (false) {}
 
+      if (files.includes(bundle.file)) return null;
       return _react.default.createElement("script", (0, _extends2.default)({
         async: true,
         key: bundle.file,
-        src: assetPrefix + "/_next/" + bundle.file + _devOnlyInvalidateCacheQueryString,
+        src: assetPrefix + "/_next/" + encodeURI(bundle.file) + _devOnlyInvalidateCacheQueryString,
         nonce: this.props.nonce,
         crossOrigin: this.props.crossOrigin || undefined
       }, modernProps));
@@ -909,7 +1126,7 @@ class NextScript extends _react.Component {
 
       return _react.default.createElement("script", (0, _extends2.default)({
         key: file,
-        src: assetPrefix + "/_next/" + file + _devOnlyInvalidateCacheQueryString,
+        src: assetPrefix + "/_next/" + encodeURI(file) + _devOnlyInvalidateCacheQueryString,
         nonce: this.props.nonce,
         async: true,
         crossOrigin: this.props.crossOrigin || undefined
@@ -958,13 +1175,13 @@ class NextScript extends _react.Component {
         dangerouslySetInnerHTML: {
           __html: NextScript.getInlineScriptSource(this.context._documentProps)
         },
-        "data-amp-development-mode-only": true
+        "data-ampdevmode": true
       }), devFiles ? devFiles.map(file => _react.default.createElement("script", {
         key: file,
         src: assetPrefix + "/_next/" + file + _devOnlyInvalidateCacheQueryString,
         nonce: this.props.nonce,
         crossOrigin: this.props.crossOrigin || undefined,
-        "data-amp-development-mode-only": true
+        "data-ampdevmode": true
       })) : null);
     }
 
@@ -981,7 +1198,7 @@ class NextScript extends _react.Component {
       async: true,
       "data-next-page": page,
       key: page,
-      src: assetPrefix + ("/_next/static/" + buildId + "/pages" + getPageFile(page)) + _devOnlyInvalidateCacheQueryString,
+      src: assetPrefix + encodeURI("/_next/static/" + buildId + "/pages" + getPageFile(page)) + _devOnlyInvalidateCacheQueryString,
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
     },  false ? undefined : {})),  false && false];
@@ -995,7 +1212,7 @@ class NextScript extends _react.Component {
     },  false ? undefined : {})),  false && false];
     return _react.default.createElement(_react.default.Fragment, null, devFiles ? devFiles.map(file => !file.match(/\.js\.map/) && _react.default.createElement("script", {
       key: file,
-      src: assetPrefix + "/_next/" + file + _devOnlyInvalidateCacheQueryString,
+      src: assetPrefix + "/_next/" + encodeURI(file) + _devOnlyInvalidateCacheQueryString,
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
     })) : null, staticMarkup ? null : _react.default.createElement("script", {
@@ -1224,39 +1441,6 @@ module.exports = require("core-js/library/fn/set");
 
 /***/ }),
 
-/***/ "next-server/constants":
-/*!****************************************!*\
-  !*** external "next-server/constants" ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next-server/constants");
-
-/***/ }),
-
-/***/ "next-server/dist/lib/utils":
-/*!*********************************************!*\
-  !*** external "next-server/dist/lib/utils" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next-server/dist/lib/utils");
-
-/***/ }),
-
-/***/ "next-server/dist/server/utils":
-/*!************************************************!*\
-  !*** external "next-server/dist/server/utils" ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next-server/dist/server/utils");
-
-/***/ }),
-
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -1287,6 +1471,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("styled-jsx/server");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("url");
 
 /***/ })
 

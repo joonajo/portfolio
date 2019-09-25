@@ -21,6 +21,10 @@ module.exports = {
 	"HardwareIcons": "HardwareIcons___2HOvV",
 	"HardwareIconContainer": "HardwareIconContainer___130pR",
 	"HardwareIcon": "HardwareIcon___21LZp",
+	"DesktopIcon": "DesktopIcon___tKpYK",
+	"MobileIcon": "MobileIcon___clOeX",
+	"CheckMarkIcon": "CheckMarkIcon___35uzl",
+	"TimesIcon": "TimesIcon___2co4K",
 	"ItemLinks": "ItemLinks___30O86",
 	"ItemLinkContainer": "ItemLinkContainer___2PKLE",
 	"ItemLink": "ItemLink___3DGlD",
@@ -129,8 +133,7 @@ const ItemInfo = props => {
   }, "Github"), __jsx("div", {
     className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faGithub,
-    size: "lg"
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faGithub
   }))), __jsx("a", {
     className: css.ItemLinkContainer,
     href: props.link,
@@ -141,8 +144,7 @@ const ItemInfo = props => {
   }, "Open"), __jsx("div", {
     className: css.ItemLinkIcon
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExternalLinkSquareAlt,
-    size: "lg"
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExternalLinkSquareAlt
   })))), __jsx(HardwareIcons, {
     desktop: props.desktop,
     mobile: props.mobile
@@ -157,40 +159,30 @@ const HardwareIcons = ({
 }, __jsx("div", {
   className: css.HardwareIconContainer
 }, __jsx("div", {
-  className: css.HardwareIcon
+  className: [css.HardwareIcon, css.DesktopIcon].join(' ')
 }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-  className: css.DesktopIcon,
-  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faDesktop,
-  size: "lg"
-})), __jsx("div", {
-  className: css.HardwareIcon
-}, desktop ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faCheck,
-  size: "lg",
-  color: "green"
-}) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faTimes,
-  size: "lg",
-  color: "crimson"
-}))), __jsx("div", {
+  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faDesktop
+})), desktop ? __jsx(CheckMarkIcon, null) : __jsx(TimesIcon, null)), __jsx("div", {
   className: css.HardwareIconContainer
 }, __jsx("div", {
-  className: css.HardwareIcon
+  className: [css.HardwareIcon, css.MobileIcon].join(' ')
 }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-  className: css.DesktopIcon,
-  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faMobileAlt,
-  size: "lg"
-})), __jsx("div", {
-  className: css.HardwareIcon
-}, mobile ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+  icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faMobileAlt
+})), mobile ? __jsx(CheckMarkIcon, null) : __jsx(TimesIcon, null)));
+
+const CheckMarkIcon = () => __jsx("div", {
+  className: [css.HardwareIcon, css.CheckMarkIcon].join(' ')
+}, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
   icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faCheck,
-  size: "lg",
   color: "green"
-}) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+}));
+
+const TimesIcon = () => __jsx("div", {
+  className: [css.HardwareIcon, css.TimesIcon].join(' ')
+}, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
   icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faTimes,
-  size: "lg",
   color: "crimson"
-}))));
+}));
 
 const ItemImage = props => {
   return __jsx("div", {
@@ -226,15 +218,7 @@ const MaskLink = ({
     rel: "noopener noreferrer"
   }, __jsx("div", {
     className: css.MaskLinkText
-  }, __jsx("span", null, text)), __jsx("div", {
-    className: css.MaskLinkIcon
-  }, icon === 'github' ? __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faGithub,
-    size: "lg"
-  }) : __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExternalLinkSquareAlt,
-    size: "lg"
-  })));
+  }, __jsx("span", null, text)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Item);

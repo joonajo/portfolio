@@ -80,18 +80,18 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
       </p>
       <div className={css.IconsAndLinks}>
         <div className={css.ItemLinks}>
-            <a className={css.ItemLinkContainer} href={props.githubLink} target="_blank" rel="noopener noreferrer">
-              <p className={css.ItemLink}>Github</p>
-              <div className={css.ItemLinkIcon}>
-                <FontAwesomeIcon icon={icons.faGithub} size="lg" />
-              </div>
-            </a>
-            <a className={css.ItemLinkContainer} href={props.link} target="_blank" rel="noopener noreferrer">
-              <p className={css.ItemLink}>Open</p>
-              <div className={css.ItemLinkIcon}>
-                <FontAwesomeIcon icon={icons.faExternalLinkSquareAlt} size="lg" />
-              </div>
-            </a>
+          <a className={css.ItemLinkContainer} href={props.githubLink} target="_blank" rel="noopener noreferrer">
+            <p className={css.ItemLink}>Github</p>
+            <div className={css.ItemLinkIcon}>
+              <FontAwesomeIcon icon={icons.faGithub} />
+            </div>
+          </a>
+          <a className={css.ItemLinkContainer} href={props.link} target="_blank" rel="noopener noreferrer">
+            <p className={css.ItemLink}>Open</p>
+            <div className={css.ItemLinkIcon}>
+              <FontAwesomeIcon icon={icons.faExternalLinkSquareAlt} />
+            </div>
+          </a>
         </div>
         <HardwareIcons desktop={props.desktop} mobile={props.mobile} />
       </div>
@@ -107,21 +107,33 @@ interface IHardwareICons {
 const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({ desktop, mobile }): JSX.Element => (
   <div className={css.HardwareIcons}>
     <div className={css.HardwareIconContainer}>
-      <div className={css.HardwareIcon}>
-        <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faDesktop} size="lg" />
+      <div className={[css.HardwareIcon, css.DesktopIcon].join(' ')}>
+        <FontAwesomeIcon icon={icons.faDesktop} />
       </div>
-      <div className={css.HardwareIcon}>
-        {desktop ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
-      </div>
+      {desktop ?
+        <CheckMarkIcon /> : <TimesIcon />
+      }
     </div>
     <div className={css.HardwareIconContainer}>
-      <div className={css.HardwareIcon}>
-        <FontAwesomeIcon className={css.DesktopIcon} icon={icons.faMobileAlt} size="lg" />
+      <div className={[css.HardwareIcon, css.MobileIcon].join(' ')}>
+        <FontAwesomeIcon icon={icons.faMobileAlt} />
       </div>
-      <div className={css.HardwareIcon}>
-        {mobile ? <FontAwesomeIcon icon={icons.faCheck} size="lg" color="green" /> : <FontAwesomeIcon icon={icons.faTimes} size="lg" color="crimson" />}
-      </div>
+      {mobile ? 
+        <CheckMarkIcon /> : <TimesIcon />
+      }
     </div>
+  </div>
+)
+
+const CheckMarkIcon: React.FunctionComponent = (): JSX.Element => (
+  <div className={[css.HardwareIcon, css.CheckMarkIcon].join(' ')}>
+    <FontAwesomeIcon icon={icons.faCheck} color="green" />
+  </div>
+)
+
+const TimesIcon: React.FunctionComponent = (): JSX.Element => (
+  <div className={[css.HardwareIcon, css.TimesIcon].join(' ')}>
+    <FontAwesomeIcon icon={icons.faTimes} color="crimson" />
   </div>
 )
 
@@ -156,12 +168,6 @@ const MaskLink: React.FunctionComponent<IMaskLink> = ({ address, text, icon }): 
       <a href={address} className={css.MaskLink} target='_blank' rel="noopener noreferrer">
           <div className={css.MaskLinkText}>
               <span>{text}</span>
-          </div>
-          <div className={css.MaskLinkIcon}>
-              {icon === 'github' ? 
-                <FontAwesomeIcon icon={icons.faGithub} size="lg" /> 
-                : <FontAwesomeIcon icon={icons.faExternalLinkSquareAlt} size="lg" />
-              }
           </div>
       </a>
   )
