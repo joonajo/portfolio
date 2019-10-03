@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2428,6 +2428,9 @@ const Home = () => {
   }), __jsx("meta", {
     name: "viewport",
     content: "width=device-width, initial-scale=1.0"
+  }), __jsx("meta", {
+    name: "theme-color",
+    content: "#071b9f"
   }), __jsx("link", {
     rel: "manifest",
     href: "/static/manifest/manifest.json"
@@ -2519,7 +2522,7 @@ const portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.B
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
