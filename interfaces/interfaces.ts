@@ -7,6 +7,7 @@ export interface IPortfolioItem {
     githubLink: string
     description: string
     video_src: string
+    gif_src: string
     desktop: boolean
     mobile: boolean
 }

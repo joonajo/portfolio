@@ -38,7 +38,8 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
     <div className={itemClasses} ref={itemRef} >
       <p className={css.Title}><span>{props.title}</span></p>
       <div className={css.ItemContent}>
-        <ItemImage video_src={props.video_src} 
+        <ItemImage video_src={props.video_src}
+          gif_src={props.gif_src} 
           link={props.link} 
           githubLink={props.githubLink} />
         <ItemInfo languages={props.language}
@@ -139,6 +140,7 @@ const TimesIcon: React.FunctionComponent = (): JSX.Element => (
 
 interface IImage {
   video_src: string
+  gif_src: string
   link: string
   githubLink: string
 }
@@ -146,7 +148,7 @@ interface IImage {
 const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
   return (
     <div className={css.ImageContainer}>
-      <img className={css.Image} src={props.video_src} alt='portfolio-img'/>
+      <img className={css.Image} src={props.gif_src} alt='portfolio-img'/>
       <div className={css.ImageMask}>
         <div className={css.MaskLinks}>
           <MaskLink address={props.link} text="Open" icon={"link"} />

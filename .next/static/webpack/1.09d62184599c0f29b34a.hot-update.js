@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+webpackHotUpdate(1,{
 
 /***/ "./components/Item/Item.tsx":
 /*!**********************************!*\
@@ -200,5 +200,5 @@ var MaskLink = function MaskLink(_ref2) {
 
 /***/ })
 
-}]);
-//# sourceMappingURL=1.js.map
+})
+//# sourceMappingURL=1.09d62184599c0f29b34a.hot-update.js.map

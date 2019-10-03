@@ -26360,6 +26360,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/classics-next',
     description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to become the champion!",
     video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
+    gif_src: '/static/gifs/classics.gif',
     desktop: true,
     mobile: false
   },
@@ -26370,6 +26371,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/Nasa-Hub',
     description: 'Built with React + TypeScript + Redux. Utilizes open NASA APIs. Check out the Astronomy Picture of the Day (APOD), latest Mars rover images as well as Earth from the space with the EPIC API.',
     video_src: 'https://thumbs.gfycat.com/MemorableFarCoelacanth-size_restricted.gif',
+    gif_src: '/static/gifs/nasahub.gif',
     desktop: true,
     mobile: true
   },
@@ -26380,6 +26382,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/Weather-app',
     description: 'Built with React + TypeScript + Redux. Utilizes three different APIs (OpenWeatherMap, TimezoneDB & Geonames) to seamlessly check the weather all over the world, with timezones adjusted accordingly.',
     video_src: 'https://thumbs.gfycat.com/WellmadeTangibleGreatargus-size_restricted.gif',
+    gif_src: '/static/gifs/weatherapp.gif',
     desktop: true,
     mobile: true
   },
@@ -26390,6 +26393,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/Burger-Builder',
     description: 'Built with ReactJS + Redux. Utilizes Firebase account authorization and realtime database. Build your own burger and order it!',
     video_src: 'https://thumbs.gfycat.com/CavernousDisastrousBlackfootedferret-size_restricted.gif',
+    gif_src: '/static/gifs/burgerbuilder.gif',
     desktop: true,
     mobile: true
   },
@@ -26400,6 +26404,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/Todo-ReactTS',
     description: 'Built with React + TypeScript. Utilizes Firebase Cloud database (Firestore) and account authorization. Make a todo-list, check/remove items, and keep it saved in the database!',
     video_src: 'https://thumbs.gfycat.com/AnotherFantasticHoneybee-size_restricted.gif',
+    gif_src: '/static/gifs/todo.gif',
     desktop: true,
     mobile: true
   },
@@ -26410,6 +26415,7 @@ var items = {
     githubLink: 'https://github.com/joonajo/CannonGame',
     description: 'Built purely with C++ and the SFML graphics library. A simple Cannon Game against a basic AI.',
     video_src: 'https://media.giphy.com/media/ftB8xRdaDJHzk2v6Ur/giphy.gif',
+    gif_src: '/static/gifs/cannongame.gif',
     desktop: true,
     mobile: false
   }

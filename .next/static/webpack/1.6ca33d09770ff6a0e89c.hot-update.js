@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+webpackHotUpdate(1,{
 
 /***/ "./components/Item/Item.tsx":
 /*!**********************************!*\
@@ -165,7 +165,7 @@ var ItemImage = function ItemImage(props) {
     className: css.ImageContainer
   }, __jsx("img", {
     className: css.Image,
-    src: props.gif_src,
+    src: props.video_src,
     alt: "portfolio-img"
   }), __jsx("div", {
     className: css.ImageMask
@@ -200,5 +200,5 @@ var MaskLink = function MaskLink(_ref2) {
 
 /***/ })
 
-}]);
-//# sourceMappingURL=1.js.map
+})
+//# sourceMappingURL=1.6ca33d09770ff6a0e89c.hot-update.js.map

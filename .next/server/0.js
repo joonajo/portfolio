@@ -92,6 +92,7 @@ const Item = props => {
     className: css.ItemContent
   }, __jsx(ItemImage, {
     video_src: props.video_src,
+    gif_src: props.gif_src,
     link: props.link,
     githubLink: props.githubLink
   }), __jsx(ItemInfo, {
@@ -189,7 +190,7 @@ const ItemImage = props => {
     className: css.ImageContainer
   }, __jsx("img", {
     className: css.Image,
-    src: props.video_src,
+    src: props.gif_src,
     alt: "portfolio-img"
   }), __jsx("div", {
     className: css.ImageMask
