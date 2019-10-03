@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2463,9 +2463,20 @@ let Languages;
   Languages["TypeScript"] = "TypeScript";
   Languages["JavaScript"] = "JavaScript";
   Languages["Cpp"] = "C++";
+  Languages["NextJS"] = "NextJS";
 })(Languages || (Languages = {}));
 
 const items = {
+  ClassicGames: {
+    title: 'Classic Games',
+    language: [Languages.React, Languages.TypeScript, Languages.NextJS],
+    link: 'https://classics-next.joonajo.now.sh',
+    githubLink: 'https://github.com/joonajo/classics-next',
+    description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to become the champion!",
+    video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
+    desktop: true,
+    mobile: false
+  },
   NasaHub: {
     title: 'Nasa Hub',
     language: [Languages.React, Languages.TypeScript],
@@ -2518,11 +2529,11 @@ const items = {
   }
 }; // makes it easy to switch up the order if needed
 
-const portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.BurgerBuilder, items.CannonGame];
+const portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, items.TodoList, items.BurgerBuilder, items.CannonGame];
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/

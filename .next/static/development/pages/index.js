@@ -26349,9 +26349,20 @@ var Languages;
   Languages["TypeScript"] = "TypeScript";
   Languages["JavaScript"] = "JavaScript";
   Languages["Cpp"] = "C++";
+  Languages["NextJS"] = "NextJS";
 })(Languages || (Languages = {}));
 
 var items = {
+  ClassicGames: {
+    title: 'Classic Games',
+    language: [Languages.React, Languages.TypeScript, Languages.NextJS],
+    link: 'https://classics-next.joonajo.now.sh',
+    githubLink: 'https://github.com/joonajo/classics-next',
+    description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to become the champion!",
+    video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
+    desktop: true,
+    mobile: false
+  },
   NasaHub: {
     title: 'Nasa Hub',
     language: [Languages.React, Languages.TypeScript],
@@ -26404,11 +26415,11 @@ var items = {
   }
 }; // makes it easy to switch up the order if needed
 
-var portfolioItems = [items.NasaHub, items.WeatherApp, items.TodoList, items.BurgerBuilder, items.CannonGame];
+var portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, items.TodoList, items.BurgerBuilder, items.CannonGame];
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fjoojo%2Fcode%2Fportfolio%2Fpages%2Findex%2Findex.tsx ***!
   \*******************************************************************************************************************************/
@@ -26431,5 +26442,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

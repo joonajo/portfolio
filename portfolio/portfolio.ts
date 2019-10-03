@@ -5,9 +5,20 @@ export enum Languages {
     TypeScript = 'TypeScript',
     JavaScript = 'JavaScript',
     Cpp = 'C++',
+    NextJS = 'NextJS',
 }
   
 export const items = {
+    ClassicGames: {
+        title: 'Classic Games',
+        language: [Languages.React, Languages.TypeScript, Languages.NextJS],
+        link: 'https://classics-next.joonajo.now.sh',
+        githubLink: 'https://github.com/joonajo/classics-next',
+        description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to become the champion!",
+        video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
+        desktop: true,
+        mobile: false,
+    },
     NasaHub: { 
         title: 'Nasa Hub',
         language: [Languages.React, Languages.TypeScript],
@@ -62,6 +73,7 @@ export const items = {
   
 // makes it easy to switch up the order if needed
 export const portfolioItems: IPortfolioItem[] = [
+    items.ClassicGames,
     items.NasaHub,
     items.WeatherApp,
     items.TodoList,
