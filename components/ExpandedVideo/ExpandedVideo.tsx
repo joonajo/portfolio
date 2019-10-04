@@ -51,7 +51,7 @@ const ExpandedVideo: React.FunctionComponent<IExpandedVideo> = ({ video_src, clo
         <div className={classes}>
             <div className={css.VideoContainer}>
                 <video className={css.Video} controls >
-                    <source src={video_src} type="video/webm"/>
+                    <source src={video_src} type="video/mp4"/>
                 </video>
             </div>
             <div className={css.CloseButton} onClick={() => close()}>

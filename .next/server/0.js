@@ -85,7 +85,7 @@ const ExpandedVideo = ({
     controls: true
   }, __jsx("source", {
     src: video_src,
-    type: "video/webm"
+    type: "video/mp4"
   }))), __jsx("div", {
     className: css.CloseButton,
     onClick: () => close()
