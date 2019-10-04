@@ -6,6 +6,7 @@ import {
     faCheck,
     faTimes,
     faChevronDown,
+    faExpand,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -26,4 +27,5 @@ export const icons = {
     faCheck,
     faTimes,
     faChevronDown,
+    faExpand,
 }

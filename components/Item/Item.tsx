@@ -151,10 +151,28 @@ const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
       <img className={css.Image} src={props.gif_src} alt='portfolio-img'/>
       <div className={css.ImageMask}>
         <div className={css.MaskLinks}>
-          <MaskLink address={props.link} text="Open" icon={"link"} />
-          <MaskLink address={props.githubLink} text="Github" icon={"github"} />
+          {/* <MaskLink address={props.link} text="Open" icon={"link"} />
+          <MaskLink address={props.githubLink} text="Github" icon={"github"} /> */}
+          <ExpandVideo video_src={props.video_src} />
         </div>
       </div>
+    </div>
+  )
+}
+
+interface IExpandVideo {
+  video_src: string
+}
+
+const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ video_src }): JSX.Element => {
+  const classes = [
+    css.ExpandVideo
+  ].join(' ')
+
+  return (
+    <div className={classes}>
+      <p>Expand Video</p>
+      <FontAwesomeIcon icon={icons.faExpand} color='white' />
     </div>
   )
 }

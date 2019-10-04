@@ -34,7 +34,8 @@ module.exports = {
 	"MaskLinks": "MaskLinks___1129d",
 	"MaskLink": "MaskLink___3V_OW",
 	"MaskLinkText": "MaskLinkText___EPhQZ",
-	"MaskLinkIcon": "MaskLinkIcon___23L6-"
+	"MaskLinkIcon": "MaskLinkIcon___23L6-",
+	"ExpandVideo": "ExpandVideo___3Y-9o"
 };
 
 /***/ }),
@@ -196,15 +197,21 @@ const ItemImage = props => {
     className: css.ImageMask
   }, __jsx("div", {
     className: css.MaskLinks
-  }, __jsx(MaskLink, {
-    address: props.link,
-    text: "Open",
-    icon: "link"
-  }), __jsx(MaskLink, {
-    address: props.githubLink,
-    text: "Github",
-    icon: "github"
+  }, __jsx(ExpandVideo, {
+    video_src: props.video_src
   }))));
+};
+
+const ExpandVideo = ({
+  video_src
+}) => {
+  const classes = [css.ExpandVideo].join(' ');
+  return __jsx("div", {
+    className: classes
+  }, __jsx("p", null, "Expand Video"), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExpand,
+    color: "white"
+  }));
 };
 
 const MaskLink = ({

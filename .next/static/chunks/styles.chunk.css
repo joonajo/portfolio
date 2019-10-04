@@ -664,6 +664,40 @@ body {
   transition: all .3s;
 }
 
+.ExpandVideo___3Y-9o {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ExpandVideo___3Y-9o p {
+  border-radius: 5px;
+  color: gray;
+  background: transparent;
+  padding: 5px;
+  transition: all .2s;
+}
+
+.ExpandVideo___3Y-9o:hover p {
+  color: whitesmoke;
+  /* color: black;
+  background: whitesmoke; */
+}
+
+.ExpandVideo___3Y-9o:hover svg {
+  transform: scale(1.2);
+}
+
+.ExpandVideo___3Y-9o svg {
+  transition: all .2s;
+  margin-left: 5px;
+  width: 20px;
+  color: white;
+}
+
 .MaskLinkIcon___23L6- svg {
   width: 15px;
   margin-bottom: -3px;

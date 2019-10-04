@@ -171,21 +171,26 @@ var ItemImage = function ItemImage(props) {
     className: css.ImageMask
   }, __jsx("div", {
     className: css.MaskLinks
-  }, __jsx(MaskLink, {
-    address: props.link,
-    text: "Open",
-    icon: "link"
-  }), __jsx(MaskLink, {
-    address: props.githubLink,
-    text: "Github",
-    icon: "github"
+  }, __jsx(ExpandVideo, {
+    video_src: props.video_src
   }))));
 };
 
-var MaskLink = function MaskLink(_ref2) {
-  var address = _ref2.address,
-      text = _ref2.text,
-      icon = _ref2.icon;
+var ExpandVideo = function ExpandVideo(_ref2) {
+  var video_src = _ref2.video_src;
+  var classes = [css.ExpandVideo].join(' ');
+  return __jsx("div", {
+    className: classes
+  }, __jsx("p", null, "Expand Video"), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExpand,
+    color: "white"
+  }));
+};
+
+var MaskLink = function MaskLink(_ref3) {
+  var address = _ref3.address,
+      text = _ref3.text,
+      icon = _ref3.icon;
   return __jsx("a", {
     href: address,
     className: css.MaskLink,

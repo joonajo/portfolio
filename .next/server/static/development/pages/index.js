@@ -632,7 +632,8 @@ const icons = {
   faDesktop: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faDesktop"],
   faCheck: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faCheck"],
   faTimes: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faTimes"],
-  faChevronDown: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faChevronDown"]
+  faChevronDown: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faChevronDown"],
+  faExpand: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faExpand"]
 };
 
 /***/ }),
@@ -2472,7 +2473,7 @@ const items = {
     language: [Languages.React, Languages.TypeScript, Languages.NextJS],
     link: 'https://classics-next.joonajo.now.sh',
     githubLink: 'https://github.com/joonajo/classics-next',
-    description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to become the champion!",
+    description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to take the top spot!",
     video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
     gif_src: '/static/gifs/classics.gif',
     desktop: true,
