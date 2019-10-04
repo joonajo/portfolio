@@ -9,17 +9,17 @@ const css = require('./index.module.css')
 
 const Home: NextPage = (): JSX.Element => {
     React.useEffect(() => {
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/sw.js")
-                .then(() => {
-                    console.log('Succesfully registered service worker.')
-                })
-                .catch(error => {
-                    console.log('Error while registering service worker.', error)
-                })
-        } else {
-            console.log('Service worker not supported.')
-        }   
+        // if ("serviceWorker" in navigator) {
+        //     navigator.serviceWorker.register("/sw.js")
+        //         .then(() => {
+        //             console.log('Succesfully registered service worker.')
+        //         })
+        //         .catch(error => {
+        //             console.log('Error while registering service worker.', error)
+        //         })
+        // } else {
+        //     console.log('Service worker not supported.')
+        // }   
     }, [])
 
     return (

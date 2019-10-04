@@ -1,6 +1,103 @@
 exports.ids = [0];
 exports.modules = {
 
+/***/ "./components/ExpandedVideo/ExpandedVideo.module.css":
+/*!***********************************************************!*\
+  !*** ./components/ExpandedVideo/ExpandedVideo.module.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Main": "Main___-av8e",
+	"mount": "mount___2Rvj3",
+	"unmount": "unmount___1YRWu",
+	"VideoContainer": "VideoContainer___3Bxfp",
+	"Video": "Video___NTEgi",
+	"CloseButton": "CloseButton___3eH7p"
+};
+
+/***/ }),
+
+/***/ "./components/ExpandedVideo/ExpandedVideo.tsx":
+/*!****************************************************!*\
+  !*** ./components/ExpandedVideo/ExpandedVideo.tsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+const css = __webpack_require__(/*! ./ExpandedVideo.module.css */ "./components/ExpandedVideo/ExpandedVideo.module.css");
+
+const ExpandedVideo = ({
+  video_src,
+  close
+}) => {
+  const [unmount, setUnmount] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
+    window.addEventListener('keydown', keyHandler, true);
+    return () => window.removeEventListener('keydown', keyHandler, true);
+  }, []);
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(() => {
+    // Get original body overflow
+    const originalStyle = window.getComputedStyle(document.body).overflow; // Prevent scrolling on mount
+
+    document.body.style.overflow = 'hidden'; // Re-enable scrolling when component unmounts
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []); // Empty array ensures effect is only run on mount and unmount
+
+  const keyHandler = react__WEBPACK_IMPORTED_MODULE_0___default.a.useCallback(event => {
+    console.log(event.key);
+
+    switch (event.key) {
+      case 'Escape':
+        setUnmount(true);
+        setTimeout(() => {
+          close();
+        }, 300);
+        break;
+
+      default:
+        break;
+    }
+  }, []);
+  const classes = [css.Main, unmount ? css.unmount : css.mount].join(' ');
+  return __jsx("div", {
+    className: classes
+  }, __jsx("div", {
+    className: css.VideoContainer
+  }, __jsx("video", {
+    className: css.Video,
+    controls: true
+  }, __jsx("source", {
+    src: video_src,
+    type: "video/webm"
+  }))), __jsx("div", {
+    className: css.CloseButton,
+    onClick: () => close()
+  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ExpandedVideo);
+
+/***/ }),
+
 /***/ "./components/Item/Item.module.css":
 /*!*****************************************!*\
   !*** ./components/Item/Item.module.css ***!
@@ -54,7 +151,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ExpandedVideo/ExpandedVideo */ "./components/ExpandedVideo/ExpandedVideo.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -205,19 +304,23 @@ const ItemImage = props => {
 const ExpandVideo = ({
   video_src
 }) => {
+  const [showVideo, toggleShowVideo] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const classes = [css.ExpandVideo].join(' ');
-  return __jsx("div", {
-    className: classes
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    className: classes,
+    onClick: () => toggleShowVideo(true)
   }, __jsx("p", null, "Expand Video"), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExpand,
     color: "white"
+  })), showVideo && __jsx(_ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    video_src: video_src,
+    close: () => toggleShowVideo(false)
   }));
 };
 
 const MaskLink = ({
   address,
-  text,
-  icon
+  text
 }) => {
   return __jsx("a", {
     href: address,

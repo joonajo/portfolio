@@ -85,8 +85,8 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/Item/Item.module.css",
-      "name": "./components/Item/Item.module.css",
+      "id": "./components/ExpandedVideo/ExpandedVideo.module.css",
+      "name": "./components/ExpandedVideo/ExpandedVideo.module.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
@@ -95,6 +95,24 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Item/Item.module.css",
+      "name": "./components/Item/Item.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/ExpandedVideo/ExpandedVideo.tsx",
+      "name": "./components/ExpandedVideo/ExpandedVideo.tsx",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
     },
     {
       "id": "./components/Item/Item.tsx",

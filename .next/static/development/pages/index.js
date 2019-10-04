@@ -26290,16 +26290,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var css = __webpack_require__(/*! ./index.module.css */ "./pages/index/index.module.css");
 
 var Home = function Home() {
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").then(function () {
-        console.log('Succesfully registered service worker.');
-      })["catch"](function (error) {
-        console.log('Error while registering service worker.', error);
-      });
-    } else {
-      console.log('Service worker not supported.');
-    }
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {// if ("serviceWorker" in navigator) {
+    //     navigator.serviceWorker.register("/sw.js")
+    //         .then(() => {
+    //             console.log('Succesfully registered service worker.')
+    //         })
+    //         .catch(error => {
+    //             console.log('Error while registering service worker.', error)
+    //         })
+    // } else {
+    //     console.log('Service worker not supported.')
+    // }   
   }, []);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, null, __jsx("title", null, "Portfolio"), __jsx("meta", {
     charSet: "UTF-8"
@@ -26360,7 +26361,7 @@ var items = {
     link: 'https://classics-next.joonajo.now.sh',
     githubLink: 'https://github.com/joonajo/classics-next',
     description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to take the top spot!",
-    video_src: 'https://thumbs.gfycat.com/ScrawnyZanyElkhound-size_restricted.gif',
+    video_src: '/static/videos/classics.webm',
     gif_src: '/static/gifs/classics.gif',
     desktop: true,
     mobile: false

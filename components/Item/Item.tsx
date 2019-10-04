@@ -2,6 +2,7 @@ import React from 'react'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import { icons } from '../../icons/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ExpandedVideo from '../ExpandedVideo/ExpandedVideo'
 
 const css = require('./Item.module.css')
 
@@ -165,15 +166,20 @@ interface IExpandVideo {
 }
 
 const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ video_src }): JSX.Element => {
+  const[showVideo, toggleShowVideo] = React.useState(false)
+ 
   const classes = [
     css.ExpandVideo
   ].join(' ')
 
   return (
-    <div className={classes}>
-      <p>Expand Video</p>
-      <FontAwesomeIcon icon={icons.faExpand} color='white' />
-    </div>
+    <>
+      <div className={classes} onClick={() => toggleShowVideo(true)}>
+        <p>Expand Video</p>
+        <FontAwesomeIcon icon={icons.faExpand} color='white' />
+      </div>
+      {showVideo && <ExpandedVideo video_src={video_src} close={() => toggleShowVideo(false)} />}
+    </>
   )
 }
 
@@ -183,7 +189,7 @@ interface IMaskLink {
   icon: string
 }
 
-const MaskLink: React.FunctionComponent<IMaskLink> = ({ address, text, icon }): JSX.Element => {
+const MaskLink: React.FunctionComponent<IMaskLink> = ({ address, text }): JSX.Element => {
   return (
       <a href={address} className={css.MaskLink} target='_blank' rel="noopener noreferrer">
           <div className={css.MaskLinkText}>
