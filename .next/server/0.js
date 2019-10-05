@@ -175,6 +175,7 @@ const SHOW_TRESHOLD = 300; // pixels
 
 const Item = props => {
   const [showItem, toggleShowItem] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  const [showVideo, toggleShowVideo] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const itemRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null); // update the event listeners every time the showItem state is changed
 
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
@@ -205,7 +206,8 @@ const Item = props => {
     video_src: props.video_src,
     gif_src: props.gif_src,
     link: props.link,
-    githubLink: props.githubLink
+    githubLink: props.githubLink,
+    toggle: toggleShowVideo
   }), __jsx(ItemInfo, {
     languages: props.language,
     title: props.title,
@@ -214,7 +216,10 @@ const Item = props => {
     mobile: props.mobile,
     link: props.link,
     githubLink: props.githubLink
-  })));
+  })), showVideo && __jsx(_ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    video_src: props.video_src,
+    close: () => toggleShowVideo(false)
+  }));
 };
 
 const ItemInfo = props => {
@@ -308,25 +313,21 @@ const ItemImage = props => {
   }, __jsx("div", {
     className: css.MaskLinks
   }, __jsx(ExpandVideo, {
-    video_src: props.video_src
+    toggle: props.toggle
   }))));
 };
 
 const ExpandVideo = ({
-  video_src
+  toggle
 }) => {
-  const [showVideo, toggleShowVideo] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const classes = [css.ExpandVideo].join(' ');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     className: classes,
-    onClick: () => toggleShowVideo(true)
+    onClick: () => toggle(true)
   }, __jsx("p", null, "Expand Video"), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_1__["icons"].faExpand,
     color: "white"
-  })), showVideo && __jsx(_ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    video_src: video_src,
-    close: () => toggleShowVideo(false)
-  }));
+  })));
 };
 
 const MaskLink = ({

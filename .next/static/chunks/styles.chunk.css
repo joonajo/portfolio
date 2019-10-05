@@ -686,12 +686,10 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  visibility: hidden;
 }
 
 .ImageContainer___17WA_:hover .ImageMask___1aSDB {
   opacity: 1;
-  visibility: visible;
 }
 
 .MaskLinks___1129d {

@@ -10,6 +10,7 @@ const SHOW_TRESHOLD = 300 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   const[showItem, toggleShowItem] = React.useState(false)
+  const[showVideo, toggleShowVideo] = React.useState(false)
   const itemRef = React.useRef<HTMLDivElement>(null)
   
   // update the event listeners every time the showItem state is changed
@@ -42,7 +43,8 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
         <ItemImage video_src={props.video_src}
           gif_src={props.gif_src} 
           link={props.link} 
-          githubLink={props.githubLink} />
+          githubLink={props.githubLink}
+          toggle={toggleShowVideo} />
         <ItemInfo languages={props.language}
           title={props.title}
           desc={props.description}
@@ -51,6 +53,7 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
           link={props.link}
           githubLink={props.githubLink} />
       </div>
+      {showVideo && <ExpandedVideo video_src={props.video_src} close={() => toggleShowVideo(false)} />}
     </div>
   )
 }
@@ -144,6 +147,7 @@ interface IImage {
   gif_src: string
   link: string
   githubLink: string
+  toggle: (newValue: boolean) => void
 }
 
 const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
@@ -154,7 +158,7 @@ const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
         <div className={css.MaskLinks}>
           {/* <MaskLink address={props.link} text="Open" icon={"link"} />
           <MaskLink address={props.githubLink} text="Github" icon={"github"} /> */}
-          <ExpandVideo video_src={props.video_src} />
+          <ExpandVideo toggle={props.toggle}  />
         </div>
       </div>
     </div>
@@ -162,11 +166,10 @@ const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
 }
 
 interface IExpandVideo {
-  video_src: string
+  toggle: (newValue: boolean) => void
 }
 
-const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ video_src }): JSX.Element => {
-  const[showVideo, toggleShowVideo] = React.useState(false)
+const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ toggle }): JSX.Element => {
  
   const classes = [
     css.ExpandVideo
@@ -174,11 +177,10 @@ const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ video_src }): JSX.
 
   return (
     <>
-      <div className={classes} onClick={() => toggleShowVideo(true)}>
+      <div className={classes} onClick={() => toggle(true)}>
         <p>Expand Video</p>
         <FontAwesomeIcon icon={icons.faExpand} color='white' />
       </div>
-      {showVideo && <ExpandedVideo video_src={video_src} close={() => toggleShowVideo(false)} />}
     </>
   )
 }

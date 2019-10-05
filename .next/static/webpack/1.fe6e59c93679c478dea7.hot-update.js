@@ -1,99 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
-
-/***/ "./components/ExpandedVideo/ExpandedVideo.tsx":
-/*!****************************************************!*\
-  !*** ./components/ExpandedVideo/ExpandedVideo.tsx ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-
-
-
-var css = __webpack_require__(/*! ./ExpandedVideo.module.css */ "./components/ExpandedVideo/ExpandedVideo.module.css");
-
-var ExpandedVideo = function ExpandedVideo(_ref) {
-  var video_src = _ref.video_src,
-      close = _ref.close;
-
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
-      _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
-      unmount = _React$useState2[0],
-      setUnmount = _React$useState2[1];
-
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
-    window.addEventListener('keydown', keyHandler, true);
-    return function () {
-      return window.removeEventListener('keydown', keyHandler, true);
-    };
-  }, []);
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useLayoutEffect(function () {
-    // Get original body overflow
-    var originalStyle = window.getComputedStyle(document.body).overflow; // Prevent scrolling on mount
-
-    document.body.style.overflow = 'hidden'; // Re-enable scrolling when component unmounts
-
-    return function () {
-      document.body.style.overflow = originalStyle;
-    };
-  }, []); // Empty array ensures effect is only run on mount and unmount
-
-  var keyHandler = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function (event) {
-    console.log(event.key);
-
-    switch (event.key) {
-      case 'Escape':
-        setUnmount(true);
-        setTimeout(function () {
-          close();
-        }, 5000);
-        break;
-
-      default:
-        break;
-    }
-  }, []);
-  var closeHandler = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function () {
-    setUnmount(true);
-    setTimeout(function () {
-      close();
-    }, 300);
-  }, [close]);
-  var classes = [css.Main, unmount ? css.unmount : css.mount].join(' ');
-  return __jsx("div", {
-    className: classes
-  }, __jsx("div", {
-    className: css.Backdrop,
-    onClick: closeHandler
-  }), __jsx("div", {
-    className: css.VideoContainer
-  }, __jsx("video", {
-    className: css.Video,
-    controls: true
-  }, __jsx("source", {
-    src: video_src,
-    type: "video/mp4"
-  }))), __jsx("div", {
-    className: css.CloseButton,
-    onClick: closeHandler
-  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faTimes
-  })));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ExpandedVideo);
-
-/***/ }),
+webpackHotUpdate(1,{
 
 /***/ "./components/Item/Item.tsx":
 /*!**********************************!*\
@@ -164,8 +69,7 @@ var Item = function Item(props) {
     video_src: props.video_src,
     gif_src: props.gif_src,
     link: props.link,
-    githubLink: props.githubLink,
-    toggle: toggleShowVideo
+    githubLink: props.githubLink
   }), __jsx(ItemInfo, {
     languages: props.language,
     title: props.title,
@@ -174,12 +78,7 @@ var Item = function Item(props) {
     mobile: props.mobile,
     link: props.link,
     githubLink: props.githubLink
-  })), showVideo && __jsx(_ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    video_src: props.video_src,
-    close: function close() {
-      return toggleShowVideo(false);
-    }
-  }));
+  })));
 };
 
 var ItemInfo = function ItemInfo(props) {
@@ -280,22 +179,27 @@ var ItemImage = function ItemImage(props) {
   }, __jsx("div", {
     className: css.MaskLinks
   }, __jsx(ExpandVideo, {
-    toggle: props.toggle
+    video_src: props.video_src
   }))));
 };
 
 var ExpandVideo = function ExpandVideo(_ref2) {
-  var toggle = _ref2.toggle;
+  var video_src = _ref2.video_src;
   var classes = [css.ExpandVideo].join(' ');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
     className: classes,
     onClick: function onClick() {
-      return toggle(true);
+      return toggleShowVideo(true);
     }
   }, __jsx("p", null, "Expand Video"), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faExpand,
     color: "white"
-  })));
+  })), showVideo && __jsx(_ExpandedVideo_ExpandedVideo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    video_src: video_src,
+    close: function close() {
+      return toggleShowVideo(false);
+    }
+  }));
 };
 
 var MaskLink = function MaskLink(_ref3) {
@@ -315,5 +219,5 @@ var MaskLink = function MaskLink(_ref3) {
 
 /***/ })
 
-}]);
-//# sourceMappingURL=1.js.map
+})
+//# sourceMappingURL=1.fe6e59c93679c478dea7.hot-update.js.map
