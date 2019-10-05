@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
+webpackHotUpdate("styles",{
 
 /***/ "./components/Content/Content.module.css":
 /*!***********************************************!*\
@@ -46,9 +46,9 @@ module.exports = {"Main":"Main___3c-CL","MediaIcons":"MediaIcons___1mSCZ","Backg
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___-av8e","mount":"mount___2Rvj3","fadein":"fadein___2JU3I","unmount":"unmount___1YRWu","Backdrop":"Backdrop___1ujD1","VideoContainer":"VideoContainer___3Bxfp","Video":"Video___NTEgi","CloseButton":"CloseButton___3eH7p"};
+module.exports = {"Main":"Main___-av8e","mount":"mount___2Rvj3","unmount":"unmount___1YRWu","Backdrop":"Backdrop___1ujD1","VideoContainer":"VideoContainer___3Bxfp","Video":"Video___NTEgi","CloseButton":"CloseButton___3eH7p"};
     if(true) {
-      // 1570307005846
+      // 1570306761326
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -168,7 +168,34 @@ module.exports = {"Toolbar":"Toolbar___3PyNO","enabled":"enabled___3KR_g","PageL
     }
   
 
-/***/ })
+/***/ }),
 
-}]);
-//# sourceMappingURL=styles.js.map
+/***/ "?0334":
+false,
+
+/***/ "?07a4":
+false,
+
+/***/ "?1ff8":
+false,
+
+/***/ "?55ab":
+false,
+
+/***/ "?7215":
+false,
+
+/***/ "?98ba":
+false,
+
+/***/ "?be8f":
+false,
+
+/***/ "?ecdb":
+false,
+
+/***/ "?ed51":
+false
+
+})
+//# sourceMappingURL=styles.a675a056dde80e7878f4.hot-update.js.map

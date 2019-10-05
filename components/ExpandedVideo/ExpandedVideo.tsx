@@ -34,13 +34,20 @@ const ExpandedVideo: React.FunctionComponent<IExpandedVideo> = ({ video_src, clo
                 setUnmount(true)
                 setTimeout(() => {
                     close()
-                }, 300)
+                }, 5000)
                 break;
 
             default:
                 break;
         }
     }, [])
+
+    const closeHandler = React.useCallback(() => {
+        setUnmount(true)
+        setTimeout(() => {
+            close()
+        }, 300)
+    }, [close])
 
     const classes = [
         css.Main,
@@ -49,12 +56,13 @@ const ExpandedVideo: React.FunctionComponent<IExpandedVideo> = ({ video_src, clo
 
     return (
         <div className={classes}>
+            <div className={css.Backdrop} onClick={closeHandler}></div>
             <div className={css.VideoContainer}>
                 <video className={css.Video} controls >
                     <source src={video_src} type="video/mp4"/>
                 </video>
             </div>
-            <div className={css.CloseButton} onClick={() => close()}>
+            <div className={css.CloseButton} onClick={closeHandler}>
                 <FontAwesomeIcon icon={icons.faTimes} />
             </div>
         </div>

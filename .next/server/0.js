@@ -11,7 +11,9 @@ exports.modules = {
 module.exports = {
 	"Main": "Main___-av8e",
 	"mount": "mount___2Rvj3",
+	"fadein": "fadein___2JU3I",
 	"unmount": "unmount___1YRWu",
+	"Backdrop": "Backdrop___1ujD1",
 	"VideoContainer": "VideoContainer___3Bxfp",
 	"Video": "Video___NTEgi",
 	"CloseButton": "CloseButton___3eH7p"
@@ -68,17 +70,26 @@ const ExpandedVideo = ({
         setUnmount(true);
         setTimeout(() => {
           close();
-        }, 300);
+        }, 5000);
         break;
 
       default:
         break;
     }
   }, []);
+  const closeHandler = react__WEBPACK_IMPORTED_MODULE_0___default.a.useCallback(() => {
+    setUnmount(true);
+    setTimeout(() => {
+      close();
+    }, 300);
+  }, [close]);
   const classes = [css.Main, unmount ? css.unmount : css.mount].join(' ');
   return __jsx("div", {
     className: classes
   }, __jsx("div", {
+    className: css.Backdrop,
+    onClick: closeHandler
+  }), __jsx("div", {
     className: css.VideoContainer
   }, __jsx("video", {
     className: css.Video,
@@ -88,7 +99,7 @@ const ExpandedVideo = ({
     type: "video/mp4"
   }))), __jsx("div", {
     className: css.CloseButton,
-    onClick: () => close()
+    onClick: closeHandler
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTimes
   })));

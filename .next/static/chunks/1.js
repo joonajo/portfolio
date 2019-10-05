@@ -56,17 +56,26 @@ var ExpandedVideo = function ExpandedVideo(_ref) {
         setUnmount(true);
         setTimeout(function () {
           close();
-        }, 300);
+        }, 5000);
         break;
 
       default:
         break;
     }
   }, []);
+  var closeHandler = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function () {
+    setUnmount(true);
+    setTimeout(function () {
+      close();
+    }, 300);
+  }, [close]);
   var classes = [css.Main, unmount ? css.unmount : css.mount].join(' ');
   return __jsx("div", {
     className: classes
   }, __jsx("div", {
+    className: css.Backdrop,
+    onClick: closeHandler
+  }), __jsx("div", {
     className: css.VideoContainer
   }, __jsx("video", {
     className: css.Video,
@@ -76,9 +85,7 @@ var ExpandedVideo = function ExpandedVideo(_ref) {
     type: "video/mp4"
   }))), __jsx("div", {
     className: css.CloseButton,
-    onClick: function onClick() {
-      return close();
-    }
+    onClick: closeHandler
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faTimes
   })));

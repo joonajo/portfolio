@@ -400,26 +400,39 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 20;
-    background: rgba(0, 0, 0, .8);
     transition: opacity .3s;
     opacity: 0;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    z-index: 20;
 }
 
 .Main___-av8e.mount___2Rvj3 {
     opacity: 1;
+    animation: fadein___2JU3I .3s;
+}
+
+@keyframes fadein___2JU3I {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .Main___-av8e.unmount___1YRWu {
     opacity: 0;
 }
 
-.VideoContainer___3Bxfp {
+.Backdrop___1ujD1 {
     width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    background: rgba(0, 0, 0, .8);
+}
+
+.VideoContainer___3Bxfp {
+    z-index: 21;
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -428,9 +441,11 @@ body {
 
 .Video___NTEgi {
     max-height: 95%;
+    max-width: 100%;
 }
 
 .CloseButton___3eH7p {
+    z-index: 21;
     position: absolute;
     top: 10px;
     right: 20px;
