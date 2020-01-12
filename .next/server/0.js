@@ -9,14 +9,14 @@ exports.modules = {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"Main": "Main___-av8e",
-	"mount": "mount___2Rvj3",
-	"fadein": "fadein___2JU3I",
-	"unmount": "unmount___1YRWu",
-	"Backdrop": "Backdrop___1ujD1",
-	"VideoContainer": "VideoContainer___3Bxfp",
-	"Video": "Video___NTEgi",
-	"CloseButton": "CloseButton___3eH7p"
+	"Main": "Main___3w2yc",
+	"mount": "mount___2v3RS",
+	"fadein": "fadein___1ZLib",
+	"unmount": "unmount___3mvc-",
+	"Backdrop": "Backdrop___3B7tu",
+	"VideoContainer": "VideoContainer___2gnni",
+	"Video": "Video___QoA7X",
+	"CloseButton": "CloseButton____MALA"
 };
 
 /***/ }),
@@ -117,33 +117,33 @@ const ExpandedVideo = ({
 /***/ (function(module, exports) {
 
 module.exports = {
-	"Item": "Item___2HggL",
-	"show": "show___12H2j",
-	"Title": "Title___19rVv",
-	"ItemContent": "ItemContent___1Xtsc",
-	"InfoContainer": "InfoContainer___2jgE-",
-	"MadeWith": "MadeWith___181Xb",
-	"Language": "Language___qBw-5",
-	"Description": "Description___3QyIB",
-	"IconsAndLinks": "IconsAndLinks___3ruVO",
-	"HardwareIcons": "HardwareIcons___2HOvV",
-	"HardwareIconContainer": "HardwareIconContainer___130pR",
-	"HardwareIcon": "HardwareIcon___21LZp",
-	"DesktopIcon": "DesktopIcon___tKpYK",
-	"MobileIcon": "MobileIcon___clOeX",
-	"CheckMarkIcon": "CheckMarkIcon___35uzl",
-	"TimesIcon": "TimesIcon___2co4K",
-	"ItemLinks": "ItemLinks___30O86",
-	"ItemLinkContainer": "ItemLinkContainer___2PKLE",
-	"ItemLink": "ItemLink___3DGlD",
-	"ItemLinkIcon": "ItemLinkIcon___2LwMV",
-	"ImageContainer": "ImageContainer___17WA_",
-	"ImageMask": "ImageMask___1aSDB",
-	"MaskLinks": "MaskLinks___1129d",
-	"MaskLink": "MaskLink___3V_OW",
-	"MaskLinkText": "MaskLinkText___EPhQZ",
-	"MaskLinkIcon": "MaskLinkIcon___23L6-",
-	"ExpandVideo": "ExpandVideo___3Y-9o"
+	"Item": "Item___2z7E8",
+	"show": "show___6kfVr",
+	"Title": "Title___3ZaYJ",
+	"ItemContent": "ItemContent___3R0xe",
+	"InfoContainer": "InfoContainer___2K1Jf",
+	"MadeWith": "MadeWith___2_0_d",
+	"Language": "Language___3j4M0",
+	"Description": "Description___3jL8P",
+	"IconsAndLinks": "IconsAndLinks___3W2-o",
+	"HardwareIcons": "HardwareIcons___1Zo3h",
+	"HardwareIconContainer": "HardwareIconContainer___2Svmz",
+	"HardwareIcon": "HardwareIcon___7oC72",
+	"DesktopIcon": "DesktopIcon___1I-OD",
+	"MobileIcon": "MobileIcon___2Qx5_",
+	"CheckMarkIcon": "CheckMarkIcon___11WPT",
+	"TimesIcon": "TimesIcon___gPzyh",
+	"ItemLinks": "ItemLinks___316VE",
+	"ItemLinkContainer": "ItemLinkContainer___3gKyx",
+	"ItemLink": "ItemLink___zvdwb",
+	"ItemLinkIcon": "ItemLinkIcon___2pksG",
+	"ImageContainer": "ImageContainer___3ZHP8",
+	"ImageMask": "ImageMask___ZcxR5",
+	"MaskLinks": "MaskLinks___3b_RG",
+	"MaskLink": "MaskLink___2Z_QC",
+	"MaskLinkText": "MaskLinkText___V2BhR",
+	"MaskLinkIcon": "MaskLinkIcon___1xuTX",
+	"ExpandVideo": "ExpandVideo___2-0ff"
 };
 
 /***/ }),

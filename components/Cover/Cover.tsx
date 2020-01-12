@@ -37,7 +37,7 @@ const Cover = React.memo((): JSX.Element => {
 
     const arrowTextClasses = [
         css.ArrowText,
-        arrowIn ? css.in : arrowIn === false ? css.out : null
+        arrowIn ? css.in : arrowIn === false && css.out
     ].join(' ')
 
     const transitionHandler = () => {
@@ -63,7 +63,7 @@ const Cover = React.memo((): JSX.Element => {
     return (
         <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.BackgroundContainer}>
-                <img src="/static/images/palm.jpg" alt="cover-bg-palm" className={css.BackgroundImage} style={{minHeight: `${height}px`}} />
+                <img src="/images/palm5k.png" alt="cover-bg-palm" className={css.BackgroundImage} style={{minHeight: `${height}px`}} />
                 <div className={css.BackgroundMask}></div>
             </div>
             <div className={css.MediaIcons}>

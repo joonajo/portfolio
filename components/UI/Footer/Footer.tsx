@@ -1,7 +1,7 @@
 import React from 'react'
 import MediaIcons from '../Icons/MediaIcons/MediaIcons'
 
-const css = require('./Footer.css')
+const css = require('./Footer.module.css')
 
 const Footer: React.FunctionComponent = ():JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Footer: React.FunctionComponent = ():JSX.Element => {
       </div>
       <div className={css.Copyright}>
         <i className="fas fa-cloud"></i>
-        <p>© Joona Joenpolvi 2019. All rights reserved.</p>
+        <p>© Joona Joenpolvi 2020. All rights reserved.</p>
       </div>
     </div>
   )

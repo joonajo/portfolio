@@ -29,15 +29,14 @@
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: bold;
-  font-family: "Ubuntu Medium";
+  font-family: "Ubuntu Bold";
 }
 
 .Title span {
   background: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 3px 3px 20px gainsboro,
-              -3px -3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
 
 .ItemContent {
@@ -49,8 +48,7 @@
   align-items: center;
   position: relative;
   background: white;
-  box-shadow: 3px 3px 20px gainsboro,
-              -3px -3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
   
 .InfoContainer {
@@ -92,7 +90,7 @@
   font-size: .95em;
   text-align: center;
   padding: 10px 0;
-  text-shadow: 0px 1px 5px gainsboro;
+  text-shadow: 0px 0px 10px 20px gainsboro;
 }
 
 .IconsAndLinks {
@@ -147,7 +145,7 @@
 }
 
 .ItemLinks {
-  width: 150px;
+  width: 130px;
   position: relative;
   font-family: "Ubuntu Medium";
   display: flex;
@@ -173,7 +171,7 @@
 
 .ItemLinkContainer:hover {
   background: rgba(255, 255, 255, 1);
-  box-shadow: 3px 3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
 
 .ItemLinkContainer:hover svg {
@@ -190,7 +188,7 @@
 }
 
 .ItemLinkIcon {
-  width: 40%;
+  width: auto;
   text-align: center;
 }
 

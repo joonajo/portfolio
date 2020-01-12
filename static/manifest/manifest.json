@@ -1,9 +1,0 @@
-{
-    "name": "Portfolio by Joona Jo",
-    "short_name": "Portfolio",
-    "theme_color": "#071b9f",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/"
-}

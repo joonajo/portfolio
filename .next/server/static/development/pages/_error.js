@@ -273,13 +273,11 @@ const amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next/dist/next-se
 
 function defaultHead(inAmpMode = false) {
   const head = [react_1.default.createElement("meta", {
-    key: "charSet",
     charSet: "utf-8"
   })];
 
   if (!inAmpMode) {
     head.push(react_1.default.createElement("meta", {
-      key: "viewport",
       name: "viewport",
       content: "width=device-width,minimum-scale=1,initial-scale=1"
     }));
@@ -323,17 +321,28 @@ function unique() {
   const metaTypes = new _Set();
   const metaCategories = {};
   return h => {
-    if (h.key && typeof h.key !== 'number' && h.key.indexOf('.$') === 0) {
-      if (keys.has(h.key)) return false;
-      keys.add(h.key);
-      return true;
-    }
+    let unique = true;
+
+    if (h.key && typeof h.key !== 'number' && h.key.indexOf('$') > 0) {
+      const key = h.key.slice(h.key.indexOf('$') + 1);
+
+      if (keys.has(key)) {
+        unique = false;
+      } else {
+        keys.add(key);
+      }
+    } // eslint-disable-next-line default-case
+
 
     switch (h.type) {
       case 'title':
       case 'base':
-        if (tags.has(h.type)) return false;
-        tags.add(h.type);
+        if (tags.has(h.type)) {
+          unique = false;
+        } else {
+          tags.add(h.type);
+        }
+
         break;
 
       case 'meta':
@@ -342,21 +351,28 @@ function unique() {
           if (!h.props.hasOwnProperty(metatype)) continue;
 
           if (metatype === 'charSet') {
-            if (metaTypes.has(metatype)) return false;
-            metaTypes.add(metatype);
+            if (metaTypes.has(metatype)) {
+              unique = false;
+            } else {
+              metaTypes.add(metatype);
+            }
           } else {
             const category = h.props[metatype];
             const categories = metaCategories[metatype] || new _Set();
-            if (categories.has(category)) return false;
-            categories.add(category);
-            metaCategories[metatype] = categories;
+
+            if (categories.has(category)) {
+              unique = false;
+            } else {
+              categories.add(category);
+              metaCategories[metatype] = categories;
+            }
           }
         }
 
         break;
     }
 
-    return true;
+    return unique;
   };
 }
 /**
@@ -492,7 +508,7 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
 var _head = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/head */ "./node_modules/next/dist/next-server/lib/head.js"));
 
-const statusCodes = {
+var statusCodes = {
   400: 'Bad Request',
   404: 'This page could not be found',
   405: 'Method Not Allowed',
@@ -504,21 +520,21 @@ const statusCodes = {
 
 class Error extends _react.default.Component {
   static getInitialProps(_ref) {
-    let {
+    var {
       res,
       err
     } = _ref;
-    const statusCode = res && res.statusCode ? res.statusCode : err ? err.statusCode : 404;
+    var statusCode = res && res.statusCode ? res.statusCode : err ? err.statusCode : 404;
     return {
       statusCode
     };
   }
 
   render() {
-    const {
+    var {
       statusCode
     } = this.props;
-    const title = this.props.title || statusCodes[statusCode] || 'An unexpected error has occurred';
+    var title = this.props.title || statusCodes[statusCode] || 'An unexpected error has occurred';
     return _react.default.createElement("div", {
       style: styles.error
     }, _react.default.createElement(_head.default, null, _react.default.createElement("title", null, statusCode, ": ", title)), _react.default.createElement("div", null, _react.default.createElement("style", {
@@ -538,7 +554,7 @@ class Error extends _react.default.Component {
 
 exports.default = Error;
 Error.displayName = 'ErrorPage';
-const styles = {
+var styles = {
   error: {
     color: '#000',
     background: '#fff',

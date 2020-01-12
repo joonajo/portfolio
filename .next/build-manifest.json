@@ -1,7 +1,7 @@
 {
   "devFiles": [
-    "static/development/dll/dll_9e2a3f9838424feeb96c.js",
-    "static/development/dll/dll_9e2a3f9838424feeb96c.js.map"
+    "static/development/dll/dll_4b8bef20edde04f98d3f.js",
+    "static/development/dll/dll_4b8bef20edde04f98d3f.js.map"
   ],
   "pages": {
     "/": [
@@ -18,10 +18,18 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+    "/_polyfills": [
+      "static/runtime/polyfills.js",
+      "static/runtime/polyfills.js.map"
+    ],
     "/index": [
       "static/runtime/webpack.js",
       "static/chunks/styles.chunk.css",
       "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
+    "/next/dist/pages/_error": [
+      "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
   }

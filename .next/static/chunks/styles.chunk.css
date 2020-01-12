@@ -1,19 +1,19 @@
-.Icons___1jyXr {
+.Icons___27Rhv {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.Icons___1jyXr.horizontal___6Fpxy {
+.Icons___27Rhv.horizontal___2KeBy {
   flex-flow: row;
 }
 
-.Icons___1jyXr.vertical___28aPN {
+.Icons___27Rhv.vertical___w0szC {
   margin: 10px;
   flex-flow: column;
 }
 
-.Icon___6e_S1 {
+.Icon___3DChQ {
   overflow: hidden;
   transition: all .3s;
   display: flex;
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.Icon___6e_S1.horizontal___6Fpxy {
+.Icon___3DChQ.horizontal___2KeBy {
   box-sizing: border-box;
   --horizontalSize: 30px;
   color: lavender;
@@ -34,11 +34,11 @@
   border-radius: 50%;
 }
 
-.Icon___6e_S1.horizontal___6Fpxy svg {
+.Icon___3DChQ.horizontal___2KeBy svg {
   width: 15px;
 }
 
-.Icon___6e_S1.vertical___28aPN {
+.Icon___3DChQ.vertical___w0szC {
   box-sizing: border-box;
   --verticalSize: 40px;
   color: lavender;
@@ -51,28 +51,28 @@
   text-align: center;
 }
 
-.Icon___6e_S1.vertical___28aPN svg {
+.Icon___3DChQ.vertical___w0szC svg {
   width: 15px;
 }
 
-.Github___2Regp::after {
+.Github___32KvZ::after {
   position: absolute;
   content: 'Github';
   color: white;
   font-size: .7em;
 }
 
-.Icon___6e_S1.vertical___28aPN:hover {
+.Icon___3DChQ.vertical___w0szC:hover {
   background: royalblue;
   color: black;
 }
 
-.Icon___6e_S1.horizontal___6Fpxy:hover {
+.Icon___3DChQ.horizontal___2KeBy:hover {
   color: black;
   background: royalblue;
 }
 
-.Main___3c-CL {
+.Main___1kdvF {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -84,13 +84,13 @@
     overflow: hidden;
 }
 
-.MediaIcons___1mSCZ {
+.MediaIcons___3X9Um {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.BackgroundContainer___10IM9 {
+.BackgroundContainer___1G8XX {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -99,14 +99,14 @@
     z-index: 0;
 }
 
-.BackgroundImage___2a3RY {
+.BackgroundImage___3AtYJ {
     position: absolute;
     top: 0;
     left: 0;
     visibility: visible;
 }
 
-.BackgroundMask___2Uer6 {
+.BackgroundMask___2heM8 {
     position: absolute;
     top: 0;
     left: 0;
@@ -115,7 +115,7 @@
     background: rgba(2, 0, 10, 0.8);
 }
 
-.TitleContainer___1bxur {
+.TitleContainer___2bOxB {
     z-index: 1;
     display: flex;
     flex-flow: column;
@@ -125,17 +125,17 @@
     align-items: center;
 }
 
-.FirstName___8PGm4,
-.Surname___3Gmvy,
-.Description___HbED0 {
+.FirstName___1oifF,
+.Surname___2W55F,
+.Description___2EZzY {
     box-sizing: border-box;
     letter-spacing: .05em;
     cursor: default;
 
 }
 
-.FirstName___8PGm4,
-.Surname___3Gmvy {
+.FirstName___1oifF,
+.Surname___2W55F {
     font-family: "Ubuntu Medium";
     width: 100%;
     padding: 0;
@@ -148,7 +148,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.Description___HbED0 {
+.Description___2EZzY {
     font-family: "Ubuntu Medium";
     margin-top: 1em;
     padding: 10px 30px;
@@ -159,12 +159,12 @@
     color: gainsboro;
 }
 
-.ArrowContainer___1dqCi {
+.ArrowContainer___1gE-X {
     position: absolute;
     bottom: 100px;
 }
 
-.ArrowIcon___1oTzX {
+.ArrowIcon___3VFxX {
     cursor: pointer;
     position: relative;
     display: flex;
@@ -179,16 +179,16 @@
     color: whitesmoke;
 }
 
-.ArrowIcon___1oTzX:hover {
+.ArrowIcon___3VFxX:hover {
     background: royalblue;
     color: black;
 }
 
-.ArrowIcon___1oTzX svg {
+.ArrowIcon___3VFxX svg {
     height: 15px;
 }
 
-.ArrowText___16L4d {
+.ArrowText___cijRf {
     position: absolute;
     color:  rgba(255, 255, 255, 0.5);
     top: -100%;
@@ -203,49 +203,49 @@
     transform: translateX(-100%);
 }
 
-.ArrowText___16L4d.in___28p6S {
+.ArrowText___cijRf.in___1uki9 {
     opacity: 1;
     transform: translateX(-50%);
 }
 
-.ArrowText___16L4d.out___3bv_x {
+.ArrowText___cijRf.out___xo2li {
     opacity: 0;
     transform: translateX(100%);
 }
 
-@keyframes slidein___qQMaO {
+@keyframes slidein___1iSaM {
     from { transform: translateX(-100%); }
     to { transform: translateX(-50%); }
 }
 
 @media (min-width: 350px) {
-    .FirstName___8PGm4,
-    .Surname___3Gmvy {
+    .FirstName___1oifF,
+    .Surname___2W55F {
         font-size: 3.3em;
     }
 }
 
 @media (min-width: 370px) {
-    .FirstName___8PGm4,
-    .Surname___3Gmvy {
+    .FirstName___1oifF,
+    .Surname___2W55F {
         font-size: 4em;
     }
 }
 
 @media (min-width: 600px) {
-    .FirstName___8PGm4,
-    .Surname___3Gmvy {
+    .FirstName___1oifF,
+    .Surname___2W55F {
         font-size: 6em;
     }
 }
 
 @media (min-width: 1000px) {
-    .FirstName___8PGm4,
-    .Surname___3Gmvy {
+    .FirstName___1oifF,
+    .Surname___2W55F {
         font-size: 7em;
     }
 }
-.Footer___2hhX3 {
+.Footer___ST3DE {
   position: absolute;
   box-sizing: border-box;
   right: 0;
@@ -254,7 +254,7 @@
   width: 100%;
   z-index: 5;
   opacity: 1;
-  animation: fadein___1FqwO 1s;
+  animation: fadein___Ie23T 1s;
   background: transparent;
   display: flex;
   flex-flow: column;
@@ -262,22 +262,22 @@
   align-items: center;
 }
 
-.MediaIcons___uTfbp {
+.MediaIcons___23oHI {
   position: relative;
 }
 
-.Copyright___2dJgS {
+.Copyright___6wjTT {
   color: whitesmoke;
   position: relative;
   font-size: .7em;
   cursor: default;
 }
 
-@keyframes fadein___1FqwO {
+@keyframes fadein___Ie23T {
   from { opacity: 0 }
   to { opacity: 1 }
 }
-.Toolbar___3PyNO {
+.Toolbar___2IFkD {
     --height: 60px;
     height: var(--height);
     width: 100%;
@@ -285,7 +285,7 @@
     box-sizing: border-box;
 }
 
-.Toolbar___3PyNO.enabled___3KR_g {
+.Toolbar___2IFkD.enabled___2BQc4 {
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -294,7 +294,7 @@
     border: 2px solid green;
 }
 
-.PageLinks___15vwM {
+.PageLinks___2txjX {
     position: absolute;
     display: flex;
     flex-flow: row;
@@ -302,7 +302,7 @@
     align-items: center;
     right: 0;
 }
-.Layout___2PL_3 {   
+.Layout___AVeUt {   
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -311,7 +311,7 @@
 }
 
 
-.Content___1Enco {
+.Content___K0TO7 {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -323,7 +323,7 @@
     background: whitesmoke;
 }
 
-.Title___1zGeK {
+.Title___122BB {
     padding-top: 20px;
     font-family: "Ubuntu Bold";
     letter-spacing: .1em;
@@ -337,7 +337,7 @@
 }
 @font-face {
     font-family: "Ubuntu";
-    src: url('/static/fonts/Ubuntu-Regular.ttf');
+    src: url('/fonts/Ubuntu-Regular.ttf');
     font-weight: bold;
     font-display: auto;
     font-style: normal;
@@ -345,7 +345,7 @@
 
 @font-face {
     font-family: "Ubuntu Light";
-    src: url('/static/fonts/Ubuntu-Light.ttf');
+    src: url('/fonts/Ubuntu-Light.ttf');
     font-weight: bold;
     font-display: auto;
     font-style: normal;
@@ -353,7 +353,7 @@
 
 @font-face {
     font-family: "Ubuntu Bold";
-    src: url('/static/fonts/Ubuntu-Bold.ttf');
+    src: url('/fonts/Ubuntu-Bold.ttf');
     font-weight: bold;
     font-display: auto;
     font-style: normal;
@@ -361,7 +361,7 @@
 
 @font-face {
     font-family: "Ubuntu Medium";
-    src: url('/static/fonts/Ubuntu-Medium.ttf');
+    src: url('/fonts/Ubuntu-Medium.ttf');
     font-weight: bold;
     font-display: auto;
     font-style: normal;
@@ -394,7 +394,7 @@ body {
     background: rgb(39, 65, 141);
     border-radius: 0;
 }
-.Main___-av8e {
+.Main___3w2yc {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -409,21 +409,21 @@ body {
     z-index: 20;
 }
 
-.Main___-av8e.mount___2Rvj3 {
+.Main___3w2yc.mount___2v3RS {
     opacity: 1;
-    animation: fadein___2JU3I .3s;
+    animation: fadein___1ZLib .3s;
 }
 
-@keyframes fadein___2JU3I {
+@keyframes fadein___1ZLib {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-.Main___-av8e.unmount___1YRWu {
+.Main___3w2yc.unmount___3mvc- {
     opacity: 0;
 }
 
-.Backdrop___1ujD1 {
+.Backdrop___3B7tu {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -431,7 +431,7 @@ body {
     background: rgba(0, 0, 0, .8);
 }
 
-.VideoContainer___3Bxfp {
+.VideoContainer___2gnni {
     z-index: 21;
     display: flex;
     flex-flow: row;
@@ -439,29 +439,29 @@ body {
     align-items: center;
 }
 
-.Video___NTEgi {
+.Video___QoA7X {
     max-height: 95%;
     max-width: 100%;
 }
 
-.CloseButton___3eH7p {
+.CloseButton____MALA {
     z-index: 21;
     position: absolute;
     top: 10px;
     right: 20px;
 }
 
-.CloseButton___3eH7p svg {
+.CloseButton____MALA svg {
     width: 25px;
     color: gray;
     transition: all .2s;
     cursor: pointer;
 }
 
-.CloseButton___3eH7p:hover svg {
+.CloseButton____MALA:hover svg {
     color: whitesmoke;
 }
-.Item___2HggL {
+.Item___2z7E8 {
   font: inherit;
   width: 100%;
   cursor: default;
@@ -477,12 +477,12 @@ body {
   flex-flow: column;
 }
 
-.Item___2HggL.show___12H2j {
+.Item___2z7E8.show___6kfVr {
   opacity: 1;
   top: 0;
 }
 
-.Title___19rVv {
+.Title___3ZaYJ {
   margin-top: 40px;
   margin-left: 20px;
   text-align: left;
@@ -492,18 +492,17 @@ body {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: bold;
-  font-family: "Ubuntu Medium";
+  font-family: "Ubuntu Bold";
 }
 
-.Title___19rVv span {
+.Title___3ZaYJ span {
   background: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 3px 3px 20px gainsboro,
-              -3px -3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
 
-.ItemContent___1Xtsc {
+.ItemContent___3R0xe {
   padding-bottom: 20px;
   margin: 20px 0;
   display: flex;
@@ -512,11 +511,10 @@ body {
   align-items: center;
   position: relative;
   background: white;
-  box-shadow: 3px 3px 20px gainsboro,
-              -3px -3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
   
-.InfoContainer___2jgE- {
+.InfoContainer___2K1Jf {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -525,7 +523,7 @@ body {
   width: 100%;
 }
 
-.MadeWith___181Xb {
+.MadeWith___2_0_d {
   padding: 0;
   display: flex;
   flex-flow: row;
@@ -535,7 +533,7 @@ body {
   font-family: "Ubuntu Bold";
 }
 
-.Language___qBw-5 {
+.Language___3j4M0 {
   position: relative;
   overflow: hidden;
   font-weight: 800;
@@ -545,20 +543,20 @@ body {
 }
 
 /* adding an empty space the hard way */ 
-.Language___qBw-5::before {
+.Language___3j4M0::before {
   content: "-";
   opacity: 0;
 }
 
-.Description___3QyIB {
+.Description___3jL8P {
   color: dimgray;
   font-size: .95em;
   text-align: center;
   padding: 10px 0;
-  text-shadow: 0px 1px 5px gainsboro;
+  text-shadow: 0px 0px 10px 20px gainsboro;
 }
 
-.IconsAndLinks___3ruVO {
+.IconsAndLinks___3W2-o {
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -566,7 +564,7 @@ body {
   height: 100px;
 }
 
-.HardwareIcons___2HOvV {
+.HardwareIcons___1Zo3h {
   position: relative;
   display: flex;
   flex-flow: column;
@@ -576,7 +574,7 @@ body {
   height: 100%;
 }
 
-.HardwareIconContainer___130pR {
+.HardwareIconContainer___2Svmz {
   width: 100%;
   position: relative;
   color: dimgray;
@@ -587,30 +585,30 @@ body {
   padding: 10px;
 }
 
-.HardwareIcon___21LZp {
+.HardwareIcon___7oC72 {
   position: relative;
   width: 50%;
   text-align: center;
 }
 
-.DesktopIcon___tKpYK svg {
+.DesktopIcon___1I-OD svg {
   width: 1.4em;
   margin-bottom: -3px;
 }
 
-.MobileIcon___clOeX svg {
+.MobileIcon___2Qx5_ svg {
   width: 1.1em;
   margin-bottom: -3px;
 }
 
-.CheckMarkIcon___35uzl svg,
-.TimesIcon___2co4K svg {
+.CheckMarkIcon___11WPT svg,
+.TimesIcon___gPzyh svg {
   width: 1.4em;
   margin-bottom: -3px;
 }
 
-.ItemLinks___30O86 {
-  width: 150px;
+.ItemLinks___316VE {
+  width: 130px;
   position: relative;
   font-family: "Ubuntu Medium";
   display: flex;
@@ -619,7 +617,7 @@ body {
   align-items: center;
 }
 
-.ItemLinkContainer___2PKLE {
+.ItemLinkContainer___3gKyx {
   cursor: pointer;
   width: 100%;
   display: flex;
@@ -634,17 +632,17 @@ body {
   padding: 5px;
 }
 
-.ItemLinkContainer___2PKLE:hover {
+.ItemLinkContainer___3gKyx:hover {
   background: rgba(255, 255, 255, 1);
-  box-shadow: 3px 3px 20px gainsboro;
+  box-shadow: 0px 0px 20px 5px gainsboro;
 }
 
-.ItemLinkContainer___2PKLE:hover svg {
+.ItemLinkContainer___3gKyx:hover svg {
   transform: scale(1.1);
   transition: all .1s;
 }
 
-.ItemLink___3DGlD {
+.ItemLink___zvdwb {
   padding: 0;
   margin: 0;
   width: 60%;
@@ -652,28 +650,28 @@ body {
   text-align: center;
 }
 
-.ItemLinkIcon___2LwMV {
-  width: 40%;
+.ItemLinkIcon___2pksG {
+  width: auto;
   text-align: center;
 }
 
-.ItemLinkIcon___2LwMV svg {
+.ItemLinkIcon___2pksG svg {
   height: 1.7em;
   margin-bottom: -3px;
 }
 
-.ImageContainer___17WA_ {
+.ImageContainer___3ZHP8 {
   position: relative;
   width: 100%;
 }
 
-.ImageContainer___17WA_ img {
+.ImageContainer___3ZHP8 img {
   border: 2px solid gainsboro;
   box-sizing: border-box;
   width: 100%;
 }
 
-.ImageMask___1aSDB {
+.ImageMask___ZcxR5 {
   position: absolute;
   top: 0;
   width: 100%;
@@ -688,18 +686,18 @@ body {
   color: white;
 }
 
-.ImageContainer___17WA_:hover .ImageMask___1aSDB {
+.ImageContainer___3ZHP8:hover .ImageMask___ZcxR5 {
   opacity: 1;
 }
 
-.MaskLinks___1129d {
+.MaskLinks___3b_RG {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
 }
 
-.MaskLink___3V_OW {
+.MaskLink___2Z_QC {
   display: flex;
   flex-flow: row;
   align-items: center;
@@ -710,26 +708,26 @@ body {
   position: relative;
 }
 
-.MaskLinkText___EPhQZ {
+.MaskLinkText___V2BhR {
   color: whitesmoke;
   padding: 2px 5px;
   border-radius: 5px;
   transition: all .15s;
 }
 
-.MaskLink___3V_OW:hover .MaskLinkText___EPhQZ {
+.MaskLink___2Z_QC:hover .MaskLinkText___V2BhR {
   background: whitesmoke;
   color: dimgray;
 }
 
-.MaskLinkIcon___23L6- {
+.MaskLinkIcon___1xuTX {
   position: relative; 
   margin: 0 5px;
   color: gray;
   transition: all .3s;
 }
 
-.ExpandVideo___3Y-9o {
+.ExpandVideo___2-0ff {
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -738,7 +736,7 @@ body {
   cursor: pointer;
 }
 
-.ExpandVideo___3Y-9o p {
+.ExpandVideo___2-0ff p {
   border-radius: 5px;
   color: gray;
   background: transparent;
@@ -746,73 +744,73 @@ body {
   transition: all .2s;
 }
 
-.ExpandVideo___3Y-9o:hover p {
+.ExpandVideo___2-0ff:hover p {
   color: whitesmoke;
   /* color: black;
   background: whitesmoke; */
 }
 
-.ExpandVideo___3Y-9o:hover svg {
+.ExpandVideo___2-0ff:hover svg {
   transform: scale(1.2);
 }
 
-.ExpandVideo___3Y-9o svg {
+.ExpandVideo___2-0ff svg {
   transition: all .2s;
   margin-left: 5px;
   width: 20px;
   color: white;
 }
 
-.MaskLinkIcon___23L6- svg {
+.MaskLinkIcon___1xuTX svg {
   width: 15px;
   margin-bottom: -3px;
 }
 
-.MaskLink___3V_OW:hover .MaskLinkIcon___23L6- {
+.MaskLink___2Z_QC:hover .MaskLinkIcon___1xuTX {
   color: whitesmoke;
   transform: scale(1.15);
 }
 
 @media (min-width: 800px) {
-  .ItemContent___1Xtsc {
+  .ItemContent___3R0xe {
     flex-flow: row;
     padding-bottom: 0;
     margin: 20px;
     padding: 20px;
   }
 
-  .MadeWith___181Xb {
+  .MadeWith___2_0_d {
     justify-content: flex-start;
   }
 
-  .Description___3QyIB {
+  .Description___3jL8P {
     text-align: left;
     padding: 20px 0;
   }
 
-  .IconsAndLinks___3ruVO {
+  .IconsAndLinks___3W2-o {
     justify-content: flex-start;
   }
 }
 
 @media (min-width: 1000px) {
-  .Item___2HggL {
+  .Item___2z7E8 {
     width: 80%;
     font-size: .9em;
   }
 
-  .InfoContainer___2jgE- {
+  .InfoContainer___2K1Jf {
     width: 60%;
     padding: 20px 60px;
   }
 
-  .ImageContainer___17WA_ {
+  .ImageContainer___3ZHP8 {
     width: 40%;
   }
 }
 
 @media (min-width: 1400px) {
-  .Item___2HggL {
+  .Item___2z7E8 {
     width: 70%;
   }
 }

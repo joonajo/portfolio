@@ -8,9 +8,9 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Content":"Content___1Enco","Title":"Title___1zGeK"};
+module.exports = {"Content":"Content___K0TO7","Title":"Title___122BB"};
     if(true) {
-      // 1570306702862
+      // 1578855427867
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -27,9 +27,9 @@ module.exports = {"Content":"Content___1Enco","Title":"Title___1zGeK"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___3c-CL","MediaIcons":"MediaIcons___1mSCZ","BackgroundContainer":"BackgroundContainer___10IM9","BackgroundImage":"BackgroundImage___2a3RY","BackgroundMask":"BackgroundMask___2Uer6","TitleContainer":"TitleContainer___1bxur","FirstName":"FirstName___8PGm4","Surname":"Surname___3Gmvy","Description":"Description___HbED0","ArrowContainer":"ArrowContainer___1dqCi","ArrowIcon":"ArrowIcon___1oTzX","ArrowText":"ArrowText___16L4d","in":"in___28p6S","out":"out___3bv_x","slidein":"slidein___qQMaO"};
+module.exports = {"Main":"Main___1kdvF","MediaIcons":"MediaIcons___3X9Um","BackgroundContainer":"BackgroundContainer___1G8XX","BackgroundImage":"BackgroundImage___3AtYJ","BackgroundMask":"BackgroundMask___2heM8","TitleContainer":"TitleContainer___2bOxB","FirstName":"FirstName___1oifF","Surname":"Surname___2W55F","Description":"Description___2EZzY","ArrowContainer":"ArrowContainer___1gE-X","ArrowIcon":"ArrowIcon___3VFxX","ArrowText":"ArrowText___cijRf","in":"in___1uki9","out":"out___xo2li","slidein":"slidein___1iSaM"};
     if(true) {
-      // 1570306702852
+      // 1578855427860
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -46,9 +46,9 @@ module.exports = {"Main":"Main___3c-CL","MediaIcons":"MediaIcons___1mSCZ","Backg
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___-av8e","mount":"mount___2Rvj3","fadein":"fadein___2JU3I","unmount":"unmount___1YRWu","Backdrop":"Backdrop___1ujD1","VideoContainer":"VideoContainer___3Bxfp","Video":"Video___NTEgi","CloseButton":"CloseButton___3eH7p"};
+module.exports = {"Main":"Main___3w2yc","mount":"mount___2v3RS","fadein":"fadein___1ZLib","unmount":"unmount___3mvc-","Backdrop":"Backdrop___3B7tu","VideoContainer":"VideoContainer___2gnni","Video":"Video___QoA7X","CloseButton":"CloseButton____MALA"};
     if(true) {
-      // 1570307005846
+      // 1578855428368
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -65,9 +65,9 @@ module.exports = {"Main":"Main___-av8e","mount":"mount___2Rvj3","fadein":"fadein
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Item":"Item___2HggL","show":"show___12H2j","Title":"Title___19rVv","ItemContent":"ItemContent___1Xtsc","InfoContainer":"InfoContainer___2jgE-","MadeWith":"MadeWith___181Xb","Language":"Language___qBw-5","Description":"Description___3QyIB","IconsAndLinks":"IconsAndLinks___3ruVO","HardwareIcons":"HardwareIcons___2HOvV","HardwareIconContainer":"HardwareIconContainer___130pR","HardwareIcon":"HardwareIcon___21LZp","DesktopIcon":"DesktopIcon___tKpYK","MobileIcon":"MobileIcon___clOeX","CheckMarkIcon":"CheckMarkIcon___35uzl","TimesIcon":"TimesIcon___2co4K","ItemLinks":"ItemLinks___30O86","ItemLinkContainer":"ItemLinkContainer___2PKLE","ItemLink":"ItemLink___3DGlD","ItemLinkIcon":"ItemLinkIcon___2LwMV","ImageContainer":"ImageContainer___17WA_","ImageMask":"ImageMask___1aSDB","MaskLinks":"MaskLinks___1129d","MaskLink":"MaskLink___3V_OW","MaskLinkText":"MaskLinkText___EPhQZ","MaskLinkIcon":"MaskLinkIcon___23L6-","ExpandVideo":"ExpandVideo___3Y-9o"};
+module.exports = {"Item":"Item___2z7E8","show":"show___6kfVr","Title":"Title___3ZaYJ","ItemContent":"ItemContent___3R0xe","InfoContainer":"InfoContainer___2K1Jf","MadeWith":"MadeWith___2_0_d","Language":"Language___3j4M0","Description":"Description___3jL8P","IconsAndLinks":"IconsAndLinks___3W2-o","HardwareIcons":"HardwareIcons___1Zo3h","HardwareIconContainer":"HardwareIconContainer___2Svmz","HardwareIcon":"HardwareIcon___7oC72","DesktopIcon":"DesktopIcon___1I-OD","MobileIcon":"MobileIcon___2Qx5_","CheckMarkIcon":"CheckMarkIcon___11WPT","TimesIcon":"TimesIcon___gPzyh","ItemLinks":"ItemLinks___316VE","ItemLinkContainer":"ItemLinkContainer___3gKyx","ItemLink":"ItemLink___zvdwb","ItemLinkIcon":"ItemLinkIcon___2pksG","ImageContainer":"ImageContainer___3ZHP8","ImageMask":"ImageMask___ZcxR5","MaskLinks":"MaskLinks___3b_RG","MaskLink":"MaskLink___2Z_QC","MaskLinkText":"MaskLinkText___V2BhR","MaskLinkIcon":"MaskLinkIcon___1xuTX","ExpandVideo":"ExpandVideo___2-0ff"};
     if(true) {
-      // 1570308261343
+      // 1578856581186
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -76,17 +76,17 @@ module.exports = {"Item":"Item___2HggL","show":"show___12H2j","Title":"Title___1
 
 /***/ }),
 
-/***/ "./components/UI/Footer/Footer.css":
-/*!*****************************************!*\
-  !*** ./components/UI/Footer/Footer.css ***!
-  \*****************************************/
+/***/ "./components/UI/Footer/Footer.module.css":
+/*!************************************************!*\
+  !*** ./components/UI/Footer/Footer.module.css ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Footer":"Footer___2hhX3","fadein":"fadein___1FqwO","MediaIcons":"MediaIcons___uTfbp","Copyright":"Copyright___2dJgS"};
+module.exports = {"Footer":"Footer___ST3DE","fadein":"fadein___Ie23T","MediaIcons":"MediaIcons___23oHI","Copyright":"Copyright___6wjTT"};
     if(true) {
-      // 1570306703055
+      // 1578856666267
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -103,9 +103,9 @@ module.exports = {"Footer":"Footer___2hhX3","fadein":"fadein___1FqwO","MediaIcon
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Icons":"Icons___1jyXr","horizontal":"horizontal___6Fpxy","vertical":"vertical___28aPN","Icon":"Icon___6e_S1","Github":"Github___2Regp"};
+module.exports = {"Icons":"Icons___27Rhv","horizontal":"horizontal___2KeBy","vertical":"vertical___w0szC","Icon":"Icon___3DChQ","Github":"Github___32KvZ"};
     if(true) {
-      // 1570306703117
+      // 1578855428132
       var cssReload = __webpack_require__(/*! ../../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -122,9 +122,9 @@ module.exports = {"Icons":"Icons___1jyXr","horizontal":"horizontal___6Fpxy","ver
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Layout":"Layout___2PL_3"};
+module.exports = {"Layout":"Layout___AVeUt"};
     if(true) {
-      // 1570306702866
+      // 1578855427870
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -141,9 +141,9 @@ module.exports = {"Layout":"Layout___2PL_3"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Toolbar":"Toolbar___3PyNO","enabled":"enabled___3KR_g","PageLinks":"PageLinks___15vwM"};
+module.exports = {"Toolbar":"Toolbar___2IFkD","enabled":"enabled___2BQc4","PageLinks":"PageLinks___2txjX"};
     if(true) {
-      // 1570306703067
+      // 1578855428140
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -161,7 +161,7 @@ module.exports = {"Toolbar":"Toolbar___3PyNO","enabled":"enabled___3KR_g","PageL
 
 // extracted by extract-css-chunks-webpack-plugin
     if(true) {
-      // 1570306702847
+      // 1578855460454
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;

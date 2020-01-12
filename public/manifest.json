@@ -1,0 +1,21 @@
+{
+    "short_name": "Portfolio",
+    "name": "Joona Jo's Portfolio",
+    "icons": [
+      {
+        "src": "/images/icons-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "portfolio.joonajo.now.sh/",
+    "scope": "/",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff"
+  }
