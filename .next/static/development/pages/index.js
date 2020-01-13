@@ -25211,7 +25211,7 @@ var items = {
     language: [Languages.React, Languages.TypeScript, Languages.NextJS],
     link: 'https://classics-next.joonajo.now.sh',
     githubLink: 'https://github.com/joonajo/classics-next',
-    description: "Built with React + TypeScript + NextJS. Uses Firebase as the database. A web app with all-time classic games Minesweeper and Snake (Tetris coming soon). Each game has leaderboards for all difficulties, so go ahead and try to take the top spot!",
+    description: "Built with React + TypeScript + NextJS. A web app with all-time classic games Minesweeper and Snake (Tetris WIP). Own leaderboard for each game and each difficulty, stored in a Firebase database.",
     video_src: '/videos/classics.mp4',
     gif_src: '/gifs/classics.gif',
     desktop: true,
