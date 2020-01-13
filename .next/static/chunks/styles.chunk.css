@@ -72,7 +72,7 @@
   background: royalblue;
 }
 
-.Main___1kdvF {
+.Main___26Ejz {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -84,38 +84,44 @@
     overflow: hidden;
 }
 
-.MediaIcons___3X9Um {
+.MediaIcons___2PZ1M {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.BackgroundContainer___1G8XX {
+.BackgroundContainer___1M5px {
     position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 0;
+    background-image: url('/images/palm.png');
+    background-size: cover;
 }
 
-.BackgroundImage___3AtYJ {
+.BackgroundContainer___1M5px img {
+    width: 100%;
+    height: auto;
+}
+
+.BackgroundImage___X-8sj {
     position: absolute;
     top: 0;
     left: 0;
-    visibility: visible;
 }
 
-.BackgroundMask___2heM8 {
+.BackgroundMask___3QSOd {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(2, 0, 10, 0.8);
+    background: rgba(2, 0, 10, .8);
 }
 
-.TitleContainer___2bOxB {
+.TitleContainer___16Dcs {
     z-index: 1;
     display: flex;
     flex-flow: column;
@@ -125,18 +131,18 @@
     align-items: center;
 }
 
-.FirstName___1oifF,
-.Surname___2W55F,
-.Description___2EZzY {
+.FirstName___2s1w2,
+.Surname___3XHVT,
+.Description___CFaDz {
     box-sizing: border-box;
     letter-spacing: .05em;
     cursor: default;
 
 }
 
-.FirstName___1oifF,
-.Surname___2W55F {
-    font-family: "Ubuntu Medium";
+.FirstName___2s1w2,
+.Surname___3XHVT {
+    font-family: "Ubuntu Bold";
     width: 100%;
     padding: 0;
     margin: 0;
@@ -148,23 +154,23 @@
     -webkit-text-fill-color: transparent;
 }
 
-.Description___2EZzY {
+.Description___CFaDz {
     font-family: "Ubuntu Medium";
     margin-top: 1em;
-    padding: 10px 30px;
+    padding: 10px 20px;
     box-sizing: border-box;
     font-size: 1em;  
     width: auto;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     color: gainsboro;
 }
 
-.ArrowContainer___1gE-X {
+.ArrowContainer___Di9Mi {
     position: absolute;
     bottom: 100px;
 }
 
-.ArrowIcon___3VFxX {
+.ArrowIcon___1ttc5 {
     cursor: pointer;
     position: relative;
     display: flex;
@@ -174,21 +180,21 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    transition: all .3s;
+    transition: all .2s;
     background: rgba(255, 255, 255, 0.1);
     color: whitesmoke;
 }
 
-.ArrowIcon___3VFxX:hover {
+.ArrowIcon___1ttc5:hover {
     background: royalblue;
     color: black;
 }
 
-.ArrowIcon___3VFxX svg {
+.ArrowIcon___1ttc5 svg {
     height: 15px;
 }
 
-.ArrowText___cijRf {
+.ArrowText___2FQvt {
     position: absolute;
     color:  rgba(255, 255, 255, 0.5);
     top: -100%;
@@ -198,50 +204,50 @@
     font-size: .7em;
     text-transform: uppercase;
     opacity: 0;
+    transition: all .2s;
     left: 50%;
-    transition: all .3s;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
 }
 
-.ArrowText___cijRf.in___1uki9 {
+.ArrowContainer___Di9Mi:hover .ArrowText___2FQvt {
+    opacity: 1;
+}
+
+.ArrowText___2FQvt.in___1anPs {
     opacity: 1;
     transform: translateX(-50%);
 }
 
-.ArrowText___cijRf.out___xo2li {
+.ArrowText___2FQvt.out___lwW77 {
     opacity: 0;
     transform: translateX(100%);
 }
 
-@keyframes slidein___1iSaM {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(-50%); }
-}
 
 @media (min-width: 350px) {
-    .FirstName___1oifF,
-    .Surname___2W55F {
+    .FirstName___2s1w2,
+    .Surname___3XHVT {
         font-size: 3.3em;
     }
 }
 
 @media (min-width: 370px) {
-    .FirstName___1oifF,
-    .Surname___2W55F {
+    .FirstName___2s1w2,
+    .Surname___3XHVT {
         font-size: 4em;
     }
 }
 
 @media (min-width: 600px) {
-    .FirstName___1oifF,
-    .Surname___2W55F {
+    .FirstName___2s1w2,
+    .Surname___3XHVT {
         font-size: 6em;
     }
 }
 
 @media (min-width: 1000px) {
-    .FirstName___1oifF,
-    .Surname___2W55F {
+    .FirstName___2s1w2,
+    .Surname___3XHVT {
         font-size: 7em;
     }
 }
@@ -468,7 +474,7 @@ body {
   color: black;
   position: relative;
   overflow: hidden;
-  margin: 30px 0;
+  margin: 10px 0;
   transition: all .3s, opacity 1.2s, top .7s;
   opacity: 0;
   top: 40px;

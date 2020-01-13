@@ -76,7 +76,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-var css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css");
+var css = __webpack_require__(/*! ./Cover.module.css */ "./components/Cover/Cover.module.css");
 
 var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
   var toolbarContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_4__["ToolbarContext"]);
@@ -103,30 +103,24 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
       zenscroll__WEBPACK_IMPORTED_MODULE_2___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
-
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
-      _React$useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState3, 2),
-      arrowIn = _React$useState4[0],
-      setArrowIn = _React$useState4[1];
-
-  var arrowTextClasses = [css.ArrowText, arrowIn ? css["in"] : arrowIn === false && css.out].join(' ');
+  var mouseInRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(false);
+  var mouseOutRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(false);
+  var animInProgressRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(false);
+  var arrowTextClasses = [css.ArrowText].join(' ');
+  console.log(mouseInRef.current);
 
   var transitionHandler = function transitionHandler() {
-    if (arrowIn === false) {
-      setArrowIn(undefined);
-    }
+    if (mouseOutRef.current && animInProgressRef.current) {}
   };
 
-  var hoverHandler = function hoverHandler() {
-    setArrowIn(true); // if (arrowIn === undefined) {
+  var hoverHandler = function hoverHandler(mouseIn) {
+    if (!mouseInRef.current && mouseIn) {
+      mouseInRef.current = true;
+      animInProgressRef.current = true;
+    } // if (arrowIn === undefined) {
     //     setArrowIn(true)
     // }
-  };
 
-  var mouseOutHandler = function mouseOutHandler() {
-    setArrowIn(false); // if (arrowIn) {
-    //     setArrowIn(false)
-    // }
   };
 
   return __jsx("div", {
@@ -137,14 +131,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     }
   }, __jsx("div", {
     className: css.BackgroundContainer
-  }, __jsx("img", {
-    src: "/images/palm5k.png",
-    alt: "cover-bg-palm",
-    className: css.BackgroundImage,
-    style: {
-      minHeight: "".concat(height, "px")
-    }
-  }), __jsx("div", {
+  }, __jsx("div", {
     className: css.BackgroundMask
   })), __jsx("div", {
     className: css.MediaIcons
@@ -158,13 +145,17 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     className: css.Surname
   }, "Joenpolvi"), __jsx("h3", {
     className: css.Description
-  }, "Front-End Developer")), __jsx("div", {
+  }, " ", "<Front End Developer />", " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
     className: css.ArrowIcon,
     onClick: scrollToPortfolio,
-    onMouseOver: hoverHandler,
-    onMouseOut: mouseOutHandler
+    onMouseOver: function onMouseOver() {
+      return hoverHandler(true);
+    },
+    onMouseOut: function onMouseOut() {
+      return hoverHandler(false);
+    }
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_6__["icons"].faChevronDown,
     size: "lg"
@@ -25287,7 +25278,7 @@ var portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, items
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cindex%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -25310,5 +25301,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -185,29 +185,28 @@ const Content = () => {
 
 /***/ }),
 
-/***/ "./components/Cover/Cover.css":
-/*!************************************!*\
-  !*** ./components/Cover/Cover.css ***!
-  \************************************/
+/***/ "./components/Cover/Cover.module.css":
+/*!*******************************************!*\
+  !*** ./components/Cover/Cover.module.css ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = {
-	"Main": "Main___1kdvF",
-	"MediaIcons": "MediaIcons___3X9Um",
-	"BackgroundContainer": "BackgroundContainer___1G8XX",
-	"BackgroundImage": "BackgroundImage___3AtYJ",
-	"BackgroundMask": "BackgroundMask___2heM8",
-	"TitleContainer": "TitleContainer___2bOxB",
-	"FirstName": "FirstName___1oifF",
-	"Surname": "Surname___2W55F",
-	"Description": "Description___2EZzY",
-	"ArrowContainer": "ArrowContainer___1gE-X",
-	"ArrowIcon": "ArrowIcon___3VFxX",
-	"ArrowText": "ArrowText___cijRf",
-	"in": "in___1uki9",
-	"out": "out___xo2li",
-	"slidein": "slidein___1iSaM"
+	"Main": "Main___26Ejz",
+	"MediaIcons": "MediaIcons___2PZ1M",
+	"BackgroundContainer": "BackgroundContainer___1M5px",
+	"BackgroundImage": "BackgroundImage___X-8sj",
+	"BackgroundMask": "BackgroundMask___3QSOd",
+	"TitleContainer": "TitleContainer___16Dcs",
+	"FirstName": "FirstName___2s1w2",
+	"Surname": "Surname___3XHVT",
+	"Description": "Description___CFaDz",
+	"ArrowContainer": "ArrowContainer___Di9Mi",
+	"ArrowIcon": "ArrowIcon___1ttc5",
+	"ArrowText": "ArrowText___2FQvt",
+	"in": "in___1anPs",
+	"out": "out___lwW77"
 };
 
 /***/ }),
@@ -238,7 +237,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const css = __webpack_require__(/*! ./Cover.css */ "./components/Cover/Cover.css");
+const css = __webpack_require__(/*! ./Cover.module.css */ "./components/Cover/Cover.module.css");
 
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   const toolbarContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext(_context_toolbarContext__WEBPACK_IMPORTED_MODULE_3__["ToolbarContext"]);
@@ -258,25 +257,24 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
       zenscroll__WEBPACK_IMPORTED_MODULE_1___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
-  const [arrowIn, setArrowIn] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
-  const arrowTextClasses = [css.ArrowText, arrowIn ? css.in : arrowIn === false && css.out].join(' ');
+  const mouseInRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(false);
+  const mouseOutRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(false);
+  const animInProgressRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(false);
+  const arrowTextClasses = [css.ArrowText].join(' ');
+  console.log(mouseInRef.current);
 
   const transitionHandler = () => {
-    if (arrowIn === false) {
-      setArrowIn(undefined);
-    }
+    if (mouseOutRef.current && animInProgressRef.current) {}
   };
 
-  const hoverHandler = () => {
-    setArrowIn(true); // if (arrowIn === undefined) {
+  const hoverHandler = mouseIn => {
+    if (!mouseInRef.current && mouseIn) {
+      mouseInRef.current = true;
+      animInProgressRef.current = true;
+    } // if (arrowIn === undefined) {
     //     setArrowIn(true)
     // }
-  };
 
-  const mouseOutHandler = () => {
-    setArrowIn(false); // if (arrowIn) {
-    //     setArrowIn(false)
-    // }
   };
 
   return __jsx("div", {
@@ -287,14 +285,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     }
   }, __jsx("div", {
     className: css.BackgroundContainer
-  }, __jsx("img", {
-    src: "/images/palm5k.png",
-    alt: "cover-bg-palm",
-    className: css.BackgroundImage,
-    style: {
-      minHeight: `${height}px`
-    }
-  }), __jsx("div", {
+  }, __jsx("div", {
     className: css.BackgroundMask
   })), __jsx("div", {
     className: css.MediaIcons
@@ -308,13 +299,13 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     className: css.Surname
   }, "Joenpolvi"), __jsx("h3", {
     className: css.Description
-  }, "Front-End Developer")), __jsx("div", {
+  }, " ", "<Front End Developer />", " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
     className: css.ArrowIcon,
     onClick: scrollToPortfolio,
-    onMouseOver: hoverHandler,
-    onMouseOut: mouseOutHandler
+    onMouseOver: () => hoverHandler(true),
+    onMouseOut: () => hoverHandler(false)
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_5__["icons"].faChevronDown,
     size: "lg"
@@ -2922,7 +2913,7 @@ const portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, ite
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/

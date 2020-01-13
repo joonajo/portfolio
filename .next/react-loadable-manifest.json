@@ -1,7 +1,7 @@
 {
   "../Item/Item": [
     {
-      "id": 6,
+      "id": 4,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -13,8 +13,8 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/Cover/Cover.css",
-      "name": "./components/Cover/Cover.css",
+      "id": "./components/Cover/Cover.module.css",
+      "name": "./components/Cover/Cover.module.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
@@ -37,25 +37,25 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
+      "id": 10,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
       "id": 3,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 5,
+      "id": 8,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 9,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 2,
+      "id": 1,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -67,19 +67,19 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 7,
+      "id": 5,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 4,
+      "id": 2,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 8,
+      "id": 6,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -103,7 +103,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 10,
+      "id": 9,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"

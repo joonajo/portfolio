@@ -6,7 +6,7 @@ import { IToolbar, ToolbarContext } from '../../context/toolbarContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../icons/icons'
 
-const css = require('./Cover.css')
+const css = require('./Cover.module.css')
 
 const Cover = React.memo((): JSX.Element => {
     const toolbarContext: IToolbar = React.useContext(ToolbarContext)
@@ -33,38 +33,37 @@ const Cover = React.memo((): JSX.Element => {
         }
     }, [coverRef])
 
-    const[arrowIn, setArrowIn] = React.useState<boolean | undefined>(undefined)
+    const mouseInRef = React.useRef<boolean>(false)
+    const mouseOutRef = React.useRef<boolean>(false)
+    const animInProgressRef = React.useRef<boolean>(false)
 
     const arrowTextClasses = [
         css.ArrowText,
-        arrowIn ? css.in : arrowIn === false && css.out
     ].join(' ')
 
+    console.log(mouseInRef.current)
+
     const transitionHandler = () => {
-        if (arrowIn === false) {
-            setArrowIn(undefined)
+        if (mouseOutRef.current && animInProgressRef.current) {
+
         }
     }
 
-    const hoverHandler = () => {
-        setArrowIn(true)
+    const hoverHandler = (mouseIn: boolean) => {
+        if (!mouseInRef.current && mouseIn) {
+            mouseInRef.current = true
+            animInProgressRef.current = true
+        }
         // if (arrowIn === undefined) {
         //     setArrowIn(true)
-        // }
-    }
-
-    const mouseOutHandler = () => {
-        setArrowIn(false)
-        // if (arrowIn) {
-        //     setArrowIn(false)
         // }
     }
 
     return (
         <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.BackgroundContainer}>
-                <img src="/images/palm5k.png" alt="cover-bg-palm" className={css.BackgroundImage} style={{minHeight: `${height}px`}} />
-                <div className={css.BackgroundMask}></div>
+                {/* <img src="/images/palm.png" alt="cover-bg-palm" className={css.BackgroundImage} style={{minHeight: `${height}px`}} /> */}
+                <div className={css.BackgroundMask} />
             </div>
             <div className={css.MediaIcons}>
                 <MediaIcons vertical />
@@ -72,13 +71,13 @@ const Cover = React.memo((): JSX.Element => {
             <div className={css.TitleContainer}>
                 <h1 className={css.FirstName}>Joona</h1>
                 <h1 className={css.Surname}>Joenpolvi</h1>
-                <h3 className={css.Description}>Front-End Developer</h3>
+                <h3 className={css.Description}> {"<Front End Developer />"} </h3>
             </div>
             <div className={css.ArrowContainer} >
                 <div className={css.ArrowIcon}
                     onClick={scrollToPortfolio}
-                    onMouseOver={hoverHandler}
-                    onMouseOut={mouseOutHandler}> 
+                    onMouseOver={() => hoverHandler(true)}
+                    onMouseOut={() => hoverHandler(false)}> 
                     <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
                 </div>
                 <p className={arrowTextClasses} onTransitionEnd={transitionHandler}>to portfolio</p>
