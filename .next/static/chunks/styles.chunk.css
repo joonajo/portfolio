@@ -308,7 +308,7 @@
     align-items: center;
     right: 0;
 }
-.Layout___AVeUt {   
+.Layout___29qXb {   
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -374,17 +374,17 @@
 }
 
 body {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
-    background: rgb(134, 117, 117);
+    background: whitesmoke;
 }
 
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -393,12 +393,106 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: gainsboro;;
+    background: gainsboro;
 }
 
 ::-webkit-scrollbar-thumb {
     background: rgb(39, 65, 141);
     border-radius: 0;
+}
+.Main___151kN,
+.AuthFormContainer___1_beJ,
+.AuthForm___1pC07,
+.IconContainer___GGE9a,
+.SubmitButton___32NW3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main___151kN {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: royalblue;
+    --input-icon-width: 40px;
+    --item-margin: 5px;
+}
+
+.AuthFormContainer___1_beJ,
+.AuthForm___1pC07 {
+    flex-flow: column;
+}
+
+.AuthFormContainer___1_beJ {
+    font-family: Ubuntu Bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 30px 5px gainsboro;
+}
+
+.FormTitle___zEJsd {
+    margin: var(--item-margin);
+}
+
+.InputContainer___1tMJt {
+    margin: var(--item-margin);
+    position: relative;
+}
+
+.EmailInput___2xL7T,
+.PasswordInput___2q3At {
+    font-size: 1em;
+    padding: 10px var(--input-icon-width);
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    transition: all .3s;
+    color: black;
+    font-family: Ubuntu Medium;
+}
+
+.EmailInput___2xL7T:focus,
+.PasswordInput___2q3At:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px 2px gainsboro;
+}
+
+.IconContainer___GGE9a {
+    position: absolute;
+    width: var(--input-icon-width);
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.InputIcon___kzqOE {
+    color: lightgray;
+    transition: all .3s;
+}
+
+.InputIcon___kzqOE.focus___2AGxb {
+    color: royalblue;
+}
+
+.SubmitButton___32NW3 {
+    margin-top: var(--item-margin);
+    padding: 10px;
+    flex-flow: row;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: all .3s;
+}
+
+.SubmitButton___32NW3 svg {
+    margin-left: 10px;
+}
+
+.SubmitButton___32NW3:hover {
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 10px 2px gainsboro;
 }
 .Main___3w2yc {
     width: 100vw;

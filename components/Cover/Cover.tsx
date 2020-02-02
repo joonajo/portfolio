@@ -9,7 +9,6 @@ import { icons } from '../../icons/icons'
 const css = require('./Cover.module.css')
 
 const Cover = React.memo((): JSX.Element => {
-    const toolbarContext: IToolbar = React.useContext(ToolbarContext)
     const coverRef = React.useRef<HTMLDivElement>(null)
     const[height, setHeight] = React.useState<number | undefined>(undefined)
     

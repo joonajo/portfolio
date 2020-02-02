@@ -7,6 +7,10 @@ import {
     faTimes,
     faChevronDown,
     faExpand,
+    faLock,
+    faUnlock,
+    faEnvelopeOpen,
+    faSignInAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -28,4 +32,8 @@ export const icons = {
     faTimes,
     faChevronDown,
     faExpand,
+    faLock,
+    faUnlock,
+    faEnvelopeOpen,
+    faSignInAlt
 }
