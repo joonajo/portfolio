@@ -1,0 +1,62 @@
+.Icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Icons.horizontal {
+  flex-flow: row;
+}
+
+.Icons.vertical {
+  margin: 10px;
+  flex-flow: column;
+}
+
+.Icon {
+  overflow: hidden;
+  transition: all .3s;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Icon.horizontal {
+  box-sizing: border-box;
+  --horizontalSize: 30px;
+  color: lavender;
+  background: rgba(255, 255, 255, .2);
+  margin: 5px;
+  width: var(--horizontalSize);
+  height: var(--horizontalSize);
+  line-height: var(--horizontalSize);
+  border-radius: 50%;
+}
+
+.Icon.horizontal svg {
+  width: 15px;
+}
+
+.Icon.vertical {
+  box-sizing: border-box;
+  --verticalSize: 40px;
+  color: lavender;
+  background: rgba(255, 255, 255, .1);
+  margin: 5px;
+  width: var(--verticalSize);
+  height: var(--verticalSize);
+  line-height: var(--verticalSize);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.Icon.vertical svg {
+  width: 15px;
+}
+
+.Icon.vertical:hover,
+.Icon.horizontal:hover {
+  background: royalblue;
+  color: black;
+}

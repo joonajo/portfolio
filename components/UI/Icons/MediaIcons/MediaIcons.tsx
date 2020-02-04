@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../../../icons/icons'
 
-const css = require('./MediaIcons.css')
+const css = require('./MediaIcons.module.css')
 
 interface IProps {
   horizontal?: boolean

@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { googleKey } from '../../keys'
 import { icons } from '../../icons/icons'
 
 const css = require('./index.module.css')
@@ -10,7 +11,20 @@ const AdminPage: NextPage = (): JSX.Element => {
     const [isSignedIn, setIsSignedIn] = React.useState<boolean>(false)
 
     const signInHandler = (email: string, password: string) =>  {
-        console.log(email, password)
+        const baseURL: string ="https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?"
+        const apiKey: string = `key=${googleKey}`
+        const payload = {
+            email: email,
+            password: password,
+            returnSecureToken: true
+        }
+        
+        fetch(baseURL + apiKey + payload)
+            .then(response => {
+                console.log(response)
+            }).catch(e => {
+                console.log(e)
+            })
     }
 
     return (

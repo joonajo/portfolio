@@ -1,19 +1,19 @@
-.Icons___27Rhv {
+.Icons___2O8Ah {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.Icons___27Rhv.horizontal___2KeBy {
+.Icons___2O8Ah.horizontal___2f_Es {
   flex-flow: row;
 }
 
-.Icons___27Rhv.vertical___w0szC {
+.Icons___2O8Ah.vertical___3FnwM {
   margin: 10px;
   flex-flow: column;
 }
 
-.Icon___3DChQ {
+.Icon___bM84L {
   overflow: hidden;
   transition: all .3s;
   display: flex;
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.Icon___3DChQ.horizontal___2KeBy {
+.Icon___bM84L.horizontal___2f_Es {
   box-sizing: border-box;
   --horizontalSize: 30px;
   color: lavender;
@@ -34,11 +34,11 @@
   border-radius: 50%;
 }
 
-.Icon___3DChQ.horizontal___2KeBy svg {
+.Icon___bM84L.horizontal___2f_Es svg {
   width: 15px;
 }
 
-.Icon___3DChQ.vertical___w0szC {
+.Icon___bM84L.vertical___3FnwM {
   box-sizing: border-box;
   --verticalSize: 40px;
   color: lavender;
@@ -51,25 +51,14 @@
   text-align: center;
 }
 
-.Icon___3DChQ.vertical___w0szC svg {
+.Icon___bM84L.vertical___3FnwM svg {
   width: 15px;
 }
 
-.Github___32KvZ::after {
-  position: absolute;
-  content: 'Github';
-  color: white;
-  font-size: .7em;
-}
-
-.Icon___3DChQ.vertical___w0szC:hover {
+.Icon___bM84L.vertical___3FnwM:hover,
+.Icon___bM84L.horizontal___2f_Es:hover {
   background: royalblue;
   color: black;
-}
-
-.Icon___3DChQ.horizontal___2KeBy:hover {
-  color: black;
-  background: royalblue;
 }
 
 .Main___26Ejz {
@@ -97,19 +86,14 @@
     top: 0;
     left: 0;
     z-index: 0;
-    background-image: url('/images/palm.png');
-    background-size: cover;
-}
-
-.BackgroundContainer___1M5px img {
-    width: 100%;
-    height: auto;
 }
 
 .BackgroundImage___X-8sj {
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: cover;
+    min-width: 100%;
 }
 
 .BackgroundMask___3QSOd {
@@ -135,7 +119,6 @@
 .Surname___3XHVT,
 .Description___CFaDz {
     box-sizing: border-box;
-    letter-spacing: .05em;
     cursor: default;
 
 }
@@ -144,11 +127,12 @@
 .Surname___3XHVT {
     font-family: "Ubuntu Bold";
     width: 100%;
+    /* font-weight: 700; */
     padding: 0;
     margin: 0;
     text-align: center;
     font-size: 3em;
-    background: linear-gradient(90deg, rgba(255,91,91,1) 20%, rgba(255,111,205,1) 70%, rgba(255,203,109,1) 100%);
+    background: linear-gradient(90deg, rgb(212, 0, 184) 0%, rgb(204, 0, 112) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -266,6 +250,7 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 
 .MediaIcons___23oHI {
