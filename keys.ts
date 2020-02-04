@@ -1,0 +1,1 @@
+export const googleKey: string = "AIzaSyDoQDgiY3LCUaOApRN_800QwvR8qKm3u94"
