@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -359,6 +359,9 @@ const css = __webpack_require__(/*! ./index.module.css */ "./pages/admin/index.m
 
 const AdminPage = () => {
   const [isSignedIn, setIsSignedIn] = react__WEBPACK_IMPORTED_MODULE_8__["useState"](false);
+  react__WEBPACK_IMPORTED_MODULE_8__["useEffect"](() => {
+    document.title = 'Portfolio // Admin';
+  }, []);
 
   const signInHandler = (email, password) => {
     const baseURL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?";
@@ -485,7 +488,7 @@ const InputComponent = props => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/admin/index.tsx ***!
   \*************************************/

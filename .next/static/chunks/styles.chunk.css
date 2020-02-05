@@ -25,7 +25,7 @@
 .Icon___bM84L.horizontal___2f_Es {
   box-sizing: border-box;
   --horizontalSize: 30px;
-  color: lavender;
+  color: var(--background-color);
   background: rgba(255, 255, 255, .2);
   margin: 5px;
   width: var(--horizontalSize);
@@ -41,7 +41,7 @@
 .Icon___bM84L.vertical___3FnwM {
   box-sizing: border-box;
   --verticalSize: 40px;
-  color: lavender;
+  color: var(--background-color);
   background: rgba(255, 255, 255, .1);
   margin: 5px;
   width: var(--verticalSize);
@@ -120,11 +120,12 @@
 .Description___CFaDz {
     box-sizing: border-box;
     cursor: default;
-
+    
 }
 
 .FirstName___2s1w2,
 .Surname___3XHVT {
+    color: var(--title-color);
     font-family: "Ubuntu Bold";
     width: 100%;
     /* font-weight: 700; */
@@ -132,13 +133,10 @@
     margin: 0;
     text-align: center;
     font-size: 3em;
-    background: linear-gradient(90deg, rgb(212, 0, 184) 0%, rgb(204, 0, 112) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .Description___CFaDz {
+    color: var(--background-color);
     font-family: "Ubuntu Medium";
     margin-top: 1em;
     padding: 10px 20px;
@@ -146,7 +144,6 @@
     font-size: 1em;  
     width: auto;
     background: rgba(0, 0, 0, 0.8);
-    color: gainsboro;
 }
 
 .ArrowContainer___Di9Mi {
@@ -166,7 +163,7 @@
     border-radius: 50%;
     transition: all .2s;
     background: rgba(255, 255, 255, 0.1);
-    color: whitesmoke;
+    color: var(--title-color);
 }
 
 .ArrowIcon___1ttc5:hover {
@@ -311,7 +308,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
-    background: whitesmoke;
+    background: var(--content-bg-color);
 }
 
 .Title___122BB {
@@ -358,10 +355,16 @@
     font-style: normal;
 }
 
+:root {
+    --background-color: snow;
+    --content-bg-color: whitesmoke;
+    --title-color: rgb(255, 51, 211);
+}
+
 body {
     box-sizing: border-box;
     font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
-    background: whitesmoke;
+    background: var(--background-color);
 }
 
 * {
@@ -581,7 +584,7 @@ body {
 }
 
 .Title___3ZaYJ span {
-  background: white;
+  background: var(--background-color);
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 20px 5px gainsboro;
@@ -595,7 +598,7 @@ body {
   flex-flow: column;
   align-items: center;
   position: relative;
-  background: white;
+  background: var(--background-color);
   box-shadow: 0px 0px 20px 5px gainsboro;
 }
   

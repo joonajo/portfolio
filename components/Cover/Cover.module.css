@@ -57,11 +57,12 @@
 .Description {
     box-sizing: border-box;
     cursor: default;
-
+    
 }
 
 .FirstName,
 .Surname {
+    color: var(--title-color);
     font-family: "Ubuntu Bold";
     width: 100%;
     /* font-weight: 700; */
@@ -69,13 +70,10 @@
     margin: 0;
     text-align: center;
     font-size: 3em;
-    background: linear-gradient(90deg, rgb(212, 0, 184) 0%, rgb(204, 0, 112) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .Description {
+    color: var(--background-color);
     font-family: "Ubuntu Medium";
     margin-top: 1em;
     padding: 10px 20px;
@@ -83,7 +81,6 @@
     font-size: 1em;  
     width: auto;
     background: rgba(0, 0, 0, 0.8);
-    color: gainsboro;
 }
 
 .ArrowContainer {
@@ -103,7 +100,7 @@
     border-radius: 50%;
     transition: all .2s;
     background: rgba(255, 255, 255, 0.1);
-    color: whitesmoke;
+    color: var(--title-color);
 }
 
 .ArrowIcon:hover {

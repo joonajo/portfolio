@@ -10,6 +10,10 @@ const css = require('./index.module.css')
 const AdminPage: NextPage = (): JSX.Element => {
     const [isSignedIn, setIsSignedIn] = React.useState<boolean>(false)
 
+    React.useEffect(() => {
+        document.title = 'Portfolio // Admin'
+    }, [])
+
     const signInHandler = (email: string, password: string) =>  {
         const baseURL: string ="https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?"
         const apiKey: string = `key=${googleKey}`

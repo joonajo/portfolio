@@ -17703,6 +17703,10 @@ var AdminPage = function AdminPage() {
       isSignedIn = _React$useState2[0],
       setIsSignedIn = _React$useState2[1];
 
+  react__WEBPACK_IMPORTED_MODULE_9__["useEffect"](function () {
+    document.title = 'Portfolio // Admin';
+  }, []);
+
   var signInHandler = function signInHandler(email, password) {
     var baseURL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?";
     var apiKey = "key=".concat(_keys__WEBPACK_IMPORTED_MODULE_11__["googleKey"]);
@@ -17842,7 +17846,7 @@ var InputComponent = function InputComponent(props) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 11:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadmin&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cadmin%5Cindex.tsx ***!
   \*****************************************************************************************************************************************/
@@ -17865,5 +17869,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[11,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=admin.js.map

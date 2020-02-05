@@ -25,7 +25,7 @@
 .Icon.horizontal {
   box-sizing: border-box;
   --horizontalSize: 30px;
-  color: lavender;
+  color: var(--background-color);
   background: rgba(255, 255, 255, .2);
   margin: 5px;
   width: var(--horizontalSize);
@@ -41,7 +41,7 @@
 .Icon.vertical {
   box-sizing: border-box;
   --verticalSize: 40px;
-  color: lavender;
+  color: var(--background-color);
   background: rgba(255, 255, 255, .1);
   margin: 5px;
   width: var(--verticalSize);
