@@ -29,7 +29,7 @@ module.exports = {"Content":"Content___K0TO7","Title":"Title___122BB"};
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Main":"Main___26Ejz","MediaIcons":"MediaIcons___2PZ1M","BackgroundContainer":"BackgroundContainer___1M5px","BackgroundImage":"BackgroundImage___X-8sj","BackgroundMask":"BackgroundMask___3QSOd","TitleContainer":"TitleContainer___16Dcs","FirstName":"FirstName___2s1w2","Surname":"Surname___3XHVT","Description":"Description___CFaDz","ArrowContainer":"ArrowContainer___Di9Mi","ArrowIcon":"ArrowIcon___1ttc5","ArrowText":"ArrowText___2FQvt","in":"in___1anPs","out":"out___lwW77"};
     if(true) {
-      // 1580893005254
+      // 1580916252338
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -133,6 +133,25 @@ module.exports = {"Layout":"Layout___29qXb"};
 
 /***/ }),
 
+/***/ "./components/UI/Spinner/Spinner.module.css":
+/*!**************************************************!*\
+  !*** ./components/UI/Spinner/Spinner.module.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by extract-css-chunks-webpack-plugin
+module.exports = {"CubeContainer":"CubeContainer___xRbCz","Cube":"Cube___1nEuA","sk-foldCubeAngle":"sk-foldCubeAngle___1EoSl","Cube2":"Cube2___2samt","Cube3":"Cube3___2db_B","Cube4":"Cube4___1rpEr"};
+    if(true) {
+      // 1580917599646
+      var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);;
+    }
+  
+
+/***/ }),
+
 /***/ "./components/UI/Toolbar/Toolbar.module.css":
 /*!**************************************************!*\
   !*** ./components/UI/Toolbar/Toolbar.module.css ***!
@@ -152,6 +171,44 @@ module.exports = {"Toolbar":"Toolbar___2IFkD","enabled":"enabled___2BQc4","PageL
 
 /***/ }),
 
+/***/ "./containers/Admin/Admin.module.css":
+/*!*******************************************!*\
+  !*** ./containers/Admin/Admin.module.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by extract-css-chunks-webpack-plugin
+module.exports = {"AdminWrapper":"AdminWrapper____z5UW","fadein":"fadein___2NOMh"};
+    if(true) {
+      // 1580927352994
+      var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);;
+    }
+  
+
+/***/ }),
+
+/***/ "./containers/Auth/Auth.module.css":
+/*!*****************************************!*\
+  !*** ./containers/Auth/Auth.module.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by extract-css-chunks-webpack-plugin
+module.exports = {"AuthFormContainer":"AuthFormContainer___2vfy7","AuthForm":"AuthForm___1YkBf","IconContainer":"IconContainer___3sYgW","SubmitButton":"SubmitButton___2M9gB","Container":"Container___jNmLd","FormTitle":"FormTitle___32r4e","InputContainer":"InputContainer___3sEIi","focus":"focus___XaTcu","EmailInput":"EmailInput___1IERV","PasswordInput":"PasswordInput___8Y41p","Span":"Span___lakW3","InputIcon":"InputIcon___fxg8C","ErrorText":"ErrorText___2C0br","fadein":"fadein___xaCDG"};
+    if(true) {
+      // 1580928107740
+      var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);;
+    }
+  
+
+/***/ }),
+
 /***/ "./pages/admin/index.module.css":
 /*!**************************************!*\
   !*** ./pages/admin/index.module.css ***!
@@ -160,9 +217,9 @@ module.exports = {"Toolbar":"Toolbar___2IFkD","enabled":"enabled___2BQc4","PageL
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___151kN","AuthFormContainer":"AuthFormContainer___1_beJ","AuthForm":"AuthForm___1pC07","IconContainer":"IconContainer___GGE9a","SubmitButton":"SubmitButton___32NW3","FormTitle":"FormTitle___zEJsd","InputContainer":"InputContainer___1tMJt","EmailInput":"EmailInput___2xL7T","PasswordInput":"PasswordInput___2q3At","InputIcon":"InputIcon___kzqOE","focus":"focus___2AGxb"};
+module.exports = {"Main":"Main___151kN","Loading":"Loading___3rzPY","fadein":"fadein___4IAf2"};
     if(true) {
-      // 1580892312102
+      // 1580927220957
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -180,7 +237,7 @@ module.exports = {"Main":"Main___151kN","AuthFormContainer":"AuthFormContainer__
 
 // extracted by extract-css-chunks-webpack-plugin
     if(true) {
-      // 1580893083982
+      // 1580904629461
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;

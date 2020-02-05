@@ -33,13 +33,15 @@
 :root {
     --background-color: snow;
     --content-bg-color: whitesmoke;
-    --title-color: rgb(255, 51, 211);
+    --title-color: linen;
+    --main-color: royalblue;
 }
 
 body {
     box-sizing: border-box;
     font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
     background: var(--background-color);
+    scroll-behavior: smooth;
 }
 
 * {
@@ -48,6 +50,8 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--background-color);
 }
 
 
@@ -60,6 +64,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(39, 65, 141);
+    background: var(--main-color);
     border-radius: 0;
 }

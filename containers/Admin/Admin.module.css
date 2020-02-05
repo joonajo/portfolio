@@ -1,0 +1,14 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.AdminWrapper {
+    display: flex;
+}
+
+.AdminWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
