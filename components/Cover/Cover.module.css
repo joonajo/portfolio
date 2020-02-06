@@ -51,6 +51,7 @@
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
+    animation: fadein 2s;
 }
 
 .FirstName,
@@ -126,22 +127,12 @@
     transition: all .2s;
     left: 50%;
     transform: translateX(-50%);
+    cursor: default;
 }
 
-.ArrowContainer:hover .ArrowText {
+.ArrowIcon:hover .ArrowText {
     opacity: 1;
 }
-
-.ArrowText.in {
-    opacity: 1;
-    transform: translateX(-50%);
-}
-
-.ArrowText.out {
-    opacity: 0;
-    transform: translateX(100%);
-}
-
 
 @media (min-width: 350px) {
     .FirstName,
@@ -169,4 +160,173 @@
     .Surname {
         font-size: 7em;
     }
+}
+
+.AnimatedText {
+    position: relative;
+    margin: auto;
+    color: transparent;
+    font-family: 'Ubuntu Bold', sans-serif;
+    font-size: 8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.03em;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+  
+.AnimatedText > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: var(--title-color);
+    pointer-events: none;
+}
+  
+.AnimatedText > span:nth-child(1) {
+    -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
+    mask-image: linear-gradient(black 25%, transparent 25%);
+    animation: deconstructed1 10s infinite;
+    color: yellow;
+}
+  
+.AnimatedText > span:nth-child(2) {
+    -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    animation: deconstructed2 10s infinite;
+}
+
+.AnimatedText > span:nth-child(3) {
+    -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    animation: deconstructed3 10s infinite;
+}
+
+.AnimatedText > span:nth-child(4) {
+    -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
+   mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
+   animation: deconstructed4 10s infinite;
+   color: lightyellow;
+}
+ 
+  
+@keyframes deconstructed1 {
+    0% {
+        transform: translateX(0%);
+    }
+    26% {
+        transform: translateX(.3%);
+    }
+    83% {
+          transform: translateX(-0.1%);
+    }
+    100% {
+         transform: translateX(-0%);
+    }
+}
+  
+@keyframes deconstructed2 {
+    0% {
+        transform: translateX(0%);
+    }
+    24% {
+          transform: translateX(0.2%);
+    }
+    82% {
+        transform: translateX(-0.1%);
+    }
+    100% {
+        transform: translateX(-0%);
+    }
+}
+  
+@keyframes deconstructed3 {
+    0% {
+          transform: translateX(0%);
+    }
+    22% {
+          transform: translateX(-0.2%);
+    }
+    81% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes deconstructed4 {
+    0% {
+          transform: translateX(0%);
+    }
+    20% {
+          transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-0%);
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+.Description span {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+}
+  
+.Description span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    animation: a-ltr-after 20s cubic-bezier(.77,0,.18,1) forwards infinite;
+    transform: translateX(-101%);
+}
+  
+.Description span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    animation: a-ltr-before 20s cubic-bezier(.77,0,.18,1) forwards infinite;
+    transform: translateX(0);
+}
+  
+.Description span:nth-of-type(1)::before,
+.Description span:nth-of-type(1)::after {
+    animation-delay: 1s;
+}
+  
+.Description span:nth-of-type(2)::before,
+.Description span:nth-of-type(2)::after {
+    animation-delay: 1.5s;  
+}
+  
+@keyframes a-ltr-after{
+    0% {transform: translateX(-100%)}
+    10% {transform: translateX(101%)}
+    100% {transform: translateX(101%)}
+}
+  
+@keyframes a-ltr-before{
+    0% {transform: translateX(0)}
+    10% {transform: translateX(200%)}
+    100% {transform: translateX(200%)}
 }

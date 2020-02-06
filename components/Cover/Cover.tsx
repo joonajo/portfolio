@@ -37,9 +37,11 @@ const Cover = React.memo((): JSX.Element => {
                 <MediaIcons vertical />
             </div>
             <div className={css.TitleContainer}>
-                <h1 className={css.FirstName}>Joona</h1>
-                <h1 className={css.Surname}>Joenpolvi</h1>
-                <h3 className={css.Description}> {"<Front End Developer />"} </h3>
+                {/* <h1 className={css.FirstName}>Joona</h1>
+                <h1 className={css.Surname}>Joenpolvi</h1> */}
+                <AnimatedText text='Joona' />
+                <AnimatedText text='Joenpolvi' delay={.5} />
+                <h3 className={css.Description}> <span>{"<Front End Developer />"}</span> </h3>
             </div>
             <div className={css.ArrowContainer} >
                 <div className={css.ArrowIcon}
@@ -51,5 +53,22 @@ const Cover = React.memo((): JSX.Element => {
         </div>
     )
 })
+
+interface IAnimatedText {
+    text: string
+    delay?: number
+}
+
+const AnimatedText: React.FunctionComponent<IAnimatedText> = ({ text, delay }): JSX.Element => {
+    return (
+        <div className={css.AnimatedText}>
+            {text}
+            <span style={{animationDelay: `${delay}s`}}>{text}</span>
+            <span style={{animationDelay: `${delay}s`}}>{text}</span>
+            <span style={{animationDelay: `${delay}s`}}>{text}</span>
+            <span style={{animationDelay: `${delay}s`}}>{text}</span>
+        </div>
+    )
+}
 
 export default Cover

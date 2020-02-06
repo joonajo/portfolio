@@ -177,7 +177,7 @@ const css = __webpack_require__(/*! ./Admin.module.css */ "./containers/Admin/Ad
 const Admin = () => {
   return __jsx("div", {
     className: css.AdminWrapper
-  }, __jsx("p", null, "Admin"));
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Admin);

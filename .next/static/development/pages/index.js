@@ -114,13 +114,14 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     vertical: true
   })), __jsx("div", {
     className: css.TitleContainer
-  }, __jsx("h1", {
-    className: css.FirstName
-  }, "Joona"), __jsx("h1", {
-    className: css.Surname
-  }, "Joenpolvi"), __jsx("h3", {
+  }, __jsx(AnimatedText, {
+    text: "Joona"
+  }), __jsx(AnimatedText, {
+    text: "Joenpolvi",
+    delay: .5
+  }), __jsx("h3", {
     className: css.Description
-  }, " ", "<Front End Developer />", " ")), __jsx("div", {
+  }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
     className: css.ArrowIcon,
@@ -132,6 +133,31 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
     className: arrowTextClasses
   }, "to portfolio")));
 });
+
+var AnimatedText = function AnimatedText(_ref) {
+  var text = _ref.text,
+      delay = _ref.delay;
+  return __jsx("div", {
+    className: css.AnimatedText
+  }, text, __jsx("span", {
+    style: {
+      animationDelay: "".concat(delay, "s")
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: "".concat(delay, "s")
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: "".concat(delay, "s")
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: "".concat(delay, "s")
+    }
+  }, text));
+};
+
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
 
 /***/ }),

@@ -199,14 +199,20 @@ module.exports = {
 	"BackgroundImage": "BackgroundImage___X-8sj",
 	"BackgroundMask": "BackgroundMask___3QSOd",
 	"TitleContainer": "TitleContainer___16Dcs",
+	"fadein": "fadein___1_QmL",
 	"FirstName": "FirstName___2s1w2",
 	"Surname": "Surname___3XHVT",
 	"Description": "Description___CFaDz",
 	"ArrowContainer": "ArrowContainer___Di9Mi",
 	"ArrowIcon": "ArrowIcon___1ttc5",
 	"ArrowText": "ArrowText___2FQvt",
-	"in": "in___1anPs",
-	"out": "out___lwW77"
+	"AnimatedText": "AnimatedText___25iYx",
+	"deconstructed1": "deconstructed1___264He",
+	"deconstructed2": "deconstructed2___25ThG",
+	"deconstructed3": "deconstructed3___1cNBT",
+	"deconstructed4": "deconstructed4___2nwC2",
+	"a-ltr-after": "a-ltr-after___1ddJi",
+	"a-ltr-before": "a-ltr-before___27I9W"
 };
 
 /***/ }),
@@ -270,13 +276,14 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     vertical: true
   })), __jsx("div", {
     className: css.TitleContainer
-  }, __jsx("h1", {
-    className: css.FirstName
-  }, "Joona"), __jsx("h1", {
-    className: css.Surname
-  }, "Joenpolvi"), __jsx("h3", {
+  }, __jsx(AnimatedText, {
+    text: "Joona"
+  }), __jsx(AnimatedText, {
+    text: "Joenpolvi",
+    delay: .5
+  }), __jsx("h3", {
     className: css.Description
-  }, " ", "<Front End Developer />", " ")), __jsx("div", {
+  }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
     className: css.ArrowIcon,
@@ -288,6 +295,32 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
     className: arrowTextClasses
   }, "to portfolio")));
 });
+
+const AnimatedText = ({
+  text,
+  delay
+}) => {
+  return __jsx("div", {
+    className: css.AnimatedText
+  }, text, __jsx("span", {
+    style: {
+      animationDelay: `${delay}s`
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: `${delay}s`
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: `${delay}s`
+    }
+  }, text), __jsx("span", {
+    style: {
+      animationDelay: `${delay}s`
+    }
+  }, text));
+};
+
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
 
 /***/ }),
