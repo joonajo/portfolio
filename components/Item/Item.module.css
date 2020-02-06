@@ -174,10 +174,10 @@
   box-shadow: 0px 0px 20px 5px gainsboro;
 }
 
-.ItemLinkContainer:hover svg {
+/* .ItemLinkContainer:hover svg {
   transform: scale(1.1);
   transition: all .1s;
-}
+} */
 
 .ItemLink {
   padding: 0;

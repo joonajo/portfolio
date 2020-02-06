@@ -9,8 +9,8 @@ const css = require('./Item.module.css')
 const SHOW_TRESHOLD = 300 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
-  const[showItem, toggleShowItem] = React.useState(false)
-  const[showVideo, toggleShowVideo] = React.useState(false)
+  const[showItem, toggleShowItem] = React.useState<boolean>(false)
+  const[showVideo, toggleShowVideo] = React.useState<boolean>(false)
   const itemRef = React.useRef<HTMLDivElement>(null)
   
   // update the event listeners every time the showItem state is changed

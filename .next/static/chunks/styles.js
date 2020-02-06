@@ -10,7 +10,7 @@
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Content":"Content___K0TO7","Title":"Title___122BB"};
     if(true) {
-      // 1580892789001
+      // 1581015741294
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -27,9 +27,9 @@ module.exports = {"Content":"Content___K0TO7","Title":"Title___122BB"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___26Ejz","MediaIcons":"MediaIcons___2PZ1M","BackgroundContainer":"BackgroundContainer___1M5px","BackgroundImage":"BackgroundImage___X-8sj","BackgroundMask":"BackgroundMask___3QSOd","TitleContainer":"TitleContainer___16Dcs","fadein":"fadein___1_QmL","FirstName":"FirstName___2s1w2","Surname":"Surname___3XHVT","Description":"Description___CFaDz","ArrowContainer":"ArrowContainer___Di9Mi","ArrowIcon":"ArrowIcon___1ttc5","ArrowText":"ArrowText___2FQvt","AnimatedText":"AnimatedText___25iYx","deconstructed1":"deconstructed1___264He","deconstructed2":"deconstructed2___25ThG","deconstructed3":"deconstructed3___1cNBT","deconstructed4":"deconstructed4___2nwC2","a-ltr-after":"a-ltr-after___1ddJi","a-ltr-before":"a-ltr-before___27I9W"};
+module.exports = {"Main":"Main___26Ejz","loaded":"loaded___QInAZ","fadein":"fadein___1_QmL","Loading":"Loading___3WrcJ","MediaIcons":"MediaIcons___2PZ1M","BackgroundContainer":"BackgroundContainer___1M5px","BackgroundImage":"BackgroundImage___X-8sj","BackgroundMask":"BackgroundMask___3QSOd","TitleContainer":"TitleContainer___16Dcs","AnimatedText":"AnimatedText___25iYx","Description":"Description___CFaDz","ArrowContainer":"ArrowContainer___Di9Mi","ArrowIcon":"ArrowIcon___1ttc5","ArrowText":"ArrowText___2FQvt","deconstructed1":"deconstructed1___264He","deconstructed2":"deconstructed2___25ThG","deconstructed3":"deconstructed3___1cNBT","deconstructed4":"deconstructed4___2nwC2","a-ltr-after":"a-ltr-after___1ddJi","a-ltr-before":"a-ltr-before___27I9W"};
     if(true) {
-      // 1580995861610
+      // 1581016845814
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -48,7 +48,7 @@ module.exports = {"Main":"Main___26Ejz","MediaIcons":"MediaIcons___2PZ1M","Backg
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Main":"Main___3w2yc","mount":"mount___2v3RS","fadein":"fadein___1ZLib","unmount":"unmount___3mvc-","Backdrop":"Backdrop___3B7tu","VideoContainer":"VideoContainer___2gnni","Video":"Video___QoA7X","CloseButton":"CloseButton____MALA"};
     if(true) {
-      // 1580892240540
+      // 1581015741649
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -67,7 +67,7 @@ module.exports = {"Main":"Main___3w2yc","mount":"mount___2v3RS","fadein":"fadein
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Item":"Item___2z7E8","show":"show___6kfVr","Title":"Title___3ZaYJ","ItemContent":"ItemContent___3R0xe","InfoContainer":"InfoContainer___2K1Jf","MadeWith":"MadeWith___2_0_d","Language":"Language___3j4M0","Description":"Description___3jL8P","IconsAndLinks":"IconsAndLinks___3W2-o","HardwareIcons":"HardwareIcons___1Zo3h","HardwareIconContainer":"HardwareIconContainer___2Svmz","HardwareIcon":"HardwareIcon___7oC72","DesktopIcon":"DesktopIcon___1I-OD","MobileIcon":"MobileIcon___2Qx5_","CheckMarkIcon":"CheckMarkIcon___11WPT","TimesIcon":"TimesIcon___gPzyh","ItemLinks":"ItemLinks___316VE","ItemLinkContainer":"ItemLinkContainer___3gKyx","ItemLink":"ItemLink___zvdwb","ItemLinkIcon":"ItemLinkIcon___2pksG","ImageContainer":"ImageContainer___3ZHP8","ImageMask":"ImageMask___ZcxR5","MaskLinks":"MaskLinks___3b_RG","MaskLink":"MaskLink___2Z_QC","MaskLinkText":"MaskLinkText___V2BhR","MaskLinkIcon":"MaskLinkIcon___1xuTX","ExpandVideo":"ExpandVideo___2-0ff"};
     if(true) {
-      // 1580892751217
+      // 1581015741497
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -86,7 +86,7 @@ module.exports = {"Item":"Item___2z7E8","show":"show___6kfVr","Title":"Title___3
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Footer":"Footer___ST3DE","fadein":"fadein___Ie23T","MediaIcons":"MediaIcons___23oHI","Copyright":"Copyright___6wjTT"};
     if(true) {
-      // 1580892240434
+      // 1581015741513
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -105,7 +105,7 @@ module.exports = {"Footer":"Footer___ST3DE","fadein":"fadein___Ie23T","MediaIcon
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Icons":"Icons___2O8Ah","horizontal":"horizontal___2f_Es","vertical":"vertical___3FnwM","Icon":"Icon___bM84L"};
     if(true) {
-      // 1580892663566
+      // 1581015741559
       var cssReload = __webpack_require__(/*! ../../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -124,7 +124,7 @@ module.exports = {"Icons":"Icons___2O8Ah","horizontal":"horizontal___2f_Es","ver
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Layout":"Layout___29qXb"};
     if(true) {
-      // 1580892240279
+      // 1581015741303
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -143,7 +143,7 @@ module.exports = {"Layout":"Layout___29qXb"};
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"CubeContainer":"CubeContainer___xRbCz","Cube":"Cube___1nEuA","sk-foldCubeAngle":"sk-foldCubeAngle___1EoSl","Cube2":"Cube2___2samt","Cube3":"Cube3___2db_B","Cube4":"Cube4___1rpEr"};
     if(true) {
-      // 1580917599646
+      // 1581015741539
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -162,65 +162,8 @@ module.exports = {"CubeContainer":"CubeContainer___xRbCz","Cube":"Cube___1nEuA",
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"Toolbar":"Toolbar___2IFkD","enabled":"enabled___2BQc4","PageLinks":"PageLinks___2txjX"};
     if(true) {
-      // 1580892240426
+      // 1581015741505
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
-      module.hot.dispose(cssReload);
-      module.hot.accept(undefined, cssReload);;
-    }
-  
-
-/***/ }),
-
-/***/ "./containers/Admin/Admin.module.css":
-/*!*******************************************!*\
-  !*** ./containers/Admin/Admin.module.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by extract-css-chunks-webpack-plugin
-module.exports = {"AdminWrapper":"AdminWrapper____z5UW","fadein":"fadein___2NOMh"};
-    if(true) {
-      // 1580928628374
-      var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
-      module.hot.dispose(cssReload);
-      module.hot.accept(undefined, cssReload);;
-    }
-  
-
-/***/ }),
-
-/***/ "./containers/Auth/Auth.module.css":
-/*!*****************************************!*\
-  !*** ./containers/Auth/Auth.module.css ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by extract-css-chunks-webpack-plugin
-module.exports = {"AuthFormContainer":"AuthFormContainer___2vfy7","AuthForm":"AuthForm___1YkBf","IconContainer":"IconContainer___3sYgW","SubmitButton":"SubmitButton___2M9gB","Container":"Container___jNmLd","FormTitle":"FormTitle___32r4e","InputContainer":"InputContainer___3sEIi","focus":"focus___XaTcu","EmailInput":"EmailInput___1IERV","PasswordInput":"PasswordInput___8Y41p","Span":"Span___lakW3","InputIcon":"InputIcon___fxg8C","ErrorText":"ErrorText___2C0br","fadein":"fadein___xaCDG"};
-    if(true) {
-      // 1580928107740
-      var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
-      module.hot.dispose(cssReload);
-      module.hot.accept(undefined, cssReload);;
-    }
-  
-
-/***/ }),
-
-/***/ "./pages/admin/index.module.css":
-/*!**************************************!*\
-  !*** ./pages/admin/index.module.css ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___151kN","Loading":"Loading___3rzPY","fadein":"fadein___4IAf2"};
-    if(true) {
-      // 1580927220957
-      var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
     }
@@ -237,7 +180,7 @@ module.exports = {"Main":"Main___151kN","Loading":"Loading___3rzPY","fadein":"fa
 
 // extracted by extract-css-chunks-webpack-plugin
     if(true) {
-      // 1580904629461
+      // 1581015741299
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;

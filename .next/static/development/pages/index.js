@@ -66,8 +66,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UI_Icons_MediaIcons_MediaIcons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI/Icons/MediaIcons/MediaIcons */ "./components/UI/Icons/MediaIcons/MediaIcons.tsx");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -84,8 +86,18 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
       height = _React$useState2[0],
       setHeight = _React$useState2[1];
 
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+      _React$useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState3, 2),
+      bgLoaded = _React$useState4[0],
+      setBgLoaded = _React$useState4[1];
+
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
-    setHeight(window.innerHeight);
+    setHeight(window.innerHeight); // check if bg image is already cached
+    // if yes, set as loaded
+
+    var image = new Image();
+    image.src = '/images/palm.png';
+    if (image.complete) setBgLoaded(true);
   }, []);
   var scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_1___default.a.useCallback(function () {
     if (coverRef && coverRef.current) {
@@ -93,19 +105,27 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function () {
       zenscroll__WEBPACK_IMPORTED_MODULE_2___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
+  var containerClasses = [css.Main, bgLoaded && css.loaded].join(' ');
   var arrowTextClasses = [css.ArrowText].join(' ');
+
+  var imageLoadHandler = function imageLoadHandler() {
+    if (!bgLoaded) setBgLoaded(true);
+  };
+
   return __jsx("div", {
-    className: css.Main,
+    className: containerClasses,
     ref: coverRef,
     style: {
       height: "".concat(height, "px")
     }
-  }, __jsx("div", {
+  }, !bgLoaded ? __jsx(Loading, null) : null, __jsx("div", {
     className: css.BackgroundContainer
   }, __jsx("img", {
     src: "/images/palm.png",
     alt: "cover-bg-palm",
-    className: css.BackgroundImage
+    className: css.BackgroundImage,
+    onLoad: imageLoadHandler,
+    onError: imageLoadHandler
   }), __jsx("div", {
     className: css.BackgroundMask
   })), __jsx("div", {
@@ -156,6 +176,12 @@ var AnimatedText = function AnimatedText(_ref) {
       animationDelay: "".concat(delay, "s")
     }
   }, text));
+};
+
+var Loading = function Loading() {
+  return __jsx("div", {
+    className: css.Loading
+  }, __jsx(_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__["CubeSpinner"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
@@ -299,6 +325,39 @@ var Layout = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(function (_ref) {
   }, __jsx(_Toolbar_Toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), children, __jsx(_Footer_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./components/UI/Spinner/Spinner.tsx":
+/*!*******************************************!*\
+  !*** ./components/UI/Spinner/Spinner.tsx ***!
+  \*******************************************/
+/*! exports provided: CubeSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CubeSpinner", function() { return CubeSpinner; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+var css = __webpack_require__(/*! ./Spinner.module.css */ "./components/UI/Spinner/Spinner.module.css");
+
+var CubeSpinner = function CubeSpinner() {
+  return __jsx("div", {
+    className: css.CubeContainer
+  }, __jsx("div", {
+    className: [css.Cube1, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube2, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube3, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube4, css.Cube].join(' ')
+  }));
+};
 
 /***/ }),
 

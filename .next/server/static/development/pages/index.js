@@ -194,19 +194,19 @@ const Content = () => {
 
 module.exports = {
 	"Main": "Main___26Ejz",
+	"loaded": "loaded___QInAZ",
+	"fadein": "fadein___1_QmL",
+	"Loading": "Loading___3WrcJ",
 	"MediaIcons": "MediaIcons___2PZ1M",
 	"BackgroundContainer": "BackgroundContainer___1M5px",
 	"BackgroundImage": "BackgroundImage___X-8sj",
 	"BackgroundMask": "BackgroundMask___3QSOd",
 	"TitleContainer": "TitleContainer___16Dcs",
-	"fadein": "fadein___1_QmL",
-	"FirstName": "FirstName___2s1w2",
-	"Surname": "Surname___3XHVT",
+	"AnimatedText": "AnimatedText___25iYx",
 	"Description": "Description___CFaDz",
 	"ArrowContainer": "ArrowContainer___Di9Mi",
 	"ArrowIcon": "ArrowIcon___1ttc5",
 	"ArrowText": "ArrowText___2FQvt",
-	"AnimatedText": "AnimatedText___25iYx",
 	"deconstructed1": "deconstructed1___264He",
 	"deconstructed2": "deconstructed2___25ThG",
 	"deconstructed3": "deconstructed3___1cNBT",
@@ -234,7 +234,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -246,8 +248,14 @@ const css = __webpack_require__(/*! ./Cover.module.css */ "./components/Cover/Co
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
   const coverRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   const [height, setHeight] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(undefined);
+  const [bgLoaded, setBgLoaded] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
-    setHeight(window.innerHeight);
+    setHeight(window.innerHeight); // check if bg image is already cached
+    // if yes, set as loaded
+
+    const image = new Image();
+    image.src = '/images/palm.png';
+    if (image.complete) setBgLoaded(true);
   }, []);
   const scrollToPortfolio = react__WEBPACK_IMPORTED_MODULE_0___default.a.useCallback(() => {
     if (coverRef && coverRef.current) {
@@ -255,19 +263,27 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(() => {
       zenscroll__WEBPACK_IMPORTED_MODULE_1___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
+  const containerClasses = [css.Main, bgLoaded && css.loaded].join(' ');
   const arrowTextClasses = [css.ArrowText].join(' ');
+
+  const imageLoadHandler = () => {
+    if (!bgLoaded) setBgLoaded(true);
+  };
+
   return __jsx("div", {
-    className: css.Main,
+    className: containerClasses,
     ref: coverRef,
     style: {
       height: `${height}px`
     }
-  }, __jsx("div", {
+  }, !bgLoaded ? __jsx(Loading, null) : null, __jsx("div", {
     className: css.BackgroundContainer
   }, __jsx("img", {
-    src: "/images/palm.png",
+    src: `/images/palm.png`,
     alt: "cover-bg-palm",
-    className: css.BackgroundImage
+    className: css.BackgroundImage,
+    onLoad: imageLoadHandler,
+    onError: imageLoadHandler
   }), __jsx("div", {
     className: css.BackgroundMask
   })), __jsx("div", {
@@ -319,6 +335,12 @@ const AnimatedText = ({
       animationDelay: `${delay}s`
     }
   }, text));
+};
+
+const Loading = () => {
+  return __jsx("div", {
+    className: css.Loading
+  }, __jsx(_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__["CubeSpinner"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Cover);
@@ -510,6 +532,57 @@ const Layout = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
   }, __jsx(_Toolbar_Toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), children, __jsx(_Footer_Footer__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
 });
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./components/UI/Spinner/Spinner.module.css":
+/*!**************************************************!*\
+  !*** ./components/UI/Spinner/Spinner.module.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"CubeContainer": "CubeContainer___xRbCz",
+	"Cube": "Cube___1nEuA",
+	"sk-foldCubeAngle": "sk-foldCubeAngle___1EoSl",
+	"Cube2": "Cube2___2samt",
+	"Cube3": "Cube3___2db_B",
+	"Cube4": "Cube4___1rpEr"
+};
+
+/***/ }),
+
+/***/ "./components/UI/Spinner/Spinner.tsx":
+/*!*******************************************!*\
+  !*** ./components/UI/Spinner/Spinner.tsx ***!
+  \*******************************************/
+/*! exports provided: CubeSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CubeSpinner", function() { return CubeSpinner; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+const css = __webpack_require__(/*! ./Spinner.module.css */ "./components/UI/Spinner/Spinner.module.css");
+
+const CubeSpinner = () => {
+  return __jsx("div", {
+    className: css.CubeContainer
+  }, __jsx("div", {
+    className: [css.Cube1, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube2, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube3, css.Cube].join(' ')
+  }), __jsx("div", {
+    className: [css.Cube4, css.Cube].join(' ')
+  }));
+};
 
 /***/ }),
 
