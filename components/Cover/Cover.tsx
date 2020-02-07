@@ -4,23 +4,19 @@ import zenscroll from 'zenscroll'
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../icons/icons'
-import { CubeSpinner } from '../UI/Spinner/Spinner'
 
 const css = require('./Cover.module.css')
 
-const Cover = React.memo((): JSX.Element => {
+type TCover = {
+    load: () => void
+}
+
+const Cover: React.FunctionComponent<TCover> = React.memo(({ load }): JSX.Element => {
     const coverRef = React.useRef<HTMLDivElement>(null)
     const [height, setHeight] = React.useState<number | undefined>(undefined)
-    const [bgLoaded, setBgLoaded] = React.useState<boolean>(false)
 
     React.useEffect(() => {
         setHeight(window.innerHeight)
-
-        // check if bg image is already cached
-        // if yes, set as loaded
-        const image = new Image()
-        image.src = '/images/palm.png'
-        if (image.complete) setBgLoaded(true)
     }, [])
 
     const scrollToPortfolio = React.useCallback(() => {
@@ -33,40 +29,35 @@ const Cover = React.memo((): JSX.Element => {
 
     const containerClasses = [
         css.Main,
-        bgLoaded && css.loaded
+        css.loaded
     ].join(' ')
 
     const arrowTextClasses = [
         css.ArrowText,
     ].join(' ')
 
-    const imageLoadHandler = () => {
-        if (!bgLoaded) setBgLoaded(true)
-    }
-
     return (
         <div className={containerClasses} ref={coverRef} style={{height: `${height}px`}}>
-            { !bgLoaded ? <Loading /> : null }
             <div className={css.BackgroundContainer}>
-                <img src={`/images/palm.png`} alt="cover-bg-palm" className={css.BackgroundImage} onLoad={imageLoadHandler} onError={imageLoadHandler} />
+                <img src={`/images/palm.png`} alt="cover-bg-palm" className={css.BackgroundImage} onLoad={load} />
                 <div className={css.BackgroundMask} />
             </div>
-            <div className={css.MediaIcons}>
-                <MediaIcons vertical />
-            </div>
-            <div className={css.TitleContainer}>
-                {/* <h1 className={css.FirstName}>Joona</h1>
-                <h1 className={css.Surname}>Joenpolvi</h1> */}
-                <AnimatedText text='Joona' />
-                <AnimatedText text='Joenpolvi' delay={.5} />
-                <h3 className={css.Description}> <span>{"<Front End Developer />"}</span> </h3>
-            </div>
-            <div className={css.ArrowContainer} >
-                <div className={css.ArrowIcon}
-                    onClick={scrollToPortfolio}> 
-                    <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
+            <div className={css.CoverContent}>
+                <div className={css.MediaIcons}>
+                    <MediaIcons vertical />
                 </div>
-                <p className={arrowTextClasses}>to portfolio</p>
+                <div className={css.TitleContainer}>
+                    <AnimatedText text='Joona' />
+                    <AnimatedText text='Joenpolvi' delay={.5} />
+                    <h3 className={css.Description}> <span>{"<Front End Developer />"}</span> </h3>
+                </div>
+                <div className={css.ArrowContainer} >
+                    <div className={css.ArrowIcon}
+                        onClick={scrollToPortfolio}> 
+                        <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
+                    </div>
+                    <p className={arrowTextClasses}>to portfolio</p>
+                </div>
             </div>
         </div>
     )
@@ -89,12 +80,5 @@ const AnimatedText: React.FunctionComponent<IAnimatedText> = ({ text, delay }): 
     )
 }
 
-const Loading: React.FunctionComponent = (): JSX.Element => {
-    return (
-        <div className={css.Loading}>
-            <CubeSpinner />
-        </div>
-    )
-}
 
 export default Cover

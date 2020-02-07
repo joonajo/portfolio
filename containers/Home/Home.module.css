@@ -1,0 +1,11 @@
+.Loading {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: ivory;
+    color: royalblue;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

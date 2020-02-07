@@ -1487,7 +1487,33 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
   render() {
     return __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Html"], {
       lang: "en"
-    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null), __jsx("body", null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], null)));
+    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null, __jsx("title", null, "Portfolio"), __jsx("meta", {
+      charSet: "UTF-8"
+    }), __jsx("meta", {
+      name: "description",
+      content: "Joona Joenpolvi's Portfolio."
+    }), __jsx("meta", {
+      name: "keywords",
+      content: "Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio,"
+    }), __jsx("meta", {
+      name: "author",
+      content: "Joona Joenpolvi"
+    }), __jsx("meta", {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1.0"
+    }), __jsx("meta", {
+      name: "theme-color",
+      content: "#ffffff"
+    }), __jsx("meta", {
+      name: "background-color",
+      content: "#ffffff"
+    }), __jsx("link", {
+      rel: "manifest",
+      href: "/manifest.json"
+    }), __jsx("link", {
+      rel: "apple-touch-icon",
+      href: ""
+    })), __jsx("body", null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], null)));
   }
 
 }

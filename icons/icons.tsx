@@ -10,7 +10,9 @@ import {
     faLock,
     faUnlock,
     faEnvelopeOpen,
-    faSignInAlt
+    faSignInAlt,
+    faSignOutAlt,
+    faPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -35,5 +37,7 @@ export const icons = {
     faLock,
     faUnlock,
     faEnvelopeOpen,
-    faSignInAlt
+    faSignInAlt,
+    faSignOutAlt,
+    faPlus,
 }

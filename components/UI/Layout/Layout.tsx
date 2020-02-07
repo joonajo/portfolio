@@ -6,7 +6,7 @@ import { ToolbarProvider } from '../../../context/toolbarContext'
 const css = require('./Layout.module.css')
 
 interface ILayout {
-    children: JSX.Element[]
+    children: any
 }
 
 const Layout: React.FunctionComponent<ILayout> = React.memo(({ children }): JSX.Element => {

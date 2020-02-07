@@ -13,7 +13,18 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <title>Portfolio</title>
+          <meta charSet="UTF-8" />
+          <meta name="description" content="Joona Joenpolvi's Portfolio." />
+          <meta name="keywords" content="Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio," />
+          <meta name="author" content="Joona Joenpolvi" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="theme-color" content="#ffffff" />
+          <meta name="background-color" content="#ffffff" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="" />
+        </Head>
         <body>
           <Main />
           <NextScript />

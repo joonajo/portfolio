@@ -16,10 +16,10 @@ interface IError {
 
 interface IAuthComponent {
     setSending: (newSending: boolean) => void
-    setSignedIn: (newSignedIn: boolean) => void
+    signIn: (email: string, password: string, idToken: string) => void
 }
 
-const Auth: React.FunctionComponent<IAuthComponent> = ({ setSending, setSignedIn }): JSX.Element => {
+const Auth: React.FunctionComponent<IAuthComponent> = ({ setSending, signIn }): JSX.Element => {
     const [error, setError] = React.useState<IError>({ error: false })
 
     const signInHandler = (email: string, password: string) =>  {
@@ -47,14 +47,16 @@ const Auth: React.FunctionComponent<IAuthComponent> = ({ setSending, setSignedIn
                     const idToken: string = data?.idToken
                     const refreshToken: string = data?.refreshToken
                     const email: string = data?.email
-                    const expireTime: string = String(new Date().getTime() + data.expiresIn * 1000)
+                    const password: string = data?.password
+                    const expireTime: string = String(new Date().getTime() + data?.expiresIn * 1000)
                     localStorage.setItem('idToken', idToken)
                     localStorage.setItem('refreshToken', refreshToken)
+                    localStorage.setItem('password', password)
                     localStorage.setItem('email', email)
                     localStorage.setItem('expireTime', expireTime)
                     setSending(false)
                     setError({ error: false })
-                    setSignedIn(true)
+                    signIn(email, password, idToken)
                 }
             })
     }
@@ -186,7 +188,7 @@ const InputComponent: React.FunctionComponent<IInputComponent> = (props): JSX.El
                 </div>
             }
             <input className={props.className} 
-                placeholder={props.placeholder}
+                placeholder={!isFocused ? props.placeholder : ''}
                 value={props.value} 
                 type={props.inputType}
                 onChange={(e) => props.changed(props.id, e)}
