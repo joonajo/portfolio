@@ -17,6 +17,7 @@
     --input-icon-width: 40px;
     --item-margin: 5px;
     --transition-time: .3s;
+    --item-width: 400px;
     position: relative;
     height: 100vh;
     width: 100vw;
@@ -52,7 +53,7 @@
 
 .AddItemButton {
     background: rgba(245, 235, 235, 0.7);
-    width: 300px;
+    width: 200px;
     height: 100px;
     transition: all .4s;
     justify-content: center;
@@ -74,4 +75,31 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.AddItemContainer {
+    flex-flow: column;
+    position: relative;
+}
+
+.ItemForm {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: all .3s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+    background: white;
+}
+
+.ItemForm.show {
+    opacity: 1;
+    width: var(--item-width);
+    height: auto;
 }

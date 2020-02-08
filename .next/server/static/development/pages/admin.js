@@ -159,7 +159,9 @@ module.exports = {
 	"AddItemButton": "AddItemButton___amRAU",
 	"fadein": "fadein___2NOMh",
 	"ItemContainer": "ItemContainer___3yL2D",
-	"AddItemIcon": "AddItemIcon___2wPWw"
+	"AddItemIcon": "AddItemIcon___2wPWw",
+	"ItemForm": "ItemForm___1gmZ3",
+	"show": "show___cDB8N"
 };
 
 /***/ }),
@@ -333,21 +335,123 @@ const PortfolioItems = ({
   }), __jsx(AddPortfolioItem, null));
 };
 
+const initialForm = {
+  title: {
+    id: 'title',
+    type: 'text',
+    placeholder: 'title',
+    require: true,
+    value: ''
+  },
+  description: {
+    id: 'description',
+    type: 'text',
+    placeholder: 'description',
+    require: true,
+    value: ''
+  },
+  link: {
+    id: 'link',
+    type: 'text',
+    placeholder: 'link to app',
+    require: true,
+    value: ''
+  },
+  github: {
+    id: 'github',
+    type: 'text',
+    placeholder: 'github link',
+    require: true,
+    value: ''
+  },
+  video_src: {
+    id: 'video_src',
+    type: 'text',
+    placeholder: 'video link',
+    require: true,
+    value: ''
+  },
+  gif_src: {
+    id: 'gif_src',
+    type: 'text',
+    placeholder: 'gif link',
+    require: true,
+    value: ''
+  },
+  desktop: {
+    id: 'desktop',
+    type: 'select',
+    require: true
+  },
+  mobile: {
+    id: 'mobilw',
+    type: 'select',
+    require: true
+  }
+};
+
 const AddPortfolioItem = () => {
   const [showForm, setShowForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](false);
 
-  const addItemClickedHandler = () => {
+  const addItemToDatabase = () => {
+    const baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
+    const idToken = localStorage.getItem('idToken');
+    const tokenParam = `?auth=${idToken}`;
+    const newItem = {
+      name: 'test'
+    };
+    fetch(baseURL + tokenParam, {
+      method: 'put',
+      body: newItem
+    }).then(response => response.json().then(data => {
+      console.log(data);
+    }));
+  };
+
+  const clickHandler = () => {
     setShowForm(true);
   };
 
   return __jsx("div", {
     className: css.AddItemContainer
   }, __jsx("span", {
-    className: css.AddItemButton
+    className: css.AddItemButton,
+    onClick: clickHandler
   }, "add item ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_11__["icons"].faPlus,
     className: css.AddItemIcon
-  })));
+  })), __jsx(NewItemForm, {
+    show: showForm
+  }));
+};
+
+const NewItemForm = ({
+  show
+}) => {
+  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](initialForm);
+
+  const changeHandler = (id, event) => {
+    const updatedForm = _objectSpread({}, form, {
+      [id]: _objectSpread({}, form[id], {
+        value: event.target.value
+      })
+    });
+
+    setForm(updatedForm);
+  };
+
+  const itemFormClasses = [css.ItemForm, show && css.show].join(' ');
+  return __jsx("div", {
+    className: itemFormClasses
+  }, _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form).map(element => {
+    return __jsx("input", {
+      key: element,
+      type: form[element].type,
+      value: form[element].value,
+      placeholder: form[element].placeholder,
+      onChange: e => changeHandler(form[element].id, e)
+    });
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Admin);

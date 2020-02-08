@@ -122,6 +122,7 @@ const Loading: React.FunctionComponent = (): JSX.Element => (
 )
 
 const AdminContent: React.FunctionComponent = (): JSX.Element => {
+
     return (
         <div className={css.AdminContentWrapper}>
             <PortfolioItems />
@@ -148,17 +149,145 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
     )
 }
 
+interface IItemElement {
+    id: string
+    type: string
+    placeholder?: string
+    require: boolean
+    value?: string
+}
+
+interface IItemForm {
+    [title: string]: IItemElement
+    description: IItemElement
+    link: IItemElement
+    github: IItemElement
+    video_src: IItemElement
+    gif_src: IItemElement
+    desktop: IItemElement
+    mobile: IItemElement  
+}
+
+const initialForm: IItemForm = {
+    title: {
+        id: 'title',
+        type: 'text',
+        placeholder: 'title',
+        require: true,
+        value: '',
+    },
+    description: {
+        id: 'description',
+        type: 'text',
+        placeholder: 'description',
+        require: true,
+        value: '',
+    },
+    link: {
+        id: 'link',
+        type: 'text',
+        placeholder: 'link to app',
+        require: true,
+        value: '',
+    },
+    github: {
+        id: 'github',
+        type: 'text',
+        placeholder: 'github link',
+        require: true,
+        value: '',
+    },
+    video_src: {
+        id: 'video_src',
+        type: 'text',
+        placeholder: 'video link',
+        require: true,
+        value: '',
+    },
+    gif_src: {
+        id: 'gif_src',
+        type: 'text',
+        placeholder: 'gif link',
+        require: true,
+        value: '',
+    },
+    desktop: {
+        id: 'desktop',
+        type: 'select',
+        require: true,
+    },
+    mobile: {
+        id: 'mobilw',
+        type: 'select',
+        require: true
+    }
+}
+
 const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
     const [showForm, setShowForm] = React.useState<boolean>(false)
 
-    const addItemClickedHandler = () => {
+    const addItemToDatabase = () => {
+        const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
+        const idToken: string = localStorage.getItem('idToken')!
+        const tokenParam: string = `?auth=${idToken}`
+
+        const newItem: any = {
+            name: 'test'
+        }
+
+        fetch(baseURL + tokenParam, { method: 'put', body: newItem }).then(response => response.json()
+            .then(data => {
+                console.log(data)
+            }))
+    }
+
+    const clickHandler = () => {
         setShowForm(true)
     }
 
     return (
         <div className={css.AddItemContainer}>
-            <span className={css.AddItemButton}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
-            {  }
+            <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
+            <NewItemForm show={showForm} />
+        </div>
+    )
+}
+
+interface INewItemForm {
+    show: boolean
+}
+
+const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show }): JSX.Element => {
+    const [form, setForm] = React.useState<IItemForm>(initialForm)
+
+
+    const changeHandler = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
+        const updatedForm: IItemForm = {
+            ...form,
+            [id]: {
+                ...form[id],
+                value: event.target.value
+            }
+        }
+        setForm(updatedForm)
+    }
+    
+    const itemFormClasses = [
+        css.ItemForm,
+        show && css.show
+    ].join(' ')
+
+    return (
+        <div className={itemFormClasses}>
+            { Object.keys(form).map((element: string) => {
+                return (
+                    <input key={element} 
+                        type={form[element].type} 
+                        value={form[element].value} 
+                        placeholder={form[element].placeholder}
+                        onChange={(e) => changeHandler(form[element].id, e)} />
+                )
+            })}
         </div>
     )
 }

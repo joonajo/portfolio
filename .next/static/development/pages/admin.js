@@ -219,24 +219,131 @@ var PortfolioItems = function PortfolioItems(_ref) {
   }), __jsx(AddPortfolioItem, null));
 };
 
+var initialForm = {
+  title: {
+    id: 'title',
+    type: 'text',
+    placeholder: 'title',
+    require: true,
+    value: ''
+  },
+  description: {
+    id: 'description',
+    type: 'text',
+    placeholder: 'description',
+    require: true,
+    value: ''
+  },
+  link: {
+    id: 'link',
+    type: 'text',
+    placeholder: 'link to app',
+    require: true,
+    value: ''
+  },
+  github: {
+    id: 'github',
+    type: 'text',
+    placeholder: 'github link',
+    require: true,
+    value: ''
+  },
+  video_src: {
+    id: 'video_src',
+    type: 'text',
+    placeholder: 'video link',
+    require: true,
+    value: ''
+  },
+  gif_src: {
+    id: 'gif_src',
+    type: 'text',
+    placeholder: 'gif link',
+    require: true,
+    value: ''
+  },
+  desktop: {
+    id: 'desktop',
+    type: 'select',
+    require: true
+  },
+  mobile: {
+    id: 'mobilw',
+    type: 'select',
+    require: true
+  }
+};
+
 var AddPortfolioItem = function AddPortfolioItem() {
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_8__["useState"](false),
       _React$useState6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_6__["default"])(_React$useState5, 2),
       showForm = _React$useState6[0],
       setShowForm = _React$useState6[1];
 
-  var addItemClickedHandler = function addItemClickedHandler() {
+  var addItemToDatabase = function addItemToDatabase() {
+    var baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
+    var idToken = localStorage.getItem('idToken');
+    var tokenParam = "?auth=".concat(idToken);
+    var newItem = {
+      name: 'test'
+    };
+    fetch(baseURL + tokenParam, {
+      method: 'put',
+      body: newItem
+    }).then(function (response) {
+      return response.json().then(function (data) {
+        console.log(data);
+      });
+    });
+  };
+
+  var clickHandler = function clickHandler() {
     setShowForm(true);
   };
 
   return __jsx("div", {
     className: css.AddItemContainer
   }, __jsx("span", {
-    className: css.AddItemButton
+    className: css.AddItemButton,
+    onClick: clickHandler
   }, "add item ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_12__["icons"].faPlus,
     className: css.AddItemIcon
-  })));
+  })), __jsx(NewItemForm, {
+    show: showForm
+  }));
+};
+
+var NewItemForm = function NewItemForm(_ref2) {
+  var show = _ref2.show;
+
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_8__["useState"](initialForm),
+      _React$useState8 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_6__["default"])(_React$useState7, 2),
+      form = _React$useState8[0],
+      setForm = _React$useState8[1];
+
+  var changeHandler = function changeHandler(id, event) {
+    var updatedForm = _objectSpread({}, form, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])({}, id, _objectSpread({}, form[id], {
+      value: event.target.value
+    })));
+
+    setForm(updatedForm);
+  };
+
+  var itemFormClasses = [css.ItemForm, show && css.show].join(' ');
+  return __jsx("div", {
+    className: itemFormClasses
+  }, _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form).map(function (element) {
+    return __jsx("input", {
+      key: element,
+      type: form[element].type,
+      value: form[element].value,
+      placeholder: form[element].placeholder,
+      onChange: function onChange(e) {
+        return changeHandler(form[element].id, e);
+      }
+    });
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Admin);
