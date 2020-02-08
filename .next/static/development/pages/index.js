@@ -24680,16 +24680,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Languages", function() { return Languages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioItems", function() { return portfolioItems; });
-var Languages;
-
-(function (Languages) {
-  Languages["React"] = "React";
-  Languages["TypeScript"] = "TypeScript";
-  Languages["JavaScript"] = "JavaScript";
-  Languages["Cpp"] = "C++";
-  Languages["NextJS"] = "NextJS";
-})(Languages || (Languages = {}));
-
+var Languages = {
+  React: 'React',
+  TypeScript: 'TypeScript',
+  JavaScript: 'JavaScript',
+  Cpp: 'C++',
+  NextJS: 'NextJS'
+};
 var items = {
   ClassicGames: {
     title: 'Classic Games',

@@ -2927,16 +2927,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Languages", function() { return Languages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioItems", function() { return portfolioItems; });
-let Languages;
-
-(function (Languages) {
-  Languages["React"] = "React";
-  Languages["TypeScript"] = "TypeScript";
-  Languages["JavaScript"] = "JavaScript";
-  Languages["Cpp"] = "C++";
-  Languages["NextJS"] = "NextJS";
-})(Languages || (Languages = {}));
-
+const Languages = {
+  React: 'React',
+  TypeScript: 'TypeScript',
+  JavaScript: 'JavaScript',
+  Cpp: 'C++',
+  NextJS: 'NextJS'
+};
 const items = {
   ClassicGames: {
     title: 'Classic Games',

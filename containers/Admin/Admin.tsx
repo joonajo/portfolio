@@ -1,64 +1,20 @@
 import * as React from 'react'
 
-import { NextPage } from 'next'
-
 import Auth from '../../containers/Auth/Auth'
 import { CubeSpinner } from '../../components/UI/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../icons/icons'
 import { IPortfolioItem } from '../../interfaces/interfaces'
+import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
+import { Languages } from '../../portfolio/portfolio'
 
 const css = require('./Admin.module.css')
 
-type TAuthState = {
-    signedIn: boolean
-    email?: string
-    password?: string
-    idToken?: string
-}
-
-type TAuthActions = 
-| ({ type: 'signin', payload: { email: string, password: string, idToken: string } })
-| ({ type: 'signout' })
-
-const initialAuthState: TAuthState = {
-    signedIn: false
-}
-
-const signIn = (state: TAuthState, action: TAuthActions): TAuthState => {
-    if (action.type !== 'signin') return { ...state }
-    
-    const updatedState: TAuthState = {
-        ...state,
-        signedIn: true,
-        email: action.payload?.email,
-        password: action.payload?.password,
-        idToken: action.payload?.idToken,
-    }
-
-    return {
-        ...updatedState
-    }
-}
-
-const authReducer = (state: TAuthState = initialAuthState, action: TAuthActions): TAuthState => {
-    switch (action.type) {
-        case 'signin':
-            return signIn(state, action)
-
-        case 'signout':
-            return {
-                signedIn: false
-            }
-    
-        default:
-            return { ...state }
-    }
-}
-
-
 const Admin: React.FunctionComponent = (): JSX.Element => {
-    const [state, dispatch] = React.useReducer(authReducer, initialAuthState)
+    const authContext: IAuthContext = React.useContext(AuthContext)
+    const state: TAuthState = authContext.state
+    const dispatch: TDispatch = authContext.dispatch!
+
     const [sending, setSending] = React.useState<boolean>(true)
     const [screensize, setScreensize] = React.useState<{ width: number, height: number}>()
 
@@ -110,7 +66,7 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
         <div className={css.Main} style={{minHeight: `${screensize?.height}px`, minWidth: `${screensize?.width}px`}}>
             { !state.signedIn && <Auth setSending={setSending} signIn={signInHandler} /> }
             { sending && <Loading /> }
-            { state. signedIn && <AdminContent /> }
+            { state. signedIn && <AdminContent token={state.idToken!} /> }
         </div>
     )
 }
@@ -121,8 +77,11 @@ const Loading: React.FunctionComponent = (): JSX.Element => (
     </div>
 )
 
-const AdminContent: React.FunctionComponent = (): JSX.Element => {
+interface IAdminContent {
+    token: string
+}
 
+const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.Element => {
     return (
         <div className={css.AdminContentWrapper}>
             <PortfolioItems />
@@ -149,28 +108,22 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
     )
 }
 
-interface IItemElement {
-    id: string
-    type: string
-    placeholder?: string
-    require: boolean
-    value?: string
+interface IForm {
+    [title: string]: any
+    description: any
+    languages: any
+    link: any
+    github: any
+    video_src: any
+    gif_src: any
+    desktop: any
+    mobile: any
 }
 
-interface IItemForm {
-    [title: string]: IItemElement
-    description: IItemElement
-    link: IItemElement
-    github: IItemElement
-    video_src: IItemElement
-    gif_src: IItemElement
-    desktop: IItemElement
-    mobile: IItemElement  
-}
-
-const initialForm: IItemForm = {
+const initialForm: IForm = {
     title: {
         id: 'title',
+        elemType: 'input',
         type: 'text',
         placeholder: 'title',
         require: true,
@@ -178,13 +131,21 @@ const initialForm: IItemForm = {
     },
     description: {
         id: 'description',
+        elemType: 'input',
         type: 'text',
         placeholder: 'description',
         require: true,
         value: '',
     },
+    languages: {
+        id: 'languages',
+        elemType: 'select',
+        options: [...Object.keys(Languages)],
+        require: true
+    },
     link: {
         id: 'link',
+        elemType: 'input',
         type: 'text',
         placeholder: 'link to app',
         require: true,
@@ -192,6 +153,7 @@ const initialForm: IItemForm = {
     },
     github: {
         id: 'github',
+        elemType: 'input',
         type: 'text',
         placeholder: 'github link',
         require: true,
@@ -199,6 +161,7 @@ const initialForm: IItemForm = {
     },
     video_src: {
         id: 'video_src',
+        elemType: 'input',  
         type: 'text',
         placeholder: 'video link',
         require: true,
@@ -206,6 +169,7 @@ const initialForm: IItemForm = {
     },
     gif_src: {
         id: 'gif_src',
+        elemType: 'input',
         type: 'text',
         placeholder: 'gif link',
         require: true,
@@ -213,26 +177,30 @@ const initialForm: IItemForm = {
     },
     desktop: {
         id: 'desktop',
-        type: 'select',
+        elemType: 'select',
+        options : ['Yes', 'No'],
         require: true,
+        value: 'Yes'
     },
-    mobile: {
-        id: 'mobilw',
-        type: 'select',
-        require: true
+    mobile: {   
+        id: 'mobile',
+        elemType: 'select',
+        options : ['Yes', 'No'],
+        require: true,
+        value: 'Yes'
     }
 }
 
 const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
     const [showForm, setShowForm] = React.useState<boolean>(false)
 
-    const addItemToDatabase = () => {
+    const addItemToDatabase = (item: IPortfolioItem) => {
         const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
         const idToken: string = localStorage.getItem('idToken')!
         const tokenParam: string = `?auth=${idToken}`
 
         const newItem: any = {
-            name: 'test'
+            
         }
 
         fetch(baseURL + tokenParam, { method: 'put', body: newItem }).then(response => response.json()
@@ -248,21 +216,22 @@ const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
     return (
         <div className={css.AddItemContainer}>
             <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
-            <NewItemForm show={showForm} />
+            <NewItemForm show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} />
         </div>
     )
 }
 
 interface INewItemForm {
     show: boolean
+    close: () => void
+    add: (item: IPortfolioItem) => void
 }
 
-const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show }): JSX.Element => {
-    const [form, setForm] = React.useState<IItemForm>(initialForm)
-
+const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add }): JSX.Element => {
+    const [form, setForm] = React.useState<IForm>(initialForm)
 
     const changeHandler = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
-        const updatedForm: IItemForm = {
+        const updatedForm: IForm = {
             ...form,
             [id]: {
                 ...form[id],
@@ -270,6 +239,22 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show }): JSX.Eleme
             }
         }
         setForm(updatedForm)
+    }
+
+    const addHandler = () => {
+        const newItem: IPortfolioItem = {
+            title: form.title.value,
+            language: [Languages.React, Languages.TypeScript],
+            description: form.description.value,
+            link: form.link.value,
+            githubLink: form.github.value,
+            video_src: form.video_src.value,
+            gif_src: form.gif_src.value,
+            desktop: true,
+            mobile: true
+        }
+
+        add(newItem)
     }
     
     const itemFormClasses = [
@@ -279,17 +264,56 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show }): JSX.Eleme
 
     return (
         <div className={itemFormClasses}>
+            <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
             { Object.keys(form).map((element: string) => {
                 return (
-                    <input key={element} 
-                        type={form[element].type} 
-                        value={form[element].value} 
-                        placeholder={form[element].placeholder}
-                        onChange={(e) => changeHandler(form[element].id, e)} />
+                   <FormInput key={element} item={form[element]} change={changeHandler}  />
                 )
             })}
+            <div className={css.FormAddButton} onClick={addHandler}>
+                <p>add</p>
+            </div>
         </div>
     )
 }
+
+interface IFormInput {
+    item: any
+    change: (id: string, e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ item, change }): JSX.Element => {
+    let content = undefined
+
+    switch (item.elemType) {
+        case 'input':
+            content = (
+                <input value={item.value} 
+                    placeholder={item.placeholder} 
+                    onChange={(e) => change(item.id, e)}
+                    className={css.FormInput} />
+            )
+            break;
+            
+        case 'select':
+            content = (
+                <select className={css.FormSelect} id={item.id}>
+                    {item.options.map((option: string) => {
+                        return (
+                            <option key={item.id + option} value={option}>{option}</option>
+                        )
+                    })}
+                </select>
+            )
+            break;
+    }
+
+    return (
+        <div className={css.FormInputContainer}>
+            <p>{item.id}</p>
+            { content }
+        </div>
+    )
+})
 
 export default Admin

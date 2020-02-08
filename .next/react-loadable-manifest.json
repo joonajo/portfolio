@@ -1,6 +1,54 @@
 {
   "../Item/Item": [
     {
+      "id": "./containers/Auth/Auth.module.css",
+      "name": "./containers/Auth/Auth.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 12,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Spinner/Spinner.module.css",
+      "name": "./components/UI/Spinner/Spinner.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./containers/Admin/Admin.module.css",
+      "name": "./containers/Admin/Admin.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 13,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/admin/index.module.css",
+      "name": "./pages/admin/index.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 14,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
       "id": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
       "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
       "file": "static/chunks/styles.js",
@@ -73,18 +121,6 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/UI/Spinner/Spinner.module.css",
-      "name": "./components/UI/Spinner/Spinner.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
       "id": "./containers/Home/Home.module.css",
       "name": "./containers/Home/Home.module.css",
       "file": "static/chunks/styles.js",
@@ -104,42 +140,6 @@
     },
     {
       "id": 8,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Auth/Auth.module.css",
-      "name": "./containers/Auth/Auth.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 12,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Admin/Admin.module.css",
-      "name": "./containers/Admin/Admin.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 13,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/admin/index.module.css",
-      "name": "./pages/admin/index.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 14,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"

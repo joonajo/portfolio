@@ -1,8 +1,6 @@
-import { Languages } from "../portfolio/portfolio";
-
 export interface IPortfolioItem {
     title: string
-    language: Languages[]
+    language: string[]
     link: string
     githubLink: string
     description: string

@@ -179,9 +179,9 @@ module.exports = {"Toolbar":"Toolbar___2IFkD","enabled":"enabled___2BQc4","PageL
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Main":"Main___FMecM","Loading":"Loading___3SvGT","AdminWrapper":"AdminWrapper____z5UW","AddItemContainer":"AddItemContainer___Vk9ke","AddItemButton":"AddItemButton___amRAU","fadein":"fadein___2NOMh","ItemContainer":"ItemContainer___3yL2D","AddItemIcon":"AddItemIcon___2wPWw","ItemForm":"ItemForm___1gmZ3","show":"show___cDB8N"};
+module.exports = {"Main":"Main___FMecM","Loading":"Loading___3SvGT","AdminWrapper":"AdminWrapper____z5UW","AddItemContainer":"AddItemContainer___Vk9ke","AddItemButton":"AddItemButton___amRAU","fadein":"fadein___2NOMh","AdminContentWrapper":"AdminContentWrapper___l39FI","ItemContainer":"ItemContainer___3yL2D","AddItemIcon":"AddItemIcon___2wPWw","ItemForm":"ItemForm___1gmZ3","show":"show___cDB8N","FormCloseButton":"FormCloseButton___1ci-s","FormInputContainer":"FormInputContainer___1PWv0","FormInput":"FormInput___1r9Hx","FormSelect":"FormSelect___1JxVF","FormAddButton":"FormAddButton___36z5b"};
     if(true) {
-      // 1581145229007
+      // 1581193504338
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -200,7 +200,7 @@ module.exports = {"Main":"Main___FMecM","Loading":"Loading___3SvGT","AdminWrappe
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"AuthFormContainer":"AuthFormContainer___2vfy7","AuthForm":"AuthForm___1YkBf","IconContainer":"IconContainer___3sYgW","SubmitButton":"SubmitButton___2M9gB","Container":"Container___jNmLd","FormTitle":"FormTitle___32r4e","InputContainer":"InputContainer___3sEIi","focus":"focus___XaTcu","EmailInput":"EmailInput___1IERV","PasswordInput":"PasswordInput___8Y41p","Span":"Span___lakW3","InputIcon":"InputIcon___fxg8C","ErrorText":"ErrorText___2C0br","fadein":"fadein___xaCDG"};
     if(true) {
-      // 1581060231814
+      // 1581192901182
       var cssReload = __webpack_require__(/*! ../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;

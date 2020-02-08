@@ -1,11 +1,11 @@
 import { IPortfolioItem } from "../interfaces/interfaces"
 
-export enum Languages {
-    React = 'React',
-    TypeScript = 'TypeScript',
-    JavaScript = 'JavaScript',
-    Cpp = 'C++',
-    NextJS = 'NextJS',
+export const Languages = {
+    React: 'React',
+    TypeScript: 'TypeScript',
+    JavaScript: 'JavaScript',
+    Cpp: 'C++',
+    NextJS: 'NextJS',
 }
   
 export const items = {
