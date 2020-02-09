@@ -1,12 +1,5 @@
 import { IPortfolioItem } from "../interfaces/interfaces"
-
-export const Languages = {
-    React: 'React',
-    TypeScript: 'TypeScript',
-    JavaScript: 'JavaScript',
-    Cpp: 'C++',
-    NextJS: 'NextJS',
-}
+import { Languages } from "../context/portfolioContext"
   
 export const items = {
     ClassicGames: {

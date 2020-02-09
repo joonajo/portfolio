@@ -10,9 +10,7 @@ const css = require('./index.module.css')
 const AdminPage: NextPage = (): JSX.Element => {
 
     return (
-        <AuthProvider>
-            <Admin />
-        </AuthProvider>
+        <Admin />
     )
 }
 

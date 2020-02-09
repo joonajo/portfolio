@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -686,6 +686,100 @@ const Loading = () => {
 
 /***/ }),
 
+/***/ "./context/portfolioContext.tsx":
+/*!**************************************!*\
+  !*** ./context/portfolioContext.tsx ***!
+  \**************************************/
+/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortoflioContext, PortfolioProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Languages", function() { return Languages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TPortfolioActionTypes", function() { return TPortfolioActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPortfolioState", function() { return initialPortfolioState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioReducer", function() { return portfolioReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortoflioContext", function() { return PortoflioContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioProvider", function() { return PortfolioProvider; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
+
+
+const Languages = {
+  React: 'React',
+  TypeScript: 'TypeScript',
+  JavaScript: 'JavaScript',
+  Cpp: 'C++',
+  NextJS: 'NextJS'
+};
+let TPortfolioActionTypes;
+
+(function (TPortfolioActionTypes) {
+  TPortfolioActionTypes["SET_ITEMS"] = "SET_ITEMS";
+  TPortfolioActionTypes["EDIT_ITEM"] = "EDIT_ITEM";
+  TPortfolioActionTypes["DELETE_ITEM"] = "DELETE_ITEM";
+})(TPortfolioActionTypes || (TPortfolioActionTypes = {}));
+
+const initialPortfolioState = {
+  items: []
+};
+const portfolioReducer = (state = initialPortfolioState, action) => {
+  switch (action.type) {
+    case TPortfolioActionTypes.SET_ITEMS:
+      return _objectSpread({}, state);
+
+    case TPortfolioActionTypes.DELETE_ITEM:
+      return _objectSpread({}, state);
+
+    case TPortfolioActionTypes.EDIT_ITEM:
+      return _objectSpread({}, state);
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+const PortoflioContext = react__WEBPACK_IMPORTED_MODULE_7___default.a.createContext({
+  state: initialPortfolioState
+});
+const PortfolioProvider = ({
+  children
+}) => {
+  const [state, dispatch] = react__WEBPACK_IMPORTED_MODULE_7___default.a.useReducer(portfolioReducer, initialPortfolioState);
+  return __jsx(PortoflioContext.Provider, {
+    value: {
+      state,
+      dispatch
+    }
+  }, children);
+};
+
+/***/ }),
+
 /***/ "./context/toolbarContext.tsx":
 /*!************************************!*\
   !*** ./context/toolbarContext.tsx ***!
@@ -792,6 +886,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "co
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/define-properties */ "core-js/library/fn/object/define-properties");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -811,6 +916,28 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ "core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptors */ "core-js/library/fn/object/get-own-property-descriptors");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-symbols */ "core-js/library/fn/object/get-own-property-symbols");
 
 /***/ }),
 
@@ -866,6 +993,36 @@ module.exports = __webpack_require__(/*! core-js/library/fn/symbol/iterator */ "
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/weak-map */ "core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 /***/ }),
 
@@ -2900,13 +3057,7 @@ const css = __webpack_require__(/*! ./index.module.css */ "./pages/index/index.m
 
 const Index = () => {
   react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js').then(registration => {
-        console.log('service worker registration successful');
-      }).catch(err => {
-        console.warn('service worker registration failed', err.message);
-      });
-    }
+    document.title = "Portfolio // Home";
   }, []);
   return __jsx(_containers_Home_Home__WEBPACK_IMPORTED_MODULE_1__["default"], null);
 };
@@ -2919,25 +3070,19 @@ const Index = () => {
 /*!********************************!*\
   !*** ./portfolio/portfolio.ts ***!
   \********************************/
-/*! exports provided: Languages, items, portfolioItems */
+/*! exports provided: items, portfolioItems */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Languages", function() { return Languages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioItems", function() { return portfolioItems; });
-const Languages = {
-  React: 'React',
-  TypeScript: 'TypeScript',
-  JavaScript: 'JavaScript',
-  Cpp: 'C++',
-  NextJS: 'NextJS'
-};
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../context/portfolioContext */ "./context/portfolioContext.tsx");
+
 const items = {
   ClassicGames: {
     title: 'Classic Games',
-    language: [Languages.React, Languages.TypeScript, Languages.NextJS],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].NextJS],
     link: 'https://classics-next.joonajo.now.sh',
     githubLink: 'https://github.com/joonajo/classics-next',
     description: "Built with React + TypeScript + NextJS. A web app with all-time classic games Minesweeper and Snake (Tetris WIP). Own leaderboard for each game and each difficulty, stored in a Firebase database.",
@@ -2948,7 +3093,7 @@ const items = {
   },
   NasaHub: {
     title: 'Nasa Portal',
-    language: [Languages.React, Languages.TypeScript, Languages.NextJS],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].NextJS],
     link: 'https://nasa-portal.now.sh',
     githubLink: 'https://github.com/joonajo/nasa-portal',
     description: 'Built with React + TypeScript + Redux + NextJS. Utilizes open NASA APIs. Check out the Astronomy Picture of the Day (APOD), latest Mars rover images as well as Earth from the space with the EPIC API. PWA & Lighthouse optimized.',
@@ -2959,7 +3104,7 @@ const items = {
   },
   WeatherApp: {
     title: 'Weather App',
-    language: [Languages.React, Languages.TypeScript],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript],
     link: 'https://weatherr.web.app',
     githubLink: 'https://github.com/joonajo/Weather-app',
     description: 'Built with React + TypeScript + Redux. Utilizes three different APIs (OpenWeatherMap, TimezoneDB & Geonames) to seamlessly check the weather all over the world, with timezones adjusted accordingly.',
@@ -2970,7 +3115,7 @@ const items = {
   },
   BurgerBuilder: {
     title: 'Burger Builder',
-    language: [Languages.React, Languages.JavaScript],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].JavaScript],
     link: 'https://react-burgerapp-d2ef8.web.app',
     githubLink: 'https://github.com/joonajo/Burger-Builder',
     description: 'Built with ReactJS + Redux. Utilizes Firebase account authorization and realtime database. Build your own burger and order it!',
@@ -2981,7 +3126,7 @@ const items = {
   },
   TodoList: {
     title: 'To-Do List',
-    language: [Languages.React, Languages.TypeScript],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript],
     link: 'https://todo-reactts.web.app',
     githubLink: 'https://github.com/joonajo/Todo-ReactTS',
     description: 'Built with React + TypeScript. Utilizes Firebase Cloud database (Firestore) and account authorization. Make a todo-list, check/remove items, and keep it saved in the database!',
@@ -2992,7 +3137,7 @@ const items = {
   },
   CannonGame: {
     title: 'Cannon Game',
-    language: [Languages.Cpp],
+    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].Cpp],
     link: 'https://www.youtube.com/watch?v=6rbhqyCm97E',
     githubLink: 'https://github.com/joonajo/CannonGame',
     description: 'Built purely with C++ and the SFML graphics library. A simple Cannon Game against a basic AI.',
@@ -3007,7 +3152,7 @@ const portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, ite
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
@@ -3085,6 +3230,17 @@ module.exports = require("core-js/library/fn/object/create");
 
 /***/ }),
 
+/***/ "core-js/library/fn/object/define-properties":
+/*!**************************************************************!*\
+  !*** external "core-js/library/fn/object/define-properties" ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/define-properties");
+
+/***/ }),
+
 /***/ "core-js/library/fn/object/define-property":
 /*!************************************************************!*\
   !*** external "core-js/library/fn/object/define-property" ***!
@@ -3104,6 +3260,28 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/get-own-property-descriptors":
+/*!*************************************************************************!*\
+  !*** external "core-js/library/fn/object/get-own-property-descriptors" ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/get-own-property-descriptors");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/get-own-property-symbols":
+/*!*********************************************************************!*\
+  !*** external "core-js/library/fn/object/get-own-property-symbols" ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 
 /***/ }),
 

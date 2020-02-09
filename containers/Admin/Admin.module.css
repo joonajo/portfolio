@@ -27,16 +27,6 @@
     animation: fadein 1s;
 }
 
-.Loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: fadein .5s;
-    background: rgba(255, 255, 255, .7);
-}
-
 .AdminContentWrapper {
     width: 100%;
     height: 100%;
@@ -216,7 +206,7 @@
     text-transform: uppercase;
 }
 
-.FormSending {
+.Loading {
     position: absolute;
     top: 0;
     left: 0;

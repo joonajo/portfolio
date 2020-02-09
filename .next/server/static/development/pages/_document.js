@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1487,7 +1487,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
   render() {
     return __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Html"], {
       lang: "en"
-    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null, __jsx("title", null, "Portfolio"), __jsx("meta", {
+    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null, __jsx("meta", {
       charSet: "UTF-8"
     }), __jsx("meta", {
       name: "description",
@@ -1522,7 +1522,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!**********************************************!*\
   !*** multi private-next-pages/_document.tsx ***!
   \**********************************************/

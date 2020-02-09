@@ -14,7 +14,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Portfolio</title>
           <meta charSet="UTF-8" />
           <meta name="description" content="Joona Joenpolvi's Portfolio." />
           <meta name="keywords" content="Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio," />

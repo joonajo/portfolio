@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../icons/icons'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
-import { Languages } from '../../portfolio/portfolio'
+import { Languages, IPortfolioContext, PortoflioContext, TPortfolioState } from '../../context/portfolioContext'
 
 const css = require('./Admin.module.css')
 
 const Admin: React.FunctionComponent = (): JSX.Element => {
     const authContext: IAuthContext = React.useContext(AuthContext)
-    const state: TAuthState = authContext.state
-    const dispatch: TDispatch = authContext.dispatch!
+    const authState: TAuthState = authContext.state
+    const authDispatch: TDispatch = authContext.dispatch!
 
     const [sending, setSending] = React.useState<boolean>(true)
     const [screensize, setScreensize] = React.useState<{ width: number, height: number}>()
@@ -40,7 +40,7 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
                         password: localStorage.getItem('password')!,
                         idToken: localStorage.getItem('idToken')!
                     }
-                    dispatch({ type: 'signin', payload: authInfo })
+                    authDispatch({ type: 'signin', payload: authInfo })
                     setSending(false)
                 // if auth has expired
                 } else {
@@ -59,14 +59,14 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
             password: password,
             idToken: idToken
         }
-        dispatch({ type: 'signin', payload: authInfo })
+        authDispatch({ type: 'signin', payload: authInfo })
     }
 
     return (
         <div className={css.Main} style={{minHeight: `${screensize?.height}px`, minWidth: `${screensize?.width}px`}}>
-            { !state.signedIn && <Auth setSending={setSending} signIn={signInHandler} /> }
+            { !authState.signedIn && <Auth setSending={setSending} signIn={signInHandler} /> }
             { sending && <Loading /> }
-            { state. signedIn && <AdminContent token={state.idToken!} /> }
+            { authState. signedIn && <AdminContent token={authState.idToken!} /> }
         </div>
     )
 }
@@ -82,9 +82,38 @@ interface IAdminContent {
 }
 
 const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.Element => {
+    const portoflioContext: IPortfolioContext = React.useContext(PortoflioContext)
+    const portfolioState: TPortfolioState = portoflioContext.state
+    const portfolioDispatch: TDispatch = portoflioContext.dispatch!
+
+    const [loading, setLoading] = React.useState<boolean>(true)
+
+    React.useEffect(() => {
+        if (portfolioState) {
+            if (portfolioState.items.length === 0) {
+                const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
+                const idToken: string = localStorage.getItem('idToken')!
+                const tokenParam: string = `?auth=${idToken}`     
+                
+                fetch(baseURL + tokenParam, { method: 'get' }).then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        setLoading(false)
+                    })
+            } else {
+                setLoading(false)
+            }
+        }
+    }, [portfolioState])
+   
     return (
         <div className={css.AdminContentWrapper}>
-            <PortfolioItems />
+            { loading ?
+                <div className={css.Loading}>
+                    <CubeSpinner />
+                </div>
+                : <PortfolioItems items={portfolioState.items} />
+            }
         </div>
     )
 }
@@ -98,12 +127,18 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
         <div className={css.ItemsContainer}>
             { items && items.map((item: IPortfolioItem) => {
                 return (
-                    <div>
-                        item
-                    </div>
+                    <PortfolioItem key={item.title} {...item} />
                 )
             })}
             <AddPortfolioItem />
+        </div>
+    )
+}
+
+const PortfolioItem: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
+    return (
+        <div className={css.ItemContainer}>
+
         </div>
     )
 }
@@ -278,7 +313,7 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, 
     return (
         <form className={itemFormClasses} ref={formRef}>
             { sending && 
-                <div className={css.FormSending}>
+                <div className={css.Loading}>
                     <CubeSpinner />
                 </div>
             }

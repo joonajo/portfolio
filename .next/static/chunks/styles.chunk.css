@@ -765,16 +765,6 @@
     animation: fadein___2NOMh 1s;
 }
 
-.Loading___3SvGT {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: fadein___2NOMh .5s;
-    background: rgba(255, 255, 255, .7);
-}
-
 .AdminContentWrapper___l39FI {
     width: 100%;
     height: 100%;
@@ -954,7 +944,7 @@
     text-transform: uppercase;
 }
 
-.FormSending___2Fcst {
+.Loading___3SvGT {
     position: absolute;
     top: 0;
     left: 0;
