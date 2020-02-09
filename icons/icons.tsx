@@ -13,6 +13,8 @@ import {
     faSignInAlt,
     faSignOutAlt,
     faPlus,
+    faTrash,
+    faEdit,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
     faGithub,
@@ -40,4 +42,6 @@ export const icons = {
     faSignInAlt,
     faSignOutAlt,
     faPlus,
+    faTrash,
+    faEdit,
 }

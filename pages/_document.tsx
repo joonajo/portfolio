@@ -23,6 +23,7 @@ class MyDocument extends Document {
           <meta name="background-color" content="#ffffff" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../icons/icons'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
-import { Languages, IPortfolioContext, PortoflioContext, TPortfolioState } from '../../context/portfolioContext'
+import { Languages, IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
 
 const css = require('./Admin.module.css')
 
@@ -82,22 +82,25 @@ interface IAdminContent {
 }
 
 const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.Element => {
-    const portoflioContext: IPortfolioContext = React.useContext(PortoflioContext)
-    const portfolioState: TPortfolioState = portoflioContext.state
-    const portfolioDispatch: TDispatch = portoflioContext.dispatch!
+    const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
+    const portfolioState: TPortfolioState = portfolioContext.state
+    const portfolioDispatch: TDispatch = portfolioContext.dispatch!
 
     const [loading, setLoading] = React.useState<boolean>(true)
 
     React.useEffect(() => {
-        if (portfolioState) {
+        if (portfolioState && portfolioDispatch) {
             if (portfolioState.items.length === 0) {
                 const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
-                const idToken: string = localStorage.getItem('idToken')!
-                const tokenParam: string = `?auth=${idToken}`     
+
+                const newItems: IPortfolioItem[] = []
                 
-                fetch(baseURL + tokenParam, { method: 'get' }).then(response => response.json())
+                fetch(baseURL, { method: 'get' }).then(response => response.json())
                     .then(data => {
-                        console.log(data)
+                        Object.keys(data).forEach(item => {
+                            newItems.push(data[item])
+                        })
+                        portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
                         setLoading(false)
                     })
             } else {
@@ -138,7 +141,13 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
 const PortfolioItem: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
     return (
         <div className={css.ItemContainer}>
-
+            <div className={css.ItemMainContent}>
+                <p>{props.title}</p>
+            </div>
+            <div className={css.ItemHoverContent}>
+                <span> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </span>
+                <span> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </span>
+            </div>  
         </div>
     )
 }

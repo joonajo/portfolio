@@ -189,7 +189,7 @@ const AuthProvider = ({
 /*!**************************************!*\
   !*** ./context/portfolioContext.tsx ***!
   \**************************************/
-/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortoflioContext, PortfolioProvider */
+/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortfolioContext, PortfolioProvider */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -198,7 +198,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TPortfolioActionTypes", function() { return TPortfolioActionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPortfolioState", function() { return initialPortfolioState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioReducer", function() { return portfolioReducer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortoflioContext", function() { return PortoflioContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioContext", function() { return PortfolioContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioProvider", function() { return PortfolioProvider; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
@@ -247,10 +247,18 @@ let TPortfolioActionTypes;
 const initialPortfolioState = {
   items: []
 };
+
+const setItems = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  return _objectSpread({}, state, {
+    items: action.payload
+  });
+};
+
 const portfolioReducer = (state = initialPortfolioState, action) => {
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
-      return _objectSpread({}, state);
+      return setItems(state, action);
 
     case TPortfolioActionTypes.DELETE_ITEM:
       return _objectSpread({}, state);
@@ -262,14 +270,14 @@ const portfolioReducer = (state = initialPortfolioState, action) => {
       return _objectSpread({}, state);
   }
 };
-const PortoflioContext = react__WEBPACK_IMPORTED_MODULE_7___default.a.createContext({
+const PortfolioContext = react__WEBPACK_IMPORTED_MODULE_7___default.a.createContext({
   state: initialPortfolioState
 });
 const PortfolioProvider = ({
   children
 }) => {
   const [state, dispatch] = react__WEBPACK_IMPORTED_MODULE_7___default.a.useReducer(portfolioReducer, initialPortfolioState);
-  return __jsx(PortoflioContext.Provider, {
+  return __jsx(PortfolioContext.Provider, {
     value: {
       state,
       dispatch

@@ -157,9 +157,12 @@ module.exports = {
 	"AdminWrapper": "AdminWrapper____z5UW",
 	"AddItemContainer": "AddItemContainer___Vk9ke",
 	"AddItemButton": "AddItemButton___amRAU",
+	"ItemsContainer": "ItemsContainer___3qfZP",
+	"ItemContainer": "ItemContainer___3yL2D",
+	"ItemMainContent": "ItemMainContent___SWG0n",
+	"ItemHoverContent": "ItemHoverContent___38wnR",
 	"fadein": "fadein___2NOMh",
 	"AdminContentWrapper": "AdminContentWrapper___l39FI",
-	"ItemContainer": "ItemContainer___3yL2D",
 	"AddItemIcon": "AddItemIcon___2wPWw",
 	"ItemForm": "ItemForm___1gmZ3",
 	"show": "show___cDB8N",
@@ -196,9 +199,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../containers/Auth/Auth */ "./containers/Auth/Auth.tsx");
@@ -219,7 +222,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_9__["createElement"];
 
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
 
@@ -309,20 +312,26 @@ const Loading = () => __jsx("div", {
 const AdminContent = ({
   token
 }) => {
-  const portoflioContext = react__WEBPACK_IMPORTED_MODULE_9__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["PortoflioContext"]);
-  const portfolioState = portoflioContext.state;
-  const portfolioDispatch = portoflioContext.dispatch;
+  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_9__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["PortfolioContext"]);
+  const portfolioState = portfolioContext.state;
+  const portfolioDispatch = portfolioContext.dispatch;
   const [loading, setLoading] = react__WEBPACK_IMPORTED_MODULE_9__["useState"](true);
   react__WEBPACK_IMPORTED_MODULE_9__["useEffect"](() => {
-    if (portfolioState) {
+    if (portfolioState && portfolioDispatch) {
       if (portfolioState.items.length === 0) {
         const baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
-        const idToken = localStorage.getItem('idToken');
-        const tokenParam = `?auth=${idToken}`;
-        fetch(baseURL + tokenParam, {
+        const newItems = [];
+        fetch(baseURL, {
           method: 'get'
         }).then(response => response.json()).then(data => {
-          console.log(data);
+          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(data).forEach(item => {
+            newItems.push(data[item]);
+          });
+
+          portfolioDispatch({
+            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["TPortfolioActionTypes"].SET_ITEMS,
+            payload: newItems
+          });
           setLoading(false);
         });
       } else {
@@ -345,7 +354,7 @@ const PortfolioItems = ({
   return __jsx("div", {
     className: css.ItemsContainer
   }, items && items.map(item => {
-    return __jsx(PortfolioItem, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_8__["default"])({
+    return __jsx(PortfolioItem, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({
       key: item.title
     }, item));
   }), __jsx(AddPortfolioItem, null));
@@ -354,7 +363,15 @@ const PortfolioItems = ({
 const PortfolioItem = props => {
   return __jsx("div", {
     className: css.ItemContainer
-  });
+  }, __jsx("div", {
+    className: css.ItemMainContent
+  }, __jsx("p", null, props.title)), __jsx("div", {
+    className: css.ItemHoverContent
+  }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_13__["icons"].faEdit
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_13__["icons"].faTrash
+  }), " ", __jsx("p", null, "delete"), " ")));
 };
 
 const initialForm = {
@@ -377,7 +394,7 @@ const initialForm = {
   languages: {
     id: 'languages',
     elemType: 'select',
-    options: [..._babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["Languages"])],
+    options: [..._babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["Languages"])],
     require: true,
     multiple: true
   },
@@ -521,7 +538,7 @@ const NewItemForm = ({
     className: css.FormCloseButton,
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_13__["icons"].faTimes,
     onClick: close
-  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(form).map(element => {
+  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(form).map(element => {
     return __jsx(FormInput, {
       key: element,
       item: form[element],
@@ -917,7 +934,7 @@ const AuthProvider = ({
 /*!**************************************!*\
   !*** ./context/portfolioContext.tsx ***!
   \**************************************/
-/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortoflioContext, PortfolioProvider */
+/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortfolioContext, PortfolioProvider */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -926,7 +943,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TPortfolioActionTypes", function() { return TPortfolioActionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPortfolioState", function() { return initialPortfolioState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioReducer", function() { return portfolioReducer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortoflioContext", function() { return PortoflioContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioContext", function() { return PortfolioContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioProvider", function() { return PortfolioProvider; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
@@ -975,10 +992,18 @@ let TPortfolioActionTypes;
 const initialPortfolioState = {
   items: []
 };
+
+const setItems = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  return _objectSpread({}, state, {
+    items: action.payload
+  });
+};
+
 const portfolioReducer = (state = initialPortfolioState, action) => {
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
-      return _objectSpread({}, state);
+      return setItems(state, action);
 
     case TPortfolioActionTypes.DELETE_ITEM:
       return _objectSpread({}, state);
@@ -990,14 +1015,14 @@ const portfolioReducer = (state = initialPortfolioState, action) => {
       return _objectSpread({}, state);
   }
 };
-const PortoflioContext = react__WEBPACK_IMPORTED_MODULE_7___default.a.createContext({
+const PortfolioContext = react__WEBPACK_IMPORTED_MODULE_7___default.a.createContext({
   state: initialPortfolioState
 });
 const PortfolioProvider = ({
   children
 }) => {
   const [state, dispatch] = react__WEBPACK_IMPORTED_MODULE_7___default.a.useReducer(portfolioReducer, initialPortfolioState);
-  return __jsx(PortoflioContext.Provider, {
+  return __jsx(PortfolioContext.Provider, {
     value: {
       state,
       dispatch
@@ -1041,7 +1066,9 @@ const icons = {
   faEnvelopeOpen: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEnvelopeOpen"],
   faSignInAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignInAlt"],
   faSignOutAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignOutAlt"],
-  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"]
+  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"],
+  faTrash: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faTrash"],
+  faEdit: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEdit"]
 };
 
 /***/ }),

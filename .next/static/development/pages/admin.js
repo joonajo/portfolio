@@ -55,10 +55,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_11__["createElement"];
 
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
 
@@ -181,9 +181,9 @@ var Loading = function Loading() {
 
 var AdminContent = function AdminContent(_ref) {
   var token = _ref.token;
-  var portoflioContext = react__WEBPACK_IMPORTED_MODULE_11__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["PortoflioContext"]);
-  var portfolioState = portoflioContext.state;
-  var portfolioDispatch = portoflioContext.dispatch;
+  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_11__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["PortfolioContext"]);
+  var portfolioState = portfolioContext.state;
+  var portfolioDispatch = portfolioContext.dispatch;
 
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_11__["useState"](true),
       _React$useState6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_10__["default"])(_React$useState5, 2),
@@ -191,17 +191,23 @@ var AdminContent = function AdminContent(_ref) {
       setLoading = _React$useState6[1];
 
   react__WEBPACK_IMPORTED_MODULE_11__["useEffect"](function () {
-    if (portfolioState) {
+    if (portfolioState && portfolioDispatch) {
       if (portfolioState.items.length === 0) {
         var baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
-        var idToken = localStorage.getItem('idToken');
-        var tokenParam = "?auth=".concat(idToken);
-        fetch(baseURL + tokenParam, {
+        var newItems = [];
+        fetch(baseURL, {
           method: 'get'
         }).then(function (response) {
           return response.json();
         }).then(function (data) {
-          console.log(data);
+          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(data).forEach(function (item) {
+            newItems.push(data[item]);
+          });
+
+          portfolioDispatch({
+            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["TPortfolioActionTypes"].SET_ITEMS,
+            payload: newItems
+          });
           setLoading(false);
         });
       } else {
@@ -223,7 +229,7 @@ var PortfolioItems = function PortfolioItems(_ref2) {
   return __jsx("div", {
     className: css.ItemsContainer
   }, items && items.map(function (item) {
-    return __jsx(PortfolioItem, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_9__["default"])({
+    return __jsx(PortfolioItem, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_8__["default"])({
       key: item.title
     }, item));
   }), __jsx(AddPortfolioItem, null));
@@ -232,7 +238,15 @@ var PortfolioItems = function PortfolioItems(_ref2) {
 var PortfolioItem = function PortfolioItem(props) {
   return __jsx("div", {
     className: css.ItemContainer
-  });
+  }, __jsx("div", {
+    className: css.ItemMainContent
+  }, __jsx("p", null, props.title)), __jsx("div", {
+    className: css.ItemHoverContent
+  }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_15__["icons"].faEdit
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_15__["icons"].faTrash
+  }), " ", __jsx("p", null, "delete"), " ")));
 };
 
 var initialForm = {
@@ -255,7 +269,7 @@ var initialForm = {
   languages: {
     id: 'languages',
     elemType: 'select',
-    options: Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["Languages"])),
+    options: Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_7__["default"])(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["Languages"])),
     require: true,
     multiple: true
   },
@@ -416,7 +430,7 @@ var NewItemForm = function NewItemForm(_ref3) {
     className: css.FormCloseButton,
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_15__["icons"].faTimes,
     onClick: close
-  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(form).map(function (element) {
+  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(form).map(function (element) {
     return __jsx(FormInput, {
       key: element,
       item: form[element],
@@ -820,7 +834,7 @@ var AuthProvider = function AuthProvider(_ref) {
 /*!**************************************!*\
   !*** ./context/portfolioContext.tsx ***!
   \**************************************/
-/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortoflioContext, PortfolioProvider */
+/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortfolioContext, PortfolioProvider */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -829,7 +843,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TPortfolioActionTypes", function() { return TPortfolioActionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPortfolioState", function() { return initialPortfolioState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioReducer", function() { return portfolioReducer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortoflioContext", function() { return PortoflioContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioContext", function() { return PortfolioContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioProvider", function() { return PortfolioProvider; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
@@ -880,13 +894,21 @@ var TPortfolioActionTypes;
 var initialPortfolioState = {
   items: []
 };
+
+var setItems = function setItems(state, action) {
+  if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  return _objectSpread({}, state, {
+    items: action.payload
+  });
+};
+
 var portfolioReducer = function portfolioReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPortfolioState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
-      return _objectSpread({}, state);
+      return setItems(state, action);
 
     case TPortfolioActionTypes.DELETE_ITEM:
       return _objectSpread({}, state);
@@ -898,7 +920,7 @@ var portfolioReducer = function portfolioReducer() {
       return _objectSpread({}, state);
   }
 };
-var PortoflioContext = react__WEBPACK_IMPORTED_MODULE_8___default.a.createContext({
+var PortfolioContext = react__WEBPACK_IMPORTED_MODULE_8___default.a.createContext({
   state: initialPortfolioState
 });
 var PortfolioProvider = function PortfolioProvider(_ref) {
@@ -909,7 +931,7 @@ var PortfolioProvider = function PortfolioProvider(_ref) {
       state = _React$useReducer2[0],
       dispatch = _React$useReducer2[1];
 
-  return __jsx(PortoflioContext.Provider, {
+  return __jsx(PortfolioContext.Provider, {
     value: {
       state: state,
       dispatch: dispatch
@@ -951,7 +973,9 @@ var icons = {
   faEnvelopeOpen: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEnvelopeOpen"],
   faSignInAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignInAlt"],
   faSignOutAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignOutAlt"],
-  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"]
+  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"],
+  faTrash: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faTrash"],
+  faEdit: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEdit"]
 };
 
 /***/ }),

@@ -152,7 +152,7 @@ var Item = function Item(props) {
     }
   };
 
-  var itemClasses = [css.Item, showItem ? css.show : null].join(' ');
+  var itemClasses = [css.Item, showItem && css.show].join(' ');
   return __jsx("div", {
     className: itemClasses,
     ref: itemRef

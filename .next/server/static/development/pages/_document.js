@@ -1513,6 +1513,9 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
     }), __jsx("link", {
       rel: "apple-touch-icon",
       href: ""
+    }), __jsx("link", {
+      href: "https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900&display=swap",
+      rel: "stylesheet"
     })), __jsx("body", null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], null)));
   }
 

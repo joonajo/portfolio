@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next/dist/next-server/lib/dynamic.js");
 /* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../portfolio/portfolio */ "./portfolio/portfolio.ts");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
@@ -34,11 +34,13 @@ var Item = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(function () {
 var css = __webpack_require__(/*! ./Content.module.css */ "./components/Content/Content.module.css");
 
 var Content = function Content() {
+  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__["PortfolioContext"]);
+  var portfolioState = portfolioContext.state;
   return __jsx("div", {
     className: css.Content
   }, __jsx("h2", {
     className: css.Title
-  }, "Portfolio"), _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_3__["portfolioItems"].map(function (item) {
+  }, "Portfolio"), portfolioState.items.map(function (item) {
     return __jsx(Item, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
       key: item.title
     }, item));
@@ -389,15 +391,20 @@ var Toolbar = function Toolbar() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Cover/Cover */ "./components/Cover/Cover.tsx");
-/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
-/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
-/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Cover/Cover */ "./components/Cover/Cover.tsx");
+/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
+/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
+/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
@@ -407,29 +414,62 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 var css = __webpack_require__(/*! ./Home.module.css */ "./containers/Home/Home.module.css");
 
 var Home = function Home() {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
-      _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(false),
+      _React$useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_React$useState, 2),
       bgLoaded = _React$useState2[0],
       setBgLoaded = _React$useState2[1];
 
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(true),
+      _React$useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_React$useState3, 2),
+      loading = _React$useState4[0],
+      setLoading = _React$useState4[1];
+
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
     // check if bg image is already cached
     // if yes, set as loaded
     var image = new Image();
     image.src = '/images/palm.png';
     if (image.complete) setBgLoaded(true);
   }, []);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, !bgLoaded && __jsx(Loading, null), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["PortfolioContext"]);
+  var portfolioState = portfolioContext.state;
+  var portfolioDispatch = portfolioContext.dispatch;
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
+    if (portfolioState && portfolioDispatch) {
+      if (portfolioState.items.length === 0) {
+        var baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
+        var newItems = [];
+        fetch(baseURL, {
+          method: 'get'
+        }).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(function (item) {
+            newItems.push(data[item]);
+          });
+
+          portfolioDispatch({
+            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["TPortfolioActionTypes"].SET_ITEMS,
+            payload: newItems
+          });
+          setLoading(false);
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  }, [portfolioState]);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, (!bgLoaded || loading) && __jsx(Loading, null), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
     load: function load() {
       return setBgLoaded(true);
     }
-  }), bgLoaded && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+  }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
 };
 
 var Loading = function Loading() {
   return __jsx("div", {
     className: css.Loading
-  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__["CubeSpinner"], null));
+  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__["CubeSpinner"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -440,7 +480,7 @@ var Loading = function Loading() {
 /*!**************************************!*\
   !*** ./context/portfolioContext.tsx ***!
   \**************************************/
-/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortoflioContext, PortfolioProvider */
+/*! exports provided: Languages, TPortfolioActionTypes, initialPortfolioState, portfolioReducer, PortfolioContext, PortfolioProvider */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -449,7 +489,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TPortfolioActionTypes", function() { return TPortfolioActionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialPortfolioState", function() { return initialPortfolioState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioReducer", function() { return portfolioReducer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortoflioContext", function() { return PortoflioContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioContext", function() { return PortfolioContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PortfolioProvider", function() { return PortfolioProvider; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
@@ -500,13 +540,21 @@ var TPortfolioActionTypes;
 var initialPortfolioState = {
   items: []
 };
+
+var setItems = function setItems(state, action) {
+  if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  return _objectSpread({}, state, {
+    items: action.payload
+  });
+};
+
 var portfolioReducer = function portfolioReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPortfolioState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
-      return _objectSpread({}, state);
+      return setItems(state, action);
 
     case TPortfolioActionTypes.DELETE_ITEM:
       return _objectSpread({}, state);
@@ -518,7 +566,7 @@ var portfolioReducer = function portfolioReducer() {
       return _objectSpread({}, state);
   }
 };
-var PortoflioContext = react__WEBPACK_IMPORTED_MODULE_8___default.a.createContext({
+var PortfolioContext = react__WEBPACK_IMPORTED_MODULE_8___default.a.createContext({
   state: initialPortfolioState
 });
 var PortfolioProvider = function PortfolioProvider(_ref) {
@@ -529,7 +577,7 @@ var PortfolioProvider = function PortfolioProvider(_ref) {
       state = _React$useReducer2[0],
       dispatch = _React$useReducer2[1];
 
-  return __jsx(PortoflioContext.Provider, {
+  return __jsx(PortfolioContext.Provider, {
     value: {
       state: state,
       dispatch: dispatch
@@ -611,7 +659,9 @@ var icons = {
   faEnvelopeOpen: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEnvelopeOpen"],
   faSignInAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignInAlt"],
   faSignOutAlt: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSignOutAlt"],
-  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"]
+  faPlus: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faPlus"],
+  faTrash: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faTrash"],
+  faEdit: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faEdit"]
 };
 
 /***/ }),
@@ -24958,93 +25008,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ "./portfolio/portfolio.ts":
-/*!********************************!*\
-  !*** ./portfolio/portfolio.ts ***!
-  \********************************/
-/*! exports provided: items, portfolioItems */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "portfolioItems", function() { return portfolioItems; });
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../context/portfolioContext */ "./context/portfolioContext.tsx");
-
-var items = {
-  ClassicGames: {
-    title: 'Classic Games',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].NextJS],
-    link: 'https://classics-next.joonajo.now.sh',
-    githubLink: 'https://github.com/joonajo/classics-next',
-    description: "Built with React + TypeScript + NextJS. A web app with all-time classic games Minesweeper and Snake (Tetris WIP). Own leaderboard for each game and each difficulty, stored in a Firebase database.",
-    video_src: '/videos/classics.mp4',
-    gif_src: '/gifs/classics.gif',
-    desktop: true,
-    mobile: false
-  },
-  NasaHub: {
-    title: 'Nasa Portal',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].NextJS],
-    link: 'https://nasa-portal.now.sh',
-    githubLink: 'https://github.com/joonajo/nasa-portal',
-    description: 'Built with React + TypeScript + Redux + NextJS. Utilizes open NASA APIs. Check out the Astronomy Picture of the Day (APOD), latest Mars rover images as well as Earth from the space with the EPIC API. PWA & Lighthouse optimized.',
-    video_src: '/videos/nasahub.mp4',
-    gif_src: '/gifs/nasahub.gif',
-    desktop: true,
-    mobile: true
-  },
-  WeatherApp: {
-    title: 'Weather App',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript],
-    link: 'https://weatherr.web.app',
-    githubLink: 'https://github.com/joonajo/Weather-app',
-    description: 'Built with React + TypeScript + Redux. Utilizes three different APIs (OpenWeatherMap, TimezoneDB & Geonames) to seamlessly check the weather all over the world, with timezones adjusted accordingly.',
-    video_src: '/videos/weather.mp4',
-    gif_src: '/gifs/weatherapp.gif',
-    desktop: true,
-    mobile: true
-  },
-  BurgerBuilder: {
-    title: 'Burger Builder',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].JavaScript],
-    link: 'https://react-burgerapp-d2ef8.web.app',
-    githubLink: 'https://github.com/joonajo/Burger-Builder',
-    description: 'Built with ReactJS + Redux. Utilizes Firebase account authorization and realtime database. Build your own burger and order it!',
-    video_src: '/videos/burger.mp4',
-    gif_src: '/gifs/burgerbuilder.gif',
-    desktop: true,
-    mobile: true
-  },
-  TodoList: {
-    title: 'To-Do List',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].TypeScript],
-    link: 'https://todo-reactts.web.app',
-    githubLink: 'https://github.com/joonajo/Todo-ReactTS',
-    description: 'Built with React + TypeScript. Utilizes Firebase Cloud database (Firestore) and account authorization. Make a todo-list, check/remove items, and keep it saved in the database!',
-    video_src: '/videos/todo.mp4',
-    gif_src: '/gifs/todo.gif',
-    desktop: true,
-    mobile: true
-  },
-  CannonGame: {
-    title: 'Cannon Game',
-    language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_0__["Languages"].Cpp],
-    link: 'https://www.youtube.com/watch?v=6rbhqyCm97E',
-    githubLink: 'https://github.com/joonajo/CannonGame',
-    description: 'Built purely with C++ and the SFML graphics library. A simple Cannon Game against a basic AI.',
-    video_src: 'https://media.giphy.com/media/ftB8xRdaDJHzk2v6Ur/giphy.gif',
-    gif_src: '/gifs/cannongame.gif',
-    desktop: true,
-    mobile: false
-  }
-}; // makes it easy to switch up the order if needed
-
-var portfolioItems = [items.ClassicGames, items.NasaHub, items.WeatherApp, items.TodoList, items.BurgerBuilder, items.CannonGame];
-
-/***/ }),
-
-/***/ 1:
+/***/ 0:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cindex%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -25067,5 +25031,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

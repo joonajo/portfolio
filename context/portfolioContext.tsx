@@ -29,10 +29,19 @@ export const initialPortfolioState: TPortfolioState = {
     items: []
 }
 
+const setItems = (state: TPortfolioState, action: TPortfolioActions): TPortfolioState => {
+    if (action.type !== TPortfolioActionTypes.SET_ITEMS) return { ...state }
+
+    return {
+        ...state,
+        items: action.payload
+    }
+}
+
 export const portfolioReducer = (state: TPortfolioState = initialPortfolioState, action: TPortfolioActions): TPortfolioState => {
     switch (action.type) {
         case TPortfolioActionTypes.SET_ITEMS:
-            return { ...state }
+            return setItems(state, action)
 
         case TPortfolioActionTypes.DELETE_ITEM:
             return { ...state }
@@ -50,7 +59,7 @@ export interface IPortfolioContext {
     dispatch?: TDispatch
 }
 
-export const PortoflioContext = React.createContext<IPortfolioContext>({ state: initialPortfolioState })
+export const PortfolioContext = React.createContext<IPortfolioContext>({ state: initialPortfolioState })
 
 interface IPortfolioProvider {
     children: any
@@ -60,8 +69,8 @@ export const PortfolioProvider: React.FunctionComponent<IPortfolioProvider> = ({
     const[state, dispatch] = React.useReducer(portfolioReducer, initialPortfolioState)
 
     return (
-        <PortoflioContext.Provider value={{state, dispatch}}>
+        <PortfolioContext.Provider value={{state, dispatch}}>
             {children}
-        </PortoflioContext.Provider>
+        </PortfolioContext.Provider>
     )
 }

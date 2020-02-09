@@ -33,7 +33,7 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
 
   const itemClasses = [
     css.Item, 
-    showItem ? css.show : null
+    showItem && css.show
   ].join(' ')
   
   return (
