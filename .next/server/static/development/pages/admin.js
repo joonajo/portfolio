@@ -167,7 +167,10 @@ module.exports = {
 	"FormInputContainer": "FormInputContainer___1PWv0",
 	"FormInput": "FormInput___1r9Hx",
 	"FormSelect": "FormSelect___1JxVF",
-	"FormAddButton": "FormAddButton___36z5b"
+	"SelectOption": "SelectOption___YvtVp",
+	"FormAddButton": "FormAddButton___36z5b",
+	"FormSending": "FormSending___2Fcst",
+	"expand": "expand___PCWtz"
 };
 
 /***/ }),
@@ -192,17 +195,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../containers/Auth/Auth */ "./containers/Auth/Auth.tsx");
-/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
-/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../context/authContext */ "./context/authContext.tsx");
-/* harmony import */ var _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../portfolio/portfolio */ "./portfolio/portfolio.ts");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../containers/Auth/Auth */ "./containers/Auth/Auth.tsx");
+/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../context/authContext */ "./context/authContext.tsx");
+/* harmony import */ var _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../portfolio/portfolio */ "./portfolio/portfolio.ts");
 
 
 
@@ -210,9 +215,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_7__["createElement"];
 
-function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+var __jsx = react__WEBPACK_IMPORTED_MODULE_8__["createElement"];
+
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
 
@@ -227,12 +233,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 const css = __webpack_require__(/*! ./Admin.module.css */ "./containers/Admin/Admin.module.css");
 
 const Admin = () => {
-  const authContext = react__WEBPACK_IMPORTED_MODULE_7__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_12__["AuthContext"]);
+  const authContext = react__WEBPACK_IMPORTED_MODULE_8__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_13__["AuthContext"]);
   const state = authContext.state;
   const dispatch = authContext.dispatch;
-  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](true);
-  const [screensize, setScreensize] = react__WEBPACK_IMPORTED_MODULE_7__["useState"]();
-  react__WEBPACK_IMPORTED_MODULE_7__["useEffect"](() => {
+  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_8__["useState"](true);
+  const [screensize, setScreensize] = react__WEBPACK_IMPORTED_MODULE_8__["useState"]();
+  react__WEBPACK_IMPORTED_MODULE_8__["useEffect"](() => {
     document.title = 'Portfolio // Admin';
     setScreensize({
       width: window.innerWidth,
@@ -287,7 +293,7 @@ const Admin = () => {
       minHeight: `${screensize === null || screensize === void 0 ? void 0 : screensize.height}px`,
       minWidth: `${screensize === null || screensize === void 0 ? void 0 : screensize.width}px`
     }
-  }, !state.signedIn && __jsx(_containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, !state.signedIn && __jsx(_containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_9__["default"], {
     setSending: setSending,
     signIn: signInHandler
   }), sending && __jsx(Loading, null), state.signedIn && __jsx(AdminContent, {
@@ -297,7 +303,7 @@ const Admin = () => {
 
 const Loading = () => __jsx("div", {
   className: css.Loading
-}, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_9__["CubeSpinner"], null));
+}, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_10__["CubeSpinner"], null));
 
 const AdminContent = ({
   token
@@ -337,8 +343,9 @@ const initialForm = {
   languages: {
     id: 'languages',
     elemType: 'select',
-    options: [..._babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6___default()(_portfolio_portfolio__WEBPACK_IMPORTED_MODULE_13__["Languages"])],
-    require: true
+    options: [..._babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(_portfolio_portfolio__WEBPACK_IMPORTED_MODULE_14__["Languages"])],
+    require: true,
+    multiple: true
   },
   link: {
     id: 'link',
@@ -377,30 +384,36 @@ const initialForm = {
     elemType: 'select',
     options: ['Yes', 'No'],
     require: true,
-    value: 'Yes'
+    value: 'Yes',
+    multiple: false
   },
   mobile: {
     id: 'mobile',
     elemType: 'select',
     options: ['Yes', 'No'],
     require: true,
-    value: 'Yes'
+    value: 'Yes',
+    multiple: false
   }
 };
 
 const AddPortfolioItem = () => {
-  const [showForm, setShowForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](false);
+  const [showForm, setShowForm] = react__WEBPACK_IMPORTED_MODULE_8__["useState"](false);
+  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_8__["useState"](false);
 
   const addItemToDatabase = item => {
-    const baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
+    setSending(true);
+    const baseURL = 'https://joonajo-portfolio.firebaseio.com/items/';
+    const title = item.title + ".json";
     const idToken = localStorage.getItem('idToken');
     const tokenParam = `?auth=${idToken}`;
-    const newItem = {};
-    fetch(baseURL + tokenParam, {
+    fetch(baseURL + title + tokenParam, {
       method: 'put',
-      body: newItem
+      body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_6___default()(item)
     }).then(response => response.json().then(data => {
       console.log(data);
+      setSending(false);
+      setShowForm(false);
     }));
   };
 
@@ -413,22 +426,31 @@ const AddPortfolioItem = () => {
   }, __jsx("span", {
     className: css.AddItemButton,
     onClick: clickHandler
-  }, "add item ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_11__["icons"].faPlus,
+  }, "add item ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_12__["icons"].faPlus,
     className: css.AddItemIcon
   })), __jsx(NewItemForm, {
     show: showForm,
     close: () => setShowForm(false),
-    add: addItemToDatabase
+    add: addItemToDatabase,
+    sending: sending
   }));
 };
 
 const NewItemForm = ({
   show,
   close,
-  add
+  add,
+  sending
 }) => {
-  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](initialForm);
+  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_8__["useState"](initialForm);
+  const [formHeight, setFormHeight] = react__WEBPACK_IMPORTED_MODULE_8__["useState"]();
+  const formRef = react__WEBPACK_IMPORTED_MODULE_8__["useRef"](null);
+  react__WEBPACK_IMPORTED_MODULE_8__["useEffect"](() => {
+    if (formRef && formRef.current) {
+      setFormHeight(formRef.current.getBoundingClientRect().height);
+    }
+  }, [formRef]);
 
   const changeHandler = (id, event) => {
     const updatedForm = _objectSpread({}, form, {
@@ -443,26 +465,29 @@ const NewItemForm = ({
   const addHandler = () => {
     const newItem = {
       title: form.title.value,
-      language: [_portfolio_portfolio__WEBPACK_IMPORTED_MODULE_13__["Languages"].React, _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_13__["Languages"].TypeScript],
+      language: [_portfolio_portfolio__WEBPACK_IMPORTED_MODULE_14__["Languages"].React, _portfolio_portfolio__WEBPACK_IMPORTED_MODULE_14__["Languages"].TypeScript],
       description: form.description.value,
       link: form.link.value,
       githubLink: form.github.value,
       video_src: form.video_src.value,
       gif_src: form.gif_src.value,
-      desktop: true,
-      mobile: true
+      desktop: form.desktop.value,
+      mobile: form.mobile.value
     };
     add(newItem);
   };
 
   const itemFormClasses = [css.ItemForm, show && css.show].join(' ');
-  return __jsx("div", {
-    className: itemFormClasses
-  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_10__["FontAwesomeIcon"], {
+  return __jsx("form", {
+    className: itemFormClasses,
+    ref: formRef
+  }, sending && __jsx("div", {
+    className: css.FormSending
+  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_10__["CubeSpinner"], null)), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"], {
     className: css.FormCloseButton,
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_11__["icons"].faTimes,
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_12__["icons"].faTimes,
     onClick: close
-  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6___default()(form).map(element => {
+  }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(form).map(element => {
     return __jsx(FormInput, {
       key: element,
       item: form[element],
@@ -474,7 +499,7 @@ const NewItemForm = ({
   }, __jsx("p", null, "add")));
 };
 
-const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
+const FormInput = react__WEBPACK_IMPORTED_MODULE_8__["memo"](({
   item,
   change
 }) => {
@@ -493,11 +518,13 @@ const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
     case 'select':
       content = __jsx("select", {
         className: css.FormSelect,
-        id: item.id
+        id: item.id,
+        multiple: item.multiple
       }, item.options.map(option => {
         return __jsx("option", {
           key: item.id + option,
-          value: option
+          value: option,
+          className: css.SelectOption
         }, option);
       }));
       break;

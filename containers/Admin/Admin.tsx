@@ -141,7 +141,8 @@ const initialForm: IForm = {
         id: 'languages',
         elemType: 'select',
         options: [...Object.keys(Languages)],
-        require: true
+        require: true,
+        multiple: true
     },
     link: {
         id: 'link',
@@ -180,32 +181,35 @@ const initialForm: IForm = {
         elemType: 'select',
         options : ['Yes', 'No'],
         require: true,
-        value: 'Yes'
+        value: 'Yes',
+        multiple: false
     },
     mobile: {   
         id: 'mobile',
         elemType: 'select',
         options : ['Yes', 'No'],
         require: true,
-        value: 'Yes'
+        value: 'Yes',
+        multiple: false
     }
 }
 
 const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
     const [showForm, setShowForm] = React.useState<boolean>(false)
+    const [sending, setSending] = React.useState<boolean>(false)
 
     const addItemToDatabase = (item: IPortfolioItem) => {
-        const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
+        setSending(true)
+        const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items/'
+        const title: string = item.title + ".json"
         const idToken: string = localStorage.getItem('idToken')!
         const tokenParam: string = `?auth=${idToken}`
 
-        const newItem: any = {
-            
-        }
-
-        fetch(baseURL + tokenParam, { method: 'put', body: newItem }).then(response => response.json()
+        fetch(baseURL + title + tokenParam, { method: 'put', body: JSON.stringify(item) }).then(response => response.json()
             .then(data => {
                 console.log(data)
+                setSending(false)
+                setShowForm(false)
             }))
     }
 
@@ -216,19 +220,28 @@ const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
     return (
         <div className={css.AddItemContainer}>
             <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
-            <NewItemForm show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} />
+            <NewItemForm show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} sending={sending}/>
         </div>
     )
 }
 
 interface INewItemForm {
     show: boolean
+    sending: boolean
     close: () => void
     add: (item: IPortfolioItem) => void
 }
 
-const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add }): JSX.Element => {
+const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, sending }): JSX.Element => {
     const [form, setForm] = React.useState<IForm>(initialForm)
+    const [formHeight, setFormHeight] = React.useState<number>()
+    const formRef: React.RefObject<HTMLFormElement> = React.useRef(null)
+
+    React.useEffect(() => {
+        if (formRef && formRef.current) {
+            setFormHeight(formRef.current.getBoundingClientRect().height)
+        }
+    }, [formRef])
 
     const changeHandler = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
         const updatedForm: IForm = {
@@ -250,8 +263,8 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add }
             githubLink: form.github.value,
             video_src: form.video_src.value,
             gif_src: form.gif_src.value,
-            desktop: true,
-            mobile: true
+            desktop: form.desktop.value,
+            mobile: form.mobile.value
         }
 
         add(newItem)
@@ -263,7 +276,12 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add }
     ].join(' ')
 
     return (
-        <div className={itemFormClasses}>
+        <form className={itemFormClasses} ref={formRef}>
+            { sending && 
+                <div className={css.FormSending}>
+                    <CubeSpinner />
+                </div>
+            }
             <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
             { Object.keys(form).map((element: string) => {
                 return (
@@ -273,7 +291,7 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add }
             <div className={css.FormAddButton} onClick={addHandler}>
                 <p>add</p>
             </div>
-        </div>
+        </form>
     )
 }
 
@@ -297,10 +315,10 @@ const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ item, chan
             
         case 'select':
             content = (
-                <select className={css.FormSelect} id={item.id}>
+                <select className={css.FormSelect} id={item.id} multiple={item.multiple}>
                     {item.options.map((option: string) => {
                         return (
-                            <option key={item.id + option} value={option}>{option}</option>
+                            <option key={item.id + option} value={option} className={css.SelectOption}>{option}</option>
                         )
                     })}
                 </select>

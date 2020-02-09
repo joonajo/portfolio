@@ -826,15 +826,27 @@
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
+    opacity: 0;
     width: 0;
     height: 0;
-    opacity: 0;
     top: 20px;
     /* transition: all .3s; */
-    transition: width .3s, height .3s .3s, opacity .6s;
+    transition: width .3s, height .3s, opacity .6s;
     position: relative;
     overflow: hidden;
     background: snow;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.ItemForm___1gmZ3.show___cDB8N {
+    z-index: 1;
+    opacity: 1;
+    box-shadow: 0px 0px 40px 10px gainsboro;
+    /* animation: expand .5s; */
+    width: var(--item-width);
+    height: 100%;
 }
 
 .ItemForm___1gmZ3::after {
@@ -842,25 +854,29 @@
     position: absolute;
     top: 0;
     left: 0;
+    background: snow;
+    transition: all .1s;
     width: 100%;
     height: 100%;
-    background: snow;
-}
-
-.ItemForm___1gmZ3.show___cDB8N {
-    opacity: 1;
-    width: var(--item-width);
-    height: auto;
-    box-sizing: border-box;
-    padding: 30px 10px;
-    box-shadow: 0px 0px 40px 10px gainsboro;
 }
 
 .ItemForm___1gmZ3.show___cDB8N::after {
-    transition-delay: .6s;
     width: 0;
     height: 0;
+    opacity: 0;
 }
+
+@keyframes expand___PCWtz {
+    from { 
+        height: 0px;
+        width: 0px;
+    }
+    to {
+        height: 100%;
+        width: var(--item-width);
+    }
+}
+
 
 .FormCloseButton___1ci-s {
     position: absolute;
@@ -900,6 +916,14 @@
     transition: all .3s;
 }
 
+.FormSelect___1JxVF {
+    padding: 0
+}
+
+.SelectOption___YvtVp {
+
+}
+
 .FormInput___1r9Hx::placeholder {
     color: lightgray;
 }
@@ -928,6 +952,20 @@
     color: black;
     font-family: Ubuntu Bold;
     text-transform: uppercase;
+}
+
+.FormSending___2Fcst {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(245, 245, 245, 0.7);
+    z-index: 10;
+    animation: fadein___2NOMh .5s;
 }
 .Main___151kN,
 .Loading___3rzPY {
