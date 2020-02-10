@@ -166,6 +166,7 @@ module.exports = {
 	"AddItemIcon": "AddItemIcon___2wPWw",
 	"ItemForm": "ItemForm___1gmZ3",
 	"show": "show___cDB8N",
+	"FormBackdrop": "FormBackdrop___2vj5Z",
 	"FormCloseButton": "FormCloseButton___1ci-s",
 	"FormInputContainer": "FormInputContainer___1PWv0",
 	"FormInput": "FormInput___1r9Hx",
@@ -324,14 +325,17 @@ const AdminContent = ({
         fetch(baseURL, {
           method: 'get'
         }).then(response => response.json()).then(data => {
-          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(data).forEach(item => {
-            newItems.push(data[item]);
-          });
+          if (data) {
+            _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_8___default()(data).forEach(item => {
+              newItems.push(data[item]);
+            });
 
-          portfolioDispatch({
-            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["TPortfolioActionTypes"].SET_ITEMS,
-            payload: newItems
-          });
+            portfolioDispatch({
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_15__["TPortfolioActionTypes"].SET_ITEMS,
+              payload: newItems
+            });
+          }
+
           setLoading(false);
         });
       } else {
@@ -361,6 +365,18 @@ const PortfolioItems = ({
 };
 
 const PortfolioItem = props => {
+  const deleteHandler = () => {
+    const baseURL = "https://joonajo-portfolio.firebaseio.com/items/";
+    const itemParam = `${props.title}.json`;
+    const idToken = localStorage.getItem('idToken');
+    const tokenParam = `?auth=${idToken}`;
+    fetch(baseURL + itemParam + tokenParam, {
+      method: 'delete'
+    }).then(response => response.json()).then(data => {
+      console.log('succesfully deleted', props.title);
+    });
+  };
+
   return __jsx("div", {
     className: css.ItemContainer
   }, __jsx("div", {
@@ -369,7 +385,9 @@ const PortfolioItem = props => {
     className: css.ItemHoverContent
   }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_13__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", {
+    onClick: deleteHandler
+  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_13__["icons"].faTrash
   }), " ", __jsx("p", null, "delete"), " ")));
 };
@@ -528,9 +546,10 @@ const NewItemForm = ({
     add(newItem);
   };
 
-  const itemFormClasses = [css.ItemForm, show && css.show].join(' ');
-  return __jsx("form", {
-    className: itemFormClasses,
+  const itemFormStyles = [css.ItemForm, show && css.show].join(' ');
+  const backdropStyles = [css.FormBackdrop, show && css.show].join(' ');
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_9__["Fragment"], null, __jsx("form", {
+    className: itemFormStyles,
     ref: formRef
   }, sending && __jsx("div", {
     className: css.Loading
@@ -547,7 +566,9 @@ const NewItemForm = ({
   }), __jsx("div", {
     className: css.FormAddButton,
     onClick: addHandler
-  }, __jsx("p", null, "add")));
+  }, __jsx("p", null, "add"))), __jsx("div", {
+    className: backdropStyles
+  }));
 };
 
 const FormInput = react__WEBPACK_IMPORTED_MODULE_9__["memo"](({
@@ -701,6 +722,7 @@ const Auth = ({
         });
         setSending(false);
       } else {
+        // console.log(data)
         const idToken = data === null || data === void 0 ? void 0 : data.idToken;
         const refreshToken = data === null || data === void 0 ? void 0 : data.refreshToken;
         const email = data === null || data === void 0 ? void 0 : data.email;

@@ -6,12 +6,12 @@ import ExpandedVideo from '../ExpandedVideo/ExpandedVideo'
 
 const css = require('./Item.module.css')
 
-const SHOW_TRESHOLD = 300 // pixels
+const SHOW_TRESHOLD = 250 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   const[showItem, toggleShowItem] = React.useState<boolean>(false)
   const[showVideo, toggleShowVideo] = React.useState<boolean>(false)
-  const itemRef = React.useRef<HTMLDivElement>(null)
+  const itemRef: React.RefObject<HTMLDivElement> = React.useRef<HTMLDivElement>(null)
   
   // update the event listeners every time the showItem state is changed
   React.useEffect(() => {
@@ -21,13 +21,12 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   }, [showItem])
   
   const checkIfInViewport = () => {
-    const itemPos: number = itemRef.current!.getBoundingClientRect().top
-    const windowHeight: number = window.innerHeight
-
-    if (itemPos + SHOW_TRESHOLD < windowHeight) {
-      toggleShowItem(true)
-    } else if (showItem) {
-      toggleShowItem(false)
+    if (itemRef && itemRef.current) {
+      const itemPos: number = itemRef.current.getBoundingClientRect().top
+      const windowHeight: number = window.innerHeight
+  
+      const newShowItem: boolean = itemPos < (windowHeight - SHOW_TRESHOLD)
+      if (newShowItem !== showItem) toggleShowItem(newShowItem)
     }
   }
 

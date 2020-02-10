@@ -171,7 +171,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const css = __webpack_require__(/*! ./Item.module.css */ "./components/Item/Item.module.css");
 
-const SHOW_TRESHOLD = 300; // pixels
+const SHOW_TRESHOLD = 250; // pixels
 
 const Item = props => {
   const [showItem, toggleShowItem] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
@@ -184,13 +184,11 @@ const Item = props => {
   }, [showItem]);
 
   const checkIfInViewport = () => {
-    const itemPos = itemRef.current.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (itemPos + SHOW_TRESHOLD < windowHeight) {
-      toggleShowItem(true);
-    } else if (showItem) {
-      toggleShowItem(false);
+    if (itemRef && itemRef.current) {
+      const itemPos = itemRef.current.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      const newShowItem = itemPos < windowHeight - SHOW_TRESHOLD;
+      if (newShowItem !== showItem) toggleShowItem(newShowItem);
     }
   };
 

@@ -200,14 +200,17 @@ var AdminContent = function AdminContent(_ref) {
         }).then(function (response) {
           return response.json();
         }).then(function (data) {
-          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(data).forEach(function (item) {
-            newItems.push(data[item]);
-          });
+          if (data) {
+            _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_9___default()(data).forEach(function (item) {
+              newItems.push(data[item]);
+            });
 
-          portfolioDispatch({
-            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["TPortfolioActionTypes"].SET_ITEMS,
-            payload: newItems
-          });
+            portfolioDispatch({
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_17__["TPortfolioActionTypes"].SET_ITEMS,
+              payload: newItems
+            });
+          }
+
           setLoading(false);
         });
       } else {
@@ -236,6 +239,20 @@ var PortfolioItems = function PortfolioItems(_ref2) {
 };
 
 var PortfolioItem = function PortfolioItem(props) {
+  var deleteHandler = function deleteHandler() {
+    var baseURL = "https://joonajo-portfolio.firebaseio.com/items/";
+    var itemParam = "".concat(props.title, ".json");
+    var idToken = localStorage.getItem('idToken');
+    var tokenParam = "?auth=".concat(idToken);
+    fetch(baseURL + itemParam + tokenParam, {
+      method: 'delete'
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log('succesfully deleted', props.title);
+    });
+  };
+
   return __jsx("div", {
     className: css.ItemContainer
   }, __jsx("div", {
@@ -244,7 +261,9 @@ var PortfolioItem = function PortfolioItem(props) {
     className: css.ItemHoverContent
   }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_15__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", {
+    onClick: deleteHandler
+  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_15__["icons"].faTrash
   }), " ", __jsx("p", null, "delete"), " ")));
 };
@@ -420,9 +439,10 @@ var NewItemForm = function NewItemForm(_ref3) {
     add(newItem);
   };
 
-  var itemFormClasses = [css.ItemForm, show && css.show].join(' ');
-  return __jsx("form", {
-    className: itemFormClasses,
+  var itemFormStyles = [css.ItemForm, show && css.show].join(' ');
+  var backdropStyles = [css.FormBackdrop, show && css.show].join(' ');
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_11__["Fragment"], null, __jsx("form", {
+    className: itemFormStyles,
     ref: formRef
   }, sending && __jsx("div", {
     className: css.Loading
@@ -439,7 +459,9 @@ var NewItemForm = function NewItemForm(_ref3) {
   }), __jsx("div", {
     className: css.FormAddButton,
     onClick: addHandler
-  }, __jsx("p", null, "add")));
+  }, __jsx("p", null, "add"))), __jsx("div", {
+    className: backdropStyles
+  }));
 };
 
 var FormInput = react__WEBPACK_IMPORTED_MODULE_11__["memo"](function (_ref4) {
@@ -574,6 +596,7 @@ var Auth = function Auth(_ref) {
         });
         setSending(false);
       } else {
+        // console.log(data)
         var _idToken = data === null || data === void 0 ? void 0 : data.idToken;
 
         var refreshToken = data === null || data === void 0 ? void 0 : data.refreshToken;
@@ -18878,7 +18901,7 @@ var AdminPage = function AdminPage() {
 
 /***/ }),
 
-/***/ 13:
+/***/ 11:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadmin&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cadmin%5Cindex.tsx ***!
   \*****************************************************************************************************************************************/
@@ -18901,5 +18924,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[13,"static/runtime/webpack.js","styles"]]]);
+},[[11,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=admin.js.map

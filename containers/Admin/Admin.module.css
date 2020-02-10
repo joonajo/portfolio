@@ -26,6 +26,7 @@
     --form-height: 400px;
     --item-shadow: 0px 0px 20px 10px whitesmoke;
     --transition-time: .2s;
+    --border-radius: 5px;
     position: relative;
     height: 100vh;
     width: 100vw;
@@ -33,6 +34,7 @@
     color: var(--main-color);
     animation: fadein 1s;  
     overflow-x: hidden;
+    background: white;
 }
 
 .AdminContentWrapper {
@@ -51,21 +53,22 @@
 }
 
 .AddItemButton {
-    background: rgba(245, 235, 235, 0.7);
+    background: royalblue;
     width: var(--item-width);
     height: var(--item-height);
     transition: all .3s;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: black;
+    color: snow;
     position: relative;
+    border-radius: var(--border-radius);
 }
 
 .AddItemButton:hover {
     box-shadow: var(--item-shadow);
-    background: white;
-    color: dimgray;
+    background: snow;
+    color: royalblue;
 }
 
 .AddItemIcon {
@@ -79,7 +82,6 @@
 
 .AddItemButton:hover .AddItemIcon {
     transform: rotate(180deg);
-    color: royalblue;
 }
 
 .AddItemContainer {
@@ -93,26 +95,43 @@
     justify-content: flex-start;
     align-items: center;
     opacity: 0;
-    width: 0;
-    height: 0;
-    top: 20px;
-    /* transition: all .3s; */
-    transition: width var(--transition-time), height var(--transition-time), opacity .4s;
-    position: relative;
+    width: var(--item-width);
+    height: auto;
+    transition: all var(--transition-time);
     overflow: hidden;
     background: snow;
-    padding: 30px 10px;
+    padding: 10px;
     box-sizing: border-box;
     z-index: -1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: var(--border-radius);
 }
 
 .ItemForm.show {
     z-index: 1;
     opacity: 1;
-    box-shadow: 0px 0px 40px 10px gainsboro;
-    /* animation: expand .5s; */
-    width: var(--item-width);
-    height: 100%;
+    box-shadow: 0px 0px 100px -30px dimgray;
+}
+
+.FormBackdrop {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    z-index: -5;
+    opacity: 0;
+    transition: opacity var(--transition-time);
+}
+
+.FormBackdrop.show {
+    z-index: 0;
+    opacity: 1;
 }
 
 .ItemForm::after {
@@ -176,7 +195,7 @@
     box-sizing: border-box;
     border: 1px solid gainsboro;
     margin: var(--item-margin);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     width: 100%;
     font-family: Ubuntu;
     transition: all var(--transition-time);
@@ -246,6 +265,8 @@
     box-shadow: 0px 0px 20px 10px whitesmoke;
     cursor: default;
     position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .ItemMainContent {
@@ -269,7 +290,7 @@
     z-index: -1;
     opacity: 0;
     transition: all var(--transition-time);
-    background: mistyrose;
+    background: gainsboro;
 }
 
 .ItemHoverContent span {
@@ -290,7 +311,7 @@
 
 .ItemHoverContent span:hover {
     color: black;
-    box-shadow: 0px 0px 30px 3px lightgray;
+    box-shadow: 0px 0px 30px -10px dimgray;
     background: white;
 }
 

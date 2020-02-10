@@ -36,10 +36,12 @@ const Home: NextPage = (): JSX.Element => {
                 
                 fetch(baseURL, { method: 'get' }).then(response => response.json())
                     .then(data => {
-                        Object.keys(data).forEach(item => {
-                            newItems.push(data[item])
-                        })
-                        portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
+                        if (data) {
+                            Object.keys(data).forEach(item => {
+                                newItems.push(data[item])
+                            })
+                            portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
+                        }
                         setLoading(false)
                     })
             } else {

@@ -444,14 +444,17 @@ var Home = function Home() {
         }).then(function (response) {
           return response.json();
         }).then(function (data) {
-          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(function (item) {
-            newItems.push(data[item]);
-          });
+          if (data) {
+            _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(function (item) {
+              newItems.push(data[item]);
+            });
 
-          portfolioDispatch({
-            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["TPortfolioActionTypes"].SET_ITEMS,
-            payload: newItems
-          });
+            portfolioDispatch({
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["TPortfolioActionTypes"].SET_ITEMS,
+              payload: newItems
+            });
+          }
+
           setLoading(false);
         });
       } else {
@@ -25008,7 +25011,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cindex%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -25031,5 +25034,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

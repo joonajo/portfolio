@@ -97,10 +97,12 @@ const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.El
                 
                 fetch(baseURL, { method: 'get' }).then(response => response.json())
                     .then(data => {
-                        Object.keys(data).forEach(item => {
-                            newItems.push(data[item])
-                        })
-                        portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
+                        if (data) {
+                            Object.keys(data).forEach(item => {
+                                newItems.push(data[item])
+                            })
+                            portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
+                        }
                         setLoading(false)
                     })
             } else {
@@ -139,6 +141,19 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
 }
 
 const PortfolioItem: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
+    
+    const deleteHandler = () => {
+        const baseURL: string = "https://joonajo-portfolio.firebaseio.com/items/"
+        const itemParam: string = `${props.title}.json`
+        const idToken: string = localStorage.getItem('idToken')!
+        const tokenParam: string = `?auth=${idToken}`
+
+        fetch(baseURL + itemParam + tokenParam, { method: 'delete' }).then(response => response.json())
+            .then(data => {
+                console.log('succesfully deleted', props.title)
+            })
+    }
+    
     return (
         <div className={css.ItemContainer}>
             <div className={css.ItemMainContent}>
@@ -146,7 +161,7 @@ const PortfolioItem: React.FunctionComponent<IPortfolioItem> = (props): JSX.Elem
             </div>
             <div className={css.ItemHoverContent}>
                 <span> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </span>
-                <span> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </span>
+                <span onClick={deleteHandler}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </span>
             </div>  
         </div>
     )
@@ -314,28 +329,36 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, 
         add(newItem)
     }
     
-    const itemFormClasses = [
+    const itemFormStyles = [
         css.ItemForm,
         show && css.show
     ].join(' ')
 
+    const backdropStyles = [
+        css.FormBackdrop,
+        show && css.show
+    ].join(' ')
+
     return (
-        <form className={itemFormClasses} ref={formRef}>
-            { sending && 
-                <div className={css.Loading}>
-                    <CubeSpinner />
+        <>
+            <form className={itemFormStyles} ref={formRef}>
+                { sending && 
+                    <div className={css.Loading}>
+                        <CubeSpinner />
+                    </div>
+                }
+                <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
+                { Object.keys(form).map((element: string) => {
+                    return (
+                    <FormInput key={element} item={form[element]} change={changeHandler}  />
+                    )
+                })}
+                <div className={css.FormAddButton} onClick={addHandler}>
+                    <p>add</p>
                 </div>
-            }
-            <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
-            { Object.keys(form).map((element: string) => {
-                return (
-                   <FormInput key={element} item={form[element]} change={changeHandler}  />
-                )
-            })}
-            <div className={css.FormAddButton} onClick={addHandler}>
-                <p>add</p>
-            </div>
-        </form>
+            </form>
+            <div className={backdropStyles}></div>
+        </>
     )
 }
 

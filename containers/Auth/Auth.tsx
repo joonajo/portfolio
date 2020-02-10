@@ -44,6 +44,7 @@ const Auth: React.FunctionComponent<IAuthComponent> = ({ setSending, signIn }): 
                     })
                     setSending(false)
                 } else {
+                    // console.log(data)
                     const idToken: string = data?.idToken
                     const refreshToken: string = data?.refreshToken
                     const email: string = data?.email

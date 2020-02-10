@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -690,14 +690,17 @@ const Home = () => {
         fetch(baseURL, {
           method: 'get'
         }).then(response => response.json()).then(data => {
-          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(item => {
-            newItems.push(data[item]);
-          });
+          if (data) {
+            _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(item => {
+              newItems.push(data[item]);
+            });
 
-          portfolioDispatch({
-            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["TPortfolioActionTypes"].SET_ITEMS,
-            payload: newItems
-          });
+            portfolioDispatch({
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["TPortfolioActionTypes"].SET_ITEMS,
+              payload: newItems
+            });
+          }
+
           setLoading(false);
         });
       } else {
@@ -3110,7 +3113,7 @@ const Index = () => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
