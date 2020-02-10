@@ -458,7 +458,12 @@ module.exports = {
 	"ItemContainer": "ItemContainer___2B_CX",
 	"ItemMainContent": "ItemMainContent___3u7q7",
 	"ItemHoverContent": "ItemHoverContent___13SmG",
-	"fadein": "fadein___2CRjw"
+	"fadein": "fadein___2CRjw",
+	"ConfirmDeleteContainer": "ConfirmDeleteContainer___3Wfad",
+	"slidedown": "slidedown___o39o2",
+	"ConfirmDeleteText": "ConfirmDeleteText___1Ax7N",
+	"ConfirmDeleteButtons": "ConfirmDeleteButtons___2H99B",
+	"ConfirmBackdrop": "ConfirmBackdrop___N5iaM"
 };
 
 /***/ }),
@@ -508,8 +513,13 @@ const PortfolioItems = ({
 const PortfolioItem = props => {
   const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_5__["AuthContext"]);
   const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["PortfolioContext"]);
+  const [confirmDelete, setConfirmDelete] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
 
   const deleteHandler = () => {
+    setConfirmDelete(true);
+  };
+
+  const deleteItem = () => {
     if (authContext.state.signedIn) {
       const baseURL = "https://joonajo-portfolio.firebaseio.com/items/";
       const itemParam = `${props.title}.json`;
@@ -524,9 +534,11 @@ const PortfolioItem = props => {
         payload: props.title
       });
     }
+
+    setConfirmDelete(false);
   };
 
-  return __jsx("div", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
     className: css.ItemContainer
   }, __jsx("div", {
     className: css.ItemMainContent
@@ -538,7 +550,29 @@ const PortfolioItem = props => {
     onClick: deleteHandler
   }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faTrash
-  }), " ", __jsx("p", null, "delete"), " ")));
+  }), " ", __jsx("p", null, "delete"), " "))), confirmDelete && __jsx(ConfirmDelete, {
+    confirm: deleteItem,
+    cancel: () => setConfirmDelete(false)
+  }));
+};
+
+const ConfirmDelete = ({
+  confirm,
+  cancel
+}) => {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
+    className: css.ConfirmDeleteContainer
+  }, __jsx("h2", {
+    className: css.ConfirmDeleteText
+  }, "Confirm Delete"), __jsx("div", {
+    className: css.ConfirmDeleteButtons
+  }, __jsx("p", {
+    onClick: confirm
+  }, "Delete"), __jsx("p", {
+    onClick: cancel
+  }, "Cancel"))), __jsx("div", {
+    className: css.ConfirmBackdrop
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PortfolioItems);
