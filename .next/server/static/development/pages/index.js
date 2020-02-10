@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -780,6 +780,7 @@ let TPortfolioActionTypes;
   TPortfolioActionTypes["SET_ITEMS"] = "SET_ITEMS";
   TPortfolioActionTypes["EDIT_ITEM"] = "EDIT_ITEM";
   TPortfolioActionTypes["DELETE_ITEM"] = "DELETE_ITEM";
+  TPortfolioActionTypes["ADD_ITEM"] = "ADD_ITEM";
 })(TPortfolioActionTypes || (TPortfolioActionTypes = {}));
 
 const initialPortfolioState = {
@@ -793,16 +794,36 @@ const setItems = (state, action) => {
   });
 };
 
+const addItem = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.ADD_ITEM) return _objectSpread({}, state);
+  const updatedItems = [...state.items];
+  updatedItems.push(action.payload);
+  return _objectSpread({}, state, {
+    items: updatedItems
+  });
+};
+
+const deleteItem = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.DELETE_ITEM) return _objectSpread({}, state);
+  const updatedItems = [...state.items].filter(item => item.title !== action.payload);
+  return _objectSpread({}, state, {
+    items: updatedItems
+  });
+};
+
 const portfolioReducer = (state = initialPortfolioState, action) => {
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
       return setItems(state, action);
 
     case TPortfolioActionTypes.DELETE_ITEM:
-      return _objectSpread({}, state);
+      return deleteItem(state, action);
 
     case TPortfolioActionTypes.EDIT_ITEM:
       return _objectSpread({}, state);
+
+    case TPortfolioActionTypes.ADD_ITEM:
+      return addItem(state, action);
 
     default:
       return _objectSpread({}, state);
@@ -3113,7 +3134,7 @@ const Index = () => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
