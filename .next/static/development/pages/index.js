@@ -424,6 +424,14 @@ var Home = function Home() {
       loading = _React$useState4[0],
       setLoading = _React$useState4[1];
 
+  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_2___default.a.useState(false),
+      _React$useState6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_React$useState5, 2),
+      ready = _React$useState6[0],
+      setReady = _React$useState6[1];
+
+  react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
+    if (bgLoaded && !loading) setReady(true);
+  }, [bgLoaded, loading]);
   react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
     // check if bg image is already cached
     // if yes, set as loaded
@@ -462,16 +470,26 @@ var Home = function Home() {
       }
     }
   }, [portfolioState]);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, (!bgLoaded || loading) && __jsx(Loading, null), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(Loading, {
+    show: !ready
+  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
     load: function load() {
       return setBgLoaded(true);
     }
   }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
 };
 
-var Loading = function Loading() {
+var Loading = function Loading(_ref) {
+  var show = _ref.show;
+  var styles = [css.Loading, !show && css.out].join(' ');
+
+  var animEndHandler = function animEndHandler() {
+    console.log('anim end');
+  };
+
   return __jsx("div", {
-    className: css.Loading
+    className: styles,
+    onAnimationEnd: animEndHandler
   }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__["CubeSpinner"], null));
 };
 
@@ -25199,7 +25217,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ 9:
+/***/ 0:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cindex%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -25222,5 +25240,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[9,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

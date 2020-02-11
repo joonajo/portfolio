@@ -359,28 +359,28 @@
     -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
     mask-image: linear-gradient(black 25%, transparent 25%);
     animation: deconstructed1___264He 40s infinite;
-    color: yellow;
+    color: royalblue;
 }
   
 .AnimatedText___25iYx > span:nth-child(2) {
     -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
     mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
     animation: deconstructed2___25ThG 20s infinite;
-    color: antiquewhite;
+    color: ivory;
 }
 
 .AnimatedText___25iYx > span:nth-child(3) {
     -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
     mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
     animation: deconstructed3___1cNBT 15s infinite;
-    color: ivory;
+    color: white;
 }
 
 .AnimatedText___25iYx > span:nth-child(4) {
     -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
    mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
    animation: deconstructed4___2nwC2 10s infinite;
-   color: lightyellow;
+   color: mintcream;
 }
  
   
@@ -1187,12 +1187,25 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: ivory;
+    top: 0;
+    left: 0;
+    background: snow;
     color: royalblue;
     z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 2s, z-index 0s .5s, visibility 0s .5s, top .5s;
+}
+
+.Loading___3Hyau.out___2_Bat {
+    opacity: 0;
+    z-index: -5;
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
 }
 @font-face {
     font-family: "Ubuntu";
@@ -1439,7 +1452,8 @@ body {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: 80px;
+  width: 50px;
+  padding: 20px;
   height: 100%;
 }
 

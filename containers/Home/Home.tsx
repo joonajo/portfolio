@@ -14,6 +14,11 @@ const css = require('./Home.module.css')
 const Home: NextPage = (): JSX.Element => {
     const [bgLoaded, setBgLoaded] = React.useState<boolean>(false)
     const [loading, setLoading] = React.useState<boolean>(true)
+    const [ready, setReady] = React.useState<boolean>(false)
+
+    React.useEffect(() => {
+        if (bgLoaded && !loading) setReady(true) 
+    }, [bgLoaded, loading])
 
     React.useEffect(() => {
         // check if bg image is already cached
@@ -52,7 +57,7 @@ const Home: NextPage = (): JSX.Element => {
 
     return (
         <>
-            { (!bgLoaded || loading) && <Loading /> }
+            <Loading show={!ready} />
             <Layout>
                 <Cover load={() => setBgLoaded(true)} />
                 { bgLoaded  && !loading && <Content /> }
@@ -61,9 +66,22 @@ const Home: NextPage = (): JSX.Element => {
     )
 }
 
-const Loading: React.FunctionComponent = (): JSX.Element => {
+interface ILoadingComponent {
+    show: boolean
+}
+
+const Loading: React.FunctionComponent<ILoadingComponent> = ({ show }): JSX.Element => {
+    const styles = [
+        css.Loading,
+        !show && css.out
+    ].join(' ')
+
+    const animEndHandler = () => {
+        console.log('anim end')
+    }
+
     return (
-        <div className={css.Loading}>
+        <div className={styles} onAnimationEnd={animEndHandler}>
             <CubeSpinner />
         </div>
     )

@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -635,7 +635,8 @@ const Toolbar = () => {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"Loading": "Loading___3Hyau"
+	"Loading": "Loading___3Hyau",
+	"out": "out___2_Bat"
 };
 
 /***/ }),
@@ -672,6 +673,10 @@ const css = __webpack_require__(/*! ./Home.module.css */ "./containers/Home/Home
 const Home = () => {
   const [bgLoaded, setBgLoaded] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false);
   const [loading, setLoading] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(true);
+  const [ready, setReady] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false);
+  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(() => {
+    if (bgLoaded && !loading) setReady(true);
+  }, [bgLoaded, loading]);
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(() => {
     // check if bg image is already cached
     // if yes, set as loaded
@@ -708,14 +713,25 @@ const Home = () => {
       }
     }
   }, [portfolioState]);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, (!bgLoaded || loading) && __jsx(Loading, null), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(Loading, {
+    show: !ready
+  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
     load: () => setBgLoaded(true)
   }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
-const Loading = () => {
+const Loading = ({
+  show
+}) => {
+  const styles = [css.Loading, !show && css.out].join(' ');
+
+  const animEndHandler = () => {
+    console.log('anim end');
+  };
+
   return __jsx("div", {
-    className: css.Loading
+    className: styles,
+    onAnimationEnd: animEndHandler
   }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__["CubeSpinner"], null));
 };
 
@@ -3134,7 +3150,7 @@ const Index = () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/
