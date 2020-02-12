@@ -1487,14 +1487,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
   render() {
     return __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Html"], {
       lang: "en"
-    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null, __jsx("meta", {
+    }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Head"], null, __jsx("title", null, "Portfolio //"), __jsx("meta", {
       charSet: "UTF-8"
     }), __jsx("meta", {
       name: "description",
-      content: "Joona Joenpolvi's Portfolio."
+      content: "Portfolio by Joona Joenpolvi. Contains most notable solo projects made by Joona."
     }), __jsx("meta", {
       name: "keywords",
-      content: "Joona Joenpolvi, joonajo, react, typescript, nextjs, portfolio,"
+      content: "Joona Joenpolvi, joonajo, frontend, web dev, developer, web developer, front end, react, typescript, nextjs, portfolio,"
     }), __jsx("meta", {
       name: "author",
       content: "Joona Joenpolvi"
@@ -1513,6 +1513,9 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
     }), __jsx("link", {
       rel: "apple-touch-icon",
       href: ""
+    }), __jsx("meta", {
+      name: "google-site-verification",
+      content: "1gHGqepFHNX3VpXM7M5wCVG8fVrlDBZjL3ZjIUmIHjE"
     }), __jsx("link", {
       href: "https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900&display=swap",
       rel: "stylesheet"

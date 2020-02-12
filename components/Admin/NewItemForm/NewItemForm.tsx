@@ -41,6 +41,7 @@ const initialForm: IForm = {
         id: 'languages',
         elemType: 'select',
         options: [...Object.keys(Languages)],
+        selected: [],
         require: true,
         multiple: true
     },
@@ -103,14 +104,27 @@ interface INewItemForm {
 
 const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, sending }): JSX.Element => {
     const [form, setForm] = React.useState<IForm>(initialForm)
-    const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
 
-    const changeHandler = (id: string, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const updatedForm: IForm = {
-            ...form,
-            [id]: {
-                ...form[id],
-                value: event.target.value
+    const changeHandler = (id: string, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        let updatedForm: IForm = { ...form }
+        if (id === 'languages') {
+            let updatedSelectedOptions: string[] = [...form[id].selected]
+            if (updatedSelectedOptions.includes(event.target.value)) updatedSelectedOptions = updatedSelectedOptions.filter(option => option !== event.target.value)
+            else updatedSelectedOptions.push(event.target.value)
+            updatedForm = {
+                ...form,
+                [id]: {
+                    ...form[id],
+                    selected: updatedSelectedOptions
+                }
+            }
+        } else {
+            updatedForm = {
+                ...form,
+                [id]: {
+                    ...form[id],
+                    value: event.target.value
+                }
             }
         }
         setForm(updatedForm)
@@ -119,7 +133,7 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, 
     const addHandler = () => {
         const newItem: IPortfolioItem = {
             title: form.title.value,
-            language: [Languages.React, Languages.TypeScript],
+            language: [...form.languages.selected],
             description: form.description.value,
             link: form.link.value,
             githubLink: form.github.value,
@@ -166,7 +180,7 @@ const NewItemForm: React.FunctionComponent<INewItemForm> = ({ show, close, add, 
 
 interface IFormInput {
     item: any
-    change: (id: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    change: (id: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
 }
 
 const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ item, change }): JSX.Element => {
@@ -194,10 +208,10 @@ const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ item, chan
             
         case 'select':
             content = (
-                <select className={css.FormSelect} id={item.id} multiple={item.multiple}>
+                <select className={css.FormSelect} onChange={(e) => change(item.id, e)} id={item.id} multiple={item.multiple}>
                     {item.options.map((option: string) => {
                         return (
-                            <option key={item.id + option} value={option} className={css.SelectOption}>{option}</option>
+                            <option key={item.id + option} value={option} className={[css.SelectOption, item.selected?.includes(option) && css.selected].join(' ')}>{option}</option>
                         )
                     })}
                 </select>

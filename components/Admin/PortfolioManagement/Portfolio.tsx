@@ -59,8 +59,8 @@ const PortfolioItem: React.FunctionComponent<IPortfolioItem> = (props): JSX.Elem
                     <p>{props.title}</p>
                 </div>
                 <div className={css.ItemHoverContent}>
-                    <span> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </span>
-                    <span onClick={deleteHandler}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </span>
+                    <div> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </div>
+                    <div onClick={deleteHandler}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </div>
                 </div>  
             </div>
             { confirmDelete && <ConfirmDelete confirm={deleteItem} cancel={() => setConfirmDelete(false)} /> }

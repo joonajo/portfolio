@@ -167,6 +167,7 @@ var initialForm = {
     id: 'languages',
     elemType: 'select',
     options: Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_7___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_10__["Languages"])),
+    selected: [],
     require: true,
     multiple: true
   },
@@ -231,12 +232,23 @@ var NewItemForm = function NewItemForm(_ref) {
       form = _React$useState2[0],
       setForm = _React$useState2[1];
 
-  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_9__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_10__["PortfolioContext"]);
-
   var changeHandler = function changeHandler(id, event) {
-    var updatedForm = _objectSpread({}, form, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])({}, id, _objectSpread({}, form[id], {
-      value: event.target.value
-    })));
+    var updatedForm = _objectSpread({}, form);
+
+    if (id === 'languages') {
+      var updatedSelectedOptions = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__["default"])(form[id].selected);
+
+      if (updatedSelectedOptions.includes(event.target.value)) updatedSelectedOptions = updatedSelectedOptions.filter(function (option) {
+        return option !== event.target.value;
+      });else updatedSelectedOptions.push(event.target.value);
+      updatedForm = _objectSpread({}, form, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])({}, id, _objectSpread({}, form[id], {
+        selected: updatedSelectedOptions
+      })));
+    } else {
+      updatedForm = _objectSpread({}, form, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])({}, id, _objectSpread({}, form[id], {
+        value: event.target.value
+      })));
+    }
 
     setForm(updatedForm);
   };
@@ -244,7 +256,7 @@ var NewItemForm = function NewItemForm(_ref) {
   var addHandler = function addHandler() {
     var newItem = {
       title: form.title.value,
-      language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_10__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_10__["Languages"].TypeScript],
+      language: Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__["default"])(form.languages.selected),
       description: form.description.value,
       link: form.link.value,
       githubLink: form.github.value,
@@ -312,13 +324,18 @@ var FormInput = react__WEBPACK_IMPORTED_MODULE_9__["memo"](function (_ref2) {
     case 'select':
       content = __jsx("select", {
         className: css.FormSelect,
+        onChange: function onChange(e) {
+          return change(item.id, e);
+        },
         id: item.id,
         multiple: item.multiple
       }, item.options.map(function (option) {
+        var _item$selected;
+
         return __jsx("option", {
           key: item.id + option,
           value: option,
-          className: css.SelectOption
+          className: [css.SelectOption, ((_item$selected = item.selected) === null || _item$selected === void 0 ? void 0 : _item$selected.includes(option)) && css.selected].join(' ')
         }, option);
       }));
       break;
@@ -414,9 +431,9 @@ var PortfolioItem = function PortfolioItem(props) {
     className: css.ItemMainContent
   }, __jsx("p", null, props.title)), __jsx("div", {
     className: css.ItemHoverContent
-  }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+  }, __jsx("div", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_4__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", {
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("div", {
     onClick: deleteHandler
   }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_4__["icons"].faTrash
@@ -19076,7 +19093,7 @@ var AdminPage = function AdminPage() {
 
 /***/ }),
 
-/***/ 13:
+/***/ 1:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadmin&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cadmin%5Cindex.tsx ***!
   \*****************************************************************************************************************************************/
@@ -19099,5 +19116,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[13,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=admin.js.map

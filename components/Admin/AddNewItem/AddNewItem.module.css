@@ -10,7 +10,7 @@
 }
 
 .AddItemButton {
-    background: royalblue;
+    background: rgb(104, 132, 216);
     width: var(--item-width);
     height: var(--item-height);
     transition: all .3s;
@@ -24,8 +24,7 @@
 
 .AddItemButton:hover {
     box-shadow: var(--item-shadow);
-    background: snow;
-    color: royalblue;
+    background: royalblue;
 }
 
 .AddItemIcon {

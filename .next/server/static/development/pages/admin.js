@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -208,6 +208,7 @@ module.exports = {
 	"FormInput": "FormInput___1yAUy",
 	"FormSelect": "FormSelect___zVfw4",
 	"SelectOption": "SelectOption___1LN1j",
+	"selected": "selected___mqTkl",
 	"FormAddButton": "FormAddButton___3ZUoj",
 	"Loading": "Loading___3ErFs",
 	"fadein": "fadein___3T6WZ"
@@ -286,6 +287,7 @@ const initialForm = {
     id: 'languages',
     elemType: 'select',
     options: [..._babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_6___default()(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_8__["Languages"])],
+    selected: [],
     require: true,
     multiple: true
   },
@@ -346,14 +348,25 @@ const NewItemForm = ({
   sending
 }) => {
   const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](initialForm);
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_7__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_8__["PortfolioContext"]);
 
   const changeHandler = (id, event) => {
-    const updatedForm = _objectSpread({}, form, {
-      [id]: _objectSpread({}, form[id], {
-        value: event.target.value
-      })
-    });
+    let updatedForm = _objectSpread({}, form);
+
+    if (id === 'languages') {
+      let updatedSelectedOptions = [...form[id].selected];
+      if (updatedSelectedOptions.includes(event.target.value)) updatedSelectedOptions = updatedSelectedOptions.filter(option => option !== event.target.value);else updatedSelectedOptions.push(event.target.value);
+      updatedForm = _objectSpread({}, form, {
+        [id]: _objectSpread({}, form[id], {
+          selected: updatedSelectedOptions
+        })
+      });
+    } else {
+      updatedForm = _objectSpread({}, form, {
+        [id]: _objectSpread({}, form[id], {
+          value: event.target.value
+        })
+      });
+    }
 
     setForm(updatedForm);
   };
@@ -361,7 +374,7 @@ const NewItemForm = ({
   const addHandler = () => {
     const newItem = {
       title: form.title.value,
-      language: [_context_portfolioContext__WEBPACK_IMPORTED_MODULE_8__["Languages"].React, _context_portfolioContext__WEBPACK_IMPORTED_MODULE_8__["Languages"].TypeScript],
+      language: [...form.languages.selected],
       description: form.description.value,
       link: form.link.value,
       githubLink: form.github.value,
@@ -426,13 +439,16 @@ const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
     case 'select':
       content = __jsx("select", {
         className: css.FormSelect,
+        onChange: e => change(item.id, e),
         id: item.id,
         multiple: item.multiple
       }, item.options.map(option => {
+        var _item$selected;
+
         return __jsx("option", {
           key: item.id + option,
           value: option,
-          className: css.SelectOption
+          className: [css.SelectOption, ((_item$selected = item.selected) === null || _item$selected === void 0 ? void 0 : _item$selected.includes(option)) && css.selected].join(' ')
         }, option);
       }));
       break;
@@ -544,9 +560,9 @@ const PortfolioItem = props => {
     className: css.ItemMainContent
   }, __jsx("p", null, props.title)), __jsx("div", {
     className: css.ItemHoverContent
-  }, __jsx("span", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+  }, __jsx("div", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("span", {
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("div", {
     onClick: deleteHandler
   }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faTrash
@@ -1513,7 +1529,7 @@ const AdminPage = () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/admin/index.tsx ***!
   \*************************************/

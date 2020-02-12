@@ -8,7 +8,7 @@
     height: auto;
     transition: all var(--transition-time);
     overflow: hidden;
-    background: snow;
+    background: white;
     padding: 10px;
     box-sizing: border-box;
     z-index: -1;
@@ -102,8 +102,20 @@
     padding: 0
 }
 
-.SelectOption {
+.FormSelect:focus {
+    outline: none;
+}
 
+.SelectOption:focus {
+    background: snow;
+}
+
+.SelectOption {
+    color: black;
+}
+
+.SelectOption.selected {
+    background: royalblue;
 }
 
 .FormInput::placeholder {
