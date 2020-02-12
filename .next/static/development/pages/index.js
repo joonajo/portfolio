@@ -98,6 +98,7 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
     }
   }, [coverRef]);
   var descStyles = [css.Description, show && css.loaded].join(' ');
+  var animTextStyles = [css.AnimText, show && css.loaded].join(' ');
   return __jsx("div", {
     className: css.Main,
     ref: coverRef,
@@ -121,14 +122,18 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
     vertical: true
   })), __jsx("div", {
     className: css.TitleContainer
+  }, __jsx("div", {
+    className: [animTextStyles, css.First].join(' ')
   }, __jsx(AnimatedText, {
     text: "Joona",
     show: show
-  }), __jsx(AnimatedText, {
+  })), __jsx("div", {
+    className: [animTextStyles, css.Second].join(' ')
+  }, __jsx(AnimatedText, {
     text: "Joenpolvi",
     show: show,
     delay: .5
-  }), __jsx("h3", {
+  })), __jsx("h3", {
     className: descStyles
   }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
@@ -147,7 +152,7 @@ var AnimatedText = function AnimatedText(_ref2) {
   var text = _ref2.text,
       show = _ref2.show,
       delay = _ref2.delay;
-  var containerStyles = [css.AnimatedText, show && css.loaded].join(' ');
+  var containerStyles = [css.AnimatedText].join(' ');
   var trueDelay = delay ? delay : 0;
   return __jsx("div", {
     className: containerStyles,
@@ -473,8 +478,6 @@ var Home = function Home() {
 
           setLoading(false);
         });
-      } else {
-        setLoading(false);
       }
     }
   }, [portfolioState]);

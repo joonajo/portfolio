@@ -49,8 +49,6 @@ const Home: NextPage = (): JSX.Element => {
                         }
                         setLoading(false)
                     })
-            } else {
-                setLoading(false)
             }
         }
     }, [portfolioState])

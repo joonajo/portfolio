@@ -119,7 +119,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 var css = __webpack_require__(/*! ./Item.module.css */ "./components/Item/Item.module.css");
 
-var SHOW_TRESHOLD = 250; // pixels
+var SHOW_TRESHOLD = 100; // pixels
 
 var Item = function Item(props) {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),

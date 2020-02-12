@@ -171,7 +171,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const css = __webpack_require__(/*! ./Item.module.css */ "./components/Item/Item.module.css");
 
-const SHOW_TRESHOLD = 250; // pixels
+const SHOW_TRESHOLD = 100; // pixels
 
 const Item = props => {
   const [showItem, toggleShowItem] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);

@@ -6,7 +6,7 @@ import ExpandedVideo from '../ExpandedVideo/ExpandedVideo'
 
 const css = require('./Item.module.css')
 
-const SHOW_TRESHOLD = 250 // pixels
+const SHOW_TRESHOLD = 100 // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   const[showItem, toggleShowItem] = React.useState<boolean>(false)

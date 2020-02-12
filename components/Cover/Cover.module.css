@@ -9,7 +9,6 @@
     align-items: center;
     overflow: hidden;
     opacity: 1;
-    transition: opacity 1s;
 }
 
 .MediaIcons {
@@ -58,7 +57,7 @@
 }
 
 .TitleContainer {
-    z-index: 1;
+    z-index: 10;
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -83,11 +82,12 @@
     width: auto;
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
-    transition: opacity 2s;
+    visibility: hidden;
 }
 
 .Description.loaded {
-    transition-delay: 1s;
+    transition: opacity 1s 1.2s, visibility 0s 0s;
+    visibility: visible;
     opacity: 1;
 }
 
@@ -140,6 +140,23 @@
     opacity: 1;
 }
 
+.AnimText {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.AnimText.loaded.First {
+    transition: opacity 3s .4s, visibility 0s 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.AnimText.loaded.Second {
+    transition: opacity 3s .8s, visibility 0s 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
 .AnimatedText {
     position: relative;
     margin: auto;
@@ -153,14 +170,9 @@
     width: 100%;
     text-align: center;
     cursor: default;
-    opacity: 0;
-    transition: opacity 2s;
-}
-
-.AnimatedText.loaded {
     opacity: 1;
 }
-  
+
 .AnimatedText > span {
     position: absolute;
     top: 0;

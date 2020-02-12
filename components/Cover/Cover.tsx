@@ -33,6 +33,11 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ show, load }): JSX.
         show && css.loaded
     ].join(' ')
 
+    const animTextStyles = [
+        css.AnimText,
+        show && css.loaded
+    ].join(' ')
+
     return (
         <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.BackgroundContainer}>
@@ -44,8 +49,12 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ show, load }): JSX.
                     <MediaIcons vertical />
                 </div>
                 <div className={css.TitleContainer}>
-                    <AnimatedText text='Joona' show={show} />
-                    <AnimatedText text='Joenpolvi' show={show} delay={.5} />
+                    <div className={[animTextStyles, css.First].join(' ')}>
+                        <AnimatedText text='Joona' show={show} />
+                    </div>
+                    <div className={[animTextStyles, css.Second].join(' ')}>
+                        <AnimatedText text='Joenpolvi' show={show} delay={.5} />
+                    </div>
                     <h3 className={descStyles}> <span>{"<Front End Developer />"}</span> </h3>
                 </div>
                 <div className={css.ArrowContainer} >
@@ -62,14 +71,13 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ show, load }): JSX.
 
 interface IAnimatedText {
     text: string
-    show: boolean
+    show?: boolean
     delay?: number
 }
 
 const AnimatedText: React.FunctionComponent<IAnimatedText> = ({ text, show, delay }): JSX.Element => {
     const containerStyles = [
         css.AnimatedText,
-        show && css.loaded
     ].join(' ')
 
     const trueDelay: number = delay ? delay : 0

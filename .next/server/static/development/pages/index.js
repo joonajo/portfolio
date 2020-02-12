@@ -208,6 +208,9 @@ module.exports = {
 	"ArrowContainer": "ArrowContainer___Di9Mi",
 	"ArrowIcon": "ArrowIcon___1ttc5",
 	"ArrowText": "ArrowText___2FQvt",
+	"AnimText": "AnimText___1ZHpr",
+	"First": "First___285pX",
+	"Second": "Second___bYuu0",
 	"deconstructed1": "deconstructed1___264He",
 	"deconstructed2": "deconstructed2___25ThG",
 	"deconstructed3": "deconstructed3___1cNBT",
@@ -261,6 +264,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
     }
   }, [coverRef]);
   const descStyles = [css.Description, show && css.loaded].join(' ');
+  const animTextStyles = [css.AnimText, show && css.loaded].join(' ');
   return __jsx("div", {
     className: css.Main,
     ref: coverRef,
@@ -284,14 +288,18 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
     vertical: true
   })), __jsx("div", {
     className: css.TitleContainer
+  }, __jsx("div", {
+    className: [animTextStyles, css.First].join(' ')
   }, __jsx(AnimatedText, {
     text: "Joona",
     show: show
-  }), __jsx(AnimatedText, {
+  })), __jsx("div", {
+    className: [animTextStyles, css.Second].join(' ')
+  }, __jsx(AnimatedText, {
     text: "Joenpolvi",
     show: show,
     delay: .5
-  }), __jsx("h3", {
+  })), __jsx("h3", {
     className: descStyles
   }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
@@ -311,7 +319,7 @@ const AnimatedText = ({
   show,
   delay
 }) => {
-  const containerStyles = [css.AnimatedText, show && css.loaded].join(' ');
+  const containerStyles = [css.AnimatedText].join(' ');
   const trueDelay = delay ? delay : 0;
   return __jsx("div", {
     className: containerStyles,
@@ -716,8 +724,6 @@ const Home = () => {
 
           setLoading(false);
         });
-      } else {
-        setLoading(false);
       }
     }
   }, [portfolioState]);
