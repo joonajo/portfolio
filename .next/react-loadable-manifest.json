@@ -1,4 +1,222 @@
 {
+  "../Item/Item": [
+    {
+      "id": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
+      "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 9,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Cover/Cover.module.css",
+      "name": "./components/Cover/Cover.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Footer/Footer.module.css",
+      "name": "./components/UI/Footer/Footer.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 11,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Toolbar/Toolbar.module.css",
+      "name": "./components/UI/Toolbar/Toolbar.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 12,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Layout/Layout.module.css",
+      "name": "./components/UI/Layout/Layout.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 13,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Content/Content.module.css",
+      "name": "./components/Content/Content.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 14,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Spinner/Spinner.module.css",
+      "name": "./components/UI/Spinner/Spinner.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./containers/Home/Home.module.css",
+      "name": "./containers/Home/Home.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 15,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/index/index.module.css",
+      "name": "./pages/index/index.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 16,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./containers/Auth/Auth.module.css",
+      "name": "./containers/Auth/Auth.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Admin/PortfolioManagement/Portfolio.module.css",
+      "name": "./components/Admin/PortfolioManagement/Portfolio.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Admin/ItemForm/ItemForm.module.css",
+      "name": "./components/Admin/ItemForm/ItemForm.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 17,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Admin/AddNewItem/AddNewItem.module.css",
+      "name": "./components/Admin/AddNewItem/AddNewItem.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./containers/Admin/Admin.module.css",
+      "name": "./containers/Admin/Admin.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/admin/index.module.css",
+      "name": "./pages/admin/index.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/ExpandedVideo/ExpandedVideo.module.css",
+      "name": "./components/ExpandedVideo/ExpandedVideo.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 18,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Item/Item.module.css",
+      "name": "./components/Item/Item.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 19,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/ExpandedVideo/ExpandedVideo.tsx",
+      "name": "./components/ExpandedVideo/ExpandedVideo.tsx",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./components/Item/Item.tsx",
+      "name": "./components/Item/Item.tsx",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
   "./dev/noop": [
     {
       "id": "./node_modules/next/dist/client/dev/noop.js",

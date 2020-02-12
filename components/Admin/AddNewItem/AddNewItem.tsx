@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../../icons/icons'
-import NewItemForm from '../NewItemForm/NewItemForm'
+import NewItemForm from '../ItemForm/ItemForm'
 import { IPortfolioItem } from '../../../interfaces/interfaces'
 import { IAuthContext, AuthContext } from '../../../context/authContext'
 import { IPortfolioContext, PortfolioContext, TPortfolioActionTypes } from '../../../context/portfolioContext'
