@@ -79,7 +79,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 var css = __webpack_require__(/*! ./Cover.module.css */ "./components/Cover/Cover.module.css");
 
 var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
-  var load = _ref.load;
+  var show = _ref.show,
+      load = _ref.load;
   var coverRef = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(null);
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
@@ -96,10 +97,9 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
       zenscroll__WEBPACK_IMPORTED_MODULE_2___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
-  var containerClasses = [css.Main, css.loaded].join(' ');
-  var arrowTextClasses = [css.ArrowText].join(' ');
+  var descStyles = [css.Description, show && css.loaded].join(' ');
   return __jsx("div", {
-    className: containerClasses,
+    className: css.Main,
     ref: coverRef,
     style: {
       height: "".concat(height, "px")
@@ -122,12 +122,14 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
   })), __jsx("div", {
     className: css.TitleContainer
   }, __jsx(AnimatedText, {
-    text: "Joona"
+    text: "Joona",
+    show: show
   }), __jsx(AnimatedText, {
     text: "Joenpolvi",
+    show: show,
     delay: .5
   }), __jsx("h3", {
-    className: css.Description
+    className: descStyles
   }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
@@ -137,30 +139,36 @@ var Cover = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_5__["icons"].faChevronDown,
     size: "lg"
   })), __jsx("p", {
-    className: arrowTextClasses
+    className: css.ArrowText
   }, "to portfolio"))));
 });
 
 var AnimatedText = function AnimatedText(_ref2) {
   var text = _ref2.text,
+      show = _ref2.show,
       delay = _ref2.delay;
+  var containerStyles = [css.AnimatedText, show && css.loaded].join(' ');
+  var trueDelay = delay ? delay : 0;
   return __jsx("div", {
-    className: css.AnimatedText
+    className: containerStyles,
+    style: {
+      transitionDelay: "".concat(trueDelay / 2 + .3, "s")
+    }
   }, text, __jsx("span", {
     style: {
-      animationDelay: "".concat(delay, "s")
+      animationDelay: "".concat(trueDelay, "s")
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: "".concat(delay, "s")
+      animationDelay: "".concat(trueDelay, "s")
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: "".concat(delay, "s")
+      animationDelay: "".concat(trueDelay, "s")
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: "".concat(delay, "s")
+      animationDelay: "".concat(trueDelay, "s")
     }
   }, text));
 };
@@ -473,6 +481,7 @@ var Home = function Home() {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(Loading, {
     show: !ready
   }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    show: ready,
     load: function load() {
       return setBgLoaded(true);
     }

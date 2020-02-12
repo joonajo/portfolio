@@ -8,10 +8,11 @@ import { icons } from '../../icons/icons'
 const css = require('./Cover.module.css')
 
 type TCover = {
+    show: boolean
     load: () => void
 }
 
-const Cover: React.FunctionComponent<TCover> = React.memo(({ load }): JSX.Element => {
+const Cover: React.FunctionComponent<TCover> = React.memo(({ show, load }): JSX.Element => {
     const coverRef = React.useRef<HTMLDivElement>(null)
     const [height, setHeight] = React.useState<number | undefined>(undefined)
 
@@ -27,17 +28,13 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ load }): JSX.Elemen
         }
     }, [coverRef])
 
-    const containerClasses = [
-        css.Main,
-        css.loaded
-    ].join(' ')
-
-    const arrowTextClasses = [
-        css.ArrowText,
+    const descStyles = [
+        css.Description,
+        show && css.loaded
     ].join(' ')
 
     return (
-        <div className={containerClasses} ref={coverRef} style={{height: `${height}px`}}>
+        <div className={css.Main} ref={coverRef} style={{height: `${height}px`}}>
             <div className={css.BackgroundContainer}>
                 <img src={`/images/palm.png`} alt="cover-bg-palm" className={css.BackgroundImage} onLoad={load} />
                 <div className={css.BackgroundMask} />
@@ -47,16 +44,16 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ load }): JSX.Elemen
                     <MediaIcons vertical />
                 </div>
                 <div className={css.TitleContainer}>
-                    <AnimatedText text='Joona' />
-                    <AnimatedText text='Joenpolvi' delay={.5} />
-                    <h3 className={css.Description}> <span>{"<Front End Developer />"}</span> </h3>
+                    <AnimatedText text='Joona' show={show} />
+                    <AnimatedText text='Joenpolvi' show={show} delay={.5} />
+                    <h3 className={descStyles}> <span>{"<Front End Developer />"}</span> </h3>
                 </div>
                 <div className={css.ArrowContainer} >
                     <div className={css.ArrowIcon}
                         onClick={scrollToPortfolio}> 
                         <FontAwesomeIcon icon={icons.faChevronDown} size="lg" />
                     </div>
-                    <p className={arrowTextClasses}>to portfolio</p>
+                    <p className={css.ArrowText}>to portfolio</p>
                 </div>
             </div>
         </div>
@@ -65,17 +62,25 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ load }): JSX.Elemen
 
 interface IAnimatedText {
     text: string
+    show: boolean
     delay?: number
 }
 
-const AnimatedText: React.FunctionComponent<IAnimatedText> = ({ text, delay }): JSX.Element => {
+const AnimatedText: React.FunctionComponent<IAnimatedText> = ({ text, show, delay }): JSX.Element => {
+    const containerStyles = [
+        css.AnimatedText,
+        show && css.loaded
+    ].join(' ')
+
+    const trueDelay: number = delay ? delay : 0
+   
     return (
-        <div className={css.AnimatedText}>
+        <div className={containerStyles} style={{transitionDelay: `${(trueDelay / 2) + .3}s`}}>
             {text}
-            <span style={{animationDelay: `${delay}s`}}>{text}</span>
-            <span style={{animationDelay: `${delay}s`}}>{text}</span>
-            <span style={{animationDelay: `${delay}s`}}>{text}</span>
-            <span style={{animationDelay: `${delay}s`}}>{text}</span>
+            <span style={{animationDelay: `${trueDelay}s`}}>{text}</span>
+            <span style={{animationDelay: `${trueDelay}s`}}>{text}</span>
+            <span style={{animationDelay: `${trueDelay}s`}}>{text}</span>
+            <span style={{animationDelay: `${trueDelay}s`}}>{text}</span>
         </div>
     )
 }

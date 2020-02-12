@@ -196,8 +196,6 @@ const Content = () => {
 
 module.exports = {
 	"Main": "Main___26Ejz",
-	"loaded": "loaded___QInAZ",
-	"fadein": "fadein___1_QmL",
 	"MediaIcons": "MediaIcons___2PZ1M",
 	"BackgroundContainer": "BackgroundContainer___1M5px",
 	"BackgroundImage": "BackgroundImage___X-8sj",
@@ -206,6 +204,7 @@ module.exports = {
 	"TitleContainer": "TitleContainer___16Dcs",
 	"AnimatedText": "AnimatedText___25iYx",
 	"Description": "Description___CFaDz",
+	"loaded": "loaded___QInAZ",
 	"ArrowContainer": "ArrowContainer___Di9Mi",
 	"ArrowIcon": "ArrowIcon___1ttc5",
 	"ArrowText": "ArrowText___2FQvt",
@@ -214,7 +213,8 @@ module.exports = {
 	"deconstructed3": "deconstructed3___1cNBT",
 	"deconstructed4": "deconstructed4___2nwC2",
 	"a-ltr-after": "a-ltr-after___1ddJi",
-	"a-ltr-before": "a-ltr-before___27I9W"
+	"a-ltr-before": "a-ltr-before___27I9W",
+	"fadein": "fadein___1_QmL"
 };
 
 /***/ }),
@@ -246,6 +246,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const css = __webpack_require__(/*! ./Cover.module.css */ "./components/Cover/Cover.module.css");
 
 const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
+  show,
   load
 }) => {
   const coverRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
@@ -259,10 +260,9 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
       zenscroll__WEBPACK_IMPORTED_MODULE_1___default.a.toY(posToScrollTo);
     }
   }, [coverRef]);
-  const containerClasses = [css.Main, css.loaded].join(' ');
-  const arrowTextClasses = [css.ArrowText].join(' ');
+  const descStyles = [css.Description, show && css.loaded].join(' ');
   return __jsx("div", {
-    className: containerClasses,
+    className: css.Main,
     ref: coverRef,
     style: {
       height: `${height}px`
@@ -285,12 +285,14 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
   })), __jsx("div", {
     className: css.TitleContainer
   }, __jsx(AnimatedText, {
-    text: "Joona"
+    text: "Joona",
+    show: show
   }), __jsx(AnimatedText, {
     text: "Joenpolvi",
+    show: show,
     delay: .5
   }), __jsx("h3", {
-    className: css.Description
+    className: descStyles
   }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
   }, __jsx("div", {
@@ -300,31 +302,37 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_4__["icons"].faChevronDown,
     size: "lg"
   })), __jsx("p", {
-    className: arrowTextClasses
+    className: css.ArrowText
   }, "to portfolio"))));
 });
 
 const AnimatedText = ({
   text,
+  show,
   delay
 }) => {
+  const containerStyles = [css.AnimatedText, show && css.loaded].join(' ');
+  const trueDelay = delay ? delay : 0;
   return __jsx("div", {
-    className: css.AnimatedText
+    className: containerStyles,
+    style: {
+      transitionDelay: `${trueDelay / 2 + .3}s`
+    }
   }, text, __jsx("span", {
     style: {
-      animationDelay: `${delay}s`
+      animationDelay: `${trueDelay}s`
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: `${delay}s`
+      animationDelay: `${trueDelay}s`
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: `${delay}s`
+      animationDelay: `${trueDelay}s`
     }
   }, text), __jsx("span", {
     style: {
-      animationDelay: `${delay}s`
+      animationDelay: `${trueDelay}s`
     }
   }, text));
 };
@@ -716,6 +724,7 @@ const Home = () => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(Loading, {
     show: !ready
   }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    show: ready,
     load: () => setBgLoaded(true)
   }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };

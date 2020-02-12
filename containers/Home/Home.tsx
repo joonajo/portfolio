@@ -59,7 +59,7 @@ const Home: NextPage = (): JSX.Element => {
         <>
             <Loading show={!ready} />
             <Layout>
-                <Cover load={() => setBgLoaded(true)} />
+                <Cover show={ready} load={() => setBgLoaded(true)} />
                 { bgLoaded  && !loading && <Content /> }
             </Layout>
         </>
