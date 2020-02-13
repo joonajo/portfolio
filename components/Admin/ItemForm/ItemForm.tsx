@@ -7,10 +7,15 @@ import { icons } from '../../../icons/icons'
 
 const css = require('./ItemForm.module.css')
 
+export enum formTypes {
+    ADD = 'add',
+    EDIT = 'edit',
+}
+
 interface IForm {
     [title: string]: any
     description: any
-    languages: any
+    language: any
     link: any
     github: any
     video_src: any
@@ -36,7 +41,7 @@ const initialForm: IForm = {
         require: true,
         value: '',
     },
-    languages: {
+    language: {
         id: 'languages',
         elemType: 'select',
         options: {
@@ -122,12 +127,28 @@ const initialForm: IForm = {
 interface IItemForm {
     show: boolean
     sending: boolean
-    close: () => void
-    add: (item: IPortfolioItem) => void
+    item?: IPortfolioItem
+    type: string
+    close(): void
+    add(item: IPortfolioItem): void
 }
 
-const ItemForm: React.FunctionComponent<IItemForm> = ({ show, close, add, sending }): JSX.Element => {
+const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, close, add, type }): JSX.Element => {
     const [form, setForm] = React.useState<IForm>(initialForm)
+
+    React.useEffect(() => {
+        if (item) {
+            console.log(item)
+            let updatedForm: IForm = { ...form }
+            Object.keys(item).forEach((key: string) => {
+                // console.log(item)
+                updatedForm[key] = {
+                    ...updatedForm[key],
+                    // value: item
+                }
+            })            
+        }   
+    }, [item])
 
     const optionClickHandler = (id: string, name: string) => {
         let updatedForm: IForm = { ...form }
@@ -218,7 +239,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, close, add, sendin
                     )
                 })}
                 <div className={css.FormAddButton} onClick={addHandler}>
-                    <p>add</p>
+                    <p>{type}</p>
                 </div>
             </form>
             <div className={backdropStyles}></div>

@@ -299,7 +299,7 @@ const Cover = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
     text: "Joenpolvi",
     show: show,
     delay: .5
-  })), __jsx("h3", {
+  })), __jsx("p", {
     className: descStyles
   }, " ", __jsx("span", null, "<Front End Developer />"), " ")), __jsx("div", {
     className: css.ArrowContainer
@@ -439,17 +439,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const css = __webpack_require__(/*! ./MediaIcons.module.css */ "./components/UI/Icons/MediaIcons/MediaIcons.module.css");
 
 const MediaIcons = ({
-  horizontal,
+  horizontal = true,
   vertical
 }) => {
-  const containerClasses = [css.Icons, horizontal ? css.horizontal : vertical ? css.vertical : null].join(' ');
-  const iconClasses = [css.Icon, horizontal ? css.horizontal : vertical ? css.vertical : null].join(' ');
+  const containerStyles = [css.Icons, horizontal && css.horizontal, vertical && css.vertical].join(' ');
+  const iconStyles = [css.Icon, horizontal && css.horizontal, vertical && css.vertical].join(' ');
   return __jsx("div", {
-    className: containerClasses
+    className: containerStyles
   }, __jsx("a", {
     href: "https://github.com/joonajo",
     "aria-label": "github-link",
-    className: iconClasses,
+    className: iconStyles,
     target: "_blank",
     rel: "noopener noreferrer"
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
@@ -457,29 +457,21 @@ const MediaIcons = ({
   })), __jsx("a", {
     href: "mailto: joona.joenpolvi@gmail.com",
     "aria-label": "email-link",
-    className: iconClasses
+    className: iconStyles
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faEnvelope
   })), __jsx("a", {
     href: "https://instagram.com/joonajo",
     "aria-label": "ig-link",
-    className: iconClasses,
+    className: iconStyles,
     target: "_blank",
     rel: "noopener noreferrer"
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faInstagram
   })), __jsx("a", {
-    href: "https://www.strava.com/athletes/6604883",
-    "aria-label": "strava-link",
-    className: iconClasses,
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faStrava
-  })), __jsx("a", {
     href: "https://www.flickr.com/photos/150620060@N07/",
     "aria-label": "flickr-link",
-    className: iconClasses,
+    className: iconStyles,
     target: "_blank",
     rel: "noopener noreferrer"
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {

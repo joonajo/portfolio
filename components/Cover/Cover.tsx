@@ -55,7 +55,7 @@ const Cover: React.FunctionComponent<TCover> = React.memo(({ show, load }): JSX.
                     <div className={[animTextStyles, css.Second].join(' ')}>
                         <AnimatedText text='Joenpolvi' show={show} delay={.5} />
                     </div>
-                    <h3 className={descStyles}> <span>{"<Front End Developer />"}</span> </h3>
+                    <p className={descStyles}> <span>{"<Front End Developer />"}</span> </p>
                 </div>
                 <div className={css.ArrowContainer} >
                     <div className={css.ArrowIcon}

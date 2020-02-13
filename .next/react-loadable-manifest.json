@@ -1,73 +1,13 @@
 {
   "../Item/Item": [
     {
-      "id": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
-      "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Cover/Cover.module.css",
-      "name": "./components/Cover/Cover.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Footer/Footer.module.css",
-      "name": "./components/UI/Footer/Footer.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Toolbar/Toolbar.module.css",
-      "name": "./components/UI/Toolbar/Toolbar.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 12,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Layout/Layout.module.css",
-      "name": "./components/UI/Layout/Layout.module.css",
+      "id": "./containers/Auth/Auth.module.css",
+      "name": "./containers/Auth/Auth.module.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
       "id": 13,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Content/Content.module.css",
-      "name": "./components/Content/Content.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 14,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -79,43 +19,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 2,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Home/Home.module.css",
-      "name": "./containers/Home/Home.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 15,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/index/index.module.css",
-      "name": "./pages/index/index.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 16,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Auth/Auth.module.css",
-      "name": "./containers/Auth/Auth.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 0,
+      "id": 7,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -127,7 +31,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 3,
+      "id": 14,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -139,19 +43,43 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 17,
+      "id": 15,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": "./components/Admin/AddNewItem/AddNewItem.module.css",
-      "name": "./components/Admin/AddNewItem/AddNewItem.module.css",
+      "id": "./components/Admin/AddNewItem/AddItem.module.css",
+      "name": "./components/Admin/AddNewItem/AddItem.module.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 5,
+      "id": 16,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Admin/EditItem/EditItem.module.css",
+      "name": "./components/Admin/EditItem/EditItem.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Admin/PortfolioManagement/Item/Item.module.css",
+      "name": "./components/Admin/PortfolioManagement/Item/Item.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 17,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -163,7 +91,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 6,
+      "id": 18,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -175,7 +103,103 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 7,
+      "id": 19,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
+      "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Cover/Cover.module.css",
+      "name": "./components/Cover/Cover.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Footer/Footer.module.css",
+      "name": "./components/UI/Footer/Footer.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Toolbar/Toolbar.module.css",
+      "name": "./components/UI/Toolbar/Toolbar.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/UI/Layout/Layout.module.css",
+      "name": "./components/UI/Layout/Layout.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./components/Content/Content.module.css",
+      "name": "./components/Content/Content.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./containers/Home/Home.module.css",
+      "name": "./containers/Home/Home.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./pages/index/index.module.css",
+      "name": "./pages/index/index.module.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 9,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -187,7 +211,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 18,
+      "id": 11,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -199,7 +223,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 19,
+      "id": 12,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"

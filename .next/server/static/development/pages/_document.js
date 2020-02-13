@@ -1491,7 +1491,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
       charSet: "UTF-8"
     }), __jsx("meta", {
       name: "description",
-      content: "Portfolio page for Joona Joenpolvi."
+      content: "Portfolio page for Joona Joenpolvi, containing Joona's most notable solo front-end projects. More can be found on Github."
     }), __jsx("meta", {
       name: "keywords",
       content: "Joona Joenpolvi, joonajo, frontend, web dev, developer, web developer, front end, react, typescript, nextjs, portfolio,"

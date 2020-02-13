@@ -93,29 +93,29 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/Admin/AddNewItem/AddNewItem.module.css":
-/*!***********************************************************!*\
-  !*** ./components/Admin/AddNewItem/AddNewItem.module.css ***!
-  \***********************************************************/
+/***/ "./components/Admin/AddNewItem/AddItem.module.css":
+/*!********************************************************!*\
+  !*** ./components/Admin/AddNewItem/AddItem.module.css ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = {
-	"AddItemContainer": "AddItemContainer___1GG9k",
-	"AddItemButton": "AddItemButton___1-OMe",
-	"ItemsContainer": "ItemsContainer___1KZV_",
-	"ItemContainer": "ItemContainer___mZH2b",
-	"ItemMainContent": "ItemMainContent___2fc0F",
-	"ItemHoverContent": "ItemHoverContent___1efAC",
-	"AddItemIcon": "AddItemIcon___97Fbs"
+	"AddItemContainer": "AddItemContainer___JJqxo",
+	"AddItemButton": "AddItemButton___3rGlW",
+	"ItemsContainer": "ItemsContainer___iMVRl",
+	"ItemContainer": "ItemContainer___3fJ8W",
+	"ItemMainContent": "ItemMainContent___2LWlA",
+	"ItemHoverContent": "ItemHoverContent___3wp3H",
+	"AddItemIcon": "AddItemIcon___oGUPj"
 };
 
 /***/ }),
 
-/***/ "./components/Admin/AddNewItem/AddNewItem.tsx":
-/*!****************************************************!*\
-  !*** ./components/Admin/AddNewItem/AddNewItem.tsx ***!
-  \****************************************************/
+/***/ "./components/Admin/AddNewItem/AddItem.tsx":
+/*!*************************************************!*\
+  !*** ./components/Admin/AddNewItem/AddItem.tsx ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -140,7 +140,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
 
 
 
-const css = __webpack_require__(/*! ./AddNewItem.module.css */ "./components/Admin/AddNewItem/AddNewItem.module.css");
+const css = __webpack_require__(/*! ./AddItem.module.css */ "./components/Admin/AddNewItem/AddItem.module.css");
 
 const AddPortfolioItem = () => {
   const [showForm, setShowForm] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
@@ -181,6 +181,7 @@ const AddPortfolioItem = () => {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faPlus,
     className: css.AddItemIcon
   })), __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    type: _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_4__["formTypes"].ADD,
     show: showForm,
     close: () => setShowForm(false),
     add: addItemToDatabase,
@@ -189,6 +190,64 @@ const AddPortfolioItem = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddPortfolioItem);
+
+/***/ }),
+
+/***/ "./components/Admin/EditItem/EditItem.module.css":
+/*!*******************************************************!*\
+  !*** ./components/Admin/EditItem/EditItem.module.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"EditItemContainer": "EditItemContainer___qdftN",
+	"show": "show___3s2MT"
+};
+
+/***/ }),
+
+/***/ "./components/Admin/EditItem/EditItem.tsx":
+/*!************************************************!*\
+  !*** ./components/Admin/EditItem/EditItem.tsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+
+const css = __webpack_require__(/*! ./EditItem.module.css */ "./components/Admin/EditItem/EditItem.module.css");
+
+const EditItem = ({
+  show,
+  item,
+  close
+}) => {
+  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
+
+  const editItem = item => {};
+
+  const containerStyles = [css.EditItemContainer, show && css.show].join(' ');
+  return __jsx("div", {
+    className: containerStyles
+  }, __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    type: _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__["formTypes"].EDIT,
+    show: show,
+    sending: sending,
+    item: item,
+    close: close,
+    add: editItem
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EditItem);
 
 /***/ }),
 
@@ -221,11 +280,12 @@ module.exports = {
 /*!************************************************!*\
   !*** ./components/Admin/ItemForm/ItemForm.tsx ***!
   \************************************************/
-/*! exports provided: default */
+/*! exports provided: formTypes, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formTypes", function() { return formTypes; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
@@ -265,6 +325,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 const css = __webpack_require__(/*! ./ItemForm.module.css */ "./components/Admin/ItemForm/ItemForm.module.css");
 
+let formTypes;
+
+(function (formTypes) {
+  formTypes["ADD"] = "add";
+  formTypes["EDIT"] = "edit";
+})(formTypes || (formTypes = {}));
+
 const initialForm = {
   title: {
     id: 'title',
@@ -282,7 +349,7 @@ const initialForm = {
     require: true,
     value: ''
   },
-  languages: {
+  language: {
     id: 'languages',
     elemType: 'select',
     options: {
@@ -367,11 +434,25 @@ const initialForm = {
 
 const ItemForm = ({
   show,
+  sending,
+  item,
   close,
   add,
-  sending
+  type
 }) => {
   const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](initialForm);
+  react__WEBPACK_IMPORTED_MODULE_7__["useEffect"](() => {
+    if (item) {
+      console.log(item);
+
+      let updatedForm = _objectSpread({}, form);
+
+      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(item).forEach(key => {
+        // console.log(item)
+        updatedForm[key] = _objectSpread({}, updatedForm[key]);
+      });
+    }
+  }, [item]);
 
   const optionClickHandler = (id, name) => {
     let updatedForm = _objectSpread({}, form);
@@ -452,7 +533,7 @@ const ItemForm = ({
   }), __jsx("div", {
     className: css.FormAddButton,
     onClick: addHandler
-  }, __jsx("p", null, "add"))), __jsx("div", {
+  }, __jsx("p", null, type))), __jsx("div", {
     className: backdropStyles
   }));
 };
@@ -508,6 +589,112 @@ const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
 
 /***/ }),
 
+/***/ "./components/Admin/PortfolioManagement/Item/Item.module.css":
+/*!*******************************************************************!*\
+  !*** ./components/Admin/PortfolioManagement/Item/Item.module.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"ItemContainer": "ItemContainer___3EW2v",
+	"ItemMainContent": "ItemMainContent___3v6NC",
+	"ItemHoverContent": "ItemHoverContent___2FyZP",
+	"fadein": "fadein___DaYkb",
+	"ConfirmDeleteContainer": "ConfirmDeleteContainer___YaWJz",
+	"slidedown": "slidedown___vXVNH",
+	"ConfirmDeleteText": "ConfirmDeleteText___1Vdq2",
+	"ConfirmDeleteButtons": "ConfirmDeleteButtons___1ck0U",
+	"ConfirmBackdrop": "ConfirmBackdrop___3EWYZ"
+};
+
+/***/ }),
+
+/***/ "./components/Admin/PortfolioManagement/Item/Item.tsx":
+/*!************************************************************!*\
+  !*** ./components/Admin/PortfolioManagement/Item/Item.tsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _EditItem_EditItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../EditItem/EditItem */ "./components/Admin/EditItem/EditItem.tsx");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+
+
+
+const css = __webpack_require__(/*! ./Item.module.css */ "./components/Admin/PortfolioManagement/Item/Item.module.css");
+
+const PortfolioItem = ({
+  item,
+  deleteItem
+}) => {
+  const [confirmDelete, setConfirmDelete] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
+  const [editItem, setEditItem] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
+
+  const deleteHandler = () => {
+    setConfirmDelete(true);
+  };
+
+  const editItemHandler = () => {
+    setEditItem(!editItem);
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, __jsx("div", {
+    className: css.ItemContainer
+  }, __jsx("div", {
+    className: css.ItemMainContent
+  }, __jsx("p", null, item.title)), __jsx("div", {
+    className: css.ItemHoverContent
+  }, __jsx("div", {
+    onClick: editItemHandler
+  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faEdit
+  }), " ", __jsx("p", null, "edit"), " "), __jsx("div", {
+    onClick: deleteHandler
+  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTrash
+  }), " ", __jsx("p", null, "delete"), " "))), __jsx(_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    show: editItem,
+    item: item,
+    close: editItemHandler
+  }), confirmDelete && __jsx(ConfirmDelete, {
+    confirm: () => deleteItem(item.title),
+    cancel: () => setConfirmDelete(false)
+  }));
+};
+
+const ConfirmDelete = ({
+  confirm,
+  cancel
+}) => {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, __jsx("div", {
+    className: css.ConfirmDeleteContainer
+  }, __jsx("h2", {
+    className: css.ConfirmDeleteText
+  }, "Confirm Delete"), __jsx("div", {
+    className: css.ConfirmDeleteButtons
+  }, __jsx("p", {
+    onClick: confirm
+  }, "Delete"), __jsx("p", {
+    onClick: cancel
+  }, "Cancel"))), __jsx("div", {
+    className: css.ConfirmBackdrop
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PortfolioItem);
+
+/***/ }),
+
 /***/ "./components/Admin/PortfolioManagement/Portfolio.module.css":
 /*!*******************************************************************!*\
   !*** ./components/Admin/PortfolioManagement/Portfolio.module.css ***!
@@ -519,13 +706,7 @@ module.exports = {
 	"ItemsContainer": "ItemsContainer___1jQY5",
 	"ItemContainer": "ItemContainer___2B_CX",
 	"ItemMainContent": "ItemMainContent___3u7q7",
-	"ItemHoverContent": "ItemHoverContent___13SmG",
-	"fadein": "fadein___2CRjw",
-	"ConfirmDeleteContainer": "ConfirmDeleteContainer___3Wfad",
-	"slidedown": "slidedown___o39o2",
-	"ConfirmDeleteText": "ConfirmDeleteText___1Ax7N",
-	"ConfirmDeleteButtons": "ConfirmDeleteButtons___2H99B",
-	"ConfirmBackdrop": "ConfirmBackdrop___N5iaM"
+	"ItemHoverContent": "ItemHoverContent___13SmG"
 };
 
 /***/ }),
@@ -539,17 +720,13 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
-/* harmony import */ var _AddNewItem_AddNewItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AddNewItem/AddNewItem */ "./components/Admin/AddNewItem/AddNewItem.tsx");
-/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _AddNewItem_AddItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AddNewItem/AddItem */ "./components/Admin/AddNewItem/AddItem.tsx");
+/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _Item_Item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Item/Item */ "./components/Admin/PortfolioManagement/Item/Item.tsx");
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
 
 
 const css = __webpack_require__(/*! ./Portfolio.module.css */ "./components/Admin/PortfolioManagement/Portfolio.module.css");
@@ -559,82 +736,38 @@ const css = __webpack_require__(/*! ./Portfolio.module.css */ "./components/Admi
 
 
 
-
 const PortfolioItems = ({
   items
 }) => {
-  return __jsx("div", {
-    className: css.ItemsContainer
-  }, items && items.map(item => {
-    return __jsx(PortfolioItem, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-      key: item.title
-    }, item));
-  }), __jsx(_AddNewItem_AddNewItem__WEBPACK_IMPORTED_MODULE_4__["default"], null));
-};
+  const authContext = react__WEBPACK_IMPORTED_MODULE_0__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_2__["AuthContext"]);
+  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_0__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__["PortfolioContext"]);
 
-const PortfolioItem = props => {
-  const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_5__["AuthContext"]);
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["PortfolioContext"]);
-  const [confirmDelete, setConfirmDelete] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
-
-  const deleteHandler = () => {
-    setConfirmDelete(true);
-  };
-
-  const deleteItem = () => {
+  const deleteItem = itemTitle => {
     if (authContext.state.signedIn) {
       const baseURL = "https://joonajo-portfolio.firebaseio.com/items/";
-      const itemParam = `${props.title}.json`;
+      const itemParam = `${itemTitle}.json`;
       const tokenParam = `?auth=${authContext.state.idToken}`;
       fetch(baseURL + itemParam + tokenParam, {
         method: 'delete'
       }).then(response => response.json()).then(data => {
-        console.log('succesfully deleted', props.title);
-      });
-      portfolioContext.dispatch({
-        type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["TPortfolioActionTypes"].DELETE_ITEM,
-        payload: props.title
+        console.log('succesfully deleted', itemTitle);
+        portfolioContext.dispatch({
+          type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__["TPortfolioActionTypes"].DELETE_ITEM,
+          payload: itemTitle
+        });
       });
     }
-
-    setConfirmDelete(false);
   };
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
-    className: css.ItemContainer
-  }, __jsx("div", {
-    className: css.ItemMainContent
-  }, __jsx("p", null, props.title)), __jsx("div", {
-    className: css.ItemHoverContent
-  }, __jsx("div", null, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("div", {
-    onClick: deleteHandler
-  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faTrash
-  }), " ", __jsx("p", null, "delete"), " "))), confirmDelete && __jsx(ConfirmDelete, {
-    confirm: deleteItem,
-    cancel: () => setConfirmDelete(false)
-  }));
-};
-
-const ConfirmDelete = ({
-  confirm,
-  cancel
-}) => {
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
-    className: css.ConfirmDeleteContainer
-  }, __jsx("h2", {
-    className: css.ConfirmDeleteText
-  }, "Confirm Delete"), __jsx("div", {
-    className: css.ConfirmDeleteButtons
-  }, __jsx("p", {
-    onClick: confirm
-  }, "Delete"), __jsx("p", {
-    onClick: cancel
-  }, "Cancel"))), __jsx("div", {
-    className: css.ConfirmBackdrop
-  }));
+  return __jsx("div", {
+    className: css.ItemsContainer
+  }, items && items.map(item => {
+    return __jsx(_Item_Item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      key: item.title,
+      item: item,
+      deleteItem: deleteItem
+    });
+  }), __jsx(_AddNewItem_AddItem__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PortfolioItems);

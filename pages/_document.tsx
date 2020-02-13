@@ -16,7 +16,7 @@ class MyDocument extends Document {
         <Head>
           <title>Portfolio //</title>
           <meta charSet="UTF-8" />
-          <meta name="description" content="Portfolio page for Joona Joenpolvi." />
+          <meta name="description" content="Portfolio page for Joona Joenpolvi, containing Joona's most notable solo front-end projects. More can be found on Github." />
           <meta name="keywords" content="Joona Joenpolvi, joonajo, frontend, web dev, developer, web developer, front end, react, typescript, nextjs, portfolio," />
           <meta name="author" content="Joona Joenpolvi" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />

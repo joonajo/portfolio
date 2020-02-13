@@ -1,0 +1,148 @@
+.ItemContainer,
+.ItemMainContent,
+.ItemHoverContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ItemContainer {
+    width: var(--item-width);
+    height: var(--item-height);
+    background: white;
+    cursor: default;
+    position: relative;
+    border-radius: var(--border-radius);
+    border: 1px solid gainsboro;
+    overflow: hidden;
+    margin: 10px 0;
+    animation: fadein .5s;
+}
+
+.ItemContainer:hover {
+    transition: all .3s;
+    box-shadow: 0px 0px 40px 0px gainsboro;
+}
+
+.ItemMainContent {
+    font-size: 2rem;
+    color: black;
+    font-weight: 400;
+}
+
+.ItemContainer:hover .ItemHoverContent {
+    z-index: 20;
+    opacity: 1;
+    left: 0;
+}
+
+.ItemHoverContent {
+    font-family: Ubuntu;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    /* transition: all var(--transition-time); */
+    transition: all .3s;
+    background: white;
+}
+
+.ItemHoverContent div {
+    font-size: 1rem;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-time);
+}
+
+.ItemHoverContent div:hover {
+    background: gainsboro;
+}
+
+.ItemHoverContent p {
+    font-size: .8rem;
+}
+
+.ItemHoverContent svg {
+    font-size: 1.5rem;
+}
+
+.ConfirmDeleteContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: snow;
+    z-index: 10;
+    animation: fadein .5s, slidedown .3s ease-out;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 40px 5px dimgray;
+    text-align: center;
+}
+
+@keyframes slidedown {
+    0% { 
+        top: -100vh;
+    }
+    90% {
+        top: 53%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+.ConfirmDeleteText {
+    cursor: default;
+    margin-bottom: 20px;
+}
+
+.ConfirmDeleteButtons {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ConfirmDeleteButtons p {
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid gainsboro;
+    color: dimgray;
+    transition: all var(--transition-time);
+}
+
+.ConfirmDeleteButtons p:hover {
+    color: royalblue;
+}
+
+.ConfirmBackdrop {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    transition: opacity var(--transition-time);
+    z-index: 5;
+    opacity: 1;
+}
+
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}

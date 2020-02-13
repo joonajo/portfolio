@@ -59,6 +59,7 @@
 .TitleContainer {
     z-index: 10;
     display: flex;
+    font-size: 1rem;
     flex-flow: column;
     width: 100%;
     box-sizing: border-box;
@@ -78,7 +79,6 @@
     margin-top: 1em;
     padding: 10px 20px;
     box-sizing: border-box;
-    font-size: 1em;  
     width: auto;
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
@@ -162,7 +162,6 @@
     margin: auto;
     color: transparent;
     font-family: 'Ubuntu Bold', sans-serif;
-    font-size: 8rem;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.03em;
@@ -384,5 +383,15 @@
 @media (min-width: 1000px) {
     .AnimatedText {
         font-size: 7rem;
+    }
+}
+
+@media (min-width: 2000px) {
+    .AnimatedText {
+        font-size: 10rem;
+    }
+
+    .Description {
+        font-size: 2rem;
     }
 }

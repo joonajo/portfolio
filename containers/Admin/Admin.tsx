@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import Auth from '../../containers/Auth/Auth'
 import { CubeSpinner } from '../../components/UI/Spinner/Spinner'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { icons } from '../../icons/icons'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
 import { Languages, IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
