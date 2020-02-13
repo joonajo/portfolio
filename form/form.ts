@@ -12,6 +12,7 @@ export interface IForm {
     link: any
     github: any
     video_src: any
+    preview_src: any
     gif_src: any
     desktop: any
     mobile: any
@@ -78,6 +79,14 @@ export const initialForm: IForm = {
         elemType: 'input',  
         type: 'text',
         placeholder: 'video link',
+        require: true,
+        value: '',
+    }, 
+    preview_src: {
+        id: 'preview_src',
+        elemType: 'input',  
+        type: 'text',
+        placeholder: 'preview video link',
         require: true,
         value: '',
     },
@@ -159,6 +168,10 @@ export const updateEditForm = (item: IPortfolioItem): IForm => {
         video_src: {
             ...initialForm.video_src,
             value: item.video_src
+        },
+        preview_src: {
+            ...initialForm.preview_src,
+            value: item.preview_src
         },
         gif_src: {
             ...initialForm.gif_src,

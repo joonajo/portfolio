@@ -196,18 +196,18 @@
   margin-bottom: -3px;
 }
 
-.ImageContainer {
+.PreviewContainer {
   position: relative;
   width: 100%;
 }
 
-.ImageContainer img {
+.PreviewContainer video {
   border: 2px solid gainsboro;
   box-sizing: border-box;
   width: 100%;
 }
 
-.ImageMask {
+.PreviewMask {
   position: absolute;
   top: 0;
   width: 100%;
@@ -222,7 +222,7 @@
   color: white;
 }
 
-.ImageContainer:hover .ImageMask {
+.PreviewContainer:hover .PreviewMask {
   opacity: 1;
 }
 
@@ -312,7 +312,7 @@
     flex-flow: row;
     padding-bottom: 0;
     margin: 20px;
-    padding: 20px;
+    padding: 0 20px;
   }
 
   .MadeWith {
@@ -338,7 +338,7 @@
     padding: 20px 60px;
   }
   
-  .ImageContainer {
+  .PreviewContainer {
     width: 40%;
   }
 }

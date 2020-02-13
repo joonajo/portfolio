@@ -85,6 +85,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
             link: form.link.value,
             githubLink: form.github.value,
             video_src: form.video_src.value,
+            preview_src: form.preview_src.value,
             gif_src: form.gif_src.value,
             desktop: form.desktop.options.Yes.selected,
             mobile: form.mobile.options.Yes.selected,

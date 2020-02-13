@@ -93,11 +93,12 @@ const ExpandedVideo = ({
     className: css.VideoContainer
   }, __jsx("video", {
     className: css.Video,
-    controls: true
-  }, __jsx("source", {
     src: video_src,
-    type: "video/mp4"
-  }))), __jsx("div", {
+    controls: true,
+    muted: true,
+    autoPlay: true,
+    playsInline: true
+  })), __jsx("div", {
     className: css.CloseButton,
     onClick: closeHandler
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
@@ -137,8 +138,8 @@ module.exports = {
 	"ItemLinkContainer": "ItemLinkContainer___3gKyx",
 	"ItemLink": "ItemLink___zvdwb",
 	"ItemLinkIcon": "ItemLinkIcon___2pksG",
-	"ImageContainer": "ImageContainer___3ZHP8",
-	"ImageMask": "ImageMask___ZcxR5",
+	"PreviewContainer": "PreviewContainer___2378D",
+	"PreviewMask": "PreviewMask___BxlQ3",
 	"MaskLinks": "MaskLinks___3b_RG",
 	"MaskLink": "MaskLink___2Z_QC",
 	"MaskLinkText": "MaskLinkText___V2BhR",
@@ -200,8 +201,9 @@ const Item = props => {
     className: css.Title
   }, __jsx("span", null, props.title)), __jsx("div", {
     className: css.ItemContent
-  }, __jsx(ItemImage, {
+  }, __jsx(ItemPreview, {
     video_src: props.video_src,
+    preview_src: props.preview_src,
     gif_src: props.gif_src,
     link: props.link,
     githubLink: props.githubLink,
@@ -299,15 +301,21 @@ const TimesIcon = () => __jsx("div", {
   color: "crimson"
 }));
 
-const ItemImage = props => {
+const ItemPreview = props => {
   return __jsx("div", {
-    className: css.ImageContainer
-  }, __jsx("img", {
-    className: css.Image,
-    src: props.gif_src,
-    alt: "portfolio-img"
-  }), __jsx("div", {
-    className: css.ImageMask
+    className: css.PreviewContainer
+  }, __jsx("video", {
+    className: css.PreviewVideo,
+    poster: props.gif_src,
+    muted: true,
+    autoPlay: true,
+    playsInline: true,
+    loop: true
+  }, __jsx("source", {
+    src: props.preview_src,
+    type: "video/mp4"
+  })), __jsx("div", {
+    className: css.PreviewMask
   }, __jsx("div", {
     className: css.MaskLinks
   }, __jsx(ExpandVideo, {

@@ -58,9 +58,7 @@ const ExpandedVideo: React.FunctionComponent<IExpandedVideo> = ({ video_src, clo
         <div className={classes}>
             <div className={css.Backdrop} onClick={closeHandler}></div>
             <div className={css.VideoContainer}>
-                <video className={css.Video} controls >
-                    <source src={video_src} type="video/mp4"/>
-                </video>
+                <video className={css.Video} src={video_src} controls muted autoPlay playsInline />
             </div>
             <div className={css.CloseButton} onClick={closeHandler}>
                 <FontAwesomeIcon icon={icons.faTimes} />

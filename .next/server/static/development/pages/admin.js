@@ -415,6 +415,7 @@ const ItemForm = ({
       link: form.link.value,
       githubLink: form.github.value,
       video_src: form.video_src.value,
+      preview_src: form.preview_src.value,
       gif_src: form.gif_src.value,
       desktop: form.desktop.options.Yes.selected,
       mobile: form.mobile.options.Yes.selected
@@ -1486,6 +1487,14 @@ const initialForm = {
     require: true,
     value: ''
   },
+  preview_src: {
+    id: 'preview_src',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'preview video link',
+    require: true,
+    value: ''
+  },
   gif_src: {
     id: 'gif_src',
     elemType: 'input',
@@ -1556,6 +1565,9 @@ const updateEditForm = item => {
     }),
     video_src: _objectSpread({}, initialForm.video_src, {
       value: item.video_src
+    }),
+    preview_src: _objectSpread({}, initialForm.preview_src, {
+      value: item.preview_src
     }),
     gif_src: _objectSpread({}, initialForm.gif_src, {
       value: item.gif_src

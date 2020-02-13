@@ -79,11 +79,12 @@ var ExpandedVideo = function ExpandedVideo(_ref) {
     className: css.VideoContainer
   }, __jsx("video", {
     className: css.Video,
-    controls: true
-  }, __jsx("source", {
     src: video_src,
-    type: "video/mp4"
-  }))), __jsx("div", {
+    controls: true,
+    muted: true,
+    autoPlay: true,
+    playsInline: true
+  })), __jsx("div", {
     className: css.CloseButton,
     onClick: closeHandler
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
@@ -158,8 +159,9 @@ var Item = function Item(props) {
     className: css.Title
   }, __jsx("span", null, props.title)), __jsx("div", {
     className: css.ItemContent
-  }, __jsx(ItemImage, {
+  }, __jsx(ItemPreview, {
     video_src: props.video_src,
+    preview_src: props.preview_src,
     gif_src: props.gif_src,
     link: props.link,
     githubLink: props.githubLink,
@@ -266,15 +268,21 @@ var TimesIcon = function TimesIcon() {
   }));
 };
 
-var ItemImage = function ItemImage(props) {
+var ItemPreview = function ItemPreview(props) {
   return __jsx("div", {
-    className: css.ImageContainer
-  }, __jsx("img", {
-    className: css.Image,
-    src: props.gif_src,
-    alt: "portfolio-img"
-  }), __jsx("div", {
-    className: css.ImageMask
+    className: css.PreviewContainer
+  }, __jsx("video", {
+    className: css.PreviewVideo,
+    poster: props.gif_src,
+    muted: true,
+    autoPlay: true,
+    playsInline: true,
+    loop: true
+  }, __jsx("source", {
+    src: props.preview_src,
+    type: "video/mp4"
+  })), __jsx("div", {
+    className: css.PreviewMask
   }, __jsx("div", {
     className: css.MaskLinks
   }, __jsx(ExpandVideo, {

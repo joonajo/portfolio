@@ -39,7 +39,8 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
     <div className={itemClasses} ref={itemRef} >
       <p className={css.Title}><span>{props.title}</span></p>
       <div className={css.ItemContent}>
-        <ItemImage video_src={props.video_src}
+        <ItemPreview video_src={props.video_src}
+          preview_src={props.preview_src}
           gif_src={props.gif_src} 
           link={props.link} 
           githubLink={props.githubLink}
@@ -141,19 +142,22 @@ const TimesIcon: React.FunctionComponent = (): JSX.Element => (
   </div>
 )
 
-interface IImage {
+interface IPreview {
   video_src: string
+  preview_src?: string
   gif_src: string
   link: string
   githubLink: string
   toggle: (newValue: boolean) => void
 }
 
-const ItemImage: React.FunctionComponent<IImage> = (props): JSX.Element => {
+const ItemPreview: React.FunctionComponent<IPreview> = (props): JSX.Element => {
   return (
-    <div className={css.ImageContainer}>
-      <img className={css.Image} src={props.gif_src} alt='portfolio-img'/>
-      <div className={css.ImageMask}>
+    <div className={css.PreviewContainer}>
+      <video className={css.PreviewVideo} poster={props.gif_src} muted autoPlay playsInline loop >
+        <source src={props.preview_src} type="video/mp4" />
+      </video>
+      <div className={css.PreviewMask}>
         <div className={css.MaskLinks}>
           {/* <MaskLink address={props.link} text="Open" icon={"link"} />
           <MaskLink address={props.githubLink} text="Github" icon={"github"} /> */}
