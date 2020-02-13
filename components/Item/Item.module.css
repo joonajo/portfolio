@@ -343,6 +343,12 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .Item {
+    width: 60%;
+  }
+}
+
 @media (min-width: 2000px) {
   .MadeWith,
   .Language,

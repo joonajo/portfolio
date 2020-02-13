@@ -63,6 +63,14 @@ const deleteItem = (state: TPortfolioState, action: TPortfolioActions): TPortfol
     }
 }
 
+const editItem = (state: TPortfolioState, action: TPortfolioActions): TPortfolioState => {
+    if (action.type !== TPortfolioActionTypes.EDIT_ITEM) return { ...state }
+
+    return {
+        ...state,
+    }
+}
+
 export const portfolioReducer = (state: TPortfolioState = initialPortfolioState, action: TPortfolioActions): TPortfolioState => {
     switch (action.type) {
         case TPortfolioActionTypes.SET_ITEMS:
@@ -72,7 +80,7 @@ export const portfolioReducer = (state: TPortfolioState = initialPortfolioState,
             return deleteItem(state, action)
 
         case TPortfolioActionTypes.EDIT_ITEM:
-            return { ...state }
+            return editItem(state, action)
     
         case TPortfolioActionTypes.ADD_ITEM:
             return addItem(state, action)

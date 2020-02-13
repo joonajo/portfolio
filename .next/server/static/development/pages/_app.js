@@ -273,6 +273,11 @@ const deleteItem = (state, action) => {
   });
 };
 
+const editItem = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.EDIT_ITEM) return _objectSpread({}, state);
+  return _objectSpread({}, state);
+};
+
 const portfolioReducer = (state = initialPortfolioState, action) => {
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
@@ -282,7 +287,7 @@ const portfolioReducer = (state = initialPortfolioState, action) => {
       return deleteItem(state, action);
 
     case TPortfolioActionTypes.EDIT_ITEM:
-      return _objectSpread({}, state);
+      return editItem(state, action);
 
     case TPortfolioActionTypes.ADD_ITEM:
       return addItem(state, action);

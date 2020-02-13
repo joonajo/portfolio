@@ -127,10 +127,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
-/* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
+/* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
 /* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
 
@@ -146,7 +146,6 @@ const AddPortfolioItem = () => {
   const [showForm, setShowForm] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
   const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
   const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_5__["AuthContext"]);
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["PortfolioContext"]);
 
   const addItemToDatabase = item => {
     if (authContext.state.signedIn) {
@@ -161,10 +160,6 @@ const AddPortfolioItem = () => {
         setSending(false);
         setShowForm(false);
       }));
-      portfolioContext.dispatch({
-        type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["TPortfolioActionTypes"].ADD_ITEM,
-        payload: item
-      });
     }
   };
 
@@ -178,10 +173,10 @@ const AddPortfolioItem = () => {
     className: css.AddItemButton,
     onClick: clickHandler
   }, "add item ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_3__["icons"].faPlus,
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_4__["icons"].faPlus,
     className: css.AddItemIcon
-  })), __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    type: _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_4__["formTypes"].ADD,
+  })), __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    type: _form_form__WEBPACK_IMPORTED_MODULE_3__["formTypes"].ADD,
     show: showForm,
     close: () => setShowForm(false),
     add: addItemToDatabase,
@@ -216,10 +211,19 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
+/* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
+/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
+
+
+
 
 
 
@@ -230,15 +234,31 @@ const EditItem = ({
   item,
   close
 }) => {
-  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
+  const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
+  const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_4__["AuthContext"]);
+  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["PortfolioContext"]);
 
-  const editItem = item => {};
+  const editItem = item => {
+    if (authContext.state.signedIn) {
+      setSending(true);
+      const baseURL = 'https://joonajo-portfolio.firebaseio.com/items/';
+      const title = item.title + ".json";
+      const tokenParam = `?auth=${authContext.state.idToken}`;
+      fetch(baseURL + title + tokenParam, {
+        method: 'put',
+        body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(item)
+      }).then(response => response.json().then(data => {
+        setSending(false);
+      }));
+      close();
+    }
+  };
 
   const containerStyles = [css.EditItemContainer, show && css.show].join(' ');
   return __jsx("div", {
     className: containerStyles
-  }, __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    type: _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_1__["formTypes"].EDIT,
+  }, __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    type: _form_form__WEBPACK_IMPORTED_MODULE_2__["formTypes"].EDIT,
     show: show,
     sending: sending,
     item: item,
@@ -280,12 +300,11 @@ module.exports = {
 /*!************************************************!*\
   !*** ./components/Admin/ItemForm/ItemForm.tsx ***!
   \************************************************/
-/*! exports provided: formTypes, default */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formTypes", function() { return formTypes; });
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
@@ -305,6 +324,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
 
 
 
@@ -323,114 +343,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 const css = __webpack_require__(/*! ./ItemForm.module.css */ "./components/Admin/ItemForm/ItemForm.module.css");
-
-let formTypes;
-
-(function (formTypes) {
-  formTypes["ADD"] = "add";
-  formTypes["EDIT"] = "edit";
-})(formTypes || (formTypes = {}));
-
-const initialForm = {
-  title: {
-    id: 'title',
-    elemType: 'input',
-    type: 'text',
-    placeholder: 'title',
-    require: true,
-    value: ''
-  },
-  description: {
-    id: 'description',
-    elemType: 'textarea',
-    type: 'text',
-    placeholder: 'description',
-    require: true,
-    value: ''
-  },
-  language: {
-    id: 'languages',
-    elemType: 'select',
-    options: {
-      React: {
-        selected: false
-      },
-      TypeScript: {
-        selected: false
-      },
-      JavaScript: {
-        selected: false
-      },
-      Cpp: {
-        selected: false
-      },
-      NextJS: {
-        selected: false
-      }
-    },
-    require: true,
-    multiple: true
-  },
-  link: {
-    id: 'link',
-    elemType: 'input',
-    type: 'text',
-    placeholder: 'link to app',
-    require: true,
-    value: ''
-  },
-  github: {
-    id: 'github',
-    elemType: 'input',
-    type: 'text',
-    placeholder: 'github link',
-    require: true,
-    value: ''
-  },
-  video_src: {
-    id: 'video_src',
-    elemType: 'input',
-    type: 'text',
-    placeholder: 'video link',
-    require: true,
-    value: ''
-  },
-  gif_src: {
-    id: 'gif_src',
-    elemType: 'input',
-    type: 'text',
-    placeholder: 'gif link',
-    require: true,
-    value: ''
-  },
-  desktop: {
-    id: 'desktop',
-    elemType: 'select',
-    options: {
-      Yes: {
-        selected: true
-      },
-      No: {
-        selected: false
-      }
-    },
-    require: true
-  },
-  mobile: {
-    id: 'mobile',
-    elemType: 'select',
-    options: {
-      Yes: {
-        selected: true
-      },
-      No: {
-        selected: false
-      }
-    },
-    require: true
-  }
-};
 
 const ItemForm = ({
   show,
@@ -440,24 +354,19 @@ const ItemForm = ({
   add,
   type
 }) => {
-  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](initialForm);
+  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](_form_form__WEBPACK_IMPORTED_MODULE_11__["initialForm"]);
   react__WEBPACK_IMPORTED_MODULE_7__["useEffect"](() => {
     if (item) {
-      console.log(item);
-
-      let updatedForm = _objectSpread({}, form);
-
-      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(item).forEach(key => {
-        // console.log(item)
-        updatedForm[key] = _objectSpread({}, updatedForm[key]);
-      });
+      // update each field manually cus we bad
+      const updatedForm = Object(_form_form__WEBPACK_IMPORTED_MODULE_11__["updateEditForm"])(item);
+      setForm(updatedForm);
     }
   }, [item]);
 
   const optionClickHandler = (id, name) => {
     let updatedForm = _objectSpread({}, form);
 
-    if (id === 'languages') {
+    if (id === 'language') {
       updatedForm = _objectSpread({}, form, {
         [id]: _objectSpread({}, form[id], {
           options: _objectSpread({}, form[id].options, {
@@ -497,7 +406,7 @@ const ItemForm = ({
   };
 
   const addHandler = () => {
-    const selectedLanguages = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form.languages.options).filter(option => form.languages.options[option].selected);
+    const selectedLanguages = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form.language.options).filter(option => form.language.options[option].selected);
 
     const newItem = {
       title: form.title.value,
@@ -526,6 +435,7 @@ const ItemForm = ({
   }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form).map(element => {
     return __jsx(FormInput, {
       key: element,
+      type: type,
       item: form[element],
       change: changeHandler,
       clickOption: optionClickHandler
@@ -539,6 +449,7 @@ const ItemForm = ({
 };
 
 const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
+  type,
   item,
   change,
   clickOption
@@ -549,6 +460,7 @@ const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
     case 'input':
       content = __jsx("input", {
         value: item.value,
+        disabled: type === _form_form__WEBPACK_IMPORTED_MODULE_11__["formTypes"].EDIT && item.id === 'title',
         placeholder: item.placeholder,
         onChange: e => change(item.id, e),
         className: css.FormInput
@@ -1426,6 +1338,11 @@ const deleteItem = (state, action) => {
   });
 };
 
+const editItem = (state, action) => {
+  if (action.type !== TPortfolioActionTypes.EDIT_ITEM) return _objectSpread({}, state);
+  return _objectSpread({}, state);
+};
+
 const portfolioReducer = (state = initialPortfolioState, action) => {
   switch (action.type) {
     case TPortfolioActionTypes.SET_ITEMS:
@@ -1435,7 +1352,7 @@ const portfolioReducer = (state = initialPortfolioState, action) => {
       return deleteItem(state, action);
 
     case TPortfolioActionTypes.EDIT_ITEM:
-      return _objectSpread({}, state);
+      return editItem(state, action);
 
     case TPortfolioActionTypes.ADD_ITEM:
       return addItem(state, action);
@@ -1457,6 +1374,215 @@ const PortfolioProvider = ({
       dispatch
     }
   }, children);
+};
+
+/***/ }),
+
+/***/ "./form/form.ts":
+/*!**********************!*\
+  !*** ./form/form.ts ***!
+  \**********************/
+/*! exports provided: formTypes, initialForm, updateEditForm */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formTypes", function() { return formTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialForm", function() { return initialForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEditForm", function() { return updateEditForm; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptors */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptors.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+
+
+
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(object); if (_babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default.a) { var symbols = _babel_runtime_corejs2_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_4___default()(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(target, key, source[key]); }); } else if (_babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default.a) { _babel_runtime_corejs2_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_1___default()(target, _babel_runtime_corejs2_core_js_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_2___default()(source)); } else { ownKeys(Object(source)).forEach(function (key) { _babel_runtime_corejs2_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, key, _babel_runtime_corejs2_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_3___default()(source, key)); }); } } return target; }
+
+let formTypes;
+
+(function (formTypes) {
+  formTypes["ADD"] = "add";
+  formTypes["EDIT"] = "edit";
+})(formTypes || (formTypes = {}));
+
+const initialForm = {
+  title: {
+    id: 'title',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'title',
+    require: true,
+    value: ''
+  },
+  description: {
+    id: 'description',
+    elemType: 'textarea',
+    type: 'text',
+    placeholder: 'description',
+    require: true,
+    value: ''
+  },
+  language: {
+    id: 'language',
+    elemType: 'select',
+    options: {
+      React: {
+        selected: false
+      },
+      TypeScript: {
+        selected: false
+      },
+      JavaScript: {
+        selected: false
+      },
+      Cpp: {
+        selected: false
+      },
+      NextJS: {
+        selected: false
+      }
+    },
+    require: true,
+    multiple: true
+  },
+  link: {
+    id: 'link',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'link to app',
+    require: true,
+    value: ''
+  },
+  github: {
+    id: 'github',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'github link',
+    require: true,
+    value: ''
+  },
+  video_src: {
+    id: 'video_src',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'video link',
+    require: true,
+    value: ''
+  },
+  gif_src: {
+    id: 'gif_src',
+    elemType: 'input',
+    type: 'text',
+    placeholder: 'gif link',
+    require: true,
+    value: ''
+  },
+  desktop: {
+    id: 'desktop',
+    elemType: 'select',
+    options: {
+      Yes: {
+        selected: false
+      },
+      No: {
+        selected: false
+      }
+    },
+    require: true
+  },
+  mobile: {
+    id: 'mobile',
+    elemType: 'select',
+    options: {
+      Yes: {
+        selected: false
+      },
+      No: {
+        selected: false
+      }
+    },
+    require: true
+  }
+};
+const updateEditForm = item => {
+  const updatedForm = _objectSpread({}, initialForm, {
+    title: _objectSpread({}, initialForm.title, {
+      value: item.title
+    }),
+    description: _objectSpread({}, initialForm.description, {
+      value: item.description
+    }),
+    language: _objectSpread({}, initialForm.language, {
+      options: {
+        React: {
+          selected: item.language.includes('React')
+        },
+        TypeScript: {
+          selected: item.language.includes('TypeScript')
+        },
+        JavaScript: {
+          selected: item.language.includes('JavaScript')
+        },
+        Cpp: {
+          selected: item.language.includes('Cpp')
+        },
+        NextJS: {
+          selected: item.language.includes('NextJS')
+        }
+      }
+    }),
+    link: _objectSpread({}, initialForm.link, {
+      value: item.link
+    }),
+    github: _objectSpread({}, initialForm.github, {
+      value: item.githubLink
+    }),
+    video_src: _objectSpread({}, initialForm.video_src, {
+      value: item.video_src
+    }),
+    gif_src: _objectSpread({}, initialForm.gif_src, {
+      value: item.gif_src
+    }),
+    desktop: _objectSpread({}, initialForm.desktop, {
+      options: {
+        Yes: {
+          selected: item.desktop
+        },
+        No: {
+          selected: !item.desktop
+        }
+      }
+    }),
+    mobile: _objectSpread({}, initialForm.mobile, {
+      options: {
+        Yes: {
+          selected: item.mobile
+        },
+        No: {
+          selected: !item.mobile
+        }
+      }
+    })
+  });
+
+  return updatedForm;
 };
 
 /***/ }),

@@ -600,6 +600,11 @@ var deleteItem = function deleteItem(state, action) {
   });
 };
 
+var editItem = function editItem(state, action) {
+  if (action.type !== TPortfolioActionTypes.EDIT_ITEM) return _objectSpread({}, state);
+  return _objectSpread({}, state);
+};
+
 var portfolioReducer = function portfolioReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialPortfolioState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -612,7 +617,7 @@ var portfolioReducer = function portfolioReducer() {
       return deleteItem(state, action);
 
     case TPortfolioActionTypes.EDIT_ITEM:
-      return _objectSpread({}, state);
+      return editItem(state, action);
 
     case TPortfolioActionTypes.ADD_ITEM:
       return addItem(state, action);

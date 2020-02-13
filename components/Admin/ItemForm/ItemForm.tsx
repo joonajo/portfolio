@@ -4,125 +4,9 @@ import { IPortfolioItem } from '../../../interfaces/interfaces'
 import { CubeSpinner } from '../../UI/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../../icons/icons'
+import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form'
 
 const css = require('./ItemForm.module.css')
-
-export enum formTypes {
-    ADD = 'add',
-    EDIT = 'edit',
-}
-
-interface IForm {
-    [title: string]: any
-    description: any
-    language: any
-    link: any
-    github: any
-    video_src: any
-    gif_src: any
-    desktop: any
-    mobile: any
-}
-
-const initialForm: IForm = {
-    title: {
-        id: 'title',
-        elemType: 'input',
-        type: 'text',
-        placeholder: 'title',
-        require: true,
-        value: '',
-    },
-    description: {
-        id: 'description',
-        elemType: 'textarea',
-        type: 'text',
-        placeholder: 'description',
-        require: true,
-        value: '',
-    },
-    language: {
-        id: 'languages',
-        elemType: 'select',
-        options: {
-            React: {
-                selected: false,
-            },
-            TypeScript: {
-                selected: false,
-            },
-            JavaScript: {
-                selected: false,
-            },
-            Cpp: {
-                selected: false
-            },
-            NextJS: {
-                selected: false
-            }
-        },
-        require: true,
-        multiple: true
-    },
-    link: {
-        id: 'link',
-        elemType: 'input',
-        type: 'text',
-        placeholder: 'link to app',
-        require: true,
-        value: '',
-    },
-    github: {
-        id: 'github',
-        elemType: 'input',
-        type: 'text',
-        placeholder: 'github link',
-        require: true,
-        value: '',
-    },
-    video_src: {
-        id: 'video_src',
-        elemType: 'input',  
-        type: 'text',
-        placeholder: 'video link',
-        require: true,
-        value: '',
-    },
-    gif_src: {
-        id: 'gif_src',
-        elemType: 'input',
-        type: 'text',
-        placeholder: 'gif link',
-        require: true,
-        value: '',
-    },
-    desktop: {
-        id: 'desktop',
-        elemType: 'select',
-        options : {
-            Yes: {
-                selected: true,
-            },
-            No: {
-                selected: false
-            },
-        },        
-        require: true,
-    },
-    mobile: {   
-        id: 'mobile',
-        elemType: 'select',
-        options : {
-            Yes: {
-                selected: true,
-            },
-            No: {
-                selected: false
-            },
-        }, 
-        require: true,
-    }
-}
 
 interface IItemForm {
     show: boolean
@@ -138,21 +22,15 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
 
     React.useEffect(() => {
         if (item) {
-            console.log(item)
-            let updatedForm: IForm = { ...form }
-            Object.keys(item).forEach((key: string) => {
-                // console.log(item)
-                updatedForm[key] = {
-                    ...updatedForm[key],
-                    // value: item
-                }
-            })            
+            // update each field manually cus we bad
+            const updatedForm: IForm = updateEditForm(item)
+            setForm(updatedForm)     
         }   
     }, [item])
 
     const optionClickHandler = (id: string, name: string) => {
         let updatedForm: IForm = { ...form }
-        if (id === 'languages') {
+        if (id === 'language') {
             updatedForm = {
                 ...form,
                 [id]: {
@@ -198,7 +76,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
     }
 
     const addHandler = () => {
-        const selectedLanguages = Object.keys(form.languages.options).filter(option => form.languages.options[option].selected)
+        const selectedLanguages = Object.keys(form.language.options).filter(option => form.language.options[option].selected)
 
         const newItem: IPortfolioItem = {
             title: form.title.value,
@@ -235,7 +113,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
                 <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
                 { Object.keys(form).map((element: string) => {
                     return (
-                        <FormInput key={element} item={form[element]} change={changeHandler} clickOption={optionClickHandler} />
+                        <FormInput key={element} type={type} item={form[element]} change={changeHandler} clickOption={optionClickHandler} />
                     )
                 })}
                 <div className={css.FormAddButton} onClick={addHandler}>
@@ -248,18 +126,20 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
 }
 
 interface IFormInput {
+    type: string
     item: any
     change: (id: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
     clickOption: (id: string, name: string) => void
 }
 
-const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ item, change, clickOption }): JSX.Element => {
+const FormInput: React.FunctionComponent<IFormInput> = React.memo( ({ type, item, change, clickOption }): JSX.Element => {
     let content = undefined
 
     switch (item.elemType) {
         case 'input':
             content = (
                 <input value={item.value} 
+                    disabled={type === formTypes.EDIT && item.id === 'title'}
                     placeholder={item.placeholder} 
                     onChange={(e) => change(item.id, e)}
                     className={css.FormInput} />
