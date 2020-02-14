@@ -1,2 +1,10 @@
-# portfolio
-My portfolio, made with React + TypeScript. Server-side rendered with NextJS and Zeit NOW hosting.
+# Features
+* Server-side Rendered with NextJS & Zeit Now
+* Built with React & TypeScript
+* Wannabe fancy loader & transition on page load
+* Fetching portfolio items from a Firebase database
+* Built-in custom admin page for easy portfolio management
+  * Item deletion
+  * Item editing
+* Responsive layout/design
+* More cool stuff coming up (maybe)
