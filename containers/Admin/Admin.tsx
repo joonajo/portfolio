@@ -6,6 +6,7 @@ import { IPortfolioItem } from '../../interfaces/interfaces'
 import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
 import { Languages, IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
 import PortfolioItems from '../../components/Admin/PortfolioManagement/Portfolio'
+import Loading from '../../components/UI/Loading/Loading'
 
 const css = require('./Admin.module.css')
 
@@ -64,8 +65,8 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
     return (
         <div className={css.Main} style={{minHeight: `${screensize?.height}px`, minWidth: `${screensize?.width}px`}}>
             { !authState.signedIn && <Auth setSending={setSending} signIn={signInHandler} /> }
-            { sending && <Loading /> }
             { authState. signedIn && <AdminContent token={authState.idToken!} /> }
+            <Loading show={sending} transparent fadeout />
         </div>
     )
 }
@@ -74,7 +75,7 @@ interface IAdminContent {
     token: string
 }
 
-const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.Element => {
+const AdminContent: React.FunctionComponent<IAdminContent> = (): JSX.Element => {
     const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
     const portfolioState: TPortfolioState = portfolioContext.state
     const portfolioDispatch: TDispatch = portfolioContext.dispatch!
@@ -82,44 +83,34 @@ const AdminContent: React.FunctionComponent<IAdminContent> = ({ token }): JSX.El
     const [loading, setLoading] = React.useState<boolean>(true)
 
     React.useEffect(() => {
-        if (portfolioState && portfolioDispatch) {
-            if (portfolioState.items.length === 0) {
-                const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
+        if (portfolioState.items.length === 0) {
+            const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json'
 
-                const newItems: IPortfolioItem[] = []
-                
-                fetch(baseURL, { method: 'get' }).then(response => response.json())
-                    .then(data => {
-                        if (data) {
-                            Object.keys(data).forEach(item => {
-                                newItems.push(data[item])
-                            })
-                            portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
-                        }
-                        setLoading(false)
-                    })
-            } else {
-                setLoading(false)
-            }
+            const newItems: IPortfolioItem[] = []
+            
+            fetch(baseURL, { method: 'get' }).then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        Object.keys(data).forEach(item => {
+                            newItems.push(data[item])
+                        })
+                        portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems })
+                    }
+                    setLoading(false)
+                })
+        } else {
+            setLoading(false)
         }
     }, [portfolioState])
    
     return (
-        <div className={css.AdminContentWrapper}>
-            { loading ?
-                <div className={css.Loading}>
-                    <CubeSpinner />
-                </div>
-                : <PortfolioItems items={portfolioState.items} />
-            }
-        </div>
+        <>
+            <div className={css.AdminContentWrapper}>
+                { !loading && <PortfolioItems items={portfolioState.items} /> }
+            </div>
+            <Loading show={loading} transparent fadeout /> 
+        </>
     )
 }
-
-const Loading: React.FunctionComponent = (): JSX.Element => (
-    <div className={css.Loading}>
-        <CubeSpinner />
-    </div>
-)
 
 export default Admin

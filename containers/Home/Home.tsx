@@ -2,12 +2,12 @@ import React from 'react'
 
 import { NextPage } from 'next'
 import Cover from '../../components/Cover/Cover'
-import Layout from '../../components/UI/Layout/Layout'
 import Content from '../../components/Content/Content'
-import { CubeSpinner } from '../../components/UI/Spinner/Spinner'
 import { IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
 import { TDispatch } from '../../context/authContext'
 import { IPortfolioItem } from '../../interfaces/interfaces'
+import Layout from '../../components/UI/Layout/Layout'
+import Loading from '../../components/UI/Loading/Loading'
 
 const css = require('./Home.module.css')
 
@@ -55,33 +55,12 @@ const Home: NextPage = (): JSX.Element => {
 
     return (
         <>
-            <Loading show={!ready} />
+            <Loading show={!ready} slideout />
             <Layout>
                 <Cover show={ready} load={() => setBgLoaded(true)} />
                 { bgLoaded  && !loading && <Content /> }
             </Layout>
         </>
-    )
-}
-
-interface ILoadingComponent {
-    show: boolean
-}
-
-const Loading: React.FunctionComponent<ILoadingComponent> = ({ show }): JSX.Element => {
-    const styles = [
-        css.Loading,
-        !show && css.out
-    ].join(' ')
-
-    const animEndHandler = () => {
-        console.log('anim end')
-    }
-
-    return (
-        <div className={styles} onAnimationEnd={animEndHandler}>
-            <CubeSpinner />
-        </div>
     )
 }
 

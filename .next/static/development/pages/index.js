@@ -315,6 +315,41 @@ var Layout = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(function (_ref) {
 
 /***/ }),
 
+/***/ "./components/UI/Loading/Loading.tsx":
+/*!*******************************************!*\
+  !*** ./components/UI/Loading/Loading.tsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Loading.module.css */ "./components/UI/Loading/Loading.module.css");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Loading_module_css__WEBPACK_IMPORTED_MODULE_2__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+
+
+var Loading = function Loading(_ref) {
+  var show = _ref.show,
+      transparent = _ref.transparent,
+      fadeout = _ref.fadeout,
+      slideout = _ref.slideout;
+  var styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+  console.log(show, fadeout);
+  return __jsx("div", {
+    className: styles
+  }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
+
+/***/ }),
+
 /***/ "./components/UI/Spinner/Spinner.tsx":
 /*!*******************************************!*\
   !*** ./components/UI/Spinner/Spinner.tsx ***!
@@ -403,10 +438,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Cover/Cover */ "./components/Cover/Cover.tsx");
-/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
-/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
-/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
+/* harmony import */ var _components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
@@ -445,7 +480,7 @@ var Home = function Home() {
     image.src = '/images/palm.png';
     if (image.complete) setBgLoaded(true);
   }, []);
-  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["PortfolioContext"]);
+  var portfolioContext = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["PortfolioContext"]);
   var portfolioState = portfolioContext.state;
   var portfolioDispatch = portfolioContext.dispatch;
   react__WEBPACK_IMPORTED_MODULE_2___default.a.useEffect(function () {
@@ -464,7 +499,7 @@ var Home = function Home() {
             });
 
             portfolioDispatch({
-              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_7__["TPortfolioActionTypes"].SET_ITEMS,
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["TPortfolioActionTypes"].SET_ITEMS,
               payload: newItems
             });
           }
@@ -474,28 +509,15 @@ var Home = function Home() {
       }
     }
   }, [portfolioState]);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(Loading, {
-    show: !ready
-  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    show: !ready,
+    slideout: true
+  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
     show: ready,
     load: function load() {
       return setBgLoaded(true);
     }
-  }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
-};
-
-var Loading = function Loading(_ref) {
-  var show = _ref.show;
-  var styles = [css.Loading, !show && css.out].join(' ');
-
-  var animEndHandler = function animEndHandler() {
-    console.log('anim end');
-  };
-
-  return __jsx("div", {
-    className: styles,
-    onAnimationEnd: animEndHandler
-  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_6__["CubeSpinner"], null));
+  }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -25227,7 +25249,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ 20:
+/***/ 0:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cindex%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -25250,5 +25272,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[20,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

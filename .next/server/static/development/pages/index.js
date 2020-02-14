@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -529,6 +529,59 @@ const Layout = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
 
 /***/ }),
 
+/***/ "./components/UI/Loading/Loading.module.css":
+/*!**************************************************!*\
+  !*** ./components/UI/Loading/Loading.module.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Loading": "Loading___3aBwe",
+	"transparent": "transparent___WzXK7",
+	"fadeout": "fadeout___2ri54",
+	"slideout": "slideout___94crm",
+	"fadein": "fadein___DKzOy"
+};
+
+/***/ }),
+
+/***/ "./components/UI/Loading/Loading.tsx":
+/*!*******************************************!*\
+  !*** ./components/UI/Loading/Loading.tsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Loading.module.css */ "./components/UI/Loading/Loading.module.css");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Loading_module_css__WEBPACK_IMPORTED_MODULE_2__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+
+
+const Loading = ({
+  show,
+  transparent,
+  fadeout,
+  slideout
+}) => {
+  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+  console.log(show, fadeout);
+  return __jsx("div", {
+    className: styles
+  }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
+
+/***/ }),
+
 /***/ "./components/UI/Spinner/Spinner.module.css":
 /*!**************************************************!*\
   !*** ./components/UI/Spinner/Spinner.module.css ***!
@@ -663,10 +716,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Cover/Cover */ "./components/Cover/Cover.tsx");
-/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
-/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
-/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _components_Content_Content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Content/Content */ "./components/Content/Content.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/UI/Layout/Layout */ "./components/UI/Layout/Layout.tsx");
+/* harmony import */ var _components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
@@ -692,7 +745,7 @@ const Home = () => {
     image.src = '/images/palm.png';
     if (image.complete) setBgLoaded(true);
   }, []);
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["PortfolioContext"]);
+  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext(_context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__["PortfolioContext"]);
   const portfolioState = portfolioContext.state;
   const portfolioDispatch = portfolioContext.dispatch;
   react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(() => {
@@ -709,7 +762,7 @@ const Home = () => {
             });
 
             portfolioDispatch({
-              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_6__["TPortfolioActionTypes"].SET_ITEMS,
+              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__["TPortfolioActionTypes"].SET_ITEMS,
               payload: newItems
             });
           }
@@ -719,27 +772,13 @@ const Home = () => {
       }
     }
   }, [portfolioState]);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(Loading, {
-    show: !ready
-  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    show: !ready,
+    slideout: true
+  }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
     show: ready,
     load: () => setBgLoaded(true)
-  }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
-};
-
-const Loading = ({
-  show
-}) => {
-  const styles = [css.Loading, !show && css.out].join(' ');
-
-  const animEndHandler = () => {
-    console.log('anim end');
-  };
-
-  return __jsx("div", {
-    className: styles,
-    onAnimationEnd: animEndHandler
-  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_5__["CubeSpinner"], null));
+  }), bgLoaded && !loading && __jsx(_components_Content_Content__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -3162,7 +3201,7 @@ const Index = () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/index/index.tsx ***!
   \*************************************/

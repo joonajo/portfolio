@@ -131,8 +131,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
 /* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
 /* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
+/* harmony import */ var _UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
+
 
 
 
@@ -167,7 +169,8 @@ const AddPortfolioItem = () => {
     setShowForm(true);
   };
 
-  return __jsx("div", {
+  console.log(sending);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
     className: css.AddItemContainer
   }, __jsx("span", {
     className: css.AddItemButton,
@@ -181,6 +184,10 @@ const AddPortfolioItem = () => {
     close: () => setShowForm(false),
     add: addItemToDatabase,
     sending: sending
+  })), __jsx(_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    show: sending,
+    transparent: true,
+    fadeout: true
   }));
 };
 
@@ -218,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
 /* harmony import */ var _ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ItemForm/ItemForm */ "./components/Admin/ItemForm/ItemForm.tsx");
 /* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
 
@@ -236,7 +243,6 @@ const EditItem = ({
 }) => {
   const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](false);
   const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_4__["AuthContext"]);
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["PortfolioContext"]);
 
   const editItem = item => {
     if (authContext.state.signedIn) {
@@ -255,7 +261,7 @@ const EditItem = ({
   };
 
   const containerStyles = [css.EditItemContainer, show && css.show].join(' ');
-  return __jsx("div", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
     className: containerStyles
   }, __jsx(_ItemForm_ItemForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
     type: _form_form__WEBPACK_IMPORTED_MODULE_2__["formTypes"].EDIT,
@@ -264,6 +270,10 @@ const EditItem = ({
     item: item,
     close: close,
     add: editItem
+  })), __jsx(_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    show: sending,
+    transparent: true,
+    fadeout: true
   }));
 };
 
@@ -406,8 +416,9 @@ const ItemForm = ({
   };
 
   const addHandler = () => {
-    const selectedLanguages = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form.language.options).filter(option => form.language.options[option].selected);
+    let selectedLanguages = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form.language.options).filter(option => form.language.options[option].selected);
 
+    if (selectedLanguages.length === 0) selectedLanguages = ['React'];
     const newItem = {
       title: form.title.value,
       language: selectedLanguages,
@@ -639,6 +650,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../context/authContext */ "./context/authContext.tsx");
 /* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../context/portfolioContext */ "./context/portfolioContext.tsx");
 /* harmony import */ var _Item_Item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Item/Item */ "./components/Admin/PortfolioManagement/Item/Item.tsx");
+/* harmony import */ var _UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
 
 
@@ -649,14 +661,17 @@ const css = __webpack_require__(/*! ./Portfolio.module.css */ "./components/Admi
 
 
 
+
 const PortfolioItems = ({
   items
 }) => {
+  const [sending, setSsending] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
   const authContext = react__WEBPACK_IMPORTED_MODULE_0__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_2__["AuthContext"]);
   const portfolioContext = react__WEBPACK_IMPORTED_MODULE_0__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__["PortfolioContext"]);
 
   const deleteItem = itemTitle => {
     if (authContext.state.signedIn) {
+      setSsending(true);
       const baseURL = "https://joonajo-portfolio.firebaseio.com/items/";
       const itemParam = `${itemTitle}.json`;
       const tokenParam = `?auth=${authContext.state.idToken}`;
@@ -664,6 +679,7 @@ const PortfolioItems = ({
         method: 'delete'
       }).then(response => response.json()).then(data => {
         console.log('succesfully deleted', itemTitle);
+        setSsending(false);
         portfolioContext.dispatch({
           type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_3__["TPortfolioActionTypes"].DELETE_ITEM,
           payload: itemTitle
@@ -672,7 +688,7 @@ const PortfolioItems = ({
     }
   };
 
-  return __jsx("div", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, __jsx("div", {
     className: css.ItemsContainer
   }, items && items.map(item => {
     return __jsx(_Item_Item__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -680,10 +696,67 @@ const PortfolioItems = ({
       item: item,
       deleteItem: deleteItem
     });
-  }), __jsx(_AddNewItem_AddItem__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }), __jsx(_AddNewItem_AddItem__WEBPACK_IMPORTED_MODULE_1__["default"], null)), __jsx(_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    show: sending,
+    transparent: true,
+    fadeout: true
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PortfolioItems);
+
+/***/ }),
+
+/***/ "./components/UI/Loading/Loading.module.css":
+/*!**************************************************!*\
+  !*** ./components/UI/Loading/Loading.module.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Loading": "Loading___3aBwe",
+	"transparent": "transparent___WzXK7",
+	"fadeout": "fadeout___2ri54",
+	"slideout": "slideout___94crm",
+	"fadein": "fadein___DKzOy"
+};
+
+/***/ }),
+
+/***/ "./components/UI/Loading/Loading.tsx":
+/*!*******************************************!*\
+  !*** ./components/UI/Loading/Loading.tsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Loading.module.css */ "./components/UI/Loading/Loading.module.css");
+/* harmony import */ var _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Loading_module_css__WEBPACK_IMPORTED_MODULE_2__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0__["createElement"];
+
+
+
+
+const Loading = ({
+  show,
+  transparent,
+  fadeout,
+  slideout
+}) => {
+  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+  console.log(show, fadeout);
+  return __jsx("div", {
+    className: styles
+  }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
 
 /***/ }),
 
@@ -775,10 +848,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../containers/Auth/Auth */ "./containers/Auth/Auth.tsx");
-/* harmony import */ var _components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
-/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/authContext */ "./context/authContext.tsx");
-/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
-/* harmony import */ var _components_Admin_PortfolioManagement_Portfolio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Admin/PortfolioManagement/Portfolio */ "./components/Admin/PortfolioManagement/Portfolio.tsx");
+/* harmony import */ var _context_authContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/authContext */ "./context/authContext.tsx");
+/* harmony import */ var _context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/portfolioContext */ "./context/portfolioContext.tsx");
+/* harmony import */ var _components_Admin_PortfolioManagement_Portfolio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Admin/PortfolioManagement/Portfolio */ "./components/Admin/PortfolioManagement/Portfolio.tsx");
+/* harmony import */ var _components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
 
@@ -791,7 +864,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1__["createElement"];
 const css = __webpack_require__(/*! ./Admin.module.css */ "./containers/Admin/Admin.module.css");
 
 const Admin = () => {
-  const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_4__["AuthContext"]);
+  const authContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_authContext__WEBPACK_IMPORTED_MODULE_3__["AuthContext"]);
   const authState = authContext.state;
   const authDispatch = authContext.dispatch;
   const [sending, setSending] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](true);
@@ -854,56 +927,54 @@ const Admin = () => {
   }, !authState.signedIn && __jsx(_containers_Auth_Auth__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setSending: setSending,
     signIn: signInHandler
-  }), sending && __jsx(Loading, null), authState.signedIn && __jsx(AdminContent, {
+  }), authState.signedIn && __jsx(AdminContent, {
     token: authState.idToken
+  }), __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    show: sending,
+    transparent: true,
+    fadeout: true
   }));
 };
 
-const AdminContent = ({
-  token
-}) => {
-  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["PortfolioContext"]);
+const AdminContent = () => {
+  const portfolioContext = react__WEBPACK_IMPORTED_MODULE_1__["useContext"](_context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__["PortfolioContext"]);
   const portfolioState = portfolioContext.state;
   const portfolioDispatch = portfolioContext.dispatch;
   const [loading, setLoading] = react__WEBPACK_IMPORTED_MODULE_1__["useState"](true);
   react__WEBPACK_IMPORTED_MODULE_1__["useEffect"](() => {
-    if (portfolioState && portfolioDispatch) {
-      if (portfolioState.items.length === 0) {
-        const baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
-        const newItems = [];
-        fetch(baseURL, {
-          method: 'get'
-        }).then(response => response.json()).then(data => {
-          if (data) {
-            _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(item => {
-              newItems.push(data[item]);
-            });
+    if (portfolioState.items.length === 0) {
+      const baseURL = 'https://joonajo-portfolio.firebaseio.com/items.json';
+      const newItems = [];
+      fetch(baseURL, {
+        method: 'get'
+      }).then(response => response.json()).then(data => {
+        if (data) {
+          _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(data).forEach(item => {
+            newItems.push(data[item]);
+          });
 
-            portfolioDispatch({
-              type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_5__["TPortfolioActionTypes"].SET_ITEMS,
-              payload: newItems
-            });
-          }
+          portfolioDispatch({
+            type: _context_portfolioContext__WEBPACK_IMPORTED_MODULE_4__["TPortfolioActionTypes"].SET_ITEMS,
+            payload: newItems
+          });
+        }
 
-          setLoading(false);
-        });
-      } else {
         setLoading(false);
-      }
+      });
+    } else {
+      setLoading(false);
     }
   }, [portfolioState]);
-  return __jsx("div", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
     className: css.AdminContentWrapper
-  }, loading ? __jsx("div", {
-    className: css.Loading
-  }, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_3__["CubeSpinner"], null)) : __jsx(_components_Admin_PortfolioManagement_Portfolio__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, !loading && __jsx(_components_Admin_PortfolioManagement_Portfolio__WEBPACK_IMPORTED_MODULE_5__["default"], {
     items: portfolioState.items
+  })), __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    show: loading,
+    transparent: true,
+    fadeout: true
   }));
 };
-
-const Loading = () => __jsx("div", {
-  className: css.Loading
-}, __jsx(_components_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_3__["CubeSpinner"], null));
 
 /* harmony default export */ __webpack_exports__["default"] = (Admin);
 

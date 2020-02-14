@@ -1,0 +1,36 @@
+.Loading {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: snow;
+    color: royalblue;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition:  visibility 0s .5s, top .5s, opacity .5s;
+}
+
+.Loading.transparent {
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.Loading.fadeout {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.Loading.slideout {
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
+}
+
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}

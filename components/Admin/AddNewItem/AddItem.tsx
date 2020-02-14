@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { formTypes } from '../../../form/form'
 import { icons } from '../../../icons/icons'
 import { IAuthContext, AuthContext } from '../../../context/authContext'
-import { IPortfolioContext, PortfolioContext, TPortfolioActionTypes } from '../../../context/portfolioContext'
 import { IPortfolioItem } from '../../../interfaces/interfaces'
 import ItemForm from '../ItemForm/ItemForm'
+import Loading from '../../UI/Loading/Loading'
 
 const css = require('./AddItem.module.css')
 
@@ -34,11 +34,16 @@ const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
         setShowForm(true)
     }
 
+    console.log(sending)
+
     return (
-        <div className={css.AddItemContainer}>
-            <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
-            <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} sending={sending}/>
-        </div>
+        <>
+            <div className={css.AddItemContainer}>
+                <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
+                <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} sending={sending}/>
+            </div>
+            <Loading show={sending} transparent fadeout /> 
+        </>
     )
 }
 

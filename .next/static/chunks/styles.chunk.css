@@ -1,132 +1,3 @@
-.AuthFormContainer___2vfy7,
-.AuthForm___1YkBf,
-.IconContainer___3sYgW,
-.SubmitButton___2M9gB {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Container___jNmLd,
-.AuthForm___1YkBf,
-.AuthFormContainer___2vfy7 {
-    flex-flow: column;
-}
-
-.AuthFormContainer___2vfy7 {
-    position: relative;
-    font-family: Ubuntu Bold;
-    text-transform: uppercase;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 30px 5px gainsboro;
-}
-
-.FormTitle___32r4e {
-    margin: var(--item-margin);
-}
-
-.InputContainer___3sEIi {
-    margin: var(--item-margin);
-    position: relative;
-    border: 2px solid gainsboro;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 2px;
-    transition: all var(--transition-time);
-}
-
-.InputContainer___3sEIi.focus___XaTcu {
-    box-shadow: 0px 0px 10px 2px gainsboro;
-}
-
-.EmailInput___1IERV,
-.PasswordInput___8Y41p {
-    font-size: .8rem;
-    padding: 10px var(--input-icon-width);
-    color: black;
-    font-family: Ubuntu;
-    border: none;
-}
-
-.Span___lakW3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0px;
-    background: var(--main-color);
-    transition: all var(--transition-time);
-}
-
-.Span___lakW3.focus___XaTcu {
-    width: 100%;
-}
-
-.EmailInput___1IERV:focus,
-.PasswordInput___8Y41p:focus {
-    outline: none;
-}
-
-.EmailInput___1IERV::placeholder,
-.PasswordInput___8Y41p::placeholder {
-    color: lightgray;
-}
-
-.IconContainer___3sYgW {
-    position: absolute;
-    width: var(--input-icon-width);
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.InputIcon___fxg8C {
-    color: lightgray;
-    transition: all var(--transition-time);
-}
-
-.InputIcon___fxg8C.focus___XaTcu {
-    color: royalblue;
-}
-
-.SubmitButton___2M9gB {
-    margin-top: var(--item-margin);
-    padding: 5px 10px;
-    flex-flow: row;
-    border: 2px solid gainsboro;
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: 1;
-    transition: all var(--transition-time);
-}
-
-.SubmitButton___2M9gB svg {
-    color: lightgray;
-    margin-left: 10px;
-    transition: all var(--transition-time);
-    transform: translate3d(0, 0, 0);
-}
-
-.SubmitButton___2M9gB:hover {
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 10px 2px gainsboro;
-}
-
-/* .SubmitButton:hover svg {
-    transform: scale(1.2) translate3d(0, 0, 0);
-} */
-
-.ErrorText___2C0br {
-    position: relative;
-    top: -100%;
-    color: red;
-}
-
-@keyframes fadein___xaCDG {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 .Icons___2O8Ah {
     display: flex;
     justify-content: center;
@@ -587,6 +458,30 @@
         font-size: 2rem;
     }
 }
+.Content___K0TO7 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    background: var(--content-bg-color);
+    overflow: hidden;
+}
+
+.Title___122BB {
+    padding-top: 20px;
+    font-family: "Ubuntu Bold";
+    letter-spacing: .1em;
+    padding-right: .1em;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: dimgray;
+    transform: scale(1, 1.1);
+    text-shadow: 1px 1px 10px gainsboro;
+}
 .Footer___ST3DE {
   position: absolute;
   box-sizing: border-box;
@@ -654,29 +549,146 @@
 }
 
 
-.Content___K0TO7 {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
+.AuthFormContainer___2vfy7,
+.AuthForm___1YkBf,
+.IconContainer___3sYgW,
+.SubmitButton___2M9gB {
     display: flex;
-    flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
-    background: var(--content-bg-color);
-    overflow: hidden;
 }
 
-.Title___122BB {
-    padding-top: 20px;
-    font-family: "Ubuntu Bold";
-    letter-spacing: .1em;
-    padding-right: .1em;
-    font-size: 1.5rem;
+.Container___jNmLd,
+.AuthForm___1YkBf,
+.AuthFormContainer___2vfy7 {
+    flex-flow: column;
+}
+
+.AuthFormContainer___2vfy7 {
+    position: relative;
+    font-family: Ubuntu Bold;
     text-transform: uppercase;
-    color: dimgray;
-    transform: scale(1, 1.1);
-    text-shadow: 1px 1px 10px gainsboro;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 30px 5px gainsboro;
+}
+
+.FormTitle___32r4e {
+    margin: var(--item-margin);
+}
+
+.InputContainer___3sEIi {
+    margin: var(--item-margin);
+    position: relative;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2px;
+    transition: all var(--transition-time);
+}
+
+.InputContainer___3sEIi.focus___XaTcu {
+    box-shadow: 0px 0px 10px 2px gainsboro;
+}
+
+.EmailInput___1IERV,
+.PasswordInput___8Y41p {
+    font-size: .8rem;
+    padding: 10px var(--input-icon-width);
+    color: black;
+    font-family: Ubuntu;
+    border: none;
+}
+
+.Span___lakW3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0px;
+    background: var(--main-color);
+    transition: all var(--transition-time);
+}
+
+.Span___lakW3.focus___XaTcu {
+    width: 100%;
+}
+
+.EmailInput___1IERV:focus,
+.PasswordInput___8Y41p:focus {
+    outline: none;
+}
+
+.EmailInput___1IERV::placeholder,
+.PasswordInput___8Y41p::placeholder {
+    color: lightgray;
+}
+
+.IconContainer___3sYgW {
+    position: absolute;
+    width: var(--input-icon-width);
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.InputIcon___fxg8C {
+    color: lightgray;
+    transition: all var(--transition-time);
+}
+
+.InputIcon___fxg8C.focus___XaTcu {
+    color: royalblue;
+}
+
+.SubmitButton___2M9gB {
+    margin-top: var(--item-margin);
+    padding: 5px 10px;
+    flex-flow: row;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: all var(--transition-time);
+}
+
+.SubmitButton___2M9gB svg {
+    color: lightgray;
+    margin-left: 10px;
+    transition: all var(--transition-time);
+    transform: translate3d(0, 0, 0);
+}
+
+.SubmitButton___2M9gB:hover {
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 10px 2px gainsboro;
+}
+
+/* .SubmitButton:hover svg {
+    transform: scale(1.2) translate3d(0, 0, 0);
+} */
+
+.ErrorText___2C0br {
+    position: relative;
+    top: -100%;
+    color: red;
+}
+
+@keyframes fadein___xaCDG {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.ItemsContainer___1jQY5,
+.ItemContainer___2B_CX,
+.ItemMainContent___3u7q7,
+.ItemHoverContent___13SmG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ItemsContainer___1jQY5 {
+    flex-flow: column;
 }
 .CubeContainer___xRbCz {
     margin: 20px auto;
@@ -765,18 +777,6 @@
       opacity: 0; 
     }
   }
-.ItemsContainer___1jQY5,
-.ItemContainer___2B_CX,
-.ItemMainContent___3u7q7,
-.ItemHoverContent___13SmG {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ItemsContainer___1jQY5 {
-    flex-flow: column;
-}
 .ItemForm___1-2U4 {
     display: flex;
     flex-flow: column;
@@ -942,6 +942,133 @@
     z-index: 10;
     animation: fadein___fEqy- .3s;
 }
+.Loading___3aBwe {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: snow;
+    color: royalblue;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition:  visibility 0s .5s, top .5s, opacity .5s;
+}
+
+.Loading___3aBwe.transparent___WzXK7 {
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.Loading___3aBwe.fadeout___2ri54 {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.Loading___3aBwe.slideout___94crm {
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
+}
+
+@keyframes fadein___DKzOy {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+.Loading___3Hyau {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: snow;
+    color: royalblue;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition:  visibility 0s .5s, top .5s;
+}
+
+.Loading___3Hyau.out___2_Bat {
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url('/fonts/Ubuntu-Regular.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    src: url('/fonts/Ubuntu-Light.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Bold";
+    src: url('/fonts/Ubuntu-Bold.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Medium";
+    src: url('/fonts/Ubuntu-Medium.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+:root {
+    --background-color: snow;
+    --content-bg-color: whitesmoke;
+    --title-color: linen;
+    --main-color: royalblue;
+    --text-color: black;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
+    background: var(--background-color);
+    scroll-behavior: smooth;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--background-color);
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: gainsboro;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 0;
+}
 .AddItemContainer___JJqxo,
 .AddItemButton___3rGlW,
 .ItemsContainer___iMVRl,
@@ -1037,20 +1164,18 @@
 .ItemContainer___3EW2v:hover .ItemHoverContent___2FyZP {
     z-index: 20;
     opacity: 1;
-    left: 0;
 }
 
 .ItemHoverContent___2FyZP {
     font-family: Ubuntu;
     position: absolute;
     top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
     z-index: -1;
     opacity: 0;
     /* transition: all var(--transition-time); */
-    transition: all .3s;
+    transition: all .1s;
     background: white;
 }
 
@@ -1059,7 +1184,7 @@
     height: 100%;
     width: 100%;
     cursor: pointer;
-    color: black;
+    color: rgb(44, 76, 170);
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -1069,7 +1194,8 @@
 }
 
 .ItemHoverContent___2FyZP div:hover {
-    background: gainsboro;
+    background: whitesmoke;
+    color: royalblue;
 }
 
 .ItemHoverContent___2FyZP p {
@@ -1204,19 +1330,6 @@
     margin: 10px 0;
 }
 
-.Loading___3SvGT {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(245, 245, 245, 0.7);
-    z-index: 10;
-    animation: fadein___2NOMh .3s;
-}
 .Main___151kN,
 .Loading___3rzPY {
     display: flex;
@@ -1249,97 +1362,6 @@
 @keyframes fadein___4IAf2 {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-.Loading___3Hyau {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: snow;
-    color: royalblue;
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
-    transition:  visibility 0s .5s, top .5s;
-}
-
-.Loading___3Hyau.out___2_Bat {
-    visibility: hidden;
-    top: -100vh;
-    /* display: none; */
-}
-@font-face {
-    font-family: "Ubuntu";
-    src: url('/fonts/Ubuntu-Regular.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Light";
-    src: url('/fonts/Ubuntu-Light.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Bold";
-    src: url('/fonts/Ubuntu-Bold.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Medium";
-    src: url('/fonts/Ubuntu-Medium.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-:root {
-    --background-color: snow;
-    --content-bg-color: whitesmoke;
-    --title-color: linen;
-    --main-color: royalblue;
-    --text-color: black;
-}
-
-body {
-    box-sizing: border-box;
-    font-family: "Ubuntu Light", 'Courier New', Courier, monospace;
-    background: var(--background-color);
-    scroll-behavior: smooth;
-}
-
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 0;
-    margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--main-color) var(--background-color);
-}
-
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: gainsboro;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    border-radius: 0;
 }
 .Main___3w2yc {
     width: 100%;

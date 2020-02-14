@@ -5,6 +5,7 @@ import ItemForm from '../ItemForm/ItemForm'
 import { IPortfolioItem } from '../../../interfaces/interfaces'
 import { IAuthContext, AuthContext } from '../../../context/authContext'
 import { IPortfolioContext, PortfolioContext, TPortfolioActionTypes } from '../../../context/portfolioContext'
+import Loading from '../../UI/Loading/Loading'
 
 const css = require('./EditItem.module.css')
 
@@ -17,7 +18,6 @@ interface IEditItem {
 const EditItem: React.FunctionComponent<IEditItem> = ({ show, item, close }): JSX.Element => {
     const [sending, setSending] = React.useState<boolean>(false)
     const authContext: IAuthContext = React.useContext(AuthContext)
-    const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
 
     const editItem = (item: IPortfolioItem) => {
         if (authContext.state.signedIn) {
@@ -40,9 +40,12 @@ const EditItem: React.FunctionComponent<IEditItem> = ({ show, item, close }): JS
     ].join(' ')
 
     return (
-        <div className={containerStyles}>
-            <ItemForm type={formTypes.EDIT} show={show} sending={sending} item={item} close={close} add={editItem} />
-        </div>
+        <>
+            <div className={containerStyles}>
+                <ItemForm type={formTypes.EDIT} show={show} sending={sending} item={item} close={close} add={editItem} />
+            </div>
+            <Loading show={sending} transparent fadeout />
+        </>
     )
 }
 

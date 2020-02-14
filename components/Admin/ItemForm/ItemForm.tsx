@@ -76,7 +76,8 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
     }
 
     const addHandler = () => {
-        const selectedLanguages = Object.keys(form.language.options).filter(option => form.language.options[option].selected)
+        let selectedLanguages = Object.keys(form.language.options).filter(option => form.language.options[option].selected)
+        if (selectedLanguages.length === 0) selectedLanguages = ['React']
 
         const newItem: IPortfolioItem = {
             title: form.title.value,

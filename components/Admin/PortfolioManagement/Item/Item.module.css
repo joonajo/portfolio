@@ -33,20 +33,18 @@
 .ItemContainer:hover .ItemHoverContent {
     z-index: 20;
     opacity: 1;
-    left: 0;
 }
 
 .ItemHoverContent {
     font-family: Ubuntu;
     position: absolute;
     top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
     z-index: -1;
     opacity: 0;
     /* transition: all var(--transition-time); */
-    transition: all .3s;
+    transition: all .1s;
     background: white;
 }
 
@@ -55,7 +53,7 @@
     height: 100%;
     width: 100%;
     cursor: pointer;
-    color: black;
+    color: rgb(44, 76, 170);
     text-align: center;
     display: flex;
     flex-flow: column;
@@ -65,7 +63,8 @@
 }
 
 .ItemHoverContent div:hover {
-    background: gainsboro;
+    background: whitesmoke;
+    color: royalblue;
 }
 
 .ItemHoverContent p {
