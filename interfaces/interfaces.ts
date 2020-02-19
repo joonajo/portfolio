@@ -9,4 +9,5 @@ export interface IPortfolioItem {
     gif_src: string
     desktop: boolean
     mobile: boolean
+    order: number
 }

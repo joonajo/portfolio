@@ -169,7 +169,6 @@ const AddPortfolioItem = () => {
     setShowForm(true);
   };
 
-  console.log(sending);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, __jsx("div", {
     className: css.AddItemContainer
   }, __jsx("span", {
@@ -429,7 +428,8 @@ const ItemForm = ({
       preview_src: form.preview_src.value,
       gif_src: form.gif_src.value,
       desktop: form.desktop.options.Yes.selected,
-      mobile: form.mobile.options.Yes.selected
+      mobile: form.mobile.options.Yes.selected,
+      order: form.order.value
     };
     add(newItem);
   };
@@ -750,7 +750,6 @@ const Loading = ({
   slideout
 }) => {
   const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
-  console.log(show, fadeout);
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -1386,10 +1385,13 @@ const initialPortfolioState = {
   items: []
 };
 
+const sortItems = (itemA, itemB) => itemA.order - itemB.order;
+
 const setItems = (state, action) => {
   if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  const sortedItems = [...action.payload].sort(sortItems);
   return _objectSpread({}, state, {
-    items: action.payload
+    items: sortedItems
   });
 };
 
@@ -1599,6 +1601,13 @@ const initialForm = {
       }
     },
     require: true
+  },
+  order: {
+    id: 'order',
+    elemType: 'input',
+    type: 'number',
+    placeholder: 'order in the list',
+    value: ''
   }
 };
 const updateEditForm = item => {

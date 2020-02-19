@@ -67,10 +67,7 @@ const ExpandedVideo = ({
 
     switch (event.key) {
       case 'Escape':
-        setUnmount(true);
-        setTimeout(() => {
-          close();
-        }, 5000);
+        closeHandler();
         break;
 
       default:

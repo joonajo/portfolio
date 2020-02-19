@@ -572,7 +572,6 @@ const Loading = ({
   slideout
 }) => {
   const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
-  console.log(show, fadeout);
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -849,10 +848,13 @@ const initialPortfolioState = {
   items: []
 };
 
+const sortItems = (itemA, itemB) => itemA.order - itemB.order;
+
 const setItems = (state, action) => {
   if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  const sortedItems = [...action.payload].sort(sortItems);
   return _objectSpread({}, state, {
-    items: action.payload
+    items: sortedItems
   });
 };
 

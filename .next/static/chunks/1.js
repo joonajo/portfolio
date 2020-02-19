@@ -53,10 +53,7 @@ var ExpandedVideo = function ExpandedVideo(_ref) {
 
     switch (event.key) {
       case 'Escape':
-        setUnmount(true);
-        setTimeout(function () {
-          close();
-        }, 5000);
+        closeHandler();
         break;
 
       default:

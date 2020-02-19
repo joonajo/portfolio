@@ -34,8 +34,6 @@ const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
         setShowForm(true)
     }
 
-    console.log(sending)
-
     return (
         <>
             <div className={css.AddItemContainer}>

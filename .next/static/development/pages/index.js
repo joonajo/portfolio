@@ -340,7 +340,6 @@ var Loading = function Loading(_ref) {
       fadeout = _ref.fadeout,
       slideout = _ref.slideout;
   var styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
-  console.log(show, fadeout);
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -592,10 +591,17 @@ var initialPortfolioState = {
   items: []
 };
 
+var sortItems = function sortItems(itemA, itemB) {
+  return itemA.order - itemB.order;
+};
+
 var setItems = function setItems(state, action) {
   if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+
+  var sortedItems = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_7__["default"])(action.payload).sort(sortItems);
+
   return _objectSpread({}, state, {
-    items: action.payload
+    items: sortedItems
   });
 };
 

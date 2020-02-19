@@ -31,10 +31,7 @@ const ExpandedVideo: React.FunctionComponent<IExpandedVideo> = ({ video_src, clo
         console.log(event.key)
         switch (event.key) {
             case 'Escape':
-                setUnmount(true)
-                setTimeout(() => {
-                    close()
-                }, 5000)
+                closeHandler()
                 break;
 
             default:

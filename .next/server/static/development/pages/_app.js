@@ -249,10 +249,13 @@ const initialPortfolioState = {
   items: []
 };
 
+const sortItems = (itemA, itemB) => itemA.order - itemB.order;
+
 const setItems = (state, action) => {
   if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+  const sortedItems = [...action.payload].sort(sortItems);
   return _objectSpread({}, state, {
-    items: action.payload
+    items: sortedItems
   });
 };
 

@@ -1517,7 +1517,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_8___default.a {
       name: "google-site-verification",
       content: "1gHGqepFHNX3VpXM7M5wCVG8fVrlDBZjL3ZjIUmIHjE"
     }), __jsx("link", {
-      href: "https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900&display=swap",
+      href: "https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,600,700,900&display=swap",
       rel: "stylesheet"
     })), __jsx("body", null, __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], null), __jsx(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], null)));
   }

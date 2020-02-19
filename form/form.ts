@@ -16,6 +16,7 @@ export interface IForm {
     gif_src: any
     desktop: any
     mobile: any
+    order: any
 }
 
 export const initialForm: IForm = {
@@ -123,6 +124,13 @@ export const initialForm: IForm = {
             },
         }, 
         require: true,
+    },
+    order : {
+        id: 'order',
+        elemType: 'input',
+        type: 'number',
+        placeholder: 'order in the list',
+        value: '',
     }
 }
 

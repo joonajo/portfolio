@@ -31,12 +31,16 @@ export const initialPortfolioState: TPortfolioState = {
     items: []
 }
 
+const sortItems = (itemA: IPortfolioItem, itemB: IPortfolioItem) => ( itemA.order - itemB.order )
+
 const setItems = (state: TPortfolioState, action: TPortfolioActions): TPortfolioState => {
     if (action.type !== TPortfolioActionTypes.SET_ITEMS) return { ...state }
 
+    const sortedItems: IPortfolioItem[] = [...action.payload].sort(sortItems)
+
     return {
         ...state,
-        items: action.payload
+        items: sortedItems,
     }
 }
 

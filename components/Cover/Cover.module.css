@@ -75,7 +75,6 @@
 
 .Description {
     color: var(--background-color);
-    font-family: "Ubuntu Medium";
     margin-top: 1em;
     padding: 10px 20px;
     box-sizing: border-box;
@@ -161,8 +160,7 @@
     position: relative;
     margin: auto;
     color: transparent;
-    font-family: 'Ubuntu Bold', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: -0.02em;
     line-height: 1.03em;
     overflow: hidden;

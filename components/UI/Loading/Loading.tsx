@@ -18,8 +18,6 @@ const Loading: React.FunctionComponent<ILoadingComponent> = ({ show, transparent
         (!show && slideout) && css.slideout,
     ].join(' ')
 
-    console.log(show, fadeout)
-
     return (
         <div className={styles}>
             <CubeSpinner />

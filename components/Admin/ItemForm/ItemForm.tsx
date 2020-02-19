@@ -90,6 +90,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
             gif_src: form.gif_src.value,
             desktop: form.desktop.options.Yes.selected,
             mobile: form.mobile.options.Yes.selected,
+            order: form.order.value,
         }
         add(newItem)
     }

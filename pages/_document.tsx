@@ -25,7 +25,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="" />
           <meta name="google-site-verification" content="1gHGqepFHNX3VpXM7M5wCVG8fVrlDBZjL3ZjIUmIHjE" />
-          <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700,900&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,600,700,900&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

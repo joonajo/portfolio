@@ -68,7 +68,6 @@ var AddPortfolioItem = function AddPortfolioItem() {
     setShowForm(true);
   };
 
-  console.log(sending);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, __jsx("div", {
     className: css.AddItemContainer
   }, __jsx("span", {
@@ -298,7 +297,8 @@ var ItemForm = function ItemForm(_ref) {
       preview_src: form.preview_src.value,
       gif_src: form.gif_src.value,
       desktop: form.desktop.options.Yes.selected,
-      mobile: form.mobile.options.Yes.selected
+      mobile: form.mobile.options.Yes.selected,
+      order: form.order.value
     };
     add(newItem);
   };
@@ -588,7 +588,6 @@ var Loading = function Loading(_ref) {
       fadeout = _ref.fadeout,
       slideout = _ref.slideout;
   var styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
-  console.log(show, fadeout);
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -1212,10 +1211,17 @@ var initialPortfolioState = {
   items: []
 };
 
+var sortItems = function sortItems(itemA, itemB) {
+  return itemA.order - itemB.order;
+};
+
 var setItems = function setItems(state, action) {
   if (action.type !== TPortfolioActionTypes.SET_ITEMS) return _objectSpread({}, state);
+
+  var sortedItems = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_7__["default"])(action.payload).sort(sortItems);
+
   return _objectSpread({}, state, {
-    items: action.payload
+    items: sortedItems
   });
 };
 
@@ -1438,6 +1444,13 @@ var initialForm = {
       }
     },
     require: true
+  },
+  order: {
+    id: 'order',
+    elemType: 'input',
+    type: 'number',
+    placeholder: 'order in the list',
+    value: ''
   }
 };
 var updateEditForm = function updateEditForm(item) {
@@ -19446,7 +19459,7 @@ var AdminPage = function AdminPage() {
 
 /***/ }),
 
-/***/ 12:
+/***/ 1:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fadmin&absolutePagePath=C%3A%5CUsers%5Cjouna%5Ccode%5Cportfolio%5Cpages%5Cadmin%5Cindex.tsx ***!
   \*****************************************************************************************************************************************/
@@ -19469,5 +19482,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[12,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=admin.js.map
