@@ -1,264 +1,124 @@
 {
   "../Item/Item": [
     {
-      "id": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
-      "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 4,
+      "id": "",
       "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": "./components/Cover/Cover.module.css",
-      "name": "./components/Cover/Cover.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Content/Content.module.css",
-      "name": "./components/Content/Content.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Footer/Footer.module.css",
-      "name": "./components/UI/Footer/Footer.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Toolbar/Toolbar.module.css",
-      "name": "./components/UI/Toolbar/Toolbar.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 8,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Layout/Layout.module.css",
-      "name": "./components/UI/Layout/Layout.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Spinner/Spinner.module.css",
-      "name": "./components/UI/Spinner/Spinner.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/UI/Loading/Loading.module.css",
-      "name": "./components/UI/Loading/Loading.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Home/Home.module.css",
-      "name": "./containers/Home/Home.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/index/index.module.css",
-      "name": "./pages/index/index.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Auth/Auth.module.css",
+      "id": "/JgI",
       "name": "./containers/Auth/Auth.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": 14,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "id": "57wD",
+      "name": "./components/UI/Footer/Footer.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": "./components/Admin/PortfolioManagement/Portfolio.module.css",
-      "name": "./components/Admin/PortfolioManagement/Portfolio.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 15,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Admin/ItemForm/ItemForm.module.css",
-      "name": "./components/Admin/ItemForm/ItemForm.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 16,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Admin/AddNewItem/AddItem.module.css",
-      "name": "./components/Admin/AddNewItem/AddItem.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 17,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Admin/EditItem/EditItem.module.css",
-      "name": "./components/Admin/EditItem/EditItem.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 18,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Admin/PortfolioManagement/Item/Item.module.css",
-      "name": "./components/Admin/PortfolioManagement/Item/Item.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 19,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./containers/Admin/Admin.module.css",
-      "name": "./containers/Admin/Admin.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 20,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./pages/admin/index.module.css",
-      "name": "./pages/admin/index.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 21,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/ExpandedVideo/ExpandedVideo.module.css",
-      "name": "./components/ExpandedVideo/ExpandedVideo.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 12,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": "./components/Item/Item.module.css",
+      "id": "HA4/",
       "name": "./components/Item/Item.module.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": 13,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
+      "id": "MBNL",
+      "name": "./containers/Admin/Admin.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": "./components/ExpandedVideo/ExpandedVideo.tsx",
-      "name": "./components/ExpandedVideo/ExpandedVideo.tsx",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
+      "id": "Pr7D",
+      "name": "./components/UI/Icons/MediaIcons/MediaIcons.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
     },
     {
-      "id": "./components/Item/Item.tsx",
+      "id": "U05f",
+      "name": "./components/Admin/ItemForm/ItemForm.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "XOL4",
+      "name": "./components/Cover/Cover.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "Y215",
+      "name": "./components/UI/Layout/Layout.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "bHUr",
+      "name": "./containers/Home/Home.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "eLKp",
+      "name": "./components/UI/Toolbar/Toolbar.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "hmKf",
+      "name": "./components/Admin/EditItem/EditItem.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "kQio",
+      "name": "./pages/index/index.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "kgzG",
+      "name": "./components/Admin/PortfolioManagement/Portfolio.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "l7wU",
+      "name": "./components/Content/Content.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "nM6+",
+      "name": "./components/ExpandedVideo/ExpandedVideo.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "rUxq",
+      "name": "./pages/admin/index.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "s9Tc",
+      "name": "./components/Admin/AddNewItem/AddItem.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "wR/g",
+      "name": "./components/Admin/PortfolioManagement/Item/Item.module.css",
+      "file": "static/chunks/styles.cde9610bcc2764c63fae.js",
+      "publicPath": "static/chunks/styles.cde9610bcc2764c63fae.js"
+    },
+    {
+      "id": "TKBz",
       "name": "./components/Item/Item.tsx",
-      "file": "static/chunks/1.js",
-      "publicPath": "static/chunks/1.js"
-    }
-  ],
-  "./dev/noop": [
-    {
-      "id": "./node_modules/next/dist/client/dev/noop.js",
-      "name": "./node_modules/next/dist/client/dev/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
+      "file": "static/chunks/9.c2203cc34ca6778c43d4.js",
+      "publicPath": "static/chunks/9.c2203cc34ca6778c43d4.js"
     }
   ]
 }

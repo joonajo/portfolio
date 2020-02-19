@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { portfolioItems } from '../../portfolio/portfolio'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import { IPortfolioContext, PortfolioContext, TPortfolioState } from '../../context/portfolioContext'
 

@@ -1,0 +1,379 @@
+{
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!pages/admin/index.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!pages/index/index.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!containers/Admin/Admin.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!containers/Home/Home.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!containers/Auth/Auth.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Content/Content.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Loading/Loading.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Cover/Cover.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Admin/PortfolioManagement/Portfolio.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Layout/Layout.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Item/Item.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Admin/AddNewItem/AddItem.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Footer/Footer.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Spinner/Spinner.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Admin/PortfolioManagement/Item/Item.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Toolbar/Toolbar.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/UI/Icons/MediaIcons/MediaIcons.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/ExpandedVideo/ExpandedVideo.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Admin/ItemForm/ItemForm.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "extract-css-chunks-webpack-plugin node_modules/css-loader/index.js??ref--7-1!components/Admin/EditItem/EditItem.module.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "extract-css-chunks-webpack-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "multi node_modules/next-offline/register-sw-compiled.js .\\node_modules\\next\\dist\\client\\next.js": 0
+    },
+    "usedIds": {
+      "0": 0
+    }
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "styles": 2,
+      "static/runtime/main.js": 3,
+      "static/runtime/polyfills.js": 4,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\_app.js": 5,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\_error.js": 6,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\admin.js": 7,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\index.js": 8
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/Content/Content.tsx ../Item/Item": 2,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/Content/Content.tsx ../Item/Item": 9
+    },
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

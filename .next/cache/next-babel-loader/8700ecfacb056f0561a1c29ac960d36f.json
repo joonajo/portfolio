@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport * as React from 'react';\nimport Admin from '../../containers/Admin/Admin';\n\nconst css = require('./index.module.css');\n\nconst AdminPage = () => {\n  return __jsx(Admin, null);\n};\n\nexport default AdminPage;","map":null,"metadata":{},"sourceType":"module"}

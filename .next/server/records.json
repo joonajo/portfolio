@@ -1,0 +1,42 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/_app.tsx": 0,
+      "multi private-next-pages/_document.tsx": 1,
+      "multi private-next-pages/admin/index.tsx": 2,
+      "multi private-next-pages/index/index.tsx": 3,
+      "multi next/dist/pages/_error": 4
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    }
+  },
+  "chunks": {
+    "byName": {
+      "init-server.js": 0,
+      "on-error-server.js": 1,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\_app.js": 2,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\_document.js": 3,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\_error.js": 4,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\admin.js": 5,
+      "static\\BCwxc0XBqeBycERkjhFD5\\pages\\index.js": 6
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!components/Content/Content.tsx ../Item/Item": 7
+    },
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+}
