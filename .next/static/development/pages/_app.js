@@ -189,6 +189,7 @@ var addItem = function addItem(state, action) {
   var updatedItems = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_7__["default"])(state.items);
 
   updatedItems.push(action.payload);
+  updatedItems.sort(sortItems);
   return _objectSpread({}, state, {
     items: updatedItems
   });

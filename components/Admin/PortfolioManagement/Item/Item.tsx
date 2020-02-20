@@ -33,31 +33,28 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteIt
                 <div className={css.ItemHoverContent}>
                     <div onClick={editItemHandler}> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </div>
                     <div onClick={deleteHandler}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </div>
+                    { confirmDelete && <ConfirmDelete confirm={() => deleteItem(item.title)} cancel={() => setConfirmDelete(false)} /> }
                 </div>  
             </div>
             <EditItem show={editItem} item={item} close={editItemHandler} />
-            { confirmDelete && <ConfirmDelete confirm={() => deleteItem(item.title)} cancel={() => setConfirmDelete(false)} /> }
         </>
     )
 }
 
 interface IConfirmDeleteComponent {
-    confirm: () => void
-    cancel: () => void
+    confirm(): void
+    cancel(): void
 }
 
 const ConfirmDelete: React.FunctionComponent<IConfirmDeleteComponent> = ({ confirm, cancel }): JSX.Element => {
     return (
-        <>
-            <div className={css.ConfirmDeleteContainer}>
-                <h2 className={css.ConfirmDeleteText}>Confirm Delete</h2>
-                <div className={css.ConfirmDeleteButtons}>
-                    <p onClick={confirm}>Delete</p>
-                    <p onClick={cancel}>Cancel</p>
-                </div>
+        <div className={css.ConfirmDeleteContainer}>
+            <h2 className={css.ConfirmDeleteText}>Confirm Delete</h2>
+            <div className={css.ConfirmDeleteButtons}>
+                <p onClick={confirm}>Delete</p>
+                <p onClick={cancel}>Cancel</p>
             </div>
-            <div className={css.ConfirmBackdrop}></div>
-        </>
+        </div>
     )
 }
 

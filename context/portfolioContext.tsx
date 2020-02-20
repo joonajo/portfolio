@@ -49,6 +49,7 @@ const addItem = (state: TPortfolioState, action: TPortfolioActions): TPortfolioS
 
     const updatedItems: IPortfolioItem[] = [...state.items]
     updatedItems.push(action.payload)
+    updatedItems.sort(sortItems)
 
     return {
         ...state,

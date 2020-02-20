@@ -10,25 +10,14 @@ import Loading from '../../UI/Loading/Loading'
 
 const css = require('./AddItem.module.css')
 
-const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
-    const [showForm, setShowForm] = React.useState<boolean>(false)
-    const [sending, setSending] = React.useState<boolean>(false)
-    const authContext: IAuthContext = React.useContext(AuthContext)
+type TProps = {
+    showForm: boolean
+    sending: boolean
+    add(item: IPortfolioItem): void
+    setShowForm(arg: boolean): void
+}
 
-    const addItemToDatabase = (item: IPortfolioItem) => {
-        if (authContext.state.signedIn) {
-            setSending(true)
-            const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items/'
-            const title: string = item.title + ".json"
-            const tokenParam: string = `?auth=${authContext.state.idToken}`
-    
-            fetch(baseURL + title + tokenParam, { method: 'put', body: JSON.stringify(item) }).then(response => response.json()
-                .then(data => {
-                    setSending(false)
-                    setShowForm(false)
-                }))
-        }
-    }
+const AddPortfolioItem: React.FunctionComponent<TProps> = ({ showForm, setShowForm, add, sending }): JSX.Element => {
 
     const clickHandler = () => {
         setShowForm(true)
@@ -38,7 +27,7 @@ const AddPortfolioItem: React.FunctionComponent = (): JSX.Element => {
         <>
             <div className={css.AddItemContainer}>
                 <span className={css.AddItemButton} onClick={clickHandler}>add item <FontAwesomeIcon icon={icons.faPlus} className={css.AddItemIcon} /></span>
-                <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={addItemToDatabase} sending={sending}/>
+                <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={add} sending={sending}/>
             </div>
             <Loading show={sending} transparent fadeout /> 
         </>

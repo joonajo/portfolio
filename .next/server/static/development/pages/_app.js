@@ -263,6 +263,7 @@ const addItem = (state, action) => {
   if (action.type !== TPortfolioActionTypes.ADD_ITEM) return _objectSpread({}, state);
   const updatedItems = [...state.items];
   updatedItems.push(action.payload);
+  updatedItems.sort(sortItems);
   return _objectSpread({}, state, {
     items: updatedItems
   });

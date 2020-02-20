@@ -1205,69 +1205,15 @@ body {
 }
 
 .ConfirmDeleteContainer___YaWJz {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background: snow;
-    z-index: 10;
-    animation: fadein___DaYkb .5s, slidedown___vXVNH .3s ease-out;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0px 0px 40px 5px dimgray;
-    text-align: center;
-}
-
-@keyframes slidedown___vXVNH {
-    0% { 
-        top: -100vh;
-    }
-    90% {
-        top: 53%;
-    }
-    100% {
-        top: 50%;
-    }
-}
-
-.ConfirmDeleteText___1Vdq2 {
-    cursor: default;
-    margin-bottom: 20px;
-}
-
-.ConfirmDeleteButtons___1ck0U {
-    display: flex;
-    flex-flow: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: fleX;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
-}
-
-.ConfirmDeleteButtons___1ck0U p {
-    font-weight: 600;
-    margin: 10px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    border: 1px solid gainsboro;
-    color: dimgray;
-    transition: all var(--transition-time);
-}
-
-.ConfirmDeleteButtons___1ck0U p:hover {
-    color: royalblue;
-}
-
-.ConfirmBackdrop___3EWYZ {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, .5);
-    transition: opacity var(--transition-time);
-    z-index: 5;
-    opacity: 1;
 }
 
 @keyframes fadein___DaYkb {
