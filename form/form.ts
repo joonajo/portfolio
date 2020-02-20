@@ -206,6 +206,10 @@ export const updateEditForm = (item: IPortfolioItem): IForm => {
                     selected: !item.mobile
                 }
             }
+        },
+        order: {
+            ...initialForm.order,
+            value: item.order
         }
     }    
 

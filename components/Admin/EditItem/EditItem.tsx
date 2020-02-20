@@ -29,7 +29,9 @@ const EditItem: React.FunctionComponent<IEditItem> = ({ show, item, close }): JS
             fetch(baseURL + title + tokenParam, { method: 'put', body: JSON.stringify(item) }).then(response => response.json()
                 .then(data => {
                     setSending(false)
-                }))
+                })).catch(e => {
+                    setSending(false)
+                })
             close()
         }
     }

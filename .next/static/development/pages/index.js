@@ -338,8 +338,9 @@ var Loading = function Loading(_ref) {
   var show = _ref.show,
       transparent = _ref.transparent,
       fadeout = _ref.fadeout,
-      slideout = _ref.slideout;
-  var styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+      slideout = _ref.slideout,
+      fullscreen = _ref.fullscreen;
+  var styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, fullscreen ? _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fullscreen : _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.notfull, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -510,7 +511,8 @@ var Home = function Home() {
   }, [portfolioState]);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_7__["default"], {
     show: !ready,
-    slideout: true
+    slideout: true,
+    fullscreen: true
   }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_3__["default"], {
     show: ready,
     load: function load() {

@@ -1,10 +1,10 @@
 import * as React from 'react'
 
 import { IPortfolioItem } from '../../../interfaces/interfaces'
-import { CubeSpinner } from '../../UI/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icons } from '../../../icons/icons'
 import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form'
+import Loading from '../../UI/Loading/Loading'
 
 const css = require('./ItemForm.module.css')
 
@@ -21,7 +21,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
     const [form, setForm] = React.useState<IForm>(initialForm)
 
     React.useEffect(() => {
-        if (item) {
+        if (!!item) {
             // update each field manually cus we bad
             const updatedForm: IForm = updateEditForm(item)
             setForm(updatedForm)     
@@ -108,11 +108,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({ show, sending, item, clo
     return (
         <>
             <form className={itemFormStyles}>
-                { sending && 
-                    <div className={css.Loading}>
-                        <CubeSpinner />
-                    </div>
-                }
+                <Loading show={sending} transparent fadeout />
                 <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes} onClick={close} />
                 { Object.keys(form).map((element: string) => {
                     return (

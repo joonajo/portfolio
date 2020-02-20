@@ -234,7 +234,9 @@ const EditItem = ({
         body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(item)
       }).then(response => response.json().then(data => {
         setSending(false);
-      }));
+      })).catch(e => {
+        setSending(false);
+      });
       close();
     }
   };
@@ -309,11 +311,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../UI/Spinner/Spinner */ "./components/UI/Spinner/Spinner.tsx");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
-/* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _icons_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../icons/icons */ "./icons/icons.tsx");
+/* harmony import */ var _form_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../form/form */ "./form/form.ts");
+/* harmony import */ var _UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../UI/Loading/Loading */ "./components/UI/Loading/Loading.tsx");
 
 
 
@@ -343,11 +345,11 @@ const ItemForm = ({
   add,
   type
 }) => {
-  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](_form_form__WEBPACK_IMPORTED_MODULE_11__["initialForm"]);
+  const [form, setForm] = react__WEBPACK_IMPORTED_MODULE_7__["useState"](_form_form__WEBPACK_IMPORTED_MODULE_10__["initialForm"]);
   react__WEBPACK_IMPORTED_MODULE_7__["useEffect"](() => {
-    if (item) {
+    if (!!item) {
       // update each field manually cus we bad
-      const updatedForm = Object(_form_form__WEBPACK_IMPORTED_MODULE_11__["updateEditForm"])(item);
+      const updatedForm = Object(_form_form__WEBPACK_IMPORTED_MODULE_10__["updateEditForm"])(item);
       setForm(updatedForm);
     }
   }, [item]);
@@ -418,11 +420,13 @@ const ItemForm = ({
   const backdropStyles = [css.FormBackdrop, show && css.show].join(' ');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, __jsx("form", {
     className: itemFormStyles
-  }, sending && __jsx("div", {
-    className: css.Loading
-  }, __jsx(_UI_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_8__["CubeSpinner"], null)), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_9__["FontAwesomeIcon"], {
+  }, __jsx(_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    show: sending,
+    transparent: true,
+    fadeout: true
+  }), __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
     className: css.FormCloseButton,
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_10__["icons"].faTimes,
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_9__["icons"].faTimes,
     onClick: close
   }), _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(form).map(element => {
     return __jsx(FormInput, {
@@ -452,7 +456,7 @@ const FormInput = react__WEBPACK_IMPORTED_MODULE_7__["memo"](({
     case 'input':
       content = __jsx("input", {
         value: item.value,
-        disabled: type === _form_form__WEBPACK_IMPORTED_MODULE_11__["formTypes"].EDIT && item.id === 'title',
+        disabled: type === _form_form__WEBPACK_IMPORTED_MODULE_10__["formTypes"].EDIT && item.id === 'title',
         placeholder: item.placeholder,
         onChange: e => change(item.id, e),
         className: css.FormInput
@@ -505,7 +509,10 @@ module.exports = {
 	"ItemMainContent": "ItemMainContent___3v6NC",
 	"ItemHoverContent": "ItemHoverContent___2FyZP",
 	"fadein": "fadein___DaYkb",
-	"ConfirmDeleteContainer": "ConfirmDeleteContainer___YaWJz"
+	"Button": "Button___3q02i",
+	"ConfirmDeleteContainer": "ConfirmDeleteContainer___YaWJz",
+	"ConfirmDelete": "ConfirmDelete___H3p0g",
+	"CancelDelete": "CancelDelete___3N_S5"
 };
 
 /***/ }),
@@ -537,12 +544,7 @@ const PortfolioItem = ({
   item,
   deleteItem
 }) => {
-  const [confirmDelete, setConfirmDelete] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
   const [editItem, setEditItem] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
-
-  const deleteHandler = () => {
-    setConfirmDelete(true);
-  };
 
   const editItemHandler = () => {
     setEditItem(!editItem);
@@ -555,16 +557,12 @@ const PortfolioItem = ({
   }, __jsx("p", null, item.title)), __jsx("div", {
     className: css.ItemHoverContent
   }, __jsx("div", {
+    className: css.Button,
     onClick: editItemHandler
   }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faEdit
-  }), " ", __jsx("p", null, "edit"), " "), __jsx("div", {
-    onClick: deleteHandler
-  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
-    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTrash
-  }), " ", __jsx("p", null, "delete"), " "), confirmDelete && __jsx(ConfirmDelete, {
-    confirm: () => deleteItem(item.title),
-    cancel: () => setConfirmDelete(false)
+  }), " ", __jsx("p", null, "edit"), " "), __jsx(DeleteButton, {
+    deleteItem: () => deleteItem(item.title)
   }))), __jsx(_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     show: editItem,
     item: item,
@@ -572,21 +570,30 @@ const PortfolioItem = ({
   }));
 };
 
-const ConfirmDelete = ({
-  confirm,
-  cancel
+const DeleteButton = ({
+  deleteItem
 }) => {
-  return __jsx("div", {
+  const [showConfirm, setShowConfirm] = react__WEBPACK_IMPORTED_MODULE_0__["useState"](false);
+
+  const confirmHandler = () => {
+    deleteItem();
+    setShowConfirm(false);
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, !showConfirm && __jsx("div", {
+    className: css.Button,
+    onClick: () => setShowConfirm(true)
+  }, " ", __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+    icon: _icons_icons__WEBPACK_IMPORTED_MODULE_2__["icons"].faTrash
+  }), " ", __jsx("p", null, "delete"), "  "), showConfirm && __jsx("div", {
     className: css.ConfirmDeleteContainer
-  }, __jsx("h2", {
-    className: css.ConfirmDeleteText
-  }, "Confirm Delete"), __jsx("div", {
-    className: css.ConfirmDeleteButtons
   }, __jsx("p", {
-    onClick: confirm
-  }, "Delete"), __jsx("p", {
-    onClick: cancel
-  }, "Cancel")));
+    className: css.ConfirmDelete,
+    onClick: confirmHandler
+  }, "yes"), __jsx("p", {
+    className: css.CancelDelete,
+    onClick: () => setShowConfirm(false)
+  }, "no")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PortfolioItem);
@@ -719,6 +726,8 @@ const PortfolioItems = ({
 
 module.exports = {
 	"Loading": "Loading___3aBwe",
+	"notfull": "notfull___1d-do",
+	"fullscreen": "fullscreen___1nz0n",
 	"transparent": "transparent___WzXK7",
 	"fadeout": "fadeout___2ri54",
 	"slideout": "slideout___94crm",
@@ -750,9 +759,10 @@ const Loading = ({
   show,
   transparent,
   fadeout,
-  slideout
+  slideout,
+  fullscreen
 }) => {
-  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, fullscreen ? _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fullscreen : _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.notfull, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -1675,6 +1685,9 @@ const updateEditForm = item => {
           selected: !item.mobile
         }
       }
+    }),
+    order: _objectSpread({}, initialForm.order, {
+      value: item.order
     })
   });
 

@@ -8,12 +8,14 @@ interface ILoadingComponent {
     transparent?: boolean
     fadeout?: boolean
     slideout?: boolean
+    fullscreen?: boolean
 }
 
-const Loading: React.FunctionComponent<ILoadingComponent> = ({ show, transparent, fadeout, slideout }): JSX.Element => {
+const Loading: React.FunctionComponent<ILoadingComponent> = ({ show, transparent, fadeout, slideout, fullscreen }): JSX.Element => {
     const styles = [
         css.Loading,
         transparent && css.transparent,
+        fullscreen ? css.fullscreen : css.notfull,
         (!show && fadeout) && css.fadeout,
         (!show && slideout) && css.slideout,
     ].join(' ')

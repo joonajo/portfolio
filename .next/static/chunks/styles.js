@@ -65,9 +65,9 @@ module.exports = {"ItemForm":"ItemForm___1-2U4","show":"show___1bbuL","FormBackd
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"ItemContainer":"ItemContainer___3EW2v","ItemMainContent":"ItemMainContent___3v6NC","ItemHoverContent":"ItemHoverContent___2FyZP","fadein":"fadein___DaYkb","ConfirmDeleteContainer":"ConfirmDeleteContainer___YaWJz"};
+module.exports = {"ItemContainer":"ItemContainer___3EW2v","ItemMainContent":"ItemMainContent___3v6NC","ItemHoverContent":"ItemHoverContent___2FyZP","fadein":"fadein___DaYkb","Button":"Button___3q02i","ConfirmDeleteContainer":"ConfirmDeleteContainer___YaWJz","ConfirmDelete":"ConfirmDelete___H3p0g","CancelDelete":"CancelDelete___3N_S5"};
     if(true) {
-      // 1582205972711
+      // 1582226259248
       var cssReload = __webpack_require__(/*! ../../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -86,7 +86,7 @@ module.exports = {"ItemContainer":"ItemContainer___3EW2v","ItemMainContent":"Ite
 // extracted by extract-css-chunks-webpack-plugin
 module.exports = {"ItemsContainer":"ItemsContainer___1jQY5","ItemContainer":"ItemContainer___2B_CX","ItemMainContent":"ItemMainContent___3u7q7","ItemHoverContent":"ItemHoverContent___13SmG"};
     if(true) {
-      // 1582138480272
+      // 1582226067428
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -236,9 +236,9 @@ module.exports = {"Layout":"Layout___29qXb"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by extract-css-chunks-webpack-plugin
-module.exports = {"Loading":"Loading___3aBwe","transparent":"transparent___WzXK7","fadeout":"fadeout___2ri54","slideout":"slideout___94crm","fadein":"fadein___DKzOy"};
+module.exports = {"Loading":"Loading___3aBwe","notfull":"notfull___1d-do","fullscreen":"fullscreen___1nz0n","transparent":"transparent___WzXK7","fadeout":"fadeout___2ri54","slideout":"slideout___94crm","fadein":"fadein___DKzOy"};
     if(true) {
-      // 1582138310737
+      // 1582206972212
       var cssReload = __webpack_require__(/*! ../../../node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js */ "./node_modules/extract-css-chunks-webpack-plugin/dist/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;

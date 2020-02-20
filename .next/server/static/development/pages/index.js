@@ -538,6 +538,8 @@ const Layout = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(({
 
 module.exports = {
 	"Loading": "Loading___3aBwe",
+	"notfull": "notfull___1d-do",
+	"fullscreen": "fullscreen___1nz0n",
 	"transparent": "transparent___WzXK7",
 	"fadeout": "fadeout___2ri54",
 	"slideout": "slideout___94crm",
@@ -569,9 +571,10 @@ const Loading = ({
   show,
   transparent,
   fadeout,
-  slideout
+  slideout,
+  fullscreen
 }) => {
-  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
+  const styles = [_Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.Loading, transparent && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.transparent, fullscreen ? _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fullscreen : _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.notfull, !show && fadeout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.fadeout, !show && slideout && _Loading_module_css__WEBPACK_IMPORTED_MODULE_2___default.a.slideout].join(' ');
   return __jsx("div", {
     className: styles
   }, __jsx(_Spinner_Spinner__WEBPACK_IMPORTED_MODULE_1__["CubeSpinner"], null));
@@ -773,7 +776,8 @@ const Home = () => {
   }, [portfolioState]);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_components_UI_Loading_Loading__WEBPACK_IMPORTED_MODULE_6__["default"], {
     show: !ready,
-    slideout: true
+    slideout: true,
+    fullscreen: true
   }), __jsx(_components_UI_Layout_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, __jsx(_components_Cover_Cover__WEBPACK_IMPORTED_MODULE_2__["default"], {
     show: ready,
     load: () => setBgLoaded(true)

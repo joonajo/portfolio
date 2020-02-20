@@ -683,6 +683,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Roboto Mono;
 }
 
 .ItemsContainer___1jQY5 {
@@ -775,6 +776,143 @@
       opacity: 0; 
     }
   }
+.Loading___3aBwe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: royalblue;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition:  visibility 0s .5s, top .5s, opacity .5s;
+}
+
+.Loading___3aBwe.notfull___1d-do {
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.Loading___3aBwe.fullscreen___1nz0n {
+    width: 100vw;
+    height: 100vh;
+    background: snow;
+}
+
+.Loading___3aBwe.transparent___WzXK7.fullscreen___1nz0n {
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.Loading___3aBwe.fadeout___2ri54 {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.Loading___3aBwe.slideout___94crm {
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
+}
+
+@keyframes fadein___DKzOy {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+.Loading___3Hyau {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: snow;
+    color: royalblue;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition:  visibility 0s .5s, top .5s;
+}
+
+.Loading___3Hyau.out___2_Bat {
+    visibility: hidden;
+    top: -100vh;
+    /* display: none; */
+}
+@font-face {
+    font-family: "Ubuntu";
+    src: url('/fonts/Ubuntu-Regular.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Light";
+    src: url('/fonts/Ubuntu-Light.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Bold";
+    src: url('/fonts/Ubuntu-Bold.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu Medium";
+    src: url('/fonts/Ubuntu-Medium.ttf');
+    font-weight: bold;
+    font-display: auto;
+    font-style: normal;
+}
+
+:root {
+    --background-color: snow;
+    --content-bg-color: whitesmoke;
+    --title-color: linen;
+    --main-color: royalblue;
+    --text-color: black;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Roboto Mono", 'Courier New', Courier, monospace;
+    background: var(--background-color);
+    scroll-behavior: smooth;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--background-color);
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: gainsboro;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 0;
+}
 .ItemForm___1-2U4 {
     display: flex;
     flex-flow: column;
@@ -940,133 +1078,6 @@
     z-index: 10;
     animation: fadein___fEqy- .3s;
 }
-.Loading___3aBwe {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: snow;
-    color: royalblue;
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
-    transition:  visibility 0s .5s, top .5s, opacity .5s;
-}
-
-.Loading___3aBwe.transparent___WzXK7 {
-    background: rgba(200, 200, 200, 0.5);
-}
-
-.Loading___3aBwe.fadeout___2ri54 {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.Loading___3aBwe.slideout___94crm {
-    visibility: hidden;
-    top: -100vh;
-    /* display: none; */
-}
-
-@keyframes fadein___DKzOy {
-    from { opacity: 0 }
-    to { opacity: 1 }
-}
-.Loading___3Hyau {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: snow;
-    color: royalblue;
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
-    transition:  visibility 0s .5s, top .5s;
-}
-
-.Loading___3Hyau.out___2_Bat {
-    visibility: hidden;
-    top: -100vh;
-    /* display: none; */
-}
-@font-face {
-    font-family: "Ubuntu";
-    src: url('/fonts/Ubuntu-Regular.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Light";
-    src: url('/fonts/Ubuntu-Light.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Bold";
-    src: url('/fonts/Ubuntu-Bold.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Medium";
-    src: url('/fonts/Ubuntu-Medium.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-:root {
-    --background-color: snow;
-    --content-bg-color: whitesmoke;
-    --title-color: linen;
-    --main-color: royalblue;
-    --text-color: black;
-}
-
-body {
-    box-sizing: border-box;
-    font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-    background: var(--background-color);
-    scroll-behavior: smooth;
-}
-
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 0;
-    margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--main-color) var(--background-color);
-}
-
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: gainsboro;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    border-radius: 0;
-}
 .AddItemContainer___JJqxo,
 .AddItemButton___3rGlW,
 .ItemsContainer___iMVRl,
@@ -1177,7 +1188,10 @@ body {
     background: white;
 }
 
-.ItemHoverContent___2FyZP div {
+.Button___3q02i,
+.ConfirmDeleteContainer___YaWJz,
+.ConfirmDelete___H3p0g,
+.CancelDelete___3N_S5 {
     font-size: 1rem;
     height: 100%;
     width: 100%;
@@ -1191,7 +1205,9 @@ body {
     transition: all var(--transition-time);
 }
 
-.ItemHoverContent___2FyZP div:hover {
+.Button___3q02i:hover,
+.ConfirmDelete___H3p0g:hover,
+.CancelDelete___3N_S5:hover {
     background: whitesmoke;
     color: royalblue;
 }
@@ -1205,15 +1221,25 @@ body {
 }
 
 .ConfirmDeleteContainer___YaWJz {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: fleX;
-    flex-flow: column;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-flow: row;
     justify-content: center;
     align-items: center;
+    height: 100%;
+}
+
+.ConfirmDeleteContainer___YaWJz:after {
+    content: 'Are you sure?';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-family: Roboto Mono;
+    font-weight: bold;
 }
 
 @keyframes fadein___DaYkb {

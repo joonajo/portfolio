@@ -13,17 +13,12 @@ interface IItemComponent {
 }
 
 const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteItem }): JSX.Element => {
-    const [confirmDelete, setConfirmDelete] = React.useState<boolean>(false)
     const [editItem, setEditItem] = React.useState<boolean>(false)
-
-    const deleteHandler = () => {
-        setConfirmDelete(true)
-    }
 
     const editItemHandler = () => {
         setEditItem(!editItem)
     }
-    
+
     return (
         <>
             <div className={css.ItemContainer}>
@@ -31,9 +26,8 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteIt
                     <p>{item.title}</p>
                 </div>
                 <div className={css.ItemHoverContent}>
-                    <div onClick={editItemHandler}> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </div>
-                    <div onClick={deleteHandler}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p> </div>
-                    { confirmDelete && <ConfirmDelete confirm={() => deleteItem(item.title)} cancel={() => setConfirmDelete(false)} /> }
+                    <div className={css.Button} onClick={editItemHandler}> <FontAwesomeIcon icon={icons.faEdit} /> <p>edit</p> </div>
+                    <DeleteButton deleteItem={() => deleteItem(item.title)} />
                 </div>  
             </div>
             <EditItem show={editItem} item={item} close={editItemHandler} />
@@ -41,20 +35,28 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteIt
     )
 }
 
-interface IConfirmDeleteComponent {
-    confirm(): void
-    cancel(): void
+interface IDeleteButton {
+    deleteItem(): void
 }
 
-const ConfirmDelete: React.FunctionComponent<IConfirmDeleteComponent> = ({ confirm, cancel }): JSX.Element => {
+const DeleteButton: React.FunctionComponent<IDeleteButton> = ({ deleteItem }): JSX.Element => {
+    const [showConfirm, setShowConfirm] = React.useState<boolean>(false)
+
+    const confirmHandler = () => {
+        deleteItem()
+        setShowConfirm(false)
+    }
+
     return (
-        <div className={css.ConfirmDeleteContainer}>
-            <h2 className={css.ConfirmDeleteText}>Confirm Delete</h2>
-            <div className={css.ConfirmDeleteButtons}>
-                <p onClick={confirm}>Delete</p>
-                <p onClick={cancel}>Cancel</p>
-            </div>
-        </div>
+        <>
+            { !showConfirm && <div className={css.Button} onClick={() => setShowConfirm(true)}> <FontAwesomeIcon icon={icons.faTrash} /> <p>delete</p>  </div> }
+            { showConfirm && 
+                <div className={css.ConfirmDeleteContainer}>
+                    <p className={css.ConfirmDelete} onClick={confirmHandler}>yes</p>
+                    <p className={css.CancelDelete} onClick={() => setShowConfirm(false)}>no</p>
+                </div> 
+            }
+        </>
     )
 }
 

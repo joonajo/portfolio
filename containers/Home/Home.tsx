@@ -55,7 +55,7 @@ const Home: NextPage = (): JSX.Element => {
 
     return (
         <>
-            <Loading show={!ready} slideout />
+            <Loading show={!ready} slideout fullscreen />
             <Layout>
                 <Cover show={ready} load={() => setBgLoaded(true)} />
                 { bgLoaded  && !loading && <Content /> }
