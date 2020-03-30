@@ -1,6 +1,5 @@
 import React from 'react'
 import { IPortfolioItem } from '../interfaces/interfaces'
-import { TDispatch } from './authContext'
 
 export type TPortfolioState = {
     items: IPortfolioItem[]
@@ -97,10 +96,10 @@ export const portfolioReducer = (state: TPortfolioState = initialPortfolioState,
 
 export interface IPortfolioContext {
     state: TPortfolioState,
-    dispatch?: TDispatch
+    dispatch: React.Dispatch<any>
 }
 
-export const PortfolioContext = React.createContext<IPortfolioContext>({ state: initialPortfolioState })
+export const PortfolioContext = React.createContext<IPortfolioContext>({ state: initialPortfolioState, dispatch: (value: any) => {} })
 
 interface IPortfolioProvider {
     children: any

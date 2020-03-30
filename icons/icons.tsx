@@ -21,6 +21,7 @@ import { 
     faInstagram,
     faFlickr,
     faStrava,
+    faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 
 export const icons = {
@@ -28,6 +29,7 @@ export const icons = {
     faGithub,
     faInstagram,
     faFlickr,
+    faLinkedin,
     faStrava,
     faExternalLinkSquareAlt,
     faMobileAlt,

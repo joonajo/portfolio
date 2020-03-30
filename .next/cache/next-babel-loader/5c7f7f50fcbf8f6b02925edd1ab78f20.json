@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var googleKey = \"AIzaSyDoQDgiY3LCUaOApRN_800QwvR8qKm3u94\";","map":{"version":3,"sources":["C:/Users/jouna/code/portfolio/keys.ts"],"names":["googleKey"],"mappings":"AAAA,OAAO,IAAMA,SAAiB,GAAG,yCAA1B","sourcesContent":["export const googleKey: string = \"AIzaSyDoQDgiY3LCUaOApRN_800QwvR8qKm3u94\""]},"metadata":{},"sourceType":"module"}

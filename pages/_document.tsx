@@ -3,18 +3,28 @@
 
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: any) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
+  static getInitialProps(ctx: any) {
+    // Step 1: Create an instance of ServerStyleSheet
+    const sheet = new ServerStyleSheet()
 
+    // Step 2: Retrieve styles from components in the page
+    const page = ctx.renderPage((App: any) => (props: any) =>
+      sheet.collectStyles(<App {...props} />),
+    )
+
+    // Step 3: Extract the styles as <style> tags
+    const styleTags = sheet.getStyleElement()
+
+    // Step 4: Pass styleTags as a prop
+    return { ...page, styleTags }
+  }
   render() {
     return (
       <Html lang="en">
         <Head>
-          <title>Portfolio //</title>
           <meta charSet="UTF-8" />
           <meta name="description" content="Portfolio page for Joona Joenpolvi, containing Joona's most notable solo front-end projects. More can be found on Github." />
           <meta name="keywords" content="Joona Joenpolvi, joonajo, frontend, web dev, developer, web developer, front end, react, typescript, nextjs, portfolio," />

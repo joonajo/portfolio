@@ -4,7 +4,6 @@ import { NextPage } from 'next'
 import Cover from '../../components/Cover/Cover'
 import Content from '../../components/Content/Content'
 import { IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
-import { TDispatch } from '../../context/authContext'
 import { IPortfolioItem } from '../../interfaces/interfaces'
 import Layout from '../../components/UI/Layout/Layout'
 import Loading from '../../components/UI/Loading/Loading'
@@ -21,6 +20,7 @@ const Home: NextPage = (): JSX.Element => {
     }, [bgLoaded, loading])
 
     React.useEffect(() => {
+        document.title = 'Portfolio'
         // check if bg image is already cached
         // if yes, set as loaded
         const image = new Image()
@@ -30,7 +30,7 @@ const Home: NextPage = (): JSX.Element => {
 
     const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
     const portfolioState: TPortfolioState = portfolioContext.state
-    const portfolioDispatch: TDispatch = portfolioContext.dispatch!
+    const portfolioDispatch: React.Dispatch<any> = portfolioContext.dispatch
 
     React.useEffect(() => {
         if (portfolioState && portfolioDispatch) {
@@ -55,7 +55,7 @@ const Home: NextPage = (): JSX.Element => {
 
     return (
         <>
-            <Loading show={!ready} slideout fullscreen />
+            <Loading show={!ready} text spinner slideout fullscreen color={'dimgray'} />
             <Layout>
                 <Cover show={ready} load={() => setBgLoaded(true)} />
                 { bgLoaded  && !loading && <Content /> }

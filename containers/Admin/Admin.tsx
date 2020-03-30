@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import Auth from '../../containers/Auth/Auth'
-import { CubeSpinner } from '../../components/UI/Spinner/Spinner'
+import { BarLoader } from '../../components/UI/Spinner/Spinner'
 import { IPortfolioItem } from '../../interfaces/interfaces'
-import { IAuthContext, AuthContext, TAuthState, TDispatch } from '../../context/authContext'
+import { IAuthContext, AuthContext, TAuthState } from '../../context/authContext'
 import { Languages, IPortfolioContext, PortfolioContext, TPortfolioState, TPortfolioActionTypes } from '../../context/portfolioContext'
 import PortfolioItems from '../../components/Admin/PortfolioManagement/Portfolio'
 import Loading from '../../components/UI/Loading/Loading'
@@ -13,7 +13,7 @@ const css = require('./Admin.module.css')
 const Admin: React.FunctionComponent = (): JSX.Element => {
     const authContext: IAuthContext = React.useContext(AuthContext)
     const authState: TAuthState = authContext.state
-    const authDispatch: TDispatch = authContext.dispatch!
+    const authDispatch: React.Dispatch<any> = authContext.dispatch
 
     const [sending, setSending] = React.useState<boolean>(true)
     const [screensize, setScreensize] = React.useState<{ width: number, height: number}>()
@@ -78,7 +78,7 @@ interface IAdminContent {
 const AdminContent: React.FunctionComponent<IAdminContent> = (): JSX.Element => {
     const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext)
     const portfolioState: TPortfolioState = portfolioContext.state
-    const portfolioDispatch: TDispatch = portfolioContext.dispatch!
+    const portfolioDispatch: React.Dispatch<any> = portfolioContext.dispatch
 
     const [loading, setLoading] = React.useState<boolean>(true)
 

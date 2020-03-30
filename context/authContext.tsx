@@ -1,7 +1,5 @@
 import React from 'react'
 
-export type TDispatch = React.Dispatch<React.SetStateAction<any>>
-
 export type TAuthState = {
     signedIn: boolean
     email?: string
@@ -50,10 +48,15 @@ const authReducer = (state: TAuthState = initialAuthState, action: TAuthActions)
 
 export interface IAuthContext {
     state: TAuthState,
-    dispatch?: TDispatch
+    dispatch: React.Dispatch<any>
 }
 
-export const AuthContext = React.createContext<IAuthContext>({ state: initialAuthState })
+const authContextState: IAuthContext = {
+    state: initialAuthState,
+    dispatch: (value: any) => {}
+}
+
+export const AuthContext = React.createContext<IAuthContext>(authContextState)
 
 interface IAuthProvider {
     children: any

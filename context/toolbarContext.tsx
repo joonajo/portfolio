@@ -1,14 +1,13 @@
 import React from 'react'
 
-export type TSetShow = React.Dispatch<React.SetStateAction<any>>
-
 export interface IToolbar {
     show: boolean,
-    setShow?: TSetShow
+    setShow: React.Dispatch<boolean>
 }
 
 export const initalToolbarState: IToolbar = {
-    show: false
+    show: false,
+    setShow: (value: boolean) => {}
 }
 
 export const ToolbarContext = React.createContext<IToolbar>(initalToolbarState)
@@ -18,7 +17,7 @@ interface IToolbarProvider {
 }
 
 export const ToolbarProvider: React.FunctionComponent<IToolbarProvider> = ({ children }) => {
-    const[show, setShow] = React.useState(false)
+    const[show, setShow] = React.useState<boolean>(false)
 
 
     return (
