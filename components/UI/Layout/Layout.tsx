@@ -1,24 +1,24 @@
-import React from 'react'
-import Footer from '../Footer/Footer'
-import Toolbar from '../Toolbar/Toolbar'
-import { ToolbarProvider } from '../../../context/toolbarContext'
+import React from "react";
+import Footer from "../Footer/Footer";
+import Toolbar from "../Toolbar/Toolbar";
+import { ToolbarProvider } from "../../../context/toolbarContext";
 
-const css = require('./Layout.module.css')
+const css = require("./Layout.module.css");
 
 interface ILayout {
-    children: any
+  children: any;
 }
 
-const Layout: React.FunctionComponent<ILayout> = React.memo(({ children }): JSX.Element => {
-    return (
-        <ToolbarProvider>
-            <div className={css.Layout}>
-                <Toolbar />
-                {children}
-                <Footer />
-            </div>
-        </ToolbarProvider>
-    )
-})
+const Layout = ({ children }: ILayout): JSX.Element => {
+  return (
+    <ToolbarProvider>
+      <div className={css.Layout}>
+        <Toolbar />
+        {children}
+        <Footer />
+      </div>
+    </ToolbarProvider>
+  );
+};
 
-export default Layout
+export default Layout;

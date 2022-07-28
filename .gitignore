@@ -26,3 +26,7 @@ yarn-error.log*
 .firebase
 firebase.json
 .now
+
+# Optional REPL history
+.node_repl_history
+.next
