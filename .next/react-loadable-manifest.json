@@ -1,15 +1,14 @@
 {
   "../components/Content/Content.tsx -> ../Item/Item": {
-    "id": 2374,
+    "id": "../components/Content/Content.tsx -> ../Item/Item",
     "files": [
-      "static/css/39afd17842e60357.css",
-      "static/chunks/374.cd0b0f225b5ad04c.js"
+      "static/chunks/components_Item_Item_tsx.js"
     ]
   },
   "../node_modules/next/dist/client/index.js -> ../pages/_error": {
-    "id": 9651,
+    "id": "../node_modules/next/dist/client/index.js -> ../pages/_error",
     "files": [
-      "static/chunks/651.412a32fde78b36e0.js"
+      "static/chunks/node_modules_next_dist_pages__error_js.js"
     ]
   }
 }

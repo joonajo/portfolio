@@ -1,13 +1,8 @@
-const withPlugins = require("next-compose-plugins");
-const offline = require("next-offline");
-const optimizedImages = require("next-optimized-images");
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  /* config options here */
+};
 
-module.exports = withPlugins([
-  offline,
-  [
-    optimizedImages,
-    {
-      // optimizeImages: false,
-    },
-  ],
-]);
+module.exports = nextConfig;
