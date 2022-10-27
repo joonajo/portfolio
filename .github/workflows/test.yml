@@ -15,9 +15,14 @@ jobs:
       - name: Prepare changelog
         id: changelog
         run: |
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          curl https://example.lab >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          compare="https://github.com/creditornot/merchant-admin/compare/v1.0.201...v1.0.202"
+          changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'"sha: 464e18f596689e4b0042c9c82a5af9b2d33357d9"$'\n\n'"full diff: ${compare}"$'\n\n'"${changelog}"
+          delimiter="$(openssl rand -hex 8)"
+          echo "changelog-name<<${delimiter}" >> $GITHUB_OUTPUT
+          echo "${changelog}" >> $GITHUB_OUTPUT
+          echo "${delimiter}" >> $GITHUB_OUTPUT
+          echo delimiter
+          echo changelog
       - name: print output
         id: print-output
         run: echo ${{ steps.changelog.outputs.EOF }}
