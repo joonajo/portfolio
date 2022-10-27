@@ -8,3 +8,5 @@
   * Item editing
 * Responsive layout/design
 * More cool stuff coming up (maybe)
+
+Testing '\n' newline '\n' hallo
