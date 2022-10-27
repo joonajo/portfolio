@@ -15,8 +15,7 @@ jobs:
       - name: Prepare changelog
         id: changelog
         run: |
-          changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'""
-          changelog="${changelog//$'\n'/'%0A'}"
+          changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'" this should be on a new line"
           echo "changelog=$changelog" >> $GITHUB_OUTPUT
       - name: print output
         id: print-output
