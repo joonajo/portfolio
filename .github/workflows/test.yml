@@ -1,11 +1,11 @@
-name: Draft release
+name: Test output
 
 on:
   workflow_dispatch:
 
 jobs:
-  create-draft-release:
-    name: Draft release
+  create-output:
+    name: Test output
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
