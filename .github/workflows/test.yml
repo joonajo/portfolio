@@ -17,7 +17,7 @@ jobs:
         run: |
           compare="this-is-compare"
           sha="this-is-sha"
-          changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'"sha: ${{ sha }}"$'\n\n'"full diff: ${compare}"$'\n\n'"${changelog}"
+          changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'"sha: ${sha}"$'\n\n'"full diff: ${compare}"$'\n\n'"${changelog}"
           echo "changelog=$changelog" >> $GITHUB_OUTPUT
       - name: print output
         id: print-output
