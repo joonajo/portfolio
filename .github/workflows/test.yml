@@ -21,8 +21,8 @@ jobs:
           echo "changelog-name<<${delimiter}" >> $GITHUB_OUTPUT
           echo "${changelog}" >> $GITHUB_OUTPUT
           echo "${delimiter}" >> $GITHUB_OUTPUT
-          echo delimiter
-          echo changelog
+          echo $delimiter
+          echo $changelog
       - name: print output
         id: print-output
         run: echo ${{ steps.changelog.outputs.EOF }}
