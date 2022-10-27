@@ -9,4 +9,4 @@
 * Responsive layout/design
 * More cool stuff coming up (maybe)
 
-Testing \n newline "\n" hallo
+Testing \n newline "\n" hallo $'\n' what's '%0A' this %0A thing
