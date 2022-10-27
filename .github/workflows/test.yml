@@ -17,7 +17,7 @@ jobs:
         run: |
           compare="https://github.com/creditornot/merchant-admin/compare/v1.0.201...v1.0.202"
           changelog="Please check GitHub for full list of changes and people to ping for. "$'\n\n'"sha: 464e18f596689e4b0042c9c82a5af9b2d33357d9"$'\n\n'"full diff: ${compare}"$'\n\n'"${changelog}"
-          changelog="${changelog//$'\n'/'0A'}"
+          changelog="${changelog//$'\n'/'%0x0A'}"
           echo "changelog=$changelog" >> $GITHUB_OUTPUT
       - name: print output
         id: print-output
