@@ -1,13 +1,11 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import zenscroll from 'zenscroll';
 
 import styles from './Cover.module.css';
 import { icons } from '../../icons/icons';
-import bgImage from '../../public/images/sakura.png';
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons';
 
 const Root = styled.div`
@@ -18,32 +16,7 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-`;
-
-const BackgroundContainer = styled.div`
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-`;
-
-const BackgroundMask = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(2, 0, 10, 0.85);
-`;
-
-const BackgroundImage = styled(Image)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  background-color: var(--background-color);
 `;
 
 const CoverContent = styled.div`
@@ -86,8 +59,8 @@ const ArrowIcon = styled.div`
   height: 35px;
   border-radius: 50%;
   transition: all 0.2s;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--title-color);
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
 
   & svg {
     height: 15px;
@@ -101,10 +74,9 @@ const ArrowIcon = styled.div`
 
 type Props = {
   show: boolean;
-  load: () => void;
 };
 
-const Cover = ({ show, load }: Props) => {
+const Cover = ({ show }: Props) => {
   const coverRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToPortfolio = React.useCallback(() => {
@@ -121,10 +93,6 @@ const Cover = ({ show, load }: Props) => {
 
   return (
     <Root ref={coverRef}>
-      <BackgroundContainer>
-        <BackgroundImage src={bgImage} alt="cover-bg-palm" onLoad={load} />
-        <BackgroundMask />
-      </BackgroundContainer>
       <CoverContent>
         <MediaIconsContainer>
           <MediaIcons />

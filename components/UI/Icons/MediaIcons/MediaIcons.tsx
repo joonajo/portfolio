@@ -21,8 +21,8 @@ const LinkWrapper = styled.a<{ horizontal?: boolean }>`
   align-items: center;
 
   box-sizing: border-box;
-  color: var(--background-color);
-  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  background: rgba(0, 0, 0, 0.2);
   margin: 5px;
   width: 30px;
   height: 30px;

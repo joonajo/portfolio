@@ -9,25 +9,10 @@ import { PortfolioContext, TPortfolioActionTypes } from '../../context/portfolio
 import { IPortfolioItem } from '../../interfaces/interfaces';
 
 const Home: NextPage = () => {
-  const [bgLoaded, setBgLoaded] = React.useState(false);
-  const [loading, setLoading] = React.useState(true);
-  const [ready, setReady] = React.useState(false);
-
-  React.useEffect(() => {
-    if (bgLoaded && !loading) {
-      setReady(true);
-    }
-  }, [bgLoaded, loading]);
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     document.title = 'Portfolio';
-    // check if bg image is already cached
-    // if yes, set as loaded
-    const image = new Image();
-    image.src = '/images/palm.png';
-    if (image.complete) {
-      setBgLoaded(true);
-    }
   }, []);
 
   const portfolioContext = React.useContext(PortfolioContext);
@@ -41,6 +26,7 @@ const Home: NextPage = () => {
 
         const newItems: IPortfolioItem[] = [];
 
+        setLoading(true);
         fetch(baseURL, { method: 'get' })
           .then(response => response.json())
           .then(data => {
@@ -61,10 +47,10 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Loading show={!ready} text spinner slideout fullscreen color={'dimgray'} />
+      <Loading show={loading} text spinner slideout fullscreen color={'dimgray'} />
       <Layout>
-        <Cover show={ready} load={() => setBgLoaded(true)} />
-        {bgLoaded && !loading && <Content />}
+        <Cover show={!loading} />
+        <Content />
       </Layout>
     </>
   );

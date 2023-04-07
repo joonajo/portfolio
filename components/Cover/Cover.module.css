@@ -105,7 +105,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  color: var(--title-color);
+  color: black;
   pointer-events: none;
 }
 
@@ -113,28 +113,28 @@
   -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
   mask-image: linear-gradient(black 25%, transparent 25%);
   animation: deconstructed1 40s infinite;
-  color: ivory;
+  color: var(--text-color);
 }
 
 .AnimatedText > span:nth-child(2) {
   -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
   mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
   animation: deconstructed2 20s infinite;
-  color: ivory;
+  color: var(--text-color);
 }
 
 .AnimatedText > span:nth-child(3) {
   -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
   mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
   animation: deconstructed3 15s infinite;
-  color: ivory;
+  color: var(--text-color);
 }
 
 .AnimatedText > span:nth-child(4) {
   -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
   mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
   animation: deconstructed4 10s infinite;
-  color: ivory;
+  color: var(--text-color);
 }
 
 @keyframes deconstructed1 {
