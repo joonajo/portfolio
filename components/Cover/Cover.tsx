@@ -26,7 +26,6 @@ const BackgroundContainer = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 0;
 `;
 
 const BackgroundMask = styled.div`
@@ -62,8 +61,6 @@ const MediaIconsContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  height: 100%;
-  z-index: 1;
   display: flex;
   font-size: 1rem;
   flex-direction: column;
@@ -140,7 +137,7 @@ const Cover = ({ show, load }: Props) => {
             <AnimatedText text="Joenpolvi" show={show} delay={0.5} />
           </div>
           <p className={descStyles}>
-            <span>{'<Front End Developer />'}</span>
+            <span>{'<software developer />'}</span>
           </p>
         </TitleContainer>
       </CoverContent>
