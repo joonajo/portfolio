@@ -22,7 +22,7 @@ const LinkWrapper = styled.a<{ horizontal?: boolean }>`
 
   box-sizing: border-box;
   color: var(--text-color);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(100, 100, 100, 0.2);
   margin: 5px;
   width: 30px;
   height: 30px;
