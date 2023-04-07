@@ -10,26 +10,25 @@ const Item = dynamic(() => import('../Item/Item'));
 const Root = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 24px;
   background: var(--content-bg-color);
   overflow: hidden;
+  padding-block-end: 24px;
 `;
 
 const Title = styled.h2`
-  padding-top: 20px;
-  letter-spacing: 0.1em;
+  padding-top: 24px;
   padding-right: 0.1em;
   font-size: 2rem;
+  font-weight: 100;
   text-transform: uppercase;
   color: dimgray;
-  transform: scale(1, 1.1);
+  transform: scale(1, 1);
   text-shadow: 1px 1px 10px gainsboro;
-  font-family: Ubuntu;
 `;
 
 const Content = () => {

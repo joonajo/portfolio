@@ -7,7 +7,7 @@ import zenscroll from 'zenscroll';
 
 import styles from './Cover.module.css';
 import { icons } from '../../icons/icons';
-import bgImage from '../../public/images/palm.png';
+import bgImage from '../../public/images/sakura.png';
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons';
 
 const Root = styled.div`
@@ -44,8 +44,8 @@ const BackgroundImage = styled(Image)`
   top: 0;
   left: 0;
   object-fit: cover;
-  min-width: 100%;
-  min-height: 100%;
+  max-width: 100%;
+  height: auto;
 `;
 
 const CoverContent = styled.div`
@@ -55,6 +55,7 @@ const CoverContent = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const MediaIconsContainer = styled.div`
@@ -79,22 +80,6 @@ const ArrowContainer = styled.div`
   bottom: 100px;
 `;
 
-const ArrowText = styled.p`
-  position: absolute;
-  color: rgba(255, 255, 255, 0.5);
-  top: -100%;
-  font-weight: bold;
-  text-align: center;
-  width: 100px;
-  font-size: 0.7em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: all 0.2s;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: default;
-`;
-
 const ArrowIcon = styled.div`
   cursor: pointer;
   position: relative;
@@ -116,10 +101,6 @@ const ArrowIcon = styled.div`
   &:hover {
     background: royalblue;
     color: black;
-
-    ${ArrowText} {
-      opacity: 1;
-    }
   }
 `;
 
@@ -169,7 +150,6 @@ const Cover = ({ show, load }: Props) => {
           <ArrowIcon onClick={scrollToPortfolio}>
             <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
           </ArrowIcon>
-          <p className={styles.ArrowText}>to portfolio</p>
         </ArrowContainer>
       </CoverContent>
     </Root>

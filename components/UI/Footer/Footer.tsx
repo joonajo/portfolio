@@ -13,22 +13,14 @@ const fadein = keyframes`
 `;
 
 const Root = styled.div`
-  position: absolute;
-  box-sizing: border-box;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   z-index: 5;
   opacity: 1;
   animation: ${fadein} 1s;
-  background: transparent;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  font-size: 1.2rem;
+  padding-block-end: 24px;
 `;
 
 const IconsContainer = styled.div`
@@ -36,9 +28,10 @@ const IconsContainer = styled.div`
 `;
 
 const Copyright = styled.div`
+  margin-block-start: 4px;
   color: whitesmoke;
   position: relative;
-  font-size: 0.7em;
+  font-size: 0.9em;
   cursor: default;
 `;
 

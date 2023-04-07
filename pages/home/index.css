@@ -2,7 +2,7 @@
   --background-color: snow;
   --content-bg-color: whitesmoke;
   --title-color: linen;
-  --main-color: royalblue;
+  --main-color: gray;
   --text-color: black;
 }
 
@@ -12,12 +12,6 @@ body {
   scroll-behavior: smooth;
   font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
-
-  --background-color: snow;
-  --content-bg-color: whitesmoke;
-  --title-color: linen;
-  --main-color: royalblue;
-  --text-color: black;
 }
 
 * {
@@ -34,7 +28,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: gainsboro;
+  background: white;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -115,7 +115,7 @@
   -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
   mask-image: linear-gradient(black 25%, transparent 25%);
   animation: deconstructed1 40s infinite;
-  color: royalblue;
+  color: ivory;
 }
 
 .AnimatedText > span:nth-child(2) {
@@ -129,14 +129,14 @@
   -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
   mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
   animation: deconstructed3 15s infinite;
-  color: white;
+  color: ivory;
 }
 
 .AnimatedText > span:nth-child(4) {
   -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
   mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
   animation: deconstructed4 10s infinite;
-  color: mintcream;
+  color: ivory;
 }
 
 @keyframes deconstructed1 {

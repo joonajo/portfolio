@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import css from './Layout.module.css';
 import { ToolbarProvider } from '../../../context/toolbarContext';
 import Footer from '../Footer/Footer';
 import Toolbar from '../Toolbar/Toolbar';
@@ -9,14 +9,22 @@ type Props = {
   children: React.ReactNode;
 };
 
+const Root = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+`;
+
 const Layout = ({ children }: Props) => {
   return (
     <ToolbarProvider>
-      <div className={css.Layout}>
+      <Root>
         <Toolbar />
         {children}
         <Footer />
-      </div>
+      </Root>
     </ToolbarProvider>
   );
 };
