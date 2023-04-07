@@ -39,14 +39,11 @@ const LinkWrapper = styled.a<{ horizontal?: boolean }>`
   }
 `;
 
-type TMediaIconsProps = {
+type Props = {
   horizontal?: boolean;
-  vertical?: boolean;
 };
 
-const MediaIcons: React.FunctionComponent<TMediaIconsProps> = (props): JSX.Element => {
-  const { horizontal }: TMediaIconsProps = props;
-
+const MediaIcons = ({ horizontal }: Props) => {
   return (
     <Wrapper horizontal={horizontal}>
       <LinkWrapper

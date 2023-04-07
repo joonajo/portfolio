@@ -13,12 +13,11 @@ import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons';
 const Root = styled.div`
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  position: relative;
 `;
 
 const BackgroundContainer = styled.div`
@@ -36,7 +35,7 @@ const BackgroundMask = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(2, 0, 10, 0.8);
+  background: rgba(2, 0, 10, 0.85);
 `;
 
 const BackgroundImage = styled(Image)`
@@ -44,35 +43,34 @@ const BackgroundImage = styled(Image)`
   top: 0;
   left: 0;
   object-fit: cover;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
 `;
 
 const CoverContent = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   position: relative;
 `;
 
 const MediaIconsContainer = styled.div`
-  position: absolute;
-  top: 5px;
-  left: 5px;
+  padding: 24px 16px;
 `;
 
 const TitleContainer = styled.div`
-  z-index: 10;
+  height: 100%;
+  z-index: 1;
   display: flex;
   font-size: 1rem;
-  flex-flow: column;
-  width: 100%;
+  flex-direction: column;
   box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 32px;
 `;
 
 const ArrowContainer = styled.div`
@@ -132,7 +130,7 @@ const Cover = ({ show, load }: Props) => {
       </BackgroundContainer>
       <CoverContent>
         <MediaIconsContainer>
-          <MediaIcons vertical />
+          <MediaIcons />
         </MediaIconsContainer>
         <TitleContainer>
           <div className={[animTextStyles, styles.First].join(' ')}>
@@ -142,16 +140,15 @@ const Cover = ({ show, load }: Props) => {
             <AnimatedText text="Joenpolvi" show={show} delay={0.5} />
           </div>
           <p className={descStyles}>
-            {' '}
-            <span>{'<Front End Developer />'}</span>{' '}
+            <span>{'<Front End Developer />'}</span>
           </p>
         </TitleContainer>
-        <ArrowContainer>
-          <ArrowIcon onClick={scrollToPortfolio}>
-            <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
-          </ArrowIcon>
-        </ArrowContainer>
       </CoverContent>
+      <ArrowContainer>
+        <ArrowIcon onClick={scrollToPortfolio}>
+          <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
+        </ArrowIcon>
+      </ArrowContainer>
     </Root>
   );
 };
@@ -165,7 +162,7 @@ type AnimatedTextProps = {
 const AnimatedText = ({ text, delay }: AnimatedTextProps) => {
   const containerStyles = [styles.AnimatedText].join(' ');
 
-  const trueDelay: number = delay ? delay : 0;
+  const trueDelay = delay ? delay : 0;
 
   return (
     <div className={containerStyles} style={{ transitionDelay: `${trueDelay / 2 + 0.3}s` }}>
