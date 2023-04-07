@@ -77,12 +77,12 @@ const TitleContainer = styled.div`
   align-items: center;
 `;
 
-type TCover = {
+type Props = {
   show: boolean;
   load: () => void;
 };
 
-const Cover = ({ show, load }: TCover): JSX.Element => {
+const Cover = ({ show, load }: Props) => {
   const coverRef = React.useRef<HTMLDivElement>(null);
   const [height, setHeight] = React.useState<number | undefined>(undefined);
 
