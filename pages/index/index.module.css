@@ -1,69 +1,35 @@
-@font-face {
-    font-family: "Ubuntu";
-    src: url('/fonts/Ubuntu-Regular.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Light";
-    src: url('/fonts/Ubuntu-Light.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Bold";
-    src: url('/fonts/Ubuntu-Bold.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu Medium";
-    src: url('/fonts/Ubuntu-Medium.ttf');
-    font-weight: bold;
-    font-display: auto;
-    font-style: normal;
-}
-
 :root {
-    --background-color: snow;
-    --content-bg-color: whitesmoke;
-    --title-color: linen;
-    --main-color: royalblue;
-    --text-color: black;
+  --background-color: snow;
+  --content-bg-color: whitesmoke;
+  --title-color: linen;
+  --main-color: royalblue;
+  --text-color: black;
 }
 
 body {
-    box-sizing: border-box;
-    font-family: "Roboto Mono", 'Courier New', Courier, monospace;
-    background: var(--background-color);
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  background: var(--background-color);
+  scroll-behavior: smooth;
 }
 
 * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 0;
-    margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--main-color) var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color) var(--background-color);
 }
 
-
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: gainsboro;
+  background: gainsboro;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    border-radius: 0;
+  background: var(--main-color);
+  border-radius: 0;
 }

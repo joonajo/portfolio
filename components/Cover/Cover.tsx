@@ -5,8 +5,77 @@ import MediaIcons from "../UI/Icons/MediaIcons/MediaIcons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../../icons/icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import styled from "styled-components";
+import Image from "next/image";
 
 const css = require("./Cover.module.css");
+
+const Root = styled.div`
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+
+const BackgroundContainer = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+`;
+
+const BackgroundMask = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 0, 10, 0.8);
+`;
+
+const BackgroundImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+`;
+
+const CoverContent = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MediaIconsContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const TitleContainer = styled.div`
+  z-index: 10;
+  display: flex;
+  font-size: 1rem;
+  flex-flow: column;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+`;
 
 type TCover = {
   show: boolean;
@@ -34,21 +103,20 @@ const Cover = ({ show, load }: TCover): JSX.Element => {
   const animTextStyles = [css.AnimText, show && css.loaded].join(" ");
 
   return (
-    <div className={css.Main} ref={coverRef} style={{ height: `${height}px` }}>
-      <div className={css.BackgroundContainer}>
-        <img
+    <Root ref={coverRef} style={{ height: `${height}px` }}>
+      <BackgroundContainer>
+        <BackgroundImage
           src={`/images/palm.png`}
           alt="cover-bg-palm"
-          className={css.BackgroundImage}
           onLoad={load}
         />
-        <div className={css.BackgroundMask} />
-      </div>
-      <div className={css.CoverContent}>
-        <div className={css.MediaIcons}>
+        <BackgroundMask />
+      </BackgroundContainer>
+      <CoverContent>
+        <MediaIconsContainer>
           <MediaIcons vertical />
-        </div>
-        <div className={css.TitleContainer}>
+        </MediaIconsContainer>
+        <TitleContainer>
           <div className={[animTextStyles, css.First].join(" ")}>
             <AnimatedText text="Joona" show={show} />
           </div>
@@ -59,15 +127,15 @@ const Cover = ({ show, load }: TCover): JSX.Element => {
             {" "}
             <span>{"<Front End Developer />"}</span>{" "}
           </p>
-        </div>
+        </TitleContainer>
         <div className={css.ArrowContainer}>
           <div className={css.ArrowIcon} onClick={scrollToPortfolio}>
             <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
           </div>
           <p className={css.ArrowText}>to portfolio</p>
         </div>
-      </div>
-    </div>
+      </CoverContent>
+    </Root>
   );
 };
 

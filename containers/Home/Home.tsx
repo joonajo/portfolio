@@ -13,8 +13,6 @@ import { IPortfolioItem } from "../../interfaces/interfaces";
 import Layout from "../../components/UI/Layout/Layout";
 import Loading from "../../components/UI/Loading/Loading";
 
-const css = require("./Home.module.css");
-
 const Home: NextPage = (): JSX.Element => {
   const [bgLoaded, setBgLoaded] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
@@ -62,7 +60,7 @@ const Home: NextPage = (): JSX.Element => {
           });
       }
     }
-  }, [portfolioState]);
+  }, [portfolioState, portfolioDispatch]);
 
   return (
     <>
