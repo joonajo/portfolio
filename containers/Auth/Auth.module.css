@@ -2,115 +2,113 @@
 .AuthForm,
 .IconContainer,
 .SubmitButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Container,
 .AuthForm,
 .AuthFormContainer {
-    flex-flow: column;
+  flex-flow: column;
 }
 
 .AuthFormContainer {
-    position: relative;
-    font-family: Ubuntu Bold;
-    text-transform: uppercase;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 30px 5px gainsboro;
+  position: relative;
+  text-transform: uppercase;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 0px 30px 5px gainsboro;
 }
 
 .FormTitle {
-    margin: var(--item-margin);
+  margin: var(--item-margin);
 }
 
 .InputContainer {
-    margin: var(--item-margin);
-    position: relative;
-    border: 2px solid gainsboro;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 2px;
-    transition: all var(--transition-time);
+  margin: var(--item-margin);
+  position: relative;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2px;
+  transition: all var(--transition-time);
 }
 
 .InputContainer.focus {
-    box-shadow: 0px 0px 10px 2px gainsboro;
+  box-shadow: 0px 0px 10px 2px gainsboro;
 }
 
 .EmailInput,
 .PasswordInput {
-    font-size: .8rem;
-    padding: 10px var(--input-icon-width);
-    color: black;
-    font-family: Ubuntu;
-    border: none;
+  font-size: 0.8rem;
+  padding: 10px var(--input-icon-width);
+  color: black;
+  border: none;
 }
 
 .Span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0px;
-    background: var(--main-color);
-    transition: all var(--transition-time);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0px;
+  background: var(--main-color);
+  transition: all var(--transition-time);
 }
 
 .Span.focus {
-    width: 100%;
+  width: 100%;
 }
 
 .EmailInput:focus,
 .PasswordInput:focus {
-    outline: none;
+  outline: none;
 }
 
 .EmailInput::placeholder,
 .PasswordInput::placeholder {
-    color: lightgray;
+  color: lightgray;
 }
 
 .IconContainer {
-    position: absolute;
-    width: var(--input-icon-width);
-    height: 100%;
-    top: 0;
-    left: 0;
+  position: absolute;
+  width: var(--input-icon-width);
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .InputIcon {
-    color: lightgray;
-    transition: all var(--transition-time);
+  color: lightgray;
+  transition: all var(--transition-time);
 }
 
 .InputIcon.focus {
-    color: royalblue;
+  color: royalblue;
 }
 
 .SubmitButton {
-    margin-top: var(--item-margin);
-    padding: 5px 10px;
-    flex-flow: row;
-    border: 2px solid gainsboro;
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: 1;
-    transition: all var(--transition-time);
+  margin-top: var(--item-margin);
+  padding: 5px 10px;
+  flex-flow: row;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all var(--transition-time);
 }
 
 .SubmitButton svg {
-    color: lightgray;
-    margin-left: 10px;
-    transition: all var(--transition-time);
-    transform: translate3d(0, 0, 0);
+  color: lightgray;
+  margin-left: 10px;
+  transition: all var(--transition-time);
+  transform: translate3d(0, 0, 0);
 }
 
 .SubmitButton:hover {
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 10px 2px gainsboro;
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 10px 2px gainsboro;
 }
 
 /* .SubmitButton:hover svg {
@@ -118,12 +116,16 @@
 } */
 
 .ErrorText {
-    position: relative;
-    top: -100%;
-    color: red;
+  position: relative;
+  top: -100%;
+  color: red;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

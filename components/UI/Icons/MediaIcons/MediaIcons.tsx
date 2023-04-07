@@ -1,14 +1,15 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icons } from "../../../../icons/icons";
-import styled from "styled-components";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import styled from 'styled-components';
+
+import { icons } from '../../../../icons/icons';
 
 const Wrapper = styled.div<{ horizontal?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: ${(props) => (props.horizontal ? "row" : "column")};
+  flex-flow: ${props => (props.horizontal ? 'row' : 'column')};
 `;
 
 const LinkWrapper = styled.a<{ horizontal?: boolean }>`
@@ -43,9 +44,7 @@ type TMediaIconsProps = {
   vertical?: boolean;
 };
 
-const MediaIcons: React.FunctionComponent<TMediaIconsProps> = (
-  props
-): JSX.Element => {
+const MediaIcons: React.FunctionComponent<TMediaIconsProps> = (props): JSX.Element => {
   const { horizontal }: TMediaIconsProps = props;
 
   return (
@@ -68,11 +67,7 @@ const MediaIcons: React.FunctionComponent<TMediaIconsProps> = (
       >
         <FontAwesomeIcon icon={icons.faLinkedin as IconProp} />
       </LinkWrapper>
-      <LinkWrapper
-        horizontal={horizontal}
-        href="mailto: joona.joenpolvi@gmail.com"
-        aria-label="email-link"
-      >
+      <LinkWrapper horizontal={horizontal} href="mailto: joona.joenpolvi@gmail.com" aria-label="email-link">
         <FontAwesomeIcon icon={icons.faEnvelope as IconProp} />
       </LinkWrapper>
       <LinkWrapper
@@ -84,6 +79,7 @@ const MediaIcons: React.FunctionComponent<TMediaIconsProps> = (
       >
         <FontAwesomeIcon icon={icons.faInstagram as IconProp} />
       </LinkWrapper>
+
       <LinkWrapper
         horizontal={horizontal}
         href="https://www.flickr.com/photos/150620060@N07/"

@@ -1,13 +1,13 @@
-import * as React from "react";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as React from 'react';
+import styled from 'styled-components';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { formTypes } from "../../../form/form";
-import { icons } from "../../../icons/icons";
-import { IPortfolioItem } from "../../../interfaces/interfaces";
-import ItemForm from "../ItemForm/ItemForm";
-import Loading from "../../UI/Loading/Loading";
-import styled from "styled-components";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { formTypes } from '../../../form/form';
+import { icons } from '../../../icons/icons';
+import { IPortfolioItem } from '../../../interfaces/interfaces';
+import Loading from '../../UI/Loading/Loading';
+import ItemForm from '../ItemForm/ItemForm';
 
 const Root = styled.div`
   display: flex;
@@ -55,12 +55,7 @@ type TProps = {
   setShowForm(arg: boolean): void;
 };
 
-const AddPortfolioItem: React.FunctionComponent<TProps> = ({
-  showForm,
-  setShowForm,
-  add,
-  sending,
-}): JSX.Element => {
+const AddPortfolioItem: React.FunctionComponent<TProps> = ({ showForm, setShowForm, add, sending }): JSX.Element => {
   const clickHandler = () => {
     setShowForm(true);
   };
@@ -71,13 +66,7 @@ const AddPortfolioItem: React.FunctionComponent<TProps> = ({
         <AddItemButton onClick={clickHandler}>
           add item <StyledIcon icon={icons.faPlus as IconProp} />
         </AddItemButton>
-        <ItemForm
-          type={formTypes.ADD}
-          show={showForm}
-          close={() => setShowForm(false)}
-          add={add}
-          sending={sending}
-        />
+        <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={add} sending={sending} />
       </Root>
       <Loading show={sending} transparent fadeout />
     </>

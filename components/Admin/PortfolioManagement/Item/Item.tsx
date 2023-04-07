@@ -1,22 +1,18 @@
-import * as React from "react";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as React from 'react';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icons } from "../../../../icons/icons";
-import { IPortfolioItem } from "../../../../interfaces/interfaces";
-import EditItem from "../../EditItem/EditItem";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import css from './Item.module.css';
+import { icons } from '../../../../icons/icons';
+import { IPortfolioItem } from '../../../../interfaces/interfaces';
+import EditItem from '../../EditItem/EditItem';
 
-const css = require("./Item.module.css");
-
-interface IItemComponent {
+type IItemComponent = {
   item: IPortfolioItem;
   deleteItem: (title: string) => void;
-}
+};
 
-const PortfolioItem: React.FunctionComponent<IItemComponent> = ({
-  item,
-  deleteItem,
-}): JSX.Element => {
+const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteItem }): JSX.Element => {
   const [editItem, setEditItem] = React.useState<boolean>(false);
 
   const editItemHandler = () => {
@@ -31,8 +27,8 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({
         </div>
         <div className={css.ItemHoverContent}>
           <div className={css.Button} onClick={editItemHandler}>
-            {" "}
-            <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>{" "}
+            {' '}
+            <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>{' '}
           </div>
           <DeleteButton deleteItem={() => deleteItem(item.title)} />
         </div>
@@ -42,13 +38,11 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({
   );
 };
 
-interface IDeleteButton {
+type IDeleteButton = {
   deleteItem(): void;
-}
+};
 
-const DeleteButton: React.FunctionComponent<IDeleteButton> = ({
-  deleteItem,
-}): JSX.Element => {
+const DeleteButton: React.FunctionComponent<IDeleteButton> = ({ deleteItem }): JSX.Element => {
   const [showConfirm, setShowConfirm] = React.useState<boolean>(false);
 
   const confirmHandler = () => {
@@ -60,8 +54,8 @@ const DeleteButton: React.FunctionComponent<IDeleteButton> = ({
     <>
       {!showConfirm && (
         <div className={css.Button} onClick={() => setShowConfirm(true)}>
-          {" "}
-          <FontAwesomeIcon icon={icons.faTrash as IconProp} /> <p>delete</p>{" "}
+          {' '}
+          <FontAwesomeIcon icon={icons.faTrash as IconProp} /> <p>delete</p>{' '}
         </div>
       )}
       {showConfirm && (

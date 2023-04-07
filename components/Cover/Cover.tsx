@@ -1,14 +1,14 @@
-import React from "react";
-import zenscroll from "zenscroll";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
+import zenscroll from 'zenscroll';
 
-import MediaIcons from "../UI/Icons/MediaIcons/MediaIcons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icons } from "../../icons/icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import styled from "styled-components";
-import Image from "next/image";
-
-const css = require("./Cover.module.css");
+import styles from './Cover.module.css';
+import { icons } from '../../icons/icons';
+import bgImage from '../../public/images/palm.png';
+import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons';
 
 const Root = styled.div`
   width: 100%;
@@ -49,9 +49,6 @@ const BackgroundImage = styled(Image)`
 `;
 
 const CoverContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -62,8 +59,8 @@ const CoverContent = styled.div`
 
 const MediaIconsContainer = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5px;
+  left: 5px;
 `;
 
 const TitleContainer = styled.div`
@@ -77,6 +74,55 @@ const TitleContainer = styled.div`
   align-items: center;
 `;
 
+const ArrowContainer = styled.div`
+  position: absolute;
+  bottom: 100px;
+`;
+
+const ArrowText = styled.p`
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  top: -100%;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: all 0.2s;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+`;
+
+const ArrowIcon = styled.div`
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--title-color);
+
+  & svg {
+    height: 15px;
+  }
+
+  &:hover {
+    background: royalblue;
+    color: black;
+
+    ${ArrowText} {
+      opacity: 1;
+    }
+  }
+`;
+
 type Props = {
   show: boolean;
   load: () => void;
@@ -84,11 +130,6 @@ type Props = {
 
 const Cover = ({ show, load }: Props) => {
   const coverRef = React.useRef<HTMLDivElement>(null);
-  const [height, setHeight] = React.useState<number | undefined>(undefined);
-
-  React.useEffect(() => {
-    setHeight(window.innerHeight);
-  }, []);
 
   const scrollToPortfolio = React.useCallback(() => {
     if (coverRef && coverRef.current) {
@@ -98,18 +139,14 @@ const Cover = ({ show, load }: Props) => {
     }
   }, [coverRef]);
 
-  const descStyles = [css.Description, show && css.loaded].join(" ");
+  const descStyles = [styles.Description, show && styles.loaded].join(' ');
 
-  const animTextStyles = [css.AnimText, show && css.loaded].join(" ");
+  const animTextStyles = [styles.AnimText, show && styles.loaded].join(' ');
 
   return (
-    <Root ref={coverRef} style={{ height: `${height}px` }}>
+    <Root ref={coverRef}>
       <BackgroundContainer>
-        <BackgroundImage
-          src={`/images/palm.png`}
-          alt="cover-bg-palm"
-          onLoad={load}
-        />
+        <BackgroundImage src={bgImage} alt="cover-bg-palm" onLoad={load} />
         <BackgroundMask />
       </BackgroundContainer>
       <CoverContent>
@@ -117,48 +154,41 @@ const Cover = ({ show, load }: Props) => {
           <MediaIcons vertical />
         </MediaIconsContainer>
         <TitleContainer>
-          <div className={[animTextStyles, css.First].join(" ")}>
+          <div className={[animTextStyles, styles.First].join(' ')}>
             <AnimatedText text="Joona" show={show} />
           </div>
-          <div className={[animTextStyles, css.Second].join(" ")}>
+          <div className={[animTextStyles, styles.Second].join(' ')}>
             <AnimatedText text="Joenpolvi" show={show} delay={0.5} />
           </div>
           <p className={descStyles}>
-            {" "}
-            <span>{"<Front End Developer />"}</span>{" "}
+            {' '}
+            <span>{'<Front End Developer />'}</span>{' '}
           </p>
         </TitleContainer>
-        <div className={css.ArrowContainer}>
-          <div className={css.ArrowIcon} onClick={scrollToPortfolio}>
+        <ArrowContainer>
+          <ArrowIcon onClick={scrollToPortfolio}>
             <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
-          </div>
-          <p className={css.ArrowText}>to portfolio</p>
-        </div>
+          </ArrowIcon>
+          <p className={styles.ArrowText}>to portfolio</p>
+        </ArrowContainer>
       </CoverContent>
     </Root>
   );
 };
 
-interface IAnimatedText {
+type AnimatedTextProps = {
   text: string;
   show?: boolean;
   delay?: number;
-}
+};
 
-const AnimatedText: React.FunctionComponent<IAnimatedText> = ({
-  text,
-  show,
-  delay,
-}): JSX.Element => {
-  const containerStyles = [css.AnimatedText].join(" ");
+const AnimatedText = ({ text, delay }: AnimatedTextProps) => {
+  const containerStyles = [styles.AnimatedText].join(' ');
 
   const trueDelay: number = delay ? delay : 0;
 
   return (
-    <div
-      className={containerStyles}
-      style={{ transitionDelay: `${trueDelay / 2 + 0.3}s` }}
-    >
+    <div className={containerStyles} style={{ transitionDelay: `${trueDelay / 2 + 0.3}s` }}>
       {text}
       <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>
       <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>

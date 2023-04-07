@@ -1,9 +1,11 @@
-import React from 'react'
-import MediaIcons from '../Icons/MediaIcons/MediaIcons'
+import React, { useState } from 'react';
 
-const css = require('./Footer.module.css')
+import css from './Footer.module.css';
+import MediaIcons from '../Icons/MediaIcons/MediaIcons';
 
-const Footer: React.FunctionComponent = ():JSX.Element => {
+const Footer = () => {
+  const [currentYear] = useState(new Date().getFullYear());
+
   return (
     <div className={css.Footer}>
       <div className={css.MediaIcons}>
@@ -11,10 +13,10 @@ const Footer: React.FunctionComponent = ():JSX.Element => {
       </div>
       <div className={css.Copyright}>
         <i className="fas fa-cloud"></i>
-        <p>© Joona Joenpolvi 2020. All rights reserved.</p>
+        <p>© Joona Joenpolvi {currentYear}. All rights reserved.</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,17 +1,10 @@
-import * as React from 'react'
+import { NextPage } from 'next';
+import * as React from 'react';
 
-import { NextPage } from 'next'
+import Admin from '../../containers/Admin/Admin';
 
-import Admin from '../../containers/Admin/Admin'
-import { AuthProvider } from '../../context/authContext'
+const AdminPage: NextPage = () => {
+  return <Admin />;
+};
 
-const css = require('./index.module.css')
-
-const AdminPage: NextPage = (): JSX.Element => {
-
-    return (
-        <Admin />
-    )
-}
-
-export default AdminPage
+export default AdminPage;

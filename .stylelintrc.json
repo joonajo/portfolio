@@ -1,0 +1,34 @@
+{
+    "processors": ["stylelint-processor-styled-components"],
+    "extends": ["stylelint-config-recommended", "stylelint-config-styled-components"],
+    "plugins": ["stylelint-use-logical-spec"],
+    "rules": {
+      "liberty/use-logical-spec": [
+        "always",
+        {
+          "except": [
+            "border-bottom-left-radius",
+            "border-bottom-right-radius",
+            "border-top-left-radius",
+            "border-top-right-radius",
+            "bottom",
+            "height",
+            "left",
+            "max-height",
+            "max-width",
+            "min-height",
+            "min-width",
+            "right",
+            "top",
+            "width"
+          ]
+        }
+      ],
+      "selector-type-no-unknown": [
+        true,
+        {
+          "ignoreTypes": ["/-styled-mixin/", "$dummyValue"]
+        }
+      ]
+    }
+  }

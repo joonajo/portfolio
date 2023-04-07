@@ -1,19 +1,18 @@
-import React from "react";
-import { IPortfolioItem } from "../../interfaces/interfaces";
-import { icons } from "../../icons/icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ExpandedVideo from "../ExpandedVideo/ExpandedVideo";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
-const css = require("./Item.module.css");
+import css from './Item.module.css';
+import { icons } from '../../icons/icons';
+import { IPortfolioItem } from '../../interfaces/interfaces';
+import ExpandedVideo from '../ExpandedVideo/ExpandedVideo';
 
 const SHOW_TRESHOLD = 100; // pixels
 
 const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
   const [showItem, toggleShowItem] = React.useState<boolean>(false);
   const [showVideo, toggleShowVideo] = React.useState<boolean>(false);
-  const itemRef: React.RefObject<HTMLDivElement> =
-    React.useRef<HTMLDivElement>(null);
+  const itemRef: React.RefObject<HTMLDivElement> = React.useRef<HTMLDivElement>(null);
 
   // update the event listeners every time the showItem state is changed
   React.useEffect(() => {
@@ -23,16 +22,18 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
         const windowHeight: number = window.innerHeight;
 
         const newShowItem: boolean = itemPos < windowHeight - SHOW_TRESHOLD;
-        if (newShowItem !== showItem) toggleShowItem(newShowItem);
+        if (newShowItem !== showItem) {
+          toggleShowItem(newShowItem);
+        }
       }
     };
 
-    window.addEventListener("scroll", checkIfInViewport, true);
+    window.addEventListener('scroll', checkIfInViewport, true);
 
-    return () => window.removeEventListener("scroll", checkIfInViewport, true);
+    return () => window.removeEventListener('scroll', checkIfInViewport, true);
   }, [showItem]);
 
-  const itemClasses = [css.Item, showItem && css.show].join(" ");
+  const itemClasses = [css.Item, showItem && css.show].join(' ');
 
   return (
     <div className={itemClasses} ref={itemRef}>
@@ -58,17 +59,12 @@ const Item: React.FunctionComponent<IPortfolioItem> = (props): JSX.Element => {
           githubLink={props.githubLink}
         />
       </div>
-      {showVideo && (
-        <ExpandedVideo
-          video_src={props.video_src}
-          close={() => toggleShowVideo(false)}
-        />
-      )}
+      {showVideo && <ExpandedVideo video_src={props.video_src} close={() => toggleShowVideo(false)} />}
     </div>
   );
 };
 
-interface IItemInfo {
+type IItemInfo = {
   languages: string[];
   title: string;
   desc: string;
@@ -76,7 +72,7 @@ interface IItemInfo {
   mobile: boolean;
   link: string;
   githubLink: string;
-}
+};
 
 const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
   return (
@@ -86,39 +82,23 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
         {props.languages.map((lang: string, index: number) => (
           <p key={lang} className={css.Language}>
             {lang}
-            {index !== props.languages.length - 1 ? (
-              <span style={{ color: "dimgray" }}> + </span>
-            ) : (
-              ""
-            )}
+            {index !== props.languages.length - 1 ? <span style={{ color: 'dimgray' }}> + </span> : ''}
           </p>
         ))}
       </div>
       <p className={css.Description}>{props.desc}</p>
       <div className={css.IconsAndLinks}>
         <div className={css.ItemLinks}>
-          <a
-            className={css.ItemLinkContainer}
-            href={props.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className={css.ItemLinkContainer} href={props.githubLink} target="_blank" rel="noopener noreferrer">
             <p className={css.ItemLink}>Github</p>
             <div className={css.ItemLinkIcon}>
               <FontAwesomeIcon icon={icons.faGithub as IconProp} />
             </div>
           </a>
-          <a
-            className={css.ItemLinkContainer}
-            href={props.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className={css.ItemLinkContainer} href={props.link} target="_blank" rel="noopener noreferrer">
             <p className={css.ItemLink}>Open</p>
             <div className={css.ItemLinkIcon}>
-              <FontAwesomeIcon
-                icon={icons.faExternalLinkSquareAlt as IconProp}
-              />
+              <FontAwesomeIcon icon={icons.faExternalLinkSquareAlt as IconProp} />
             </div>
           </a>
         </div>
@@ -128,24 +108,21 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
   );
 };
 
-interface IHardwareICons {
+type IHardwareICons = {
   desktop: boolean;
   mobile: boolean;
-}
+};
 
-const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({
-  desktop,
-  mobile,
-}): JSX.Element => (
+const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({ desktop, mobile }): JSX.Element => (
   <div className={css.HardwareIcons}>
     <div className={css.HardwareIconContainer}>
-      <div className={[css.HardwareIcon, css.DesktopIcon].join(" ")}>
+      <div className={[css.HardwareIcon, css.DesktopIcon].join(' ')}>
         <FontAwesomeIcon icon={icons.faDesktop as IconProp} />
       </div>
       {desktop ? <CheckMarkIcon /> : <TimesIcon />}
     </div>
     <div className={css.HardwareIconContainer}>
-      <div className={[css.HardwareIcon, css.MobileIcon].join(" ")}>
+      <div className={[css.HardwareIcon, css.MobileIcon].join(' ')}>
         <FontAwesomeIcon icon={icons.faMobileAlt as IconProp} />
       </div>
       {mobile ? <CheckMarkIcon /> : <TimesIcon />}
@@ -154,37 +131,30 @@ const HardwareIcons: React.FunctionComponent<IHardwareICons> = ({
 );
 
 const CheckMarkIcon: React.FunctionComponent = (): JSX.Element => (
-  <div className={[css.HardwareIcon, css.CheckMarkIcon].join(" ")}>
+  <div className={[css.HardwareIcon, css.CheckMarkIcon].join(' ')}>
     <FontAwesomeIcon icon={icons.faCheck as IconProp} color="green" />
   </div>
 );
 
 const TimesIcon: React.FunctionComponent = (): JSX.Element => (
-  <div className={[css.HardwareIcon, css.TimesIcon].join(" ")}>
+  <div className={[css.HardwareIcon, css.TimesIcon].join(' ')}>
     <FontAwesomeIcon icon={icons.faTimes as IconProp} color="crimson" />
   </div>
 );
 
-interface IPreview {
+type IPreview = {
   video_src: string;
   preview_src?: string;
   gif_src: string;
   link: string;
   githubLink: string;
   toggle: (newValue: boolean) => void;
-}
+};
 
 const ItemPreview: React.FunctionComponent<IPreview> = (props): JSX.Element => {
   return (
     <div className={css.PreviewContainer}>
-      <video
-        className={css.PreviewVideo}
-        poster={props.gif_src}
-        muted
-        autoPlay
-        playsInline
-        loop
-      >
+      <video className={css.PreviewVideo} poster={props.gif_src} muted autoPlay playsInline loop>
         <source src={props.preview_src} type="video/mp4" />
       </video>
       <div className={css.PreviewMask}>
@@ -198,14 +168,12 @@ const ItemPreview: React.FunctionComponent<IPreview> = (props): JSX.Element => {
   );
 };
 
-interface IExpandVideo {
+type IExpandVideo = {
   toggle: (newValue: boolean) => void;
-}
+};
 
-const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({
-  toggle,
-}): JSX.Element => {
-  const classes = [css.ExpandVideo].join(" ");
+const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({ toggle }): JSX.Element => {
+  const classes = [css.ExpandVideo].join(' ');
 
   return (
     <>
@@ -214,30 +182,6 @@ const ExpandVideo: React.FunctionComponent<IExpandVideo> = ({
         <FontAwesomeIcon icon={icons.faExpand as IconProp} color="white" />
       </div>
     </>
-  );
-};
-
-interface IMaskLink {
-  address: string;
-  text: string;
-  icon: string;
-}
-
-const MaskLink: React.FunctionComponent<IMaskLink> = ({
-  address,
-  text,
-}): JSX.Element => {
-  return (
-    <a
-      href={address}
-      className={css.MaskLink}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className={css.MaskLinkText}>
-        <span>{text}</span>
-      </div>
-    </a>
   );
 };
 

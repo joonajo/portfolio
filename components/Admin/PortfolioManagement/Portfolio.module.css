@@ -2,12 +2,11 @@
 .ItemContainer,
 .ItemMainContent,
 .ItemHoverContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Roboto Mono;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ItemsContainer {
-    flex-flow: column;
+  flex-flow: column;
 }

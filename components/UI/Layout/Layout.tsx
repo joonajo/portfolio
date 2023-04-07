@@ -1,15 +1,15 @@
-import React from "react";
-import Footer from "../Footer/Footer";
-import Toolbar from "../Toolbar/Toolbar";
-import { ToolbarProvider } from "../../../context/toolbarContext";
+import React from 'react';
 
-const css = require("./Layout.module.css");
+import css from './Layout.module.css';
+import { ToolbarProvider } from '../../../context/toolbarContext';
+import Footer from '../Footer/Footer';
+import Toolbar from '../Toolbar/Toolbar';
 
-interface ILayout {
-  children: any;
-}
+type Props = {
+  children: React.ReactNode;
+};
 
-const Layout = ({ children }: ILayout): JSX.Element => {
+const Layout = ({ children }: Props) => {
   return (
     <ToolbarProvider>
       <div className={css.Layout}>

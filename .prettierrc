@@ -1,0 +1,34 @@
+{
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "options": {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "avoid"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "options": {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "avoid",
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": ["*.css"],
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}

@@ -4,11 +4,5 @@
     "files": [
       "static/chunks/components_Item_Item_tsx.js"
     ]
-  },
-  "../node_modules/next/dist/client/index.js -> ../pages/_error": {
-    "id": "../node_modules/next/dist/client/index.js -> ../pages/_error",
-    "files": [
-      "static/chunks/node_modules_next_dist_pages__error_js.js"
-    ]
   }
 }

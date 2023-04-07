@@ -1,395 +1,340 @@
-.Main {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    opacity: 1;
-}
-
-.MediaIcons {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.BackgroundContainer {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.BackgroundImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
-}
-
-.BackgroundMask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(2, 0, 10, .8);
-}
-
-.CoverContent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.TitleContainer {
-    z-index: 10;
-    display: flex;
-    font-size: 1rem;
-    flex-flow: column;
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-}
-
 .AnimatedText,
 .Description {
-    box-sizing: border-box;
-    cursor: default;  
+  box-sizing: border-box;
+  cursor: default;
 }
 
 .Description {
-    color: var(--background-color);
-    margin-top: 1em;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    width: auto;
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    visibility: hidden;
+  color: var(--background-color);
+  margin-top: 1em;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  width: auto;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .Description.loaded {
-    transition: opacity 1s 1.2s, visibility 0s 0s;
-    visibility: visible;
-    opacity: 1;
+  transition: opacity 1s 1.2s, visibility 0s 0s;
+  visibility: visible;
+  opacity: 1;
 }
 
 .ArrowContainer {
-    position: absolute;
-    bottom: 100px;
+  position: absolute;
+  bottom: 100px;
 }
 
 .ArrowIcon {
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    transition: all .2s;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--title-color);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--title-color);
 }
 
 .ArrowIcon:hover {
-    background: royalblue;
-    color: black;
+  background: royalblue;
+  color: black;
 }
 
 .ArrowIcon svg {
-    height: 15px;
+  height: 15px;
 }
 
 .ArrowText {
-    position: absolute;
-    color:  rgba(255, 255, 255, 0.5);
-    top: -100%;
-    font-weight: bold;
-    text-align: center;
-    width: 100px;
-    font-size: .7em;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: all .2s;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: default;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  top: -100%;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: all 0.2s;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
 }
 
 .ArrowIcon:hover .ArrowText {
-    opacity: 1;
+  opacity: 1;
 }
 
 .AnimText {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .AnimText.loaded.First {
-    transition: opacity 3s .4s, visibility 0s 0s;
-    visibility: visible;
-    opacity: 1;
+  transition: opacity 3s 0.4s, visibility 0s 0s;
+  visibility: visible;
+  opacity: 1;
 }
 
 .AnimText.loaded.Second {
-    transition: opacity 3s .8s, visibility 0s 0s;
-    visibility: visible;
-    opacity: 1;
+  transition: opacity 3s 0.8s, visibility 0s 0s;
+  visibility: visible;
+  opacity: 1;
 }
 
 .AnimatedText {
-    position: relative;
-    margin: auto;
-    color: transparent;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.03em;
-    overflow: hidden;
-    width: 100%;
-    text-align: center;
-    cursor: default;
-    opacity: 1;
+  position: relative;
+  margin: auto;
+  color: transparent;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.03em;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  opacity: 1;
 }
 
 .AnimatedText > span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: var(--title-color);
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: var(--title-color);
+  pointer-events: none;
 }
-  
+
 .AnimatedText > span:nth-child(1) {
-    -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
-    mask-image: linear-gradient(black 25%, transparent 25%);
-    animation: deconstructed1 40s infinite;
-    color: royalblue;
+  -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
+  mask-image: linear-gradient(black 25%, transparent 25%);
+  animation: deconstructed1 40s infinite;
+  color: royalblue;
 }
-  
+
 .AnimatedText > span:nth-child(2) {
-    -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
-    mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
-    animation: deconstructed2 20s infinite;
-    color: ivory;
+  -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+  mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+  animation: deconstructed2 20s infinite;
+  color: ivory;
 }
 
 .AnimatedText > span:nth-child(3) {
-    -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-    mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-    animation: deconstructed3 15s infinite;
-    color: white;
+  -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+  mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+  animation: deconstructed3 15s infinite;
+  color: white;
 }
 
 .AnimatedText > span:nth-child(4) {
-    -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
-   mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
-   animation: deconstructed4 10s infinite;
-   color: mintcream;
+  -webkit-mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
+  mask-image: linear-gradient(transparent 75%, black 75%, black 100%, transparent 100%);
+  animation: deconstructed4 10s infinite;
+  color: mintcream;
 }
- 
-  
+
 @keyframes deconstructed1 {
-    0% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
-    26% {
-        transform: translateX(5px) translate3d(0, 0, 0);
-        -moz-transform: translateX(5px);
-        -webkit-transform: translateX(5px);
-    }
-    83% {
-        transform: translateX(-2px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-2px);
-        -webkit-transform: translateX(-2px);
-    }
-    100% {
-        transform: translateX(-0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-0px);
-        -webkit-transform: translateX(-0px);
-    }
+  0% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  26% {
+    transform: translateX(5px) translate3d(0, 0, 0);
+    -moz-transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+  }
+  83% {
+    transform: translateX(-2px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-2px);
+    -webkit-transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(-0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-0px);
+    -webkit-transform: translateX(-0px);
+  }
 }
-  
+
 @keyframes deconstructed2 {
-    0% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
-    24% {
-        transform: translateX(4px) translate3d(0, 0, 0);
-        -moz-transform: translateX(4px);
-        -webkit-transform: translateX(4px);
-    }
-    82% {
-        transform: translateX(-2px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-2px);
-        -webkit-transform: translateX(-2px);
-    }
-    100% {
-        transform: translateX(-0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-0px);
-        -webkit-transform: translateX(-0px);
-    }
+  0% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  24% {
+    transform: translateX(4px) translate3d(0, 0, 0);
+    -moz-transform: translateX(4px);
+    -webkit-transform: translateX(4px);
+  }
+  82% {
+    transform: translateX(-2px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-2px);
+    -webkit-transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(-0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-0px);
+    -webkit-transform: translateX(-0px);
+  }
 }
-  
+
 @keyframes deconstructed3 {
-    0% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
-    22% {
-        transform: translateX(-4px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-4px);
-        -webkit-transform: translateX(-4px);
-    }
-    81% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
-    100% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
+  0% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  22% {
+    transform: translateX(-4px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-4px);
+    -webkit-transform: translateX(-4px);
+  }
+  81% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
 }
 
 @keyframes deconstructed4 {
-    0% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px) ;
-        -webkit-transform: translateX(0px);
-    }
-    20% {
-        transform: translateX(2px) translate3d(0, 0, 0); 
-        -moz-transform: translateX(2px);
-        -webkit-transform: translateX(2px);
-    }
-    80% {
-        transform: translateX(-1px) translate3d(0, 0, 0);
-        -moz-transform: translateX(-1px);
-        -webkit-transform: translateX(-1px);
-    }
-    100% {
-        transform: translateX(0px) translate3d(0, 0, 0);
-        -moz-transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-    }
+  0% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(2px) translate3d(0, 0, 0);
+    -moz-transform: translateX(2px);
+    -webkit-transform: translateX(2px);
+  }
+  80% {
+    transform: translateX(-1px) translate3d(0, 0, 0);
+    -moz-transform: translateX(-1px);
+    -webkit-transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0px) translate3d(0, 0, 0);
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
 }
 
 @keyframes fadein {
-    from { opacity: 0 }
-    to { opacity: 1 }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .Description span {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    line-height: 1;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  line-height: 1;
 }
-  
+
 .Description span::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    animation: a-ltr-after 30s cubic-bezier(.77,0,.18,1) forwards infinite;
-    transform: translateX(-101%);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  animation: a-ltr-after 30s cubic-bezier(0.77, 0, 0.18, 1) forwards infinite;
+  transform: translateX(-101%);
 }
-  
+
 .Description span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    animation: a-ltr-before 20s cubic-bezier(.77,0,.18,1) forwards infinite;
-    transform: translateX(0);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  animation: a-ltr-before 20s cubic-bezier(0.77, 0, 0.18, 1) forwards infinite;
+  transform: translateX(0);
 }
-  
+
 .Description span:nth-of-type(1)::before,
 .Description span:nth-of-type(1)::after {
-    animation-delay: 1s;
+  animation-delay: 1s;
 }
-  
+
 .Description span:nth-of-type(2)::before,
 .Description span:nth-of-type(2)::after {
-    animation-delay: 1.5s;  
-}
-  
-@keyframes a-ltr-after{
-    0% {transform: translateX(-100%)}
-    5% {transform: translateX(101%)}
-    100% {transform: translateX(101%)}
-}
-  
-@keyframes a-ltr-before{
-    0% {transform: translateX(0)}
-    5% {transform: translateX(200%)}
-    100% {transform: translateX(200%)}
+  animation-delay: 1.5s;
 }
 
+@keyframes a-ltr-after {
+  0% {
+    transform: translateX(-100%);
+  }
+  5% {
+    transform: translateX(101%);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes a-ltr-before {
+  0% {
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
 
 @media (min-width: 350px) {
-    .AnimatedText {
-        font-size: 3.3rem;
-    }
+  .AnimatedText {
+    font-size: 3.3rem;
+  }
 }
 
 @media (min-width: 370px) {
-    .AnimatedText {
-        font-size: 4.5rem;
-    }
+  .AnimatedText {
+    font-size: 4.5rem;
+  }
 }
 
 @media (min-width: 600px) {
-    .AnimatedText {
-        font-size: 6rem;
-    }
+  .AnimatedText {
+    font-size: 6rem;
+  }
 }
 
 @media (min-width: 1000px) {
-    .AnimatedText {
-        font-size: 7rem;
-    }
+  .AnimatedText {
+    font-size: 7rem;
+  }
 }
 
 @media (min-width: 2000px) {
-    .AnimatedText {
-        font-size: 10rem;
-    }
+  .AnimatedText {
+    font-size: 10rem;
+  }
 
-    .Description {
-        font-size: 2rem;
-    }
+  .Description {
+    font-size: 2rem;
+  }
 }

@@ -1,3 +1,4 @@
+import { faGithub, faInstagram, faFlickr, faStrava, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import {
   faEnvelope,
   faExternalLinkSquareAlt,
@@ -15,14 +16,7 @@ import {
   faPlus,
   faTrash,
   faEdit,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faInstagram,
-  faFlickr,
-  faStrava,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 export const icons = {
   faEnvelope,

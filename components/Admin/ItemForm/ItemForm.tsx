@@ -1,36 +1,23 @@
-import * as React from "react";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as React from 'react';
 
-import { IPortfolioItem } from "../../../interfaces/interfaces";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icons } from "../../../icons/icons";
-import {
-  IForm,
-  initialForm,
-  updateEditForm,
-  formTypes,
-} from "../../../form/form";
-import Loading from "../../UI/Loading/Loading";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import css from './ItemForm.module.css';
+import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form';
+import { icons } from '../../../icons/icons';
+import { IPortfolioItem } from '../../../interfaces/interfaces';
+import Loading from '../../UI/Loading/Loading';
 
-const css = require("./ItemForm.module.css");
-
-interface IItemForm {
+type Props = {
   show: boolean;
   sending: boolean;
   item?: IPortfolioItem;
   type: string;
-  close(): void;
-  add(item: IPortfolioItem): void;
-}
+  close: () => void;
+  add: (item: IPortfolioItem) => void;
+};
 
-const ItemForm: React.FunctionComponent<IItemForm> = ({
-  show,
-  sending,
-  item,
-  close,
-  add,
-  type,
-}): JSX.Element => {
+const ItemForm = ({ show, sending, item, close, add, type }: Props) => {
   const [form, setForm] = React.useState<IForm>(initialForm);
 
   React.useEffect(() => {
@@ -43,7 +30,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
 
   const optionClickHandler = (id: string, name: string) => {
     let updatedForm: IForm = { ...form };
-    if (id === "language") {
+    if (id === 'language') {
       updatedForm = {
         ...form,
         [id]: {
@@ -64,10 +51,10 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
           ...form[id],
           options: {
             Yes: {
-              selected: name === "Yes",
+              selected: name === 'Yes',
             },
             No: {
-              selected: name === "No",
+              selected: name === 'No',
             },
           },
         },
@@ -78,9 +65,7 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
 
   const changeHandler = (
     id: string,
-    event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     let updatedForm: IForm = { ...form };
     updatedForm = {
@@ -94,10 +79,10 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
   };
 
   const addHandler = () => {
-    let selectedLanguages = Object.keys(form.language.options).filter(
-      (option) => form.language.options[option].selected
-    );
-    if (selectedLanguages.length === 0) selectedLanguages = ["React"];
+    let selectedLanguages = Object.keys(form.language.options).filter(option => form.language.options[option].selected);
+    if (selectedLanguages.length === 0) {
+      selectedLanguages = ['React'];
+    }
 
     const newItem: IPortfolioItem = {
       title: form.title.value,
@@ -115,19 +100,15 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
     add(newItem);
   };
 
-  const itemFormStyles = [css.ItemForm, show && css.show].join(" ");
+  const itemFormStyles = [css.ItemForm, show && css.show].join(' ');
 
-  const backdropStyles = [css.FormBackdrop, show && css.show].join(" ");
+  const backdropStyles = [css.FormBackdrop, show && css.show].join(' ');
 
   return (
     <>
       <form className={itemFormStyles}>
         <Loading show={sending} transparent fadeout />
-        <FontAwesomeIcon
-          className={css.FormCloseButton}
-          icon={icons.faTimes as IconProp}
-          onClick={close}
-        />
+        <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes as IconProp} onClick={close} />
         {Object.keys(form).map((element: string) => {
           return (
             <FormInput
@@ -148,44 +129,34 @@ const ItemForm: React.FunctionComponent<IItemForm> = ({
   );
 };
 
-interface IFormInput {
+type IFormInput = {
   type: string;
   item: any;
-  change: (
-    id: string,
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => void;
+  change: (id: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
   clickOption: (id: string, name: string) => void;
-}
+};
 
-const FormInput = ({
-  type,
-  item,
-  change,
-  clickOption,
-}: IFormInput): JSX.Element => {
-  let content = undefined;
+const FormInput = ({ type, item, change, clickOption }: IFormInput): JSX.Element => {
+  let content;
 
   switch (item.elemType) {
-    case "input":
+    case 'input':
       content = (
         <input
           value={item.value}
-          disabled={type === formTypes.EDIT && item.id === "title"}
+          disabled={type === formTypes.EDIT && item.id === 'title'}
           placeholder={item.placeholder}
-          onChange={(e) => change(item.id, e)}
+          onChange={e => change(item.id, e)}
           className={css.FormInput}
         />
       );
       break;
 
-    case "textarea":
+    case 'textarea':
       content = (
         <textarea
           value={item.value}
-          onChange={(e) => change(item.id, e)}
+          onChange={e => change(item.id, e)}
           placeholder={item.placeholder}
           className={css.FormInput}
           rows={5}
@@ -193,15 +164,15 @@ const FormInput = ({
       );
       break;
 
-    case "select":
+    case 'select':
       content = (
         <div className={css.Select}>
           {Object.keys(item.options).map((option: any) => {
-            const selected: boolean = item.options[option].selected;
+            const { selected } = item.options[option];
             return (
               <div
                 key={item.id + option}
-                className={[css.Option, selected && css.selected].join(" ")}
+                className={[css.Option, selected && css.selected].join(' ')}
                 onClick={() => clickOption(item.id, option)}
               >
                 {option}

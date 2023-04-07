@@ -1,8 +1,15 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  /* config options here */
+module.exports = {
+  reactStrictMode: false,
+  compiler: {
+    styledComponents: true,
+  },
+  redirects: async () => {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ];
+  },
 };
-
-module.exports = nextConfig;
