@@ -5,12 +5,7 @@ import PortfolioItems from '../../components/Admin/PortfolioManagement/Portfolio
 import Loading from '../../components/UI/Loading/Loading';
 import Auth from '../../containers/Auth/Auth';
 import { IAuthContext, AuthContext, TAuthState } from '../../context/authContext';
-import {
-  IPortfolioContext,
-  PortfolioContext,
-  TPortfolioState,
-  TPortfolioActionTypes,
-} from '../../context/portfolioContext';
+import { TPortfolioActionTypes, usePorftolioContext } from '../../context/portfolioContext';
 import { IPortfolioItem } from '../../interfaces/interfaces';
 
 const Admin: React.FunctionComponent = (): JSX.Element => {
@@ -79,9 +74,7 @@ type IAdminContent = {
 };
 
 const AdminContent: React.FunctionComponent<IAdminContent> = (): JSX.Element => {
-  const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext);
-  const portfolioState: TPortfolioState = portfolioContext.state;
-  const portfolioDispatch = portfolioContext.dispatch;
+  const { state: portfolioState, dispatch: portfolioDispatch } = usePorftolioContext();
 
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -98,7 +91,7 @@ const AdminContent: React.FunctionComponent<IAdminContent> = (): JSX.Element => 
             Object.keys(data).forEach(item => {
               newItems.push(data[item]);
             });
-            portfolioDispatch?.({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems });
+            portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems });
           }
           setLoading(false);
         });

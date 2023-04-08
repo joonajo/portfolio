@@ -3,7 +3,7 @@ import * as React from 'react';
 import PortfolioItem from './Item/Item';
 import css from './Portfolio.module.css';
 import { IAuthContext, AuthContext } from '../../../context/authContext';
-import { IPortfolioContext, PortfolioContext, TPortfolioActionTypes } from '../../../context/portfolioContext';
+import { TPortfolioActionTypes, usePorftolioContext } from '../../../context/portfolioContext';
 import { IPortfolioItem } from '../../../interfaces/interfaces';
 import Loading from '../../UI/Loading/Loading';
 import AddPortfolioItem from '../AddNewItem/AddItem';
@@ -16,7 +16,7 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
   const [sending, setSending] = React.useState<boolean>(false);
   const [showAddForm, setShowAddForm] = React.useState<boolean>(false);
   const authContext: IAuthContext = React.useContext(AuthContext);
-  const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext);
+  const { dispatch } = usePorftolioContext();
 
   const addItem = (item: IPortfolioItem) => {
     if (authContext.state.signedIn) {
@@ -29,7 +29,7 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
         response.json().then(_data => {
           setSending(false);
           setShowAddForm(false);
-          portfolioContext.dispatch!({ type: TPortfolioActionTypes.ADD_ITEM, payload: item });
+          dispatch!({ type: TPortfolioActionTypes.ADD_ITEM, payload: item });
         }),
       );
     }
@@ -46,7 +46,7 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
         .then(response => response.json())
         .then(_data => {
           setSending(false);
-          portfolioContext.dispatch!({ type: TPortfolioActionTypes.DELETE_ITEM, payload: itemTitle });
+          dispatch!({ type: TPortfolioActionTypes.DELETE_ITEM, payload: itemTitle });
         });
     }
   };
