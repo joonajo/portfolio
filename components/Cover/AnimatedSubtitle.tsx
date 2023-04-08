@@ -11,7 +11,7 @@ type Props = {
 const Root = styled.div<{ show: boolean }>`
   color: var(--background-color);
   margin-top: 1em;
-  padding: 10px 20px;
+  padding: 12px 24px;
   width: auto;
   background: black;
   opacity: 0;
