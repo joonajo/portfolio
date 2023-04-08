@@ -2,7 +2,6 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 
-import css from './Item.module.css';
 import { icons } from '../../../../icons/icons';
 import { IPortfolioItem } from '../../../../interfaces/interfaces';
 import EditItem from '../../EditItem/EditItem';
@@ -21,12 +20,12 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteIt
 
   return (
     <>
-      <div className={css.ItemContainer}>
-        <div className={css.ItemMainContent}>
+      <div>
+        <div>
           <p>{item.title}</p>
         </div>
-        <div className={css.ItemHoverContent}>
-          <div className={css.Button} onClick={editItemHandler}>
+        <div>
+          <div onClick={editItemHandler}>
             {' '}
             <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>{' '}
           </div>
@@ -53,19 +52,15 @@ const DeleteButton: React.FunctionComponent<IDeleteButton> = ({ deleteItem }): J
   return (
     <>
       {!showConfirm && (
-        <div className={css.Button} onClick={() => setShowConfirm(true)}>
+        <div onClick={() => setShowConfirm(true)}>
           {' '}
           <FontAwesomeIcon icon={icons.faTrash as IconProp} /> <p>delete</p>{' '}
         </div>
       )}
       {showConfirm && (
-        <div className={css.ConfirmDeleteContainer}>
-          <p className={css.ConfirmDelete} onClick={confirmHandler}>
-            yes
-          </p>
-          <p className={css.CancelDelete} onClick={() => setShowConfirm(false)}>
-            no
-          </p>
+        <div>
+          <p onClick={confirmHandler}>yes</p>
+          <p onClick={() => setShowConfirm(false)}>no</p>
         </div>
       )}
     </>

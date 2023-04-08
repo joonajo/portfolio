@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 export type TAuthState = {
   signedIn: boolean;
@@ -67,4 +67,14 @@ export const AuthProvider: React.FunctionComponent<IAuthProvider> = ({ children 
   const [state, dispatch] = React.useReducer(authReducer, initialAuthState);
 
   return <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>;
+};
+
+export const useAuthContext = () => {
+  const authContext = useContext(AuthContext);
+
+  if (!authContext.state || !authContext.dispatch) {
+    throw new Error('useAuthContext used outside of AuthContext!');
+  }
+
+  return { state: authContext.state, dispatch: authContext.dispatch };
 };

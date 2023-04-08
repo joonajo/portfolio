@@ -1,19 +1,17 @@
 import * as React from 'react';
+import { useQuery } from 'react-query';
 
 import css from './Admin.module.css';
-import PortfolioItems from '../../components/Admin/PortfolioManagement/Portfolio';
+import Editor from '../../components/Admin/PortfolioManagement/Editor';
 import Loading from '../../components/UI/Loading/Loading';
 import Auth from '../../containers/Auth/Auth';
-import { IAuthContext, AuthContext, TAuthState } from '../../context/authContext';
+import { useAuthContext } from '../../context/authContext';
 import { TPortfolioActionTypes, usePorftolioContext } from '../../context/portfolioContext';
-import { IPortfolioItem } from '../../interfaces/interfaces';
 
-const Admin: React.FunctionComponent = (): JSX.Element => {
-  const authContext: IAuthContext = React.useContext(AuthContext);
-  const authState: TAuthState = authContext.state;
-  const authDispatch = authContext.dispatch;
+const Admin = () => {
+  const { state: authState, dispatch: authDispatch } = useAuthContext();
 
-  const [sending, setSending] = React.useState<boolean>(true);
+  const [sending, setSending] = React.useState(true);
   const [screensize, setScreensize] = React.useState<{ width: number; height: number }>();
 
   React.useEffect(() => {
@@ -63,46 +61,39 @@ const Admin: React.FunctionComponent = (): JSX.Element => {
   return (
     <div className={css.Main} style={{ minHeight: `${screensize?.height}px`, minWidth: `${screensize?.width}px` }}>
       {!authState.signedIn && <Auth setSending={setSending} signIn={signInHandler} />}
-      {authState.signedIn && <AdminContent token={authState.idToken!} />}
+      {authState.signedIn && <AdminContent />}
       <Loading show={sending} transparent fadeout />
     </div>
   );
 };
 
-type IAdminContent = {
-  token: string;
-};
+const portfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items.json';
 
-const AdminContent: React.FunctionComponent<IAdminContent> = (): JSX.Element => {
+const AdminContent = () => {
   const { state: portfolioState, dispatch: portfolioDispatch } = usePorftolioContext();
 
-  const [loading, setLoading] = React.useState<boolean>(true);
-
-  React.useEffect(() => {
-    if (portfolioState.items.length === 0) {
-      const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json';
-
-      const newItems: IPortfolioItem[] = [];
-
-      fetch(baseURL, { method: 'get' })
-        .then(response => response.json())
-        .then(data => {
-          if (data) {
-            Object.keys(data).forEach(item => {
-              newItems.push(data[item]);
-            });
-            portfolioDispatch({ type: TPortfolioActionTypes.SET_ITEMS, payload: newItems });
-          }
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-    }
-  }, [portfolioState]);
+  const { isFetching: loading } = useQuery(
+    portfolioUrl,
+    () => fetch(portfolioUrl, { method: 'get' }).then(response => response.json()),
+    {
+      refetchOnWindowFocus: false,
+      onSuccess: data => {
+        if (data) {
+          const items = Object.keys(data).map(item => {
+            return data[item];
+          });
+          portfolioDispatch({
+            type: TPortfolioActionTypes.SET_ITEMS,
+            payload: items,
+          });
+        }
+      },
+    },
+  );
 
   return (
     <>
-      <div className={css.AdminContentWrapper}>{!loading && <PortfolioItems items={portfolioState.items} />}</div>
+      <div className={css.AdminContentWrapper}>{!loading && <Editor items={portfolioState.items} />}</div>
       <Loading show={loading} transparent fadeout />
     </>
   );

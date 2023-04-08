@@ -1,29 +1,28 @@
 import * as React from 'react';
 
 import PortfolioItem from './Item/Item';
-import css from './Portfolio.module.css';
-import { IAuthContext, AuthContext } from '../../../context/authContext';
+import { useAuthContext } from '../../../context/authContext';
 import { TPortfolioActionTypes, usePorftolioContext } from '../../../context/portfolioContext';
 import { IPortfolioItem } from '../../../interfaces/interfaces';
 import Loading from '../../UI/Loading/Loading';
 import AddPortfolioItem from '../AddNewItem/AddItem';
 
-type IPortfolioItems = {
+type Props = {
   items?: IPortfolioItem[];
 };
 
-const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JSX.Element => {
+const Editor = ({ items }: Props) => {
   const [sending, setSending] = React.useState<boolean>(false);
   const [showAddForm, setShowAddForm] = React.useState<boolean>(false);
-  const authContext: IAuthContext = React.useContext(AuthContext);
+  const { state: authState } = useAuthContext();
   const { dispatch } = usePorftolioContext();
 
   const addItem = (item: IPortfolioItem) => {
-    if (authContext.state.signedIn) {
+    if (authState.signedIn) {
       setSending(true);
       const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items/';
       const title: string = item.title + '.json';
-      const tokenParam: string = `?auth=${authContext.state.idToken}`;
+      const tokenParam: string = `?auth=${authState.idToken}`;
 
       fetch(baseURL + title + tokenParam, { method: 'put', body: JSON.stringify(item) }).then(response =>
         response.json().then(_data => {
@@ -36,11 +35,11 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
   };
 
   const deleteItem = (itemTitle: string) => {
-    if (authContext.state.signedIn) {
+    if (authState.signedIn) {
       setSending(true);
       const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items/';
       const itemParam: string = `${itemTitle}.json`;
-      const tokenParam: string = `?auth=${authContext.state.idToken}`;
+      const tokenParam: string = `?auth=${authState.idToken}`;
 
       fetch(baseURL + itemParam + tokenParam, { method: 'delete' })
         .then(response => response.json())
@@ -53,7 +52,7 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
 
   return (
     <>
-      <div className={css.ItemsContainer}>
+      <div>
         {items &&
           items.map((item: IPortfolioItem) => {
             return <PortfolioItem key={item.title} item={item} deleteItem={deleteItem} />;
@@ -65,4 +64,4 @@ const PortfolioItems: React.FunctionComponent<IPortfolioItems> = ({ items }): JS
   );
 };
 
-export default PortfolioItems;
+export default Editor;

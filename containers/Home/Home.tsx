@@ -6,7 +6,6 @@ import Cover from '../../components/Cover/Cover';
 import Layout from '../../components/UI/Layout/Layout';
 import Loading from '../../components/UI/Loading/Loading';
 import { TPortfolioActionTypes, usePorftolioContext } from '../../context/portfolioContext';
-import { IPortfolioItem } from '../../interfaces/interfaces';
 
 const portfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items.json';
 
@@ -19,15 +18,13 @@ const Home = () => {
     {
       refetchOnWindowFocus: false,
       onSuccess: data => {
-        const newItems: IPortfolioItem[] = [];
-
         if (data) {
-          Object.keys(data).forEach(item => {
-            newItems.push(data[item]);
+          const items = Object.keys(data).map(item => {
+            return data[item];
           });
           dispatch({
             type: TPortfolioActionTypes.SET_ITEMS,
-            payload: newItems,
+            payload: items,
           });
         }
       },

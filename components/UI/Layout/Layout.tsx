@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { ToolbarProvider } from '../../../context/toolbarContext';
 import Footer from '../Footer/Footer';
-import Toolbar from '../Toolbar/Toolbar';
 
 type Props = {
   children: React.ReactNode;
@@ -21,7 +20,6 @@ const Layout = ({ children }: Props) => {
   return (
     <ToolbarProvider>
       <Root>
-        <Toolbar />
         {children}
         <Footer />
       </Root>
