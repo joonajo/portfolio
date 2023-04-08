@@ -1,4 +1,5 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 
 import Content from '../../components/Content/Content';
 import Cover from '../../components/Cover/Cover';
@@ -7,45 +8,39 @@ import Loading from '../../components/UI/Loading/Loading';
 import { PortfolioContext, TPortfolioActionTypes } from '../../context/portfolioContext';
 import { IPortfolioItem } from '../../interfaces/interfaces';
 
-const Home = () => {
-  const [loading, setLoading] = React.useState(false);
+const portfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items.json';
 
+const Home = () => {
   const portfolioContext = React.useContext(PortfolioContext);
-  const portfolioState = portfolioContext.state;
   const portfolioDispatch = portfolioContext.dispatch;
 
-  React.useEffect(() => {
-    if (portfolioState && portfolioDispatch) {
-      if (portfolioState.items.length === 0) {
-        const baseURL: string = 'https://joonajo-portfolio.firebaseio.com/items.json';
-
+  const { isFetching: loading } = useQuery(
+    portfolioUrl,
+    () => fetch(portfolioUrl, { method: 'get' }).then(response => response.json()),
+    {
+      refetchOnWindowFocus: false,
+      onSuccess: data => {
         const newItems: IPortfolioItem[] = [];
 
-        setLoading(true);
-        fetch(baseURL, { method: 'get' })
-          .then(response => response.json())
-          .then(data => {
-            if (data) {
-              Object.keys(data).forEach(item => {
-                newItems.push(data[item]);
-              });
-              portfolioDispatch({
-                type: TPortfolioActionTypes.SET_ITEMS,
-                payload: newItems,
-              });
-            }
-            setLoading(false);
+        if (data) {
+          Object.keys(data).forEach(item => {
+            newItems.push(data[item]);
           });
-      }
-    }
-  }, [portfolioState, portfolioDispatch]);
+          portfolioDispatch?.({
+            type: TPortfolioActionTypes.SET_ITEMS,
+            payload: newItems,
+          });
+        }
+      },
+    },
+  );
 
   return (
     <>
       <Loading show={loading} text spinner slideout fullscreen color={'dimgray'} />
       <Layout>
         <Cover show={!loading} />
-        <Content />
+        {!loading && <Content />}
       </Layout>
     </>
   );

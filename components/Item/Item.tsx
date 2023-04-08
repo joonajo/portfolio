@@ -92,7 +92,7 @@ const ItemInfo: React.FunctionComponent<IItemInfo> = (props): JSX.Element => {
           <a className={css.ItemLinkContainer} href={props.githubLink} target="_blank" rel="noopener noreferrer">
             <p className={css.ItemLink}>Github</p>
             <div className={css.ItemLinkIcon}>
-              <FontAwesomeIcon icon={icons.faGithub as IconProp} />
+              <FontAwesomeIcon height={35} icon={icons.faGithub as IconProp} />
             </div>
           </a>
           <a className={css.ItemLinkContainer} href={props.link} target="_blank" rel="noopener noreferrer">
