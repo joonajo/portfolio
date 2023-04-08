@@ -50,7 +50,7 @@ const ArrowContainer = styled.div`
   bottom: 100px;
 `;
 
-const ArrowIcon = styled.div`
+const ArrowIconContainer = styled.div`
   cursor: pointer;
   position: relative;
   display: flex;
@@ -101,9 +101,9 @@ const Cover = ({ show }: Props) => {
         </TitleContainer>
       </CoverContent>
       <ArrowContainer>
-        <ArrowIcon onClick={scrollToPortfolio}>
+        <ArrowIconContainer onClick={scrollToPortfolio}>
           <FontAwesomeIcon icon={icons.faChevronDown as IconProp} size="lg" />
-        </ArrowIcon>
+        </ArrowIconContainer>
       </ArrowContainer>
     </Root>
   );
