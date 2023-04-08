@@ -2,8 +2,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 import styled from 'styled-components';
 
-import { IPortfolioContext, PortfolioContext, TPortfolioState } from '../../context/portfolioContext';
-import { IPortfolioItem } from '../../interfaces/interfaces';
+import { usePorftolioContext } from '../../context/portfolioContext';
 
 const Item = dynamic(() => import('../Item/Item'));
 
@@ -31,13 +30,12 @@ const Title = styled.h2`
 `;
 
 const Content = () => {
-  const portfolioContext: IPortfolioContext = React.useContext(PortfolioContext);
-  const portfolioState: TPortfolioState = portfolioContext.state;
+  const { state } = usePorftolioContext();
 
   return (
     <Root>
       <Title>Portfolio</Title>
-      {portfolioState.items.map((item: IPortfolioItem) => {
+      {state.items.map(item => {
         return <Item key={item.title} {...item} />;
       })}
     </Root>

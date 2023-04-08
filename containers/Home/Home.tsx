@@ -5,14 +5,13 @@ import Content from '../../components/Content/Content';
 import Cover from '../../components/Cover/Cover';
 import Layout from '../../components/UI/Layout/Layout';
 import Loading from '../../components/UI/Loading/Loading';
-import { PortfolioContext, TPortfolioActionTypes } from '../../context/portfolioContext';
+import { TPortfolioActionTypes, usePorftolioContext } from '../../context/portfolioContext';
 import { IPortfolioItem } from '../../interfaces/interfaces';
 
 const portfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items.json';
 
 const Home = () => {
-  const portfolioContext = React.useContext(PortfolioContext);
-  const portfolioDispatch = portfolioContext.dispatch;
+  const { dispatch } = usePorftolioContext();
 
   const { data, isFetching: loading } = useQuery(
     portfolioUrl,
@@ -26,7 +25,7 @@ const Home = () => {
           Object.keys(data).forEach(item => {
             newItems.push(data[item]);
           });
-          portfolioDispatch?.({
+          dispatch({
             type: TPortfolioActionTypes.SET_ITEMS,
             payload: newItems,
           });

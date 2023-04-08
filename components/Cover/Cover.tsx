@@ -1,5 +1,6 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { env } from 'process';
 import React from 'react';
 import styled from 'styled-components';
 import zenscroll from 'zenscroll';
@@ -95,7 +96,7 @@ const Cover = ({ show }: Props) => {
           <MediaIcons />
         </MediaIconsContainer>
         <TitleContainer>
-          <AnimatedTitle firstRow="Joona" secondRow="Joenpolvi" show={show} />
+          <AnimatedTitle firstRow="firstname" secondRow="lastname" show={show} />
           <AnimatedSubtitle show={show} subtitle="<web developer />" />
         </TitleContainer>
       </CoverContent>

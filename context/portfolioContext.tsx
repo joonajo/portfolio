@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { IPortfolioItem } from '../interfaces/interfaces';
 
@@ -108,12 +108,10 @@ export const portfolioReducer = (
 
 export type IPortfolioContext = {
   state: TPortfolioState;
-  dispatch?: React.Dispatch<any>;
+  dispatch: React.Dispatch<TPortfolioActions>;
 };
 
-export const PortfolioContext = React.createContext<IPortfolioContext>({
-  state: initialPortfolioState,
-});
+export const PortfolioContext = React.createContext<IPortfolioContext | undefined>(undefined);
 
 type IPortfolioProvider = {
   children: any;
@@ -123,4 +121,14 @@ export const PortfolioProvider: React.FunctionComponent<IPortfolioProvider> = ({
   const [state, dispatch] = React.useReducer(portfolioReducer, initialPortfolioState);
 
   return <PortfolioContext.Provider value={{ state, dispatch }}>{children}</PortfolioContext.Provider>;
+};
+
+export const usePorftolioContext = () => {
+  const portfolioContext = useContext(PortfolioContext);
+
+  if (!portfolioContext?.state || !portfolioContext?.dispatch) {
+    throw new Error('usePortfolioContext used outside of a provider!');
+  }
+
+  return { state: portfolioContext.state, dispatch: portfolioContext.dispatch };
 };
