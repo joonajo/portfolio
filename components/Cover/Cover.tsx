@@ -4,7 +4,8 @@ import React from 'react';
 import styled from 'styled-components';
 import zenscroll from 'zenscroll';
 
-import styles from './Cover.module.css';
+import AnimatedSubtitle from './AnimatedSubtitle';
+import AnimatedTitle from './AnimatedTitle';
 import { icons } from '../../icons/icons';
 import MediaIcons from '../UI/Icons/MediaIcons/MediaIcons';
 
@@ -41,6 +42,7 @@ const TitleContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-end;
   padding: 32px;
+  font-weight: 500;
 `;
 
 const ArrowContainer = styled.div`
@@ -87,10 +89,6 @@ const Cover = ({ show }: Props) => {
     }
   }, [coverRef]);
 
-  const descStyles = [styles.Description, show && styles.loaded].join(' ');
-
-  const animTextStyles = [styles.AnimText, show && styles.loaded].join(' ');
-
   return (
     <Root ref={coverRef}>
       <CoverContent>
@@ -98,15 +96,8 @@ const Cover = ({ show }: Props) => {
           <MediaIcons />
         </MediaIconsContainer>
         <TitleContainer>
-          <div className={[animTextStyles, styles.First].join(' ')}>
-            <AnimatedText text="Joona" show={show} />
-          </div>
-          <div className={[animTextStyles, styles.Second].join(' ')}>
-            <AnimatedText text="Joenpolvi" show={show} delay={0.5} />
-          </div>
-          <p className={descStyles}>
-            <span>{'<software developer />'}</span>
-          </p>
+          <AnimatedTitle firstRow="Joona" secondRow="Joenpolvi" show={show} />
+          <AnimatedSubtitle show={show} subtitle="<web developer />" />
         </TitleContainer>
       </CoverContent>
       <ArrowContainer>
@@ -115,28 +106,6 @@ const Cover = ({ show }: Props) => {
         </ArrowIcon>
       </ArrowContainer>
     </Root>
-  );
-};
-
-type AnimatedTextProps = {
-  text: string;
-  show?: boolean;
-  delay?: number;
-};
-
-const AnimatedText = ({ text, delay }: AnimatedTextProps) => {
-  const containerStyles = [styles.AnimatedText].join(' ');
-
-  const trueDelay = delay ? delay : 0;
-
-  return (
-    <div className={containerStyles} style={{ transitionDelay: `${trueDelay / 2 + 0.3}s` }}>
-      {text}
-      <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>
-      <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>
-      <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>
-      <span style={{ animationDelay: `${trueDelay}s` }}>{text}</span>
-    </div>
   );
 };
 

@@ -1,12 +1,15 @@
 import App from 'next/app';
-import { Ubuntu } from 'next/font/google';
+import { Ubuntu, Playfair_Display } from 'next/font/google';
 import React from 'react';
 
 import { AuthProvider } from '../context/authContext';
 import { PortfolioProvider } from '../context/portfolioContext';
 import './home/index.css';
 
-const ubuntuFont = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin', 'latin-ext'] });
+const playfairFont = Playfair_Display({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin', 'latin-ext'],
+});
 
 class MyApp extends App {
   render() {
@@ -14,7 +17,7 @@ class MyApp extends App {
     return (
       <AuthProvider>
         <PortfolioProvider>
-          <main className={ubuntuFont.className}>
+          <main className={playfairFont.className}>
             <Component {...pageProps} />
           </main>
         </PortfolioProvider>
