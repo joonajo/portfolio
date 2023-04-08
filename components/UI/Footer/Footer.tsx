@@ -29,7 +29,7 @@ const IconsContainer = styled.div`
 
 const Copyright = styled.div`
   margin-block-start: 4px;
-  color: whitesmoke;
+  color: black;
   position: relative;
   font-size: 0.9em;
   cursor: default;
@@ -44,8 +44,7 @@ const Footer = () => {
         <MediaIcons horizontal />
       </IconsContainer>
       <Copyright>
-        <i className="fas fa-cloud"></i>
-        <p>© Joona Joenpolvi {currentYear}. All rights reserved.</p>
+        <i className="fas fa-cloud"></i>© Joona Joenpolvi {currentYear}. All rights reserved.
       </Copyright>
     </Root>
   );
