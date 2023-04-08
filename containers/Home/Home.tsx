@@ -14,7 +14,7 @@ const Home = () => {
   const portfolioContext = React.useContext(PortfolioContext);
   const portfolioDispatch = portfolioContext.dispatch;
 
-  const { isFetching: loading } = useQuery(
+  const { data, isFetching: loading } = useQuery(
     portfolioUrl,
     () => fetch(portfolioUrl, { method: 'get' }).then(response => response.json()),
     {
@@ -37,10 +37,10 @@ const Home = () => {
 
   return (
     <>
-      <Loading show={loading} text spinner slideout fullscreen color={'dimgray'} />
+      <Loading show={loading || !data} text spinner slideout fullscreen color={'dimgray'} />
       <Layout>
-        <Cover show={!loading} />
-        {!loading && <Content />}
+        <Cover show={!loading && data} />
+        {!loading && data && <Content />}
       </Layout>
     </>
   );
