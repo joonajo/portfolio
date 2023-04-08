@@ -13,7 +13,7 @@ const Root = styled.div<{ show: boolean }>`
   margin-top: 1em;
   padding: 10px 20px;
   width: auto;
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   opacity: 0;
   visibility: hidden;
 

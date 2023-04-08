@@ -68,7 +68,7 @@ const MediaIcons = ({ horizontal }: Props) => {
       </LinkWrapper>
       <LinkWrapper
         horizontal={horizontal}
-        href="https://instagram.com/joonajo"
+        href="https://instagram.com/stillsbyjoona"
         aria-label="ig-link"
         target="_blank"
         rel="noopener noreferrer"
