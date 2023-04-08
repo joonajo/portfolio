@@ -15,14 +15,14 @@ const Root = styled.div`
   align-items: flex-end;
 `;
 
-const Row = styled.div<{ show: boolean }>`
+const Row = styled.div<{ show: boolean; transitionDelay: number }>`
   opacity: 0;
   visibility: hidden;
 
-  ${({ show }) =>
+  ${({ show, transitionDelay }) =>
     show &&
     css`
-      transition: opacity 3s 0.4s, visibility 0s 0s;
+      transition: opacity 3s ${transitionDelay}s, visibility 0s 0s;
       visibility: visible;
       opacity: 1;
     `}
@@ -31,10 +31,10 @@ const Row = styled.div<{ show: boolean }>`
 const AnimatedTitle = ({ firstRow, secondRow, show }: Props) => {
   return (
     <Root>
-      <Row show={show}>
+      <Row show={show} transitionDelay={0.4}>
         <AnimatedText text={firstRow} />
       </Row>
-      <Row show={show}>
+      <Row show={show} transitionDelay={0.8}>
         <AnimatedText text={secondRow} delay={0.5} />
       </Row>
     </Root>
