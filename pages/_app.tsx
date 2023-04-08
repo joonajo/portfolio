@@ -1,5 +1,5 @@
 import App from 'next/app';
-import { Ubuntu, Playfair_Display } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import React from 'react';
 
 import { AuthProvider } from '../context/authContext';
