@@ -10,7 +10,6 @@
   overflow: hidden;
   background: white;
   padding: 10px;
-  box-sizing: border-box;
   z-index: -1;
   position: fixed;
   top: 50%;
@@ -92,7 +91,6 @@
 
 .FormInput {
   padding: 5px 10px;
-  box-sizing: border-box;
   border: 1px solid gainsboro;
   border-radius: var(--border-radius);
   width: 100%;

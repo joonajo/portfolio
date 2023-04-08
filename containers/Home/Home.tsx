@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import React from 'react';
 
 import Content from '../../components/Content/Content';
@@ -8,12 +7,8 @@ import Loading from '../../components/UI/Loading/Loading';
 import { PortfolioContext, TPortfolioActionTypes } from '../../context/portfolioContext';
 import { IPortfolioItem } from '../../interfaces/interfaces';
 
-const Home: NextPage = () => {
+const Home = () => {
   const [loading, setLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    document.title = 'Portfolio';
-  }, []);
 
   const portfolioContext = React.useContext(PortfolioContext);
   const portfolioState = portfolioContext.state;

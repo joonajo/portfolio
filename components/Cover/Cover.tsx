@@ -38,7 +38,6 @@ const TitleContainer = styled.div`
   display: flex;
   font-size: 1rem;
   flex-direction: column;
-  box-sizing: border-box;
   justify-content: flex-start;
   align-items: flex-end;
   padding: 32px;

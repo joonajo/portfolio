@@ -12,7 +12,6 @@ const Root = styled.div<{ show: boolean }>`
   color: var(--background-color);
   margin-top: 1em;
   padding: 10px 20px;
-  box-sizing: border-box;
   width: auto;
   background: rgba(0, 0, 0, 0.8);
   opacity: 0;

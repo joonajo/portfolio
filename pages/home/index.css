@@ -1,13 +1,12 @@
 :root {
   --background-color: snow;
-  --content-bg-color: whitesmoke;
+  --content-bg-color: linen;
   --title-color: black;
   --main-color: gray;
   --text-color: black;
 }
 
 body {
-  box-sizing: border-box;
   background: var(--background-color);
   scroll-behavior: smooth;
   font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,

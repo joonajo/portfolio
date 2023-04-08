@@ -1,33 +1,36 @@
 .Main,
 .Loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Main {
-    --input-icon-width: 40px;
-    --item-margin: 5px;
-    --transition-time: .3s;
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-    color: var(--main-color);
-    animation: fadein 1s;
+  --input-icon-width: 40px;
+  --item-margin: 5px;
+  --transition-time: 0.3s;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  color: var(--main-color);
+  animation: fadein 1s;
 }
 
 .Loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: fadein .5s;
-    background: rgba(255, 255, 255, .7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: fadein 0.5s;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

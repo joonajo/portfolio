@@ -20,7 +20,6 @@ const LinkWrapper = styled.a<{ horizontal?: boolean }>`
   justify-content: center;
   align-items: center;
 
-  box-sizing: border-box;
   color: var(--text-color);
   background: rgba(100, 100, 100, 0.2);
   margin: 5px;

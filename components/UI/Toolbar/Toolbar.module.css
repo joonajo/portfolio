@@ -1,25 +1,24 @@
 .Toolbar {
-    --height: 60px;
-    height: var(--height);
-    width: 100%;
-    display: none;
-    box-sizing: border-box;
+  --height: 60px;
+  height: var(--height);
+  width: 100%;
+  display: none;
 }
 
 .Toolbar.enabled {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    background: whitesmoke;
-    border: 2px solid green;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+  border: 2px solid green;
 }
 
 .PageLinks {
-    position: absolute;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    right: 0;
+  position: absolute;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  right: 0;
 }

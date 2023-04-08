@@ -17,17 +17,16 @@ const Root = styled.div`
   margin-bottom: 24px;
   background: var(--content-bg-color);
   overflow: hidden;
-  padding-block-end: 24px;
+  padding: 60px;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h2`
-  padding-top: 24px;
-  padding-right: 0.1em;
-  font-size: 2rem;
+  font-size: 7rem;
   font-weight: 100;
-  text-transform: uppercase;
-  color: dimgray;
-  transform: scale(1, 1);
+  text-transform: lowercase;
+  width: 100%;
+  font-weight: 500;
   text-shadow: 1px 1px 10px gainsboro;
 `;
 

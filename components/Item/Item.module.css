@@ -10,7 +10,6 @@
   transition: opacity 1s, top 0.5s;
   opacity: 0;
   top: 150px;
-  box-sizing: border-box;
   display: flex;
   flex-flow: column;
 }
@@ -201,7 +200,6 @@
 
 .PreviewContainer video {
   border: 2px solid gainsboro;
-  box-sizing: border-box;
   width: 100%;
 }
 
