@@ -4,7 +4,6 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { AuthProvider } from '../context/authContext';
-import { PortfolioProvider } from '../context/portfolioContext';
 import './home/index.css';
 
 const queryClient = new QueryClient();
@@ -20,11 +19,9 @@ class MyApp extends App {
     return (
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <PortfolioProvider>
-            <main className={playfairFont.className}>
-              <Component {...pageProps} />
-            </main>
-          </PortfolioProvider>
+          <main className={playfairFont.className}>
+            <Component {...pageProps} />
+          </main>
         </AuthProvider>
       </QueryClientProvider>
     );
