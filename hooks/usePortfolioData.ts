@@ -74,6 +74,22 @@ export const usePortfolioData = () => {
     },
   );
 
+  const {
+    mutateAsync: editPortfolioItem,
+    isLoading: editPortfolioItemLoading,
+    error: editPortfolioItemError,
+  } = useMutation(
+    [basePortfolioUrl, 'editItem'],
+    (editedItem: PortfolioItem) => {
+      const url = `${basePortfolioUrl}/${editedItem.title}json?auth=${authState.idToken}`;
+
+      return fetch(url, { method: 'put', body: JSON.stringify(editedItem) }).then(response => response.json());
+    },
+    {
+      onSuccess: () => refetchItems(),
+    },
+  );
+
   useEffect(() => {
     if (!!data) {
       setPortfolioItems(
@@ -94,5 +110,8 @@ export const usePortfolioData = () => {
     deletePortfolioItem,
     deletePortfolioItemLoading,
     deletePortfolioItemError,
+    editPortfolioItem,
+    editPortfolioItemLoading,
+    editPortfolioItemError,
   };
 };
