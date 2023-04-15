@@ -1,8 +1,6 @@
 import * as React from 'react';
 
 import PortfolioItem from './Item/Item';
-import { useAuthContext } from '../../../context/authContext';
-import { TPortfolioActionTypes, usePorftolioContext } from '../../../context/portfolioContext';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
 import { IPortfolioItem } from '../../../interfaces/interfaces';
 import Loading from '../../UI/Loading/Loading';

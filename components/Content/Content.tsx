@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 import styled from 'styled-components';
 
-import { usePorftolioContext } from '../../context/portfolioContext';
 import { usePortfolioData } from '../../hooks/usePortfolioData';
 
 const Item = dynamic(() => import('../Item/Item'));
