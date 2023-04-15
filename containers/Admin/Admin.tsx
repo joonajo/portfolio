@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useQuery } from 'react-query';
 
 import css from './Admin.module.css';
 import Editor from '../../components/Admin/PortfolioManagement/Editor';
 import Loading from '../../components/UI/Loading/Loading';
 import Auth from '../../containers/Auth/Auth';
 import { useAuthContext } from '../../context/authContext';
-import { TPortfolioActionTypes, usePorftolioContext } from '../../context/portfolioContext';
+import { usePortfolioData } from '../../hooks/usePortfolioData';
 
 const Admin = () => {
   const { state: authState, dispatch: authDispatch } = useAuthContext();
@@ -67,34 +66,13 @@ const Admin = () => {
   );
 };
 
-const portfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items.json';
-
 const AdminContent = () => {
-  const { state: portfolioState, dispatch: portfolioDispatch } = usePorftolioContext();
-
-  const { isFetching: loading } = useQuery(
-    portfolioUrl,
-    () => fetch(portfolioUrl, { method: 'get' }).then(response => response.json()),
-    {
-      refetchOnWindowFocus: false,
-      onSuccess: data => {
-        if (data) {
-          const items = Object.keys(data).map(item => {
-            return data[item];
-          });
-          portfolioDispatch({
-            type: TPortfolioActionTypes.SET_ITEMS,
-            payload: items,
-          });
-        }
-      },
-    },
-  );
+  const { portfolioData, loadingPortfolioData } = usePortfolioData();
 
   return (
     <>
-      <div className={css.AdminContentWrapper}>{!loading && <Editor items={portfolioState.items} />}</div>
-      <Loading show={loading} transparent fadeout />
+      <div className={css.AdminContentWrapper}>{!loadingPortfolioData && <Editor items={portfolioData} />}</div>
+      <Loading show={loadingPortfolioData} transparent fadeout />
     </>
   );
 };

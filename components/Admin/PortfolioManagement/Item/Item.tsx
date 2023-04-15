@@ -6,17 +6,17 @@ import { icons } from '../../../../icons/icons';
 import { IPortfolioItem } from '../../../../interfaces/interfaces';
 import EditItem from '../../EditItem/EditItem';
 
-type IItemComponent = {
+type Props = {
   item: IPortfolioItem;
-  deleteItem: (title: string) => void;
+  deleteItem: (item: IPortfolioItem) => void;
 };
 
-const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteItem }): JSX.Element => {
-  const [editItem, setEditItem] = React.useState<boolean>(false);
+const PortfolioItem = ({ item, deleteItem }: Props) => {
+  const [editItem, setEditItem] = React.useState(false);
 
-  const editItemHandler = () => {
-    setEditItem(!editItem);
-  };
+  const editItemHandler = React.useCallback(() => {
+    setEditItem(oldState => !oldState);
+  }, []);
 
   return (
     <>
@@ -26,10 +26,9 @@ const PortfolioItem: React.FunctionComponent<IItemComponent> = ({ item, deleteIt
         </div>
         <div>
           <div onClick={editItemHandler}>
-            {' '}
-            <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>{' '}
+            <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>
           </div>
-          <DeleteButton deleteItem={() => deleteItem(item.title)} />
+          <DeleteButton deleteItem={() => deleteItem(item)} />
         </div>
       </div>
       <EditItem show={editItem} item={item} close={editItemHandler} />
