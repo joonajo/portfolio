@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from 'styled-components';
 
 import PortfolioItem from './Item/Item';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
@@ -10,6 +11,13 @@ type Props = {
   items?: PortfolioItemT[];
 };
 
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Editor = ({ items }: Props) => {
   const [showAddForm, setShowAddForm] = React.useState<boolean>(false);
 
@@ -20,18 +28,13 @@ const Editor = ({ items }: Props) => {
 
   return (
     <>
-      <div>
+      <Root>
         {items &&
           items.map((item: PortfolioItemT) => {
-            return <PortfolioItem key={item.title} item={item} deleteItem={deletePortfolioItem} />;
+            return <PortfolioItem key={item.title} item={item} onDeleteItem={deletePortfolioItem} />;
           })}
-        <AddPortfolioItem
-          showForm={showAddForm}
-          setShowForm={setShowAddForm}
-          add={addPortfolioItem}
-          sending={sending}
-        />
-      </div>
+      </Root>
+      <AddPortfolioItem showForm={showAddForm} setShowForm={setShowAddForm} add={addPortfolioItem} sending={sending} />
       <Loading show={sending} transparent fadeout />
     </>
   );
