@@ -76,7 +76,11 @@ export const usePortfolioData = () => {
 
   useEffect(() => {
     if (!!data) {
-      setPortfolioItems(Object.keys(data).map(key => data[key]));
+      setPortfolioItems(
+        Object.keys(data)
+          .map(key => data[key])
+          .sort((a, b) => a.order - b.order),
+      );
     }
   }, [data]);
 
