@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { usePorftolioContext } from '../../context/portfolioContext';
+import { usePortfolioData } from '../../hooks/usePortfolioData';
 
 const Item = dynamic(() => import('../Item/Item'));
 
@@ -30,12 +31,12 @@ const Title = styled.h2`
 `;
 
 const Content = () => {
-  const { state } = usePorftolioContext();
+  const { portfolioData } = usePortfolioData();
 
   return (
     <Root>
       <Title>Portfolio</Title>
-      {state.items.map(item => {
+      {portfolioData.map(item => {
         return <Item key={item.title} {...item} />;
       })}
     </Root>
