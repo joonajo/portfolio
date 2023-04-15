@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import PortfolioItem from './Item/Item';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
-import { IPortfolioItem } from '../../../interfaces/interfaces';
+import type { PortfolioItem as PortfolioItemT } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
 import AddPortfolioItem from '../AddNewItem/AddItem';
 
 type Props = {
-  items?: IPortfolioItem[];
+  items?: PortfolioItemT[];
 };
 
 const Editor = ({ items }: Props) => {
@@ -22,7 +22,7 @@ const Editor = ({ items }: Props) => {
     <>
       <div>
         {items &&
-          items.map((item: IPortfolioItem) => {
+          items.map((item: PortfolioItemT) => {
             return <PortfolioItem key={item.title} item={item} deleteItem={deletePortfolioItem} />;
           })}
         <AddPortfolioItem

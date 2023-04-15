@@ -4,7 +4,7 @@ import React from 'react';
 import styled, { css as styledComponentsCss } from 'styled-components';
 
 import { icons } from '../../icons/icons';
-import { IPortfolioItem } from '../../interfaces/interfaces';
+import { PortfolioItem } from '../../types';
 import ExpandedVideo from '../ExpandedVideo/ExpandedVideo';
 
 const SHOW_TRESHOLD = 100; // pixels
@@ -57,7 +57,7 @@ const ItemContent = styled.div`
   border-radius: 8px;
 `;
 
-const Item = (props: IPortfolioItem) => {
+const Item = (props: PortfolioItem) => {
   const [showItem, toggleShowItem] = React.useState<boolean>(false);
   const [showVideo, toggleShowVideo] = React.useState<boolean>(false);
   const itemRef: React.RefObject<HTMLDivElement> = React.useRef<HTMLDivElement>(null);

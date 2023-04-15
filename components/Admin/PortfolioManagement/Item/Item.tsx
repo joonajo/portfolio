@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 
 import { icons } from '../../../../icons/icons';
-import { IPortfolioItem } from '../../../../interfaces/interfaces';
+import { PortfolioItem } from '../../../../types';
 import EditItem from '../../EditItem/EditItem';
 
 type Props = {
-  item: IPortfolioItem;
-  deleteItem: (item: IPortfolioItem) => void;
+  item: PortfolioItem;
+  deleteItem: (item: PortfolioItem) => void;
 };
 
 const PortfolioItem = ({ item, deleteItem }: Props) => {

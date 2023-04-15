@@ -5,16 +5,16 @@ import * as React from 'react';
 import css from './ItemForm.module.css';
 import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form';
 import { icons } from '../../../icons/icons';
-import { IPortfolioItem } from '../../../interfaces/interfaces';
+import { PortfolioItem } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
 
 type Props = {
   show: boolean;
   sending: boolean;
-  item?: IPortfolioItem;
+  item?: PortfolioItem;
   type: string;
   close: () => void;
-  add: (item: IPortfolioItem) => void;
+  add: (item: PortfolioItem) => void;
 };
 
 const ItemForm = ({ show, sending, item, close, add, type }: Props) => {
@@ -84,7 +84,7 @@ const ItemForm = ({ show, sending, item, close, add, type }: Props) => {
       selectedLanguages = ['React'];
     }
 
-    const newItem: IPortfolioItem = {
+    const newItem: PortfolioItem = {
       title: form.title.value,
       language: selectedLanguages,
       description: form.description.value,

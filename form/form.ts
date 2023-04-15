@@ -1,4 +1,4 @@
-import { IPortfolioItem } from '../interfaces/interfaces';
+import { PortfolioItem } from '../types';
 
 export enum formTypes {
   ADD = 'add',
@@ -134,7 +134,7 @@ export const initialForm: IForm = {
   },
 };
 
-export const updateEditForm = (item: IPortfolioItem): IForm => {
+export const updateEditForm = (item: PortfolioItem): IForm => {
   const updatedForm: IForm = {
     ...initialForm,
     title: {

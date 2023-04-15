@@ -1,4 +1,4 @@
-export type IPortfolioItem = {
+export type PortfolioItem = {
   title: string;
   language: string[];
   link: string;

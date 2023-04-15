@@ -2,20 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 
 import { useAuthContext } from '../context/authContext';
-
-type PortfolioItem = {
-  title: string;
-  language: string[];
-  link: string;
-  githubLink: string;
-  description: string;
-  video_src: string;
-  preview_src?: string;
-  gif_src: string;
-  desktop: boolean;
-  mobile: boolean;
-  order: number;
-};
+import { PortfolioItem } from '../types';
 
 const basePortfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items';
 const fetchPortfolioUrl = `${basePortfolioUrl}.json`;

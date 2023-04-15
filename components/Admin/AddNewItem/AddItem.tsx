@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { formTypes } from '../../../form/form';
 import { icons } from '../../../icons/icons';
-import { IPortfolioItem } from '../../../interfaces/interfaces';
+import { PortfolioItem } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
 import ItemForm from '../ItemForm/ItemForm';
 
@@ -51,7 +51,7 @@ const AddItemButton = styled.div`
 type TProps = {
   showForm: boolean;
   sending: boolean;
-  add(item: IPortfolioItem): void;
+  add(item: PortfolioItem): void;
   setShowForm(arg: boolean): void;
 };
 

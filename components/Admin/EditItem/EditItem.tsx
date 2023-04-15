@@ -3,20 +3,20 @@ import * as React from 'react';
 import css from './EditItem.module.css';
 import { formTypes } from '../../../form/form';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
-import { IPortfolioItem } from '../../../interfaces/interfaces';
+import { PortfolioItem } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
 import ItemForm from '../ItemForm/ItemForm';
 
 type Props = {
   show: boolean;
-  item: IPortfolioItem;
+  item: PortfolioItem;
   close(): void;
 };
 
 const EditItem = ({ show, item, close }: Props) => {
   const { editPortfolioItem, editPortfolioItemLoading } = usePortfolioData();
 
-  const handleSubmit = async (editedItem: IPortfolioItem) => {
+  const handleSubmit = async (editedItem: PortfolioItem) => {
     await editPortfolioItem(editedItem);
     close();
   };
