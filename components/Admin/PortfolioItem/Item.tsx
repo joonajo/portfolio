@@ -25,6 +25,17 @@ const Root = styled.div`
 
 const Buttons = styled.div`
   display: flex;
+  align-items: center;
+`;
+
+const EditButton = styled.div`
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-inline-end: 16px;
+
+  :hover {
+    opacity: 0.6;
+  }
 `;
 
 const PortfolioItem = ({ item, onDeleteItem }: Props) => {
@@ -41,9 +52,9 @@ const PortfolioItem = ({ item, onDeleteItem }: Props) => {
           <p>{item.title}</p>
         </div>
         <Buttons>
-          <div onClick={handleEditItem}>
+          <EditButton onClick={handleEditItem}>
             <FontAwesomeIcon icon={icons.faEdit as IconProp} />
-          </div>
+          </EditButton>
           <DeleteButton onDelete={() => onDeleteItem(item)} />
         </Buttons>
       </Root>
@@ -56,6 +67,15 @@ type DeleteButtonProps = {
   onDelete: () => void;
 };
 
+const DeleteButtonRoot = styled.div`
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  :hover {
+    opacity: 0.6;
+  }
+`;
+
 const DeleteButton = ({ onDelete }: DeleteButtonProps) => {
   const [showConfirm, setShowConfirm] = React.useState(false);
 
@@ -65,7 +85,7 @@ const DeleteButton = ({ onDelete }: DeleteButtonProps) => {
   };
 
   return (
-    <>
+    <DeleteButtonRoot>
       {!showConfirm && (
         <div onClick={() => setShowConfirm(true)}>
           <FontAwesomeIcon icon={icons.faTrash as IconProp} />
@@ -77,7 +97,7 @@ const DeleteButton = ({ onDelete }: DeleteButtonProps) => {
           <p onClick={() => setShowConfirm(false)}>no</p>
         </div>
       )}
-    </>
+    </DeleteButtonRoot>
   );
 };
 
