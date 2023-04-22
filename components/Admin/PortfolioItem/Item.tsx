@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { icons } from '../../../../icons/icons';
-import { PortfolioItem } from '../../../../types';
-import EditItem from '../../EditItem/EditItem';
+import EditItem from './EditItem';
+import { icons } from '../../../icons/icons';
+import { PortfolioItem } from '../../../types';
 
 type Props = {
   item: PortfolioItem;
@@ -19,6 +19,12 @@ const Root = styled.div`
   align-items: center;
   justify-content: space-between;
   border: 1px solid gainsboro;
+  width: 70%;
+  padding: 16px 32px;
+`;
+
+const Buttons = styled.div`
+  display: flex;
 `;
 
 const PortfolioItem = ({ item, onDeleteItem }: Props) => {
@@ -34,12 +40,12 @@ const PortfolioItem = ({ item, onDeleteItem }: Props) => {
         <div>
           <p>{item.title}</p>
         </div>
-        <div>
+        <Buttons>
           <div onClick={handleEditItem}>
-            <FontAwesomeIcon icon={icons.faEdit as IconProp} /> <p>edit</p>
+            <FontAwesomeIcon icon={icons.faEdit as IconProp} />
           </div>
           <DeleteButton onDelete={() => onDeleteItem(item)} />
-        </div>
+        </Buttons>
       </Root>
       <EditItem show={editItem} item={item} close={handleEditItem} />
     </>
@@ -62,7 +68,7 @@ const DeleteButton = ({ onDelete }: DeleteButtonProps) => {
     <>
       {!showConfirm && (
         <div onClick={() => setShowConfirm(true)}>
-          <FontAwesomeIcon icon={icons.faTrash as IconProp} /> <p>delete</p>
+          <FontAwesomeIcon icon={icons.faTrash as IconProp} />
         </div>
       )}
       {showConfirm && (

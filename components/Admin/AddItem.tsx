@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { formTypes } from '../../../form/form';
-import { icons } from '../../../icons/icons';
-import { PortfolioItem } from '../../../types';
-import Loading from '../../UI/Loading/Loading';
-import ItemForm from '../ItemForm/ItemForm';
+import ItemForm from './PortfolioItem/ItemForm';
+import { formTypes } from '../../form/form';
+import { icons } from '../../icons/icons';
+import { PortfolioItem } from '../../types';
+import Loading from '../UI/Loading/Loading';
 
 const Root = styled.div`
   display: flex;

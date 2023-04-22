@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import css from './EditItem.module.css';
+import ItemForm from './ItemForm';
 import { formTypes } from '../../../form/form';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
 import { PortfolioItem } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
-import ItemForm from '../ItemForm/ItemForm';
 
 type Props = {
   show: boolean;
