@@ -95,7 +95,7 @@ const Cover = ({ show }: Props) => {
           <MediaIcons />
         </MediaIconsContainer>
         <TitleContainer>
-          <AnimatedTitle firstRow="firstname" secondRow="lastname" show={show} />
+          <AnimatedTitle firstRow="joona" secondRow="joenpolvi" show={show} />
           <AnimatedSubtitle show={show} subtitle="<web developer />" />
         </TitleContainer>
       </CoverContent>
