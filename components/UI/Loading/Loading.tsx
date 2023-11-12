@@ -51,8 +51,8 @@ type TLoadingProps = {
   fullscreen?: boolean;
 };
 
-const Loading: React.FunctionComponent<TLoadingProps> = (props): JSX.Element => {
-  const { text, spinner, color = 'dimgray' }: TLoadingProps = props;
+const Loading = (props: TLoadingProps): JSX.Element => {
+  const { text, spinner, color = 'dimgray' } = props;
 
   return (
     <Wrapper {...props}>
