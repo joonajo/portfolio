@@ -1,1 +1,8 @@
-{}
+{
+  "../components/Content/Content.tsx -> ../Item/Item": {
+    "id": "../components/Content/Content.tsx -> ../Item/Item",
+    "files": [
+      "static/chunks/components_Item_Item_tsx.js"
+    ]
+  }
+}
