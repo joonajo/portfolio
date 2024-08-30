@@ -7,6 +7,7 @@ export type IToolbar = {
 
 export const initalToolbarState: IToolbar = {
   show: false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setShow: (_value: boolean) => undefined,
 };
 
