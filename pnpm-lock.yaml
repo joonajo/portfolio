@@ -53,9 +53,6 @@ importers:
       next-optimized-images:
         specifier: ^2.5.5
         version: 2.6.2(webpack@4.46.0)
-      node:
-        specifier: ^19.2.0
-        version: 19.8.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2627,16 +2624,8 @@ packages:
   nice-try@1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
 
-  node-bin-setup@1.1.3:
-    resolution: {integrity: sha512-opgw9iSCAzT2+6wJOETCpeRYAQxSopqQ2z+N6BXwIMsQQ7Zj5M8MaafQY8JMlolRR6R1UXg2WmhKp0p9lSOivg==}
-
   node-libs-browser@2.2.1:
     resolution: {integrity: sha512-h/zcD8H9kaDZ9ALUWwlBUDo6TKF8a7qBSCSEGfjTVIYeqsioSKaAX+BN7NgiMGp6iSIXZ3PxgCu8KS3b71YK5Q==}
-
-  node@19.8.1:
-    resolution: {integrity: sha512-qAoX6xM9F/eEv4q4qgCXGSbXWruHVzVJX32XCZizSUNsg5ywYY7di9QMqSDFmPwvJrXjZuhNq2z80+lR9GumLg==}
-    engines: {npm: '>=5.0.0'}
-    hasBin: true
 
   normalize-package-data@2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
@@ -6937,8 +6926,6 @@ snapshots:
 
   nice-try@1.0.5: {}
 
-  node-bin-setup@1.1.3: {}
-
   node-libs-browser@2.2.1:
     dependencies:
       assert: 1.5.0
@@ -6964,10 +6951,6 @@ snapshots:
       url: 0.11.0
       util: 0.11.1
       vm-browserify: 1.1.2
-
-  node@19.8.1:
-    dependencies:
-      node-bin-setup: 1.1.3
 
   normalize-package-data@2.5.0:
     dependencies:
