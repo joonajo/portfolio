@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import EditItem from './EditItem';
+import { EditItem } from './EditItem';
 import { icons } from '../../../icons/icons';
 import { PortfolioItem } from '../../../types';
 
@@ -38,7 +38,7 @@ const EditButton = styled.div`
   }
 `;
 
-const PortfolioItem = ({ item, onDeleteItem }: Props) => {
+export const PortfolioItemCard = ({ item, onDeleteItem }: Props) => {
   const [editItem, setEditItem] = React.useState(false);
 
   const handleEditItem = React.useCallback(() => {
@@ -100,5 +100,3 @@ const DeleteButton = ({ onDelete }: DeleteButtonProps) => {
     </DeleteButtonRoot>
   );
 };
-
-export default PortfolioItem;

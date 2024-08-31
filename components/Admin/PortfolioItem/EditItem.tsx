@@ -1,7 +1,7 @@
 import * as React from 'react';
+import styled, { css } from 'styled-components';
 
-import css from './EditItem.module.css';
-import ItemForm from './ItemForm';
+import { PortfolioItemForm } from './PortfolioItemForm';
 import { formTypes } from '../../../form/form';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
 import { PortfolioItem } from '../../../types';
@@ -13,7 +13,24 @@ type Props = {
   close(): void;
 };
 
-const EditItem = ({ show, item, close }: Props) => {
+const Root = styled.div<{ $show: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+
+  ${({ $show }) =>
+    $show &&
+    css`
+      opacity: 1;
+      z-index: 20;
+    `}
+`;
+
+export const EditItem = ({ show, item, close }: Props) => {
   const { executeEditPortfolioItem, executeEditPortfolioItemLoading } = usePortfolioData();
 
   const handleSubmit = async (editedItem: PortfolioItem) => {
@@ -21,12 +38,10 @@ const EditItem = ({ show, item, close }: Props) => {
     close();
   };
 
-  const containerStyles = [css.EditItemContainer, show && css.show].join(' ');
-
   return (
     <>
-      <div className={containerStyles}>
-        <ItemForm
+      <Root $show={show}>
+        <PortfolioItemForm
           type={formTypes.EDIT}
           show={show}
           sending={executeEditPortfolioItemLoading}
@@ -34,10 +49,8 @@ const EditItem = ({ show, item, close }: Props) => {
           close={close}
           add={handleSubmit}
         />
-      </div>
+      </Root>
       <Loading show={executeEditPortfolioItemLoading} transparent fadeout />
     </>
   );
 };
-
-export default EditItem;

@@ -17,7 +17,7 @@ type Props = {
   add: (item: PortfolioItem) => void;
 };
 
-const ItemForm = ({ show, sending, item, close, add, type }: Props) => {
+export const PortfolioItemForm = ({ show, sending, item, close, add, type }: Props) => {
   const [form, setForm] = React.useState<IForm>(initialForm);
 
   React.useEffect(() => {
@@ -191,5 +191,3 @@ const FormInput = ({ type, item, change, clickOption }: IFormInput): JSX.Element
     </div>
   );
 };
-
-export default ItemForm;

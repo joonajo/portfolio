@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import PortfolioItem from './Item';
+import { PortfolioItemCard } from './PortfolioItemCard';
 import { usePortfolioData } from '../../../hooks/usePortfolioData';
 import type { PortfolioItem as PortfolioItemT } from '../../../types';
 import Loading from '../../UI/Loading/Loading';
@@ -18,7 +18,7 @@ const Root = styled.div`
   justify-content: center;
 `;
 
-const Editor = ({ items }: Props) => {
+export const PortfolioEditor = ({ items }: Props) => {
   const [showAddForm, setShowAddForm] = React.useState<boolean>(false);
 
   const {
@@ -35,7 +35,7 @@ const Editor = ({ items }: Props) => {
       <Root>
         {items &&
           items.map((item: PortfolioItemT) => {
-            return <PortfolioItem key={item.title} item={item} onDeleteItem={executeDeletePortfolioItem} />;
+            return <PortfolioItemCard key={item.title} item={item} onDeleteItem={executeDeletePortfolioItem} />;
           })}
       </Root>
       <AddPortfolioItem
@@ -48,5 +48,3 @@ const Editor = ({ items }: Props) => {
     </>
   );
 };
-
-export default Editor;

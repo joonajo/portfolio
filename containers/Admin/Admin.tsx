@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import css from './Admin.module.css';
-import Editor from '../../components/Admin/PortfolioItem/Editor';
+import { PortfolioEditor } from '../../components/Admin/PortfolioItem/Editor';
 import Loading from '../../components/UI/Loading/Loading';
 import Auth from '../../containers/Auth/Auth';
 import { useAuthContext } from '../../context/authContext';
@@ -71,7 +71,9 @@ const AdminContent = () => {
 
   return (
     <>
-      <div className={css.AdminContentWrapper}>{!loadingPortfolioData && <Editor items={portfolioData} />}</div>
+      <div className={css.AdminContentWrapper}>
+        {!loadingPortfolioData && <PortfolioEditor items={portfolioData} />}
+      </div>
       <Loading show={loadingPortfolioData} transparent fadeout />
     </>
   );

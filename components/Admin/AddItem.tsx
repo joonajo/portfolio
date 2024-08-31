@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import ItemForm from './PortfolioItem/ItemForm';
+import { PortfolioItemForm } from './PortfolioItem/PortfolioItemForm';
 import { formTypes } from '../../form/form';
 import { icons } from '../../icons/icons';
 import { PortfolioItem } from '../../types';
@@ -66,7 +66,13 @@ const AddPortfolioItem: React.FunctionComponent<TProps> = ({ showForm, setShowFo
         <AddItemButton onClick={clickHandler}>
           add item <StyledIcon icon={icons.faPlus as IconProp} />
         </AddItemButton>
-        <ItemForm type={formTypes.ADD} show={showForm} close={() => setShowForm(false)} add={add} sending={sending} />
+        <PortfolioItemForm
+          type={formTypes.ADD}
+          show={showForm}
+          close={() => setShowForm(false)}
+          add={add}
+          sending={sending}
+        />
       </Root>
       <Loading show={sending} transparent fadeout />
     </>
