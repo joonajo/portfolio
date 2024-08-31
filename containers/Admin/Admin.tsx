@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import css from './Admin.module.css';
-import { PortfolioEditor } from '../../components/Admin/PortfolioItem/Editor';
+import { PortfolioEditor } from '../../components/Admin/PortfolioItem/PortfolioEditor';
 import Loading from '../../components/UI/Loading/Loading';
 import Auth from '../../containers/Auth/Auth';
 import { useAuthContext } from '../../context/authContext';
