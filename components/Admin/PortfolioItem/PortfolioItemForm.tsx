@@ -1,8 +1,9 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
+import styled, { css } from 'styled-components';
 
-import css from './ItemForm.module.css';
+import cssModules from './ItemForm.module.css';
 import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form';
 import { icons } from '../../../icons/icons';
 import { PortfolioItem } from '../../../types';
@@ -16,6 +17,84 @@ type Props = {
   close: () => void;
   add: (item: PortfolioItem) => void;
 };
+
+const Root = styled.form<{ $show: boolean }>`
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0;
+  width: var(--item-width);
+  height: auto;
+  transition: all var(--transition-time);
+  overflow: hidden;
+  background: white;
+  padding: 10px;
+  z-index: -1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: var(--border-radius);
+
+  ${({ $show }) =>
+    $show &&
+    css`
+      z-index: 1;
+      opacity: 1;
+      box-shadow: 0px 0px 100px -30px dimgray;
+    `}
+`;
+
+const Backdrop = styled.div<{ $show: boolean }>`
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -5;
+  opacity: 0;
+  transition: opacity var(--transition-time);
+
+  ${({ $show }) =>
+    $show &&
+    css`
+      z-index: 0;
+      opacity: 1;
+    `}
+`;
+
+const CloseButton = styled(FontAwesomeIcon)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: dimgray;
+
+  :hover {
+    color: gainsboro;
+  }
+`;
+
+const AddButton = styled.div`
+  background: royalblue;
+  position: relative;
+  /* bottom: 10px; */
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all var(--transition-time);
+  color: white;
+  text-transform: uppercase;
+
+  :hover {
+    box-shadow: var(--item-shadow);
+  }
+`;
 
 export const PortfolioItemForm = ({ show, sending, item, close, add, type }: Props) => {
   const [form, setForm] = React.useState<IForm>(initialForm);
@@ -100,15 +179,11 @@ export const PortfolioItemForm = ({ show, sending, item, close, add, type }: Pro
     add(newItem);
   };
 
-  const itemFormStyles = [css.ItemForm, show && css.show].join(' ');
-
-  const backdropStyles = [css.FormBackdrop, show && css.show].join(' ');
-
   return (
     <>
-      <form className={itemFormStyles}>
+      <Root $show={show}>
         <Loading show={sending} transparent fadeout />
-        <FontAwesomeIcon className={css.FormCloseButton} icon={icons.faTimes as IconProp} onClick={close} />
+        <CloseButton icon={icons.faTimes as IconProp} onClick={close} />
         {Object.keys(form).map((element: string) => {
           return (
             <FormInput
@@ -120,11 +195,9 @@ export const PortfolioItemForm = ({ show, sending, item, close, add, type }: Pro
             />
           );
         })}
-        <div className={css.FormAddButton} onClick={addHandler}>
-          <p>{type}</p>
-        </div>
-      </form>
-      <div className={backdropStyles}></div>
+        <AddButton onClick={addHandler}>{type}</AddButton>
+      </Root>
+      <Backdrop $show={show} />
     </>
   );
 };
@@ -146,7 +219,7 @@ const FormInput = ({ type, item, change, clickOption }: FormInputProps) => {
             disabled={type === formTypes.EDIT && item.id === 'title'}
             placeholder={item.placeholder}
             onChange={e => change(item.id, e)}
-            className={css.FormInput}
+            className={cssModules.FormInput}
           />
         );
 
@@ -156,20 +229,20 @@ const FormInput = ({ type, item, change, clickOption }: FormInputProps) => {
             value={item.value}
             onChange={e => change(item.id, e)}
             placeholder={item.placeholder}
-            className={css.FormInput}
+            className={cssModules.FormInput}
             rows={5}
           />
         );
 
       case 'select':
         return (
-          <div className={css.Select}>
+          <div className={cssModules.Select}>
             {Object.keys(item.options).map((option: any) => {
               const { selected } = item.options[option];
               return (
                 <div
                   key={item.id + option}
-                  className={[css.Option, selected && css.selected].join(' ')}
+                  className={[cssModules.Option, selected && cssModules.selected].join(' ')}
                   onClick={() => clickOption(item.id, option)}
                 >
                   {option}
@@ -184,8 +257,8 @@ const FormInput = ({ type, item, change, clickOption }: FormInputProps) => {
   }, []);
 
   return (
-    <div className={css.FormInputContainer}>
-      <p className={css.FormInputTitle}>{item.id}</p>
+    <div className={cssModules.FormInputContainer}>
+      <p className={cssModules.FormInputTitle}>{item.id}</p>
       {renderInputComponent()}
     </div>
   );

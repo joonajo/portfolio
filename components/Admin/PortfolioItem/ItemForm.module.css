@@ -1,47 +1,3 @@
-.ItemForm {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  opacity: 0;
-  width: var(--item-width);
-  height: auto;
-  transition: all var(--transition-time);
-  overflow: hidden;
-  background: white;
-  padding: 10px;
-  z-index: -1;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border-radius: var(--border-radius);
-}
-
-.ItemForm.show {
-  z-index: 1;
-  opacity: 1;
-  box-shadow: 0px 0px 100px -30px dimgray;
-}
-
-.FormBackdrop {
-  content: '';
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -5;
-  opacity: 0;
-  transition: opacity var(--transition-time);
-}
-
-.FormBackdrop.show {
-  z-index: 0;
-  opacity: 1;
-}
-
 .ItemForm::after {
   content: '';
   position: absolute;
@@ -57,20 +13,6 @@
   width: 0;
   height: 0;
   opacity: 0;
-}
-
-.FormCloseButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: dimgray;
-}
-
-.FormCloseButton:hover {
-  color: gainsboro;
 }
 
 .FormInputContainer {
@@ -105,25 +47,6 @@
   outline: none;
   border: 1px solid lightgray;
   box-shadow: 0px 0px 50px -10px gainsboro;
-}
-
-.FormAddButton {
-  background: royalblue;
-  position: relative;
-  /* bottom: 10px; */
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: all var(--transition-time);
-}
-
-.FormAddButton:hover {
-  box-shadow: var(--item-shadow);
-}
-
-.FormAddButton p {
-  color: white;
-  text-transform: uppercase;
 }
 
 .Select {
