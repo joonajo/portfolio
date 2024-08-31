@@ -1,11 +1,11 @@
-import { Keyframes, keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
 
-export const fadein: Keyframes = keyframes`
+export const fadein = keyframes`
     from { opacity: 0 }
     to { opacity: 1 }
 `;
 
-export const stretch: Keyframes = keyframes`
+export const stretch = keyframes`
     0%, 40%, 100% { 
         transform: scaleY(0.4);
         -webkit-transform: scaleY(0.4);
@@ -15,25 +15,25 @@ export const stretch: Keyframes = keyframes`
     }
 `;
 
-export const loadingDots: Keyframes = keyframes`
+export const loadingDots = keyframes`
     0% { content: '.' }
     33% { content: '..' }
     66% { content: '...' }
 `;
 
-export const titleAnimAfter: Keyframes = keyframes`
+export const titleAnimAfter = keyframes`
     0% {transform: translateX(-100%)}
     10% {transform: translateX(101%)}
     100% {transform: translateX(101%)}
 `;
 
-export const titleAnimBefore: Keyframes = keyframes`
+export const titleAnimBefore = keyframes`
     0% {transform: translateX(0)}
     10% {transform: translateX(200%)}
     100% {transform: translateX(200%)}
 `;
 
-export const pulsate: Keyframes = keyframes`
+export const pulsate = keyframes`
     0% {
         -webkit-transform: scale(0.2);
                 transform: scale(0.2);
