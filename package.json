@@ -20,7 +20,7 @@
     "@types/axios": "^0.14.0",
     "@types/react-query": "^1.2.9",
     "@types/zenscroll": "^4.0.0",
-    "axios": "^0.24.0",
+    "axios": "^1.7.6",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-svgo": "^7.1.0",
     "next": "^14.2.7",
