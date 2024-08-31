@@ -1,9 +1,10 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from 'next/app';
 import { Playfair_Display } from 'next/font/google';
 import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { AuthProvider } from '../context/authContext';
+
 import './home/index.css';
 
 const queryClient = new QueryClient();
