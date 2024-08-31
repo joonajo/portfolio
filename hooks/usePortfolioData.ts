@@ -1,5 +1,5 @@
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
 
 import { addPortfolioItem, deletePortfolioItem, editPortfolioItem, getPortfolioItems } from '../apis/apis';
 import { useAuthContext } from '../context/authContext';
@@ -14,58 +14,47 @@ export const usePortfolioData = () => {
     isFetching: loading,
     error,
     refetch: refetchItems,
-  } = useQuery(['get-portfolio-items'], () => getPortfolioItems(), {
+  } = useQuery({
+    queryKey: ['get-portfolio-items'],
+    queryFn: () => getPortfolioItems(),
     refetchOnWindowFocus: false,
     staleTime: Infinity,
-    onSuccess: data => {
-      const itemArray = Object.keys(data).map(key => data[key]);
-      return itemArray;
-    },
+    select: data => Object.keys(data).map(key => data[key]),
   });
 
   const {
     mutate: executeAddPortfolioItem,
-    isLoading: executeAddPortfolioItemLoading,
+    isPending: executeAddPortfolioItemLoading,
     error: executeAddPortfolioItemError,
-  } = useMutation(
-    ['add-portfolio-item'],
-    (newItem: PortfolioItem) => addPortfolioItem(newItem, authState.idToken ?? ''),
-    {
-      onSuccess: () => refetchItems(),
-    },
-  );
+  } = useMutation({
+    mutationKey: ['add-portfolio-item'],
+    mutationFn: (newItem: PortfolioItem) => addPortfolioItem(newItem, authState.idToken ?? ''),
+    onSuccess: async () => await refetchItems(),
+  });
 
   const {
     mutate: executeDeletePortfolioItem,
-    isLoading: executeDeletePortfolioItemLoading,
+    isPending: executeDeletePortfolioItemLoading,
     error: executeDeletePortfolioItemError,
-  } = useMutation(
-    ['delete-portfolio-item'],
-    (itemToDelete: PortfolioItem) => deletePortfolioItem(itemToDelete, authState.idToken ?? ''),
-    {
-      onSuccess: () => refetchItems(),
-    },
-  );
+  } = useMutation({
+    mutationKey: ['delete-portfolio-item'],
+    mutationFn: (itemToDelete: PortfolioItem) => deletePortfolioItem(itemToDelete, authState.idToken ?? ''),
+    onSuccess: async () => await refetchItems(),
+  });
 
   const {
     mutateAsync: executeEditPortfolioItem,
-    isLoading: executeEditPortfolioItemLoading,
+    isPending: executeEditPortfolioItemLoading,
     error: executeEditPortfolioItemError,
-  } = useMutation(
-    ['edit-portfolio-item'],
-    (editedItem: PortfolioItem) => editPortfolioItem(editedItem, authState.idToken ?? ''),
-    {
-      onSuccess: () => refetchItems(),
-    },
-  );
+  } = useMutation({
+    mutationKey: ['edit-portfolio-item'],
+    mutationFn: (editedItem: PortfolioItem) => editPortfolioItem(editedItem, authState.idToken ?? ''),
+    onSuccess: async () => await refetchItems(),
+  });
 
   useEffect(() => {
     if (!!data) {
-      setPortfolioItems(
-        Object.keys(data)
-          .map(key => data[key])
-          .sort((a, b) => a.order - b.order),
-      );
+      setPortfolioItems(data.sort((a, b) => a.order - b.order));
     }
   }, [data]);
 

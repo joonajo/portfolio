@@ -21,20 +21,29 @@ const Root = styled.div`
 const Editor = ({ items }: Props) => {
   const [showAddForm, setShowAddForm] = React.useState<boolean>(false);
 
-  const { addPortfolioItem, addPortfolioItemLoading, deletePortfolioItem, deletePortfolioItemLoading } =
-    usePortfolioData();
+  const {
+    executeAddPortfolioItem,
+    executeAddPortfolioItemLoading,
+    executeDeletePortfolioItem,
+    executeDeletePortfolioItemLoading,
+  } = usePortfolioData();
 
-  const sending = addPortfolioItemLoading || deletePortfolioItemLoading;
+  const sending = executeAddPortfolioItemLoading || executeDeletePortfolioItemLoading;
 
   return (
     <>
       <Root>
         {items &&
           items.map((item: PortfolioItemT) => {
-            return <PortfolioItem key={item.title} item={item} onDeleteItem={deletePortfolioItem} />;
+            return <PortfolioItem key={item.title} item={item} onDeleteItem={executeDeletePortfolioItem} />;
           })}
       </Root>
-      <AddPortfolioItem showForm={showAddForm} setShowForm={setShowAddForm} add={addPortfolioItem} sending={sending} />
+      <AddPortfolioItem
+        showForm={showAddForm}
+        setShowForm={setShowAddForm}
+        add={executeAddPortfolioItem}
+        sending={sending}
+      />
       <Loading show={sending} transparent fadeout />
     </>
   );

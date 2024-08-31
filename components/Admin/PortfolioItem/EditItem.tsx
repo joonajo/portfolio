@@ -14,10 +14,10 @@ type Props = {
 };
 
 const EditItem = ({ show, item, close }: Props) => {
-  const { editPortfolioItem, editPortfolioItemLoading } = usePortfolioData();
+  const { executeEditPortfolioItem, executeEditPortfolioItemLoading } = usePortfolioData();
 
   const handleSubmit = async (editedItem: PortfolioItem) => {
-    await editPortfolioItem(editedItem);
+    await executeEditPortfolioItem(editedItem);
     close();
   };
 
@@ -29,13 +29,13 @@ const EditItem = ({ show, item, close }: Props) => {
         <ItemForm
           type={formTypes.EDIT}
           show={show}
-          sending={editPortfolioItemLoading}
+          sending={executeEditPortfolioItemLoading}
           item={item}
           close={close}
           add={handleSubmit}
         />
       </div>
-      <Loading show={editPortfolioItemLoading} transparent fadeout />
+      <Loading show={executeEditPortfolioItemLoading} transparent fadeout />
     </>
   );
 };
