@@ -80,8 +80,6 @@ type Props = {
 const Cover = ({ show }: Props) => {
   const coverRef = React.useRef<HTMLDivElement>(null);
 
-  console.log(process.env);
-
   const scrollToPortfolio = React.useCallback(() => {
     if (coverRef && coverRef.current) {
       const posToScrollTo: number = coverRef.current.clientHeight;
@@ -97,8 +95,8 @@ const Cover = ({ show }: Props) => {
           <MediaIcons />
         </MediaIconsContainer>
         <TitleContainer>
-          {/* <AnimatedTitle firstRow="joona" secondRow="joenpolvi" show={show} /> */}
-          {/* <AnimatedSubtitle show={show} subtitle="<web developer />" /> */}
+          <AnimatedTitle firstRow="joona" secondRow="joenpolvi" show={show} />
+          <AnimatedSubtitle show={show} subtitle="<web developer />" />
         </TitleContainer>
       </CoverContent>
       <ArrowContainer>
