@@ -1,6 +1,6 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
+import React, { useCallback } from 'react';
 
 import css from './ItemForm.module.css';
 import { IForm, initialForm, updateEditForm, formTypes } from '../../../form/form';
@@ -129,65 +129,64 @@ export const PortfolioItemForm = ({ show, sending, item, close, add, type }: Pro
   );
 };
 
-type IFormInput = {
+type FormInputProps = {
   type: string;
   item: any;
   change: (id: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
   clickOption: (id: string, name: string) => void;
 };
 
-const FormInput = ({ type, item, change, clickOption }: IFormInput): JSX.Element => {
-  let content;
+const FormInput = ({ type, item, change, clickOption }: FormInputProps) => {
+  const renderInputComponent = useCallback(() => {
+    switch (item.elemType) {
+      case 'input':
+        return (
+          <input
+            value={item.value}
+            disabled={type === formTypes.EDIT && item.id === 'title'}
+            placeholder={item.placeholder}
+            onChange={e => change(item.id, e)}
+            className={css.FormInput}
+          />
+        );
 
-  switch (item.elemType) {
-    case 'input':
-      content = (
-        <input
-          value={item.value}
-          disabled={type === formTypes.EDIT && item.id === 'title'}
-          placeholder={item.placeholder}
-          onChange={e => change(item.id, e)}
-          className={css.FormInput}
-        />
-      );
-      break;
+      case 'textarea':
+        return (
+          <textarea
+            value={item.value}
+            onChange={e => change(item.id, e)}
+            placeholder={item.placeholder}
+            className={css.FormInput}
+            rows={5}
+          />
+        );
 
-    case 'textarea':
-      content = (
-        <textarea
-          value={item.value}
-          onChange={e => change(item.id, e)}
-          placeholder={item.placeholder}
-          className={css.FormInput}
-          rows={5}
-        />
-      );
-      break;
-
-    case 'select':
-      content = (
-        <div className={css.Select}>
-          {Object.keys(item.options).map((option: any) => {
-            const { selected } = item.options[option];
-            return (
-              <div
-                key={item.id + option}
-                className={[css.Option, selected && css.selected].join(' ')}
-                onClick={() => clickOption(item.id, option)}
-              >
-                {option}
-              </div>
-            );
-          })}
-        </div>
-      );
-      break;
-  }
+      case 'select':
+        return (
+          <div className={css.Select}>
+            {Object.keys(item.options).map((option: any) => {
+              const { selected } = item.options[option];
+              return (
+                <div
+                  key={item.id + option}
+                  className={[css.Option, selected && css.selected].join(' ')}
+                  onClick={() => clickOption(item.id, option)}
+                >
+                  {option}
+                </div>
+              );
+            })}
+          </div>
+        );
+      default:
+        return null;
+    }
+  }, []);
 
   return (
     <div className={css.FormInputContainer}>
       <p className={css.FormInputTitle}>{item.id}</p>
-      {content}
+      {renderInputComponent()}
     </div>
   );
 };
