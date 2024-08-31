@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 
+import { addPortfolioItem, deletePortfolioItem, editPortfolioItem, getPortfolioItems } from '../apis/apis';
 import { useAuthContext } from '../context/authContext';
 import { PortfolioItem } from '../types';
-
-const basePortfolioUrl = 'https://joonajo-portfolio.firebaseio.com/items';
-const fetchPortfolioUrl = `${basePortfolioUrl}.json`;
 
 export const usePortfolioData = () => {
   const { state: authState } = useAuthContext();
@@ -16,62 +14,46 @@ export const usePortfolioData = () => {
     isFetching: loading,
     error,
     refetch: refetchItems,
-  } = useQuery<{ [key: string]: PortfolioItem }>(
-    fetchPortfolioUrl,
-    () => fetch(fetchPortfolioUrl, { method: 'get' }).then(response => response.json()),
-    {
-      refetchOnWindowFocus: false,
-      staleTime: Infinity,
-      onSuccess: data => {
-        const itemArray = Object.keys(data).map(key => data[key]);
-        return itemArray;
-      },
+  } = useQuery(['get-portfolio-items'], () => getPortfolioItems(), {
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
+    onSuccess: data => {
+      const itemArray = Object.keys(data).map(key => data[key]);
+      return itemArray;
     },
-  );
+  });
 
   const {
-    mutate: addPortfolioItem,
-    isLoading: addPortfolioItemLoading,
-    error: addPortfolioItemError,
+    mutate: executeAddPortfolioItem,
+    isLoading: executeAddPortfolioItemLoading,
+    error: executeAddPortfolioItemError,
   } = useMutation(
-    [basePortfolioUrl, 'addItem'],
-    (newItem: PortfolioItem) => {
-      const url = `${basePortfolioUrl}/${newItem.title}json?auth=${authState.idToken}`;
-
-      return fetch(url, { method: 'put', body: JSON.stringify(newItem) }).then(response => response.json());
-    },
+    ['add-portfolio-item'],
+    (newItem: PortfolioItem) => addPortfolioItem(newItem, authState.idToken ?? ''),
     {
       onSuccess: () => refetchItems(),
     },
   );
 
   const {
-    mutate: deletePortfolioItem,
-    isLoading: deletePortfolioItemLoading,
-    error: deletePortfolioItemError,
+    mutate: executeDeletePortfolioItem,
+    isLoading: executeDeletePortfolioItemLoading,
+    error: executeDeletePortfolioItemError,
   } = useMutation(
-    [basePortfolioUrl, 'deleteItem'],
-    (itemToDelete: PortfolioItem) => {
-      const url = `${basePortfolioUrl}/${itemToDelete.title}json?auth=${authState.idToken}`;
-
-      return fetch(url, { method: 'delete' });
-    },
+    ['delete-portfolio-item'],
+    (itemToDelete: PortfolioItem) => deletePortfolioItem(itemToDelete, authState.idToken ?? ''),
     {
       onSuccess: () => refetchItems(),
     },
   );
 
   const {
-    mutateAsync: editPortfolioItem,
-    isLoading: editPortfolioItemLoading,
-    error: editPortfolioItemError,
+    mutateAsync: executeEditPortfolioItem,
+    isLoading: executeEditPortfolioItemLoading,
+    error: executeEditPortfolioItemError,
   } = useMutation(
-    [basePortfolioUrl, 'editItem'],
-    (editedItem: PortfolioItem) => {
-      const url = `${basePortfolioUrl}/${editedItem.title}json?auth=${authState.idToken}`;
-
-      return fetch(url, { method: 'put', body: JSON.stringify(editedItem) }).then(response => response.json());
-    },
+    ['edit-portfolio-item'],
+    (editedItem: PortfolioItem) => editPortfolioItem(editedItem, authState.idToken ?? ''),
     {
       onSuccess: () => refetchItems(),
     },
@@ -91,14 +73,14 @@ export const usePortfolioData = () => {
     portfolioData: portfolioItems,
     loadingPortfolioData: loading,
     portfolioDataError: error,
-    addPortfolioItem,
-    addPortfolioItemLoading,
-    addPortfolioItemError,
-    deletePortfolioItem,
-    deletePortfolioItemLoading,
-    deletePortfolioItemError,
-    editPortfolioItem,
-    editPortfolioItemLoading,
-    editPortfolioItemError,
+    executeAddPortfolioItem,
+    executeAddPortfolioItemLoading,
+    executeAddPortfolioItemError,
+    executeDeletePortfolioItem,
+    executeDeletePortfolioItemLoading,
+    executeDeletePortfolioItemError,
+    executeEditPortfolioItem,
+    executeEditPortfolioItemLoading,
+    executeEditPortfolioItemError,
   };
 };
