@@ -17,6 +17,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@tanstack/react-query": "^5.53.1",
     "@types/zenscroll": "^4.0.0",
     "axios": "^1.7.6",
     "imagemin-mozjpeg": "^8.0.0",
